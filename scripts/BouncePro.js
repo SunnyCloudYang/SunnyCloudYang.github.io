@@ -1,17 +1,20 @@
 //GoodNullName changed something magically
 const cans = document.querySelector("canvas");
 let myCanvas = document.getElementById("myCanvas");
-let change_amount = document.getElementById("balls_amount");
 const ctx = cans.getContext("2d");
 let cnt_of_balls_now = document.getElementById("cnt");
 let width = cans.width = window.innerWidth - 20;
 let height = cans.height = window.innerHeight - 30;
 let balls_valumn = [];
 let number_of_balls = 100; //在这里修改出现球的总数
+let min_r = 10;
+let max_r = 20;
 let v = 3; //在这里修改生成球速度的范围[-v,v];
 let delta = 0.5; //昼夜交替速率
-const default_gy = 0.5; //重力加速度,最好别改
+const default_gy = 0.4; //重力加速度,最好别改
 const g_uni = 0.667; //万有引力常量
+const mu_floor = 0.007;
+let gy = 0;
 let rou = 1; //密度
 let cnt;
 let dark_degree = 0;
@@ -21,7 +24,7 @@ let night_mode = 1; //default mode
 let fuzzy = 0.3;
 let day_mode = 0;
 let universe_mode = 0;
-let gravity = 0;
+let gravity = false;
 let energy_loss = 0;
 
 class Ball {
@@ -51,62 +54,63 @@ class Ball {
             //rebound at left
             this.x = this.radius;
             this.vx = Math.abs(recovery * this.vx);
-        } else if (this.x >= width - this.radius) {
+        }
+        else if (this.x >= width - this.radius) {
             //rebound at right
             this.x = width - this.radius;
             this.vx = -Math.abs(recovery * this.vx);
         }
 
         if (this.y <= this.radius) {
-            //rebound at ceil
+            //always rebound at ceil
             this.y = this.radius;
             this.vy = Math.abs(recovery * this.vy);
-        } else if (gravity === 0 && this.y >= height - this.radius) {
-            //always rebound at floor when no gravity
-            this.y = height - this.radius;
-            this.vy = -Math.abs(recovery * this.vy);
         }
-
-        if (gravity && this.y >= height - this.radius) {
-            if (this.vy > 0.5) {
-                //rebound at floor when speed is fast in gravity mode
+        else if (this.y >= height - this.radius) {
+            //at floor
+            if (!gravity) {
                 this.y = height - this.radius;
                 this.vy = -Math.abs(recovery * this.vy);
-                this.vy += 1.5 * gy;
             }
             else {
-                //stop bounding at floor in gravity mode
-                this.y = height - this.radius;
-                this.vy = 0;
-                if (energy_loss) {
-                    if (Math.abs(this.vx) > Math.abs(this.ax))
-                        this.fri_ax = (-0.007 * Math.abs(this.vx)) / this.vx;
-                    else {
-                        this.vx = 0;
-                        this.fri_ax = 0;
+                if (!energy_loss) {
+                    this.y = height - this.radius;
+                    this.vy += gy;
+                    this.vy = -Math.abs(gy * Math.round(this.vy / gy));
+                }
+                else if (this.vy ** 2 > 0.4 * this.radius * gy) {
+                    this.y = height - this.radius;
+                    this.vy += gy;
+                    this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
+                }
+                else {
+                    this.y = height - this.radius;
+                    this.vy = 0;
+                    if (energy_loss) {
+                        if (Math.abs(this.vx) > mu_floor)
+                            this.fri_ax = -mu_floor * (this.vx / Math.abs(this.vx));
+                        else {
+                            this.vx = 0;
+                            this.fri_ax = 0;
+                        }
                     }
                 }
             }
         }
 
-        this.last_x = this.x;
-        this.last_y = this.y; //choose
-        this.vx += this.ax;
-        this.vy += this.ay;
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (gravity &&
-            (this.y < height - this.radius - 1 || Math.abs(this.vy) > 1)
-        ) {
-            //acceleration of y
-            this.vy += gy;
-        }
-        if (energy_loss) {
+        if (this.vy == 0 && this.y == height - this.radius) {
             //acceleration of x
             this.vx += this.fri_ax;
         }
+
+        this.last_x = this.x;
+        this.last_y = this.y; //choose
+        this.vx += this.ax;
+        this.vy += (this.ay + gy);
+        this.x += this.vx;
+        this.y += this.vy;
     }
+
     a_gravation(serialNumber) {
         let a_g = 0;
         let a_gmax =
@@ -120,7 +124,7 @@ class Ball {
     } //compute the a of gravation
 
     position_angel(serialNumber) {
-        if (balls_valumn[serialNumber].x - this.x > 1||
+        if (balls_valumn[serialNumber].x - this.x > 1 ||
             balls_valumn[serialNumber].y - this.y > 1) {
             if (balls_valumn[serialNumber].x > this.x) {
                 return Math.atan(
@@ -224,7 +228,6 @@ function checkCollision(ball0, ball1) {
 
 let chosed = cnt;
 function choose_this_ball(ev) {
-    var ev = ev;
     let mouse_down = getEventPosition(ev);
     for (let j = 0; j < cnt; j++) {
         if (balls_valumn[j].isInsideBall(mouse_down.x, mouse_down.y)) {
@@ -234,40 +237,49 @@ function choose_this_ball(ev) {
         }
     }
     if (chosed < cnt) {
-        let x_pro, y_pro;
-        document.onmousemove = document.ontouchmove = function (e) {
-            var e = e;
-            x_pro = e.layerX;
-            y_pro = e.layerY;
-            let maxX = width - balls_valumn[chosed].radius;
-            let maxY = height - balls_valumn[chosed].radius;
-            if (x_pro < balls_valumn[chosed].radius) {
-                x_pro = balls_valumn[chosed].radius;
-            } else if (x_pro > maxX) {
-                x_pro = maxX;
-            }
-            if (y_pro < balls_valumn[chosed].radius) {
-                y_pro = balls_valumn[chosed].radius;
-            } else if (y_pro > maxY) {
-                y_pro = maxY;
-            }
-            balls_valumn[chosed].x = x_pro;
-            balls_valumn[chosed].y = y_pro;
-            balls_valumn[chosed].vx = x_pro - balls_valumn[chosed].last_x;
-            balls_valumn[chosed].vy = y_pro - balls_valumn[chosed].last_y;
-        };
-        document.onmouseup = document.ontouchend = document.ontouchcancel = function () {
-            document.onmousemove = "";
-            balls_valumn[chosed].vx = x_pro - balls_valumn[chosed].last_x;
-            balls_valumn[chosed].vy = y_pro - balls_valumn[chosed].last_y;
-            chosed = cnt;
-        };
+        document.addEventListener("ontouchmove", moveBall, { passive: true });
+        document.onmousemove = moveBall;
     }
 }
 
 function getEventPosition(ev) {
     return { x: ev.layerX, y: ev.layerY };
 } //choose
+
+function moveBall(ev) {
+    let x_pro = ev.layerX;
+    let y_pro = ev.layerY;
+    let maxX = width - balls_valumn[chosed].radius;
+    let maxY = height - balls_valumn[chosed].radius;
+    if (x_pro < balls_valumn[chosed].radius) {
+        x_pro = balls_valumn[chosed].radius;
+    }
+    else if (x_pro > maxX) {
+        x_pro = maxX;
+    }
+    if (y_pro < balls_valumn[chosed].radius) {
+        y_pro = balls_valumn[chosed].radius;
+    }
+    else if (y_pro > maxY) {
+        y_pro = maxY;
+    }
+
+    balls_valumn[chosed].x = x_pro;
+    balls_valumn[chosed].y = y_pro;
+    balls_valumn[chosed].vx = x_pro - balls_valumn[chosed].last_x;
+    balls_valumn[chosed].vy = y_pro - balls_valumn[chosed].last_y;
+
+    document.onmouseup = ReleaseBall;
+    document.addEventListener("ontouchend", ReleaseBall, { passive: true });
+    document.addEventListener("ontouchcancel", ReleaseBall, { passive: true });
+};
+
+function ReleaseBall() {
+    document.onmousemove = "";
+    document.ontouchmove = "";
+    document.ontouchcancel = "";
+    chosed = cnt;
+};
 
 function get_amount() {
     //adjust the number of balls
@@ -288,12 +300,10 @@ function get_amount() {
 function sum_the_cnt_of_balls() {
     cnt = number_of_balls;
     for (var i = 0; i < cnt; i++)
-        if (
-            balls_valumn[i].x <= 0 - balls_valumn[i].radius ||
-            balls_valumn[i].x >= width + balls_valumn[i].radius ||
-            balls_valumn[i].y >= height + balls_valumn[i].radius ||
-            balls_valumn[i].y <= 0 - balls_valumn[i].radius
-        ) {
+        if (!(balls_valumn[i].x > 0 - balls_valumn[i].radius &&
+            balls_valumn[i].x < width + balls_valumn[i].radius &&
+            balls_valumn[i].y > 0 - balls_valumn[i].radius &&
+            balls_valumn[i].y < height + balls_valumn[i].radius)) {
             balls_valumn.splice(i, 1);
             number_of_balls--;
             cnt--;
@@ -319,7 +329,7 @@ function random(min, max) {
 function new_balls(amount) {
     //add some new balls
     for (var i = 0; i < amount; i++) {
-        let r_new = random_int(7, 20);
+        let r_new = random_int(min_r, max_r);
         let x_new = random_int(r_new, width - r_new);
         let y_new = random_int(r_new, height - r_new);
         let velX_new = random(-v, v);
@@ -350,13 +360,12 @@ function draw_rect() {
     }
 }
 
-window.onresize = () => {
-    width = (cans.width = window.innerWidth - 20);
-    height = (cans.height = window.innerHeight - 30);
-}
+setTimeout(() => {
+    CheckSize()
+}, 500);
 
 for (var i = 0; i < number_of_balls; i++) {
-    let r = random_int(7, 20);
+    let r = random_int(min_r, max_r);
     let x = random_int(r, width - r);
     let y = random_int(r, height - r);
     let velX = random(-v, v);
@@ -366,11 +375,18 @@ for (var i = 0; i < number_of_balls; i++) {
     balls_valumn.push(b);
 }
 
+window.onresize = () => {
+    width = cans.width = window.innerWidth - 20;
+    height = cans.height = window.innerHeight - 30;
+    CheckSize();
+}
+
 setInterval(() => {
     cnt_of_balls_now.innerHTML = "Number of balls now: "
         + sum_the_cnt_of_balls();
 }, 250);
-myCanvas.onmousedown = myCanvas.ontouchstart = choose_this_ball;
+myCanvas.onmousedown = choose_this_ball;
+myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
 document.getElementById("number").onkeydown = function (ev) {
     if (ev.key === 'Enter') {
         get_amount();
@@ -387,7 +403,6 @@ function moving_loop() {
         balls_valumn[i].update();
         balls_valumn[i].draw();
     }
-    
     requestAnimationFrame(moving_loop);
 }
 moving_loop();
