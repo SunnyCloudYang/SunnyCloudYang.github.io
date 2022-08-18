@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ball</title>
+    <link rel="stylesheet" href="ball.css">
+</head>
+<body style="background-color:ivory">
+    <p id="start" style="font-family: fantasy">Welcome to BALL UNIVERSE!</p>
+    <div>
+        <label for="balls_amount">The number of balls: </label>
+        <input type="number" placeholder="1-500" id="number">
+        <button id="balls_amount" onclick=get_amount()>Change</button>
+    </div>
+    <span id='cnt'></span><br>
+    <button id="circulation" style="float: right">Circulation</button>
+    <button id="night_mode" style="background-color: black; color: azure; float: right">Night mode</button>
+    <button id="day_mode" style="background-color: white; float: right">Day mode</button>
+    <button id="gravity">Gravity</button>
+    <button id="energy_loss">Energy loss</button>
+    <button id="Ball_Universe">Universe mode</button>
+    <div id="myCanvas">
+        <canvas></canvas>
+    </div>
+    <script src="BouncePro.js" type="text/javascript"></script>
+    <script src="settings.js" type="text/javascript"></script>
+</body>
+</html>
