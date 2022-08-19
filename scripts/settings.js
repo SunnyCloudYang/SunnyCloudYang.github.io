@@ -1,4 +1,5 @@
-document.getElementById("start").ondblclick = () => {
+let title = document.getElementById("start");
+title.onclick = () => {
     alert("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
 };
 console.log("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
@@ -104,6 +105,7 @@ function CheckSize() {
         grav_btn.innerHTML = "Grav.";
         engy_btn.innerHTML = "Loss";
         uni_btn.innerHTML = "Univ.";
+        title.setAttribute("style", "font-size:32px");
     }
     else {
         day_btn.innerHTML = "Day mode";
@@ -111,5 +113,6 @@ function CheckSize() {
         circ_btn.innerHTML = "Circulation";
         engy_btn.innerHTML = "Energy loss";
         uni_btn.innerHTML = "Universe mode";
+        title.setAttribute("style", "font-size:44px");
     }
 }

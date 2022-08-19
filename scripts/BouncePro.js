@@ -361,7 +361,7 @@ function draw_rect() {
 }
 
 setTimeout(() => {
-    CheckSize()
+    CheckSize();
 }, 500);
 
 for (var i = 0; i < number_of_balls; i++) {
