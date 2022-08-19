@@ -319,6 +319,10 @@ function DeviceMove(ev) {
     }
 }
 
+function DeviceRotate(ev) {
+    alert("rotate: " + ev.alpha);
+}
+
 function get_amount() {
     //adjust the number of balls
     let new_number = document.getElementById("number").value;
@@ -429,6 +433,7 @@ setInterval(() => {
 myCanvas.onmousedown = choose_this_ball;
 myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
 document.addEventListener("devicemotion", DeviceMove);
+document.addEventListener("deviceorientation", DeviceRotate);
 document.getElementById("number").onkeydown = function (ev) {
     if (ev.key === 'Enter') {
         get_amount();
