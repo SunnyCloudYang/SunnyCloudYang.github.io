@@ -100,6 +100,7 @@ function CheckSize() {
         engy_btn.innerHTML = "Loss";
         uni_btn.innerHTML = "Univ.";
         title.setAttribute("style", "font-size:28px");
+        document.getElementById("number").setAttribute("style", "width:50px");
     }
     else {
         day_btn.innerHTML = "Day mode";
@@ -109,5 +110,6 @@ function CheckSize() {
         engy_btn.innerHTML = "Energy loss";
         uni_btn.innerHTML = "Universe mode";
         title.setAttribute("style", "font-size:44px");
+        document.getElementById("number").setAttribute("style", "width:88px");
     }
 }
