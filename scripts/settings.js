@@ -1,7 +1,7 @@
 document.getElementById("start").ondblclick = () => {
-    alert("Welcome to Version 1.2.0, the bug that balls can't be counted properly has been fixed.");
+    alert("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
 };
-console.log("Welcome to Version 1.2.0, the bug that balls can't be counted properly has been fixed.");
+console.log("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
 
 let day_btn = document.getElementById("day_mode");
 let night_btn = document.getElementById("night_mode");
@@ -10,9 +10,9 @@ let circ_btn = document.getElementById("circulation");
 night_btn.onclick = function () {
     //codes below set the modes.(in an awful way)
     dark_degree = 0;
-    circulate = 0;
-    night_mode = 1;
-    day_mode = 0;
+    circulate = false;
+    night_mode = true;
+    day_mode = false;
     night_btn.style.backgroundColor = "black";
     day_btn.style.backgroundColor = "rgba(225,225,225,1)";
     circ_btn.style.backgroundColor = "rgba(225,225,225,1)";
@@ -23,9 +23,9 @@ night_btn.ondblclick = function () {
 
 day_btn.onclick = function () {
     dark_degree = 255;
-    circulate = 0;
-    night_mode = 0;
-    day_mode = 1;
+    circulate = false;
+    night_mode = false;
+    day_mode = true;
     night_btn.style.backgroundColor = "dimgrey";
     day_btn.style.backgroundColor = "white";
     circ_btn.style.backgroundColor = "rgba(225,225,225,1)";
@@ -35,9 +35,9 @@ day_btn.ondblclick = function () {
 }
 
 circ_btn.onclick = function () {
-    circulate = 1;
-    night_mode = 0;
-    day_mode = 0;
+    circulate = true;
+    night_mode = false;
+    day_mode = false;
     night_btn.style.backgroundColor = "dimgrey";
     day_btn.style.backgroundColor = "rgba(225,225,225,1)";
     circ_btn.style.backgroundColor = "rgba(200,225,200,1)";
@@ -63,13 +63,13 @@ grav_btn.onclick = function () {
 };
 
 engy_btn.onclick = function () {
-    if (energy_loss == 0) {
-        energy_loss = 1;
+    if (!energy_loss) {
+        energy_loss = true;
         recovery = 0.85;
         engy_btn.style.color = "white";
         engy_btn.style.backgroundColor = "purple";
     } else {
-        energy_loss = 0;
+        energy_loss = false;
         recovery = 1;
         engy_btn.style.color = "black";
         engy_btn.style.backgroundColor =
@@ -78,19 +78,19 @@ engy_btn.onclick = function () {
 };
 
 uni_btn.onclick = function () {
-    if (universe_mode === 0) {
+    if (!universe_mode) {
         let conf = true;
         if (cnt > 50) {
             conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
                 + "ARE YOU SURE TO GO ON?");
         }
         if (conf) {
-            universe_mode = 1;
+            universe_mode = true;
             uni_btn.style.color = "white";
             uni_btn.style.backgroundColor = "#002e63";
         }
     } else {
-        universe_mode = 0;
+        universe_mode = false;
         uni_btn.style.color = "black";
         uni_btn.style.backgroundColor = "rgba(225,225,225,1)";
     }

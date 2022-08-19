@@ -6,7 +6,7 @@ let cnt_of_balls_now = document.getElementById("cnt");
 let width = cans.width = window.innerWidth - 20;
 let height = cans.height = window.innerHeight - 30;
 let balls_valumn = [];
-let number_of_balls = 100; //在这里修改出现球的总数
+let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
 let min_r = 10;
 let max_r = 20;
 let v = 3; //在这里修改生成球速度的范围[-v,v];
@@ -19,13 +19,13 @@ let rou = 1; //密度
 let cnt;
 let dark_degree = 0;
 let recovery = 1;
-let circulate = 0;
-let night_mode = 1; //default mode
 let fuzzy = 0.3;
-let day_mode = 0;
-let universe_mode = 0;
+let circulate = false;
+let night_mode = true; //default mode
+let day_mode = false;
+let universe_mode = false;
 let gravity = false;
-let energy_loss = 0;
+let energy_loss = false;
 
 class Ball {
     constructor(x, y, velX, velY, color, r) {
