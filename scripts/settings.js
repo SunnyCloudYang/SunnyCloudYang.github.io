@@ -105,7 +105,7 @@ function CheckSize() {
         grav_btn.innerHTML = "Grav.";
         engy_btn.innerHTML = "Loss";
         uni_btn.innerHTML = "Univ.";
-        title.setAttribute("style", "font-size:32px");
+        title.setAttribute("style", "font-size:28px");
     }
     else {
         day_btn.innerHTML = "Day mode";
