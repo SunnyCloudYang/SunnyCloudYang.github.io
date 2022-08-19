@@ -111,6 +111,7 @@ function CheckSize() {
         day_btn.innerHTML = "Day mode";
         night_btn.innerHTML = "Night mode";
         circ_btn.innerHTML = "Circulation";
+        grav_btn.innerHTML = "Gravity";
         engy_btn.innerHTML = "Energy loss";
         uni_btn.innerHTML = "Universe mode";
         title.setAttribute("style", "font-size:44px");
