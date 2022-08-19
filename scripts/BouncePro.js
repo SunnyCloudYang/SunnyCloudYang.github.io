@@ -28,6 +28,7 @@ let merge_mode = true;
 let universe_mode = false;
 let gravity = false;
 let energy_loss = false;
+let shake_mode = true;
 
 class Ball {
     constructor(x, y, velX, velY, color, r) {
@@ -307,6 +308,17 @@ function EatBall(num_ball0, num_ball1) {
     number_of_balls--;
 }
 
+function DeviceMove(ev) {
+    if (shake_mode) {
+        let accl = ev.acceleration;
+        for (var i = 0; i < cnt; i++) {
+            balls_valumn[i].ax += accl.x;
+            balls_valumn[i].ay += accl.y;
+        }
+        console.log("Shaking balls...");
+    }
+}
+
 function get_amount() {
     //adjust the number of balls
     let new_number = document.getElementById("number").value;
@@ -391,7 +403,7 @@ function draw_rect() {
 
 setTimeout(() => {
     CheckSize();
-}, 500);
+}, 1500);
 
 for (var i = 0; i < number_of_balls; i++) {
     let r = random_int(min_r, max_r);
@@ -416,6 +428,7 @@ setInterval(() => {
 }, cnt_interv);
 myCanvas.onmousedown = choose_this_ball;
 myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
+document.addEventListener("devicemotion", DeviceMove);
 document.getElementById("number").onkeydown = function (ev) {
     if (ev.key === 'Enter') {
         get_amount();
