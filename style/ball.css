@@ -8,6 +8,10 @@
     margin-bottom: 12px;
 }
 
+body {
+    margin: 4px;
+}
+
 #cnt {
     font-weight: bold;
     font-size: 25px;
@@ -15,13 +19,60 @@
 
 #myCanvas {
     position: absolute;
+    margin-top: 3px;
+    margin-bottom: 2px;
+}
+
+button {
+    border-radius: 5px;
+    border: 1px solid rgb(183, 183, 183);
+    margin: 2px;
+}
+
+#day_mode {
+    background-color: rgba(225, 225, 225, 1);
+    transition: 0.3s;
+}
+
+#day_mode:focus {
+    background-color: white;
+}
+
+#night_mode {
+    background-color: dimgray;
+    transition: 0.3s;
+}
+
+#night_mode:focus {
+    background-color: black;
+}
+
+#circulation {
+    background-color: rgba(225, 225, 225, 1);
+    transition: 0.3s;
+}
+
+#circulation:focus {
+    background-color: rgb(191, 249, 191);
+}
+
+#gravity {
+    transition: 0.2s;
+}
+
+#energy_loss {
+    transition: 0.2s;
+}
+
+#universe_mode {
+    transition: 0.2s;
 }
 
 ::-webkit-scrollbar {
     width: 6px;
 }
 
-::-webkit-scrollbar:hover{
+::-webkit-scrollbar:hover {
     width: 12px;
 }
 

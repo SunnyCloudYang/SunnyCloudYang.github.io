@@ -1,8 +1,8 @@
 let title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
+    alert("Welcome to Version 1.2.2, rounded borders, optimized UI.");
 };
-console.log("Welcome to Version 1.2.1, balls are restricted to 50 in small screen device.");
+console.log("Welcome to Version 1.2.2, rounded borders, optimized UI. And user-defined is going to be supported.");
 
 let day_btn = document.getElementById("day_mode");
 let night_btn = document.getElementById("night_mode");
@@ -11,12 +11,8 @@ let circ_btn = document.getElementById("circulation");
 night_btn.onclick = function () {
     //codes below set the modes.(in an awful way)
     dark_degree = 0;
-    circulate = false;
     night_mode = true;
-    day_mode = false;
-    night_btn.style.backgroundColor = "black";
-    day_btn.style.backgroundColor = "rgba(225,225,225,1)";
-    circ_btn.style.backgroundColor = "rgba(225,225,225,1)";
+    circulate = day_mode = false;
 };
 night_btn.ondblclick = function () {
     fuzzy = -fuzzy;
@@ -24,12 +20,8 @@ night_btn.ondblclick = function () {
 
 day_btn.onclick = function () {
     dark_degree = 255;
-    circulate = false;
-    night_mode = false;
     day_mode = true;
-    night_btn.style.backgroundColor = "dimgrey";
-    day_btn.style.backgroundColor = "white";
-    circ_btn.style.backgroundColor = "rgba(225,225,225,1)";
+    circulate = night_mode = false;
 };
 day_btn.ondblclick = function () {
     fuzzy = -fuzzy;
@@ -37,17 +29,13 @@ day_btn.ondblclick = function () {
 
 circ_btn.onclick = function () {
     circulate = true;
-    night_mode = false;
-    day_mode = false;
-    night_btn.style.backgroundColor = "dimgrey";
-    day_btn.style.backgroundColor = "rgba(225,225,225,1)";
-    circ_btn.style.backgroundColor = "rgba(200,225,200,1)";
+    night_mode = day_mode = false;
 };
 
 
 let grav_btn = document.getElementById("gravity");
 let engy_btn = document.getElementById("energy_loss");
-let uni_btn = document.getElementById("Ball_Universe");
+let uni_btn = document.getElementById("universe_mode");
 
 grav_btn.onclick = function () {
     if (!gravity) {
@@ -55,7 +43,8 @@ grav_btn.onclick = function () {
         gy = default_gy;
         grav_btn.style.color = "white";
         grav_btn.style.backgroundColor = "purple";
-    } else {
+    }
+    else {
         gravity = false;
         gy = 0;
         grav_btn.style.color = "black";
@@ -69,7 +58,8 @@ engy_btn.onclick = function () {
         recovery = 0.85;
         engy_btn.style.color = "white";
         engy_btn.style.backgroundColor = "purple";
-    } else {
+    }
+    else {
         energy_loss = false;
         recovery = 1;
         engy_btn.style.color = "black";
@@ -80,22 +70,26 @@ engy_btn.onclick = function () {
 
 uni_btn.onclick = function () {
     if (!universe_mode) {
-        let conf = true;
-        if (cnt > 50) {
-            conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
-                + "ARE YOU SURE TO GO ON?");
-        }
+        let conf;
+        cnt > 20 ? conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
+                + "ARE YOU SURE TO GO ON?") : conf = true;
         if (conf) {
             universe_mode = true;
             uni_btn.style.color = "white";
             uni_btn.style.backgroundColor = "#002e63";
+            cnt_interv = 50;
         }
-    } else {
+    }
+    else {
         universe_mode = false;
         uni_btn.style.color = "black";
         uni_btn.style.backgroundColor = "rgba(225,225,225,1)";
     }
 };
+uni_btn.ondblclick = function () {
+    merge_mode = !merge_mode;
+    merge_mode ? alert("Merge mode is open.") : alert("Merge mode is close.");
+}
 
 function CheckSize() {
     if (width <= 520) {

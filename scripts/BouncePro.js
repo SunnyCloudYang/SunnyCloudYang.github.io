@@ -3,26 +3,28 @@ const cans = document.querySelector("canvas");
 let myCanvas = document.getElementById("myCanvas");
 const ctx = cans.getContext("2d");
 let cnt_of_balls_now = document.getElementById("cnt");
-let width = cans.width = window.innerWidth - 20;
+let width = cans.width = window.innerWidth - 16;
 let height = cans.height = window.innerHeight - 30;
 let balls_valumn = [];
 let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
 let min_r = 10;
 let max_r = 20;
-let v = 3; //在这里修改生成球速度的范围[-v,v];
-let delta = 0.5; //昼夜交替速率
-const default_gy = 0.4; //重力加速度,最好别改
-const g_uni = 0.667; //万有引力常量
+let v = 3; //range of balls' speed;
+let delta = 0.5; //day-night delta speed
+const default_gy = 0.4; //acceleration of gravity
+const g_uni = 0.667; //the gravitational constant
 const mu_floor = 0.007;
 let gy = 0;
-let rou = 1; //密度
+let rou = 1; //density of ball
 let cnt;
+let cnt_interv = 250;
 let dark_degree = 0;
 let recovery = 1;
 let fuzzy = 0.3;
 let circulate = false;
 let night_mode = true; //default mode
 let day_mode = false;
+let merge_mode = true;
 let universe_mode = false;
 let gravity = false;
 let energy_loss = false;
@@ -113,63 +115,72 @@ class Ball {
 
     a_gravation(serialNumber) {
         let a_g = 0;
-        let a_gmax =
-            (g_uni * balls_valumn[serialNumber].mess) /
+        let a_gmax = (g_uni * balls_valumn[serialNumber].mess) /
             ((this.radius + balls_valumn[serialNumber].radius) ** 2);
-        if (balls_valumn[serialNumber].x - this.x > 1
-            || balls_valumn[serialNumber].y - this.y > 1)
-            a_g =
-                (g_uni * balls_valumn[serialNumber].mess) / this.distance(serialNumber);
+        
+        if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
+        || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
+            a_g = (g_uni * balls_valumn[serialNumber].mess) /
+                this.distance(serialNumber);
+        }
         return a_g < a_gmax ? a_g : a_gmax;
-    } //compute the a of gravation
+    } //compute the acceleration of gravation
 
     position_angel(serialNumber) {
-        if (balls_valumn[serialNumber].x - this.x > 1 ||
-            balls_valumn[serialNumber].y - this.y > 1) {
+        if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
+         || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
             if (balls_valumn[serialNumber].x > this.x) {
                 return Math.atan(
                     (this.y - balls_valumn[serialNumber].y) /
-                    (this.x - balls_valumn[serialNumber].x)
-                );
-            } else if (balls_valumn[serialNumber].x < this.x) {
+                    (this.x - balls_valumn[serialNumber].x));
+            }
+            else if (balls_valumn[serialNumber].x < this.x) {
                 return (
                     Math.PI +
                     Math.atan(
                         (this.y - balls_valumn[serialNumber].y) /
-                        (this.x - balls_valumn[serialNumber].x)
-                    )
-                );
-            } else if (balls_valumn[serialNumber].x === this.x) {
+                        (this.x - balls_valumn[serialNumber].x)));
+            }
+            else {
                 return this.y > balls_valumn[serialNumber].y ? -Math.PI / 2 : Math.PI / 2;
             }
-        } else return 0;
+        }
+        else
+            return 0;
     } //compute the angel between ball[serialNumber]
 
-    grav_around() {
+    grav_around(me) {
         this.ax = 0;
         this.ay = 0;
         if (universe_mode) {
             for (var i = 0; i < cnt; i++) {
-                this.ax += this.a_gravation(i) * Math.cos(this.position_angel(i));
-                this.ay += this.a_gravation(i) * Math.sin(this.position_angel(i));
+                if (me == i) {
+                    continue;
+                }
+                if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y)) {
+                    EatBall(me, i);
+                }
+                else {
+                    this.ax += this.a_gravation(i) * Math.cos(this.position_angel(i));
+                    this.ay += this.a_gravation(i) * Math.sin(this.position_angel(i));
+                }
             }
         }
     } //compute a of gravation in x and y in total
 
-    //模拟碰撞代码开始
     distance(serialNumber) {
-        //计算和编号为serialNumber的球的距离的平方
+        //squared distance to balls[serialNumber]
         return (this.x - balls_valumn[serialNumber].x) ** 2 +
             (this.y - balls_valumn[serialNumber].y) ** 2;
     }
 
     deal_with_collision(i) {
-        for (let j = i + 1; j < cnt; j++) {
-            checkCollision(balls_valumn[i], balls_valumn[j]);
+        for (var j = i + 1; j < cnt; j++) {
+            checkCollision(this, balls_valumn[j]);
         }
     }
-    isInsideBall(event_x, event_y) {
-        return (this.x - event_x) ** 2 + (this.y - event_y) ** 2 < this.radius ** 2;
+    isInsideMe(event_x, event_y) {
+        return (this.x - event_x) ** 2 + (this.y - event_y) ** 2 <= this.radius ** 2;
     } //choose
 }
 
@@ -229,8 +240,8 @@ function checkCollision(ball0, ball1) {
 let chosed = cnt;
 function choose_this_ball(ev) {
     let mouse_down = getEventPosition(ev);
-    for (let j = 0; j < cnt; j++) {
-        if (balls_valumn[j].isInsideBall(mouse_down.x, mouse_down.y)) {
+    for (var j = 0; j < cnt; j++) {
+        if (balls_valumn[j].isInsideMe(mouse_down.x, mouse_down.y)) {
             balls_valumn[j].vx = 0;
             balls_valumn[j].vy = 0;
             chosed = j;
@@ -281,6 +292,21 @@ function ReleaseBall() {
     chosed = cnt;
 };
 
+function EatBall(num_ball0, num_ball1) {
+    if (balls_valumn[num_ball1].radius > balls_valumn[num_ball0].radius) {
+        num_ball0 += num_ball1;
+        num_ball1 = num_ball0 - num_ball1;
+        num_ball0 = num_ball0 - num_ball1;
+    }
+    balls_valumn[num_ball0].mess += balls_valumn[num_ball1].mess;
+    balls_valumn[num_ball0].radius = (balls_valumn[num_ball0].mess / rou) ** (1 / 3);
+    balls_valumn[num_ball0].vx += (balls_valumn[num_ball1].mess / balls_valumn[num_ball0].mess) * (balls_valumn[num_ball1].vx - balls_valumn[num_ball0].vx);
+    balls_valumn[num_ball0].vy += (balls_valumn[num_ball1].mess / balls_valumn[num_ball0].mess) * (balls_valumn[num_ball1].vy - balls_valumn[num_ball0].vy);
+    balls_valumn.splice(num_ball1, 1);
+    cnt--;
+    number_of_balls--;
+}
+
 function get_amount() {
     //adjust the number of balls
     let new_number = document.getElementById("number").value;
@@ -312,9 +338,9 @@ function sum_the_cnt_of_balls() {
 }
 
 function random_color() {
-    let random_num1 = Math.floor(Math.random() * 150) + 50;
-    let random_num2 = Math.floor(Math.random() * 150) + 50;
-    let random_num3 = Math.floor(Math.random() * 160) + 40; //deliberately
+    let random_num1 = random_int(20, 130) + 50;
+    let random_num2 = random_int(20, 130) + 50;
+    let random_num3 = random_int(30, 160) + 40; //deliberately
     return "rgb(" + random_num1 + "," + random_num2 + "," + random_num3 + ")";
 }
 
@@ -341,16 +367,19 @@ function new_balls(amount) {
 }
 function draw_rect() {
     if (day_mode)
-        ctx.fillStyle = "rgba(255,255,230," + (0.55 + fuzzy) + ")";
+        ctx.strokeStyle = ctx.fillStyle = "rgba(255,255,230," + (0.55 + fuzzy) + ")";
     else if (night_mode)
-        ctx.fillStyle = "rgba(40,40,60," + (0.55 + fuzzy) + ")";
+        ctx.strokeStyle = ctx.fillStyle = "rgba(40,40,60," + (0.55 + fuzzy) + ")";
     else if (circulate)
-        ctx.fillStyle =
+        ctx.strokeStyle = ctx.fillStyle =
             "rgba(" + dark_degree + ","
             + dark_degree + ","
             + dark_degree + ","
             + ((0.6 * dark_degree) / 255 + 0.03 * v) + ")";
-    ctx.fillRect(0, 0, width, height);
+    ctx.lineJoin = "round";
+    ctx.lineWidth = 20;
+    ctx.fillRect(20, 20, width - 40, height - 40);
+    ctx.strokeRect(10, 10, width - 20, height - 20);
     if (circulate) {
         dark_degree += delta;
         if (dark_degree > 276)
@@ -376,7 +405,7 @@ for (var i = 0; i < number_of_balls; i++) {
 }
 
 window.onresize = () => {
-    width = cans.width = window.innerWidth - 20;
+    width = cans.width = window.innerWidth - 16;
     height = cans.height = window.innerHeight - 30;
     CheckSize();
 }
@@ -384,7 +413,7 @@ window.onresize = () => {
 setInterval(() => {
     cnt_of_balls_now.innerHTML = "Number of balls now: "
         + sum_the_cnt_of_balls();
-}, 250);
+}, cnt_interv);
 myCanvas.onmousedown = choose_this_ball;
 myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
 document.getElementById("number").onkeydown = function (ev) {
@@ -396,8 +425,10 @@ document.getElementById("number").onkeydown = function (ev) {
 function moving_loop() {
     draw_rect();
     for (var i = 0; i < cnt; i++) {
-        balls_valumn[i].grav_around();
         balls_valumn[i].deal_with_collision(i);
+    }
+    for (var i = 0; i < cnt; i++) {
+        balls_valumn[i].grav_around(i);
     }
     for (var i = 0; i < cnt; i++) {
         balls_valumn[i].update();
