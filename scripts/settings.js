@@ -1,6 +1,6 @@
 let title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.2.2, rounded borders, optimized UI.");
+    alert("Welcome to Version 1.2.2 with rounded borders and optimized UI.");
 };
 console.log("Welcome to Version 1.2.2, rounded borders, optimized UI. And user-defined is going to be supported.");
 

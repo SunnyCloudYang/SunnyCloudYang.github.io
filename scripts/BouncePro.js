@@ -315,12 +315,12 @@ function DeviceMove(ev) {
             balls_valumn[i].ax += accl.x;
             balls_valumn[i].ay += accl.y;
         }
-        console.log("Shaking balls...");
+        console.log("Shaking balls...", accl.x, accl.y);
     }
 }
 
 function DeviceRotate(ev) {
-    alert("rotate: " + ev.alpha);
+    console.log("rotate: " + ev.alpha);
 }
 
 function get_amount() {
@@ -432,8 +432,15 @@ setInterval(() => {
 }, cnt_interv);
 myCanvas.onmousedown = choose_this_ball;
 myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
-document.addEventListener("devicemotion", DeviceMove);
-document.addEventListener("deviceorientation", DeviceRotate);
+
+if (window.DeviceMotionEvent) {
+    window.ondevicemotion = DeviceMove;
+    window.ondeviceorientation = DeviceRotate;
+}
+else {
+    alert("device move is not supported.");
+}
+
 document.getElementById("number").onkeydown = function (ev) {
     if (ev.key === 'Enter') {
         get_amount();
