@@ -120,15 +120,15 @@ class Ball {
             return 0;
     } //compute the angel between ball[serialNumber]
 
-    grav_around(me) {
+    gravAround(me) {
         this.ax = 0;
         this.ay = 0;
         if (universe_mode) {
-            for (var i = 0; i < cnt; i++) {
+            for (var i = 0; i < balls_valumn.length; i++) {
                 if (me == i) {
                     continue;
                 }
-                if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y)) {
+                if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y, 1, 2)) {
                     try {
                         EatBall(me, i);
                     }
@@ -150,31 +150,24 @@ class Ball {
             (this.y - balls_valumn[serialNumber].y) ** 2;
     }
 
-    deal_with_collision(i) {
+    collideWith(i) {
         for (var j = i + 1; j < cnt; j++) {
-            checkCollision(this, balls_valumn[j]);
+            CheckCollision(this, balls_valumn[j]);
         }
     }
-    isInsideMe(event_x, event_y) {
-        return (this.x - event_x) ** 2 + (this.y - event_y) ** 2 <= this.radius ** 2;
+
+    isInsideMe(event_x, event_y, ratio = 1, dist = 0) {
+        return (this.x - event_x) ** 2 + (this.y - event_y) ** 2 <= (this.radius * ratio + dist) ** 2;
     } //choose
 }
 
-function rotate(x, y, sin, cos, reverse) {
-    return {
-        x: (reverse) ? (x * cos + y * sin) : (x * cos - y * sin),
-        y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
-    };
-}
-
-
-function checkCollision(ball0, ball1) {
+function CheckCollision(ball0, ball1) {
     let dx = ball1.x - ball0.x;
     let dy = ball1.y - ball0.y;
     let dist = Math.sqrt(dx * dx + dy * dy);
     // 检测冲突
     if (dx * (ball0.vx - ball1.vx) + dy * (ball0.vy - ball1.vy) > 0 &&
-        dist < ball0.radius + ball1.radius) {
+        dist <= ball0.radius + ball1.radius) {
         let angle = Math.atan2(dy, dx);
         let sin = Math.sin(angle);
         let cos = Math.cos(angle);
@@ -214,7 +207,7 @@ function checkCollision(ball0, ball1) {
 }
 
 let chosed = cnt;
-function choose_this_ball(ev) {
+function ChooseBall(ev) {
     let mouse_down = getEventPosition(ev);
     for (var j = 0; j < cnt; j++) {
         if (balls_valumn[j].isInsideMe(mouse_down.x, mouse_down.y)) {
@@ -224,16 +217,12 @@ function choose_this_ball(ev) {
         }
     }
     if (chosed < cnt) {
-        document.addEventListener("ontouchmove", moveBall, { passive: true });
-        document.onmousemove = moveBall;
+        document.addEventListener("ontouchmove", MoveBall, { passive: true });
+        document.onmousemove = MoveBall;
     }
 }
 
-function getEventPosition(ev) {
-    return { x: ev.layerX, y: ev.layerY };
-} //choose
-
-function moveBall(ev) {
+function MoveBall(ev) {
     let x_pro = ev.layerX;
     let y_pro = ev.layerY;
     let maxX = width - balls_valumn[chosed].radius;
@@ -276,11 +265,13 @@ function EatBall(num_ball0, num_ball1) {
     }
     balls_valumn[num_ball0].mess += balls_valumn[num_ball1].mess;
     balls_valumn[num_ball0].radius = (balls_valumn[num_ball0].mess / rou) ** (1 / 3);
+
     balls_valumn[num_ball0].vx += (balls_valumn[num_ball1].mess / balls_valumn[num_ball0].mess) * (balls_valumn[num_ball1].vx - balls_valumn[num_ball0].vx);
+
     balls_valumn[num_ball0].vy += (balls_valumn[num_ball1].mess / balls_valumn[num_ball0].mess) * (balls_valumn[num_ball1].vy - balls_valumn[num_ball0].vy);
+
     balls_valumn.splice(num_ball1, 1);
     cnt--;
-    number_of_balls--;
 }
 
 let last_time = 0;
@@ -301,52 +292,36 @@ function DeviceRotate(ev) {
     console.log("rotate: " + ev.gamma);
 }
 
-function get_amount() {
+function GetAmount() {
     //adjust the number of balls
     let new_number = document.getElementById("number").value;
-    if (new_number > 0 && new_number <= 500) {
+    if (new_number > 0 && new_number <= max_balls) {
         if (new_number > cnt) {
-            new_balls(new_number - cnt);
+            NewBalls(new_number - cnt);
         }
         else
-            balls_valumn.splice(0, cnt - new_balls);
-        cnt = number_of_balls = new_number;
+            balls_valumn.splice(0, cnt - new_number);
+        cnt = new_number;
         document.getElementById("number").value = "";
     }
     else
-        alert("Invalid number! Must be less than 500 and not null.");
+        alert("Invalid number! Balls must be less than " + max_balls + " and not null.");
 }
 
-function sum_the_cnt_of_balls() {
-    cnt = number_of_balls;
-    for (var i = 0; i < cnt; i++)
+function SumOfBalls() {
+    cnt = balls_valumn.length;
+    for (var i = 0; i < balls_valumn.length; i++)
         if (!(balls_valumn[i].x > 0 - balls_valumn[i].radius &&
             balls_valumn[i].x < width + balls_valumn[i].radius &&
             balls_valumn[i].y > 0 - balls_valumn[i].radius &&
             balls_valumn[i].y < height + balls_valumn[i].radius)) {
             balls_valumn.splice(i, 1);
-            number_of_balls--;
             cnt--;
         }
     return cnt;
 }
 
-function random_color() {
-    let random_num1 = random_int(20, 130) + 50;
-    let random_num2 = random_int(20, 130) + 50;
-    let random_num3 = random_int(30, 160) + 40; //deliberately
-    return "rgb(" + random_num1 + "," + random_num2 + "," + random_num3 + ")";
-}
-
-function random_int(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function random(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-function new_balls(amount) {
+function NewBalls(amount) {
     //add some new balls
     for (var i = 0; i < amount; i++) {
         let r_new = random_int(min_r, max_r);
@@ -359,33 +334,17 @@ function new_balls(amount) {
         balls_valumn.push(b_new);
     }
 }
-function draw_rect() {
+
+function DrawRect() {
     if (day_mode)
         ctx.strokeStyle = ctx.fillStyle = "rgba(255,255,230," + (0.55 + fuzzy) + ")";
-    else if (night_mode)
+    else 
         ctx.strokeStyle = ctx.fillStyle = "rgba(40,40,60," + (0.55 + fuzzy) + ")";
-    else if (circulate)
-        ctx.strokeStyle = ctx.fillStyle =
-            "rgba(" + dark_degree + ","
-            + dark_degree + ","
-            + dark_degree + ","
-            + ((0.6 * dark_degree) / 255 + 0.03 * v) + ")";
     ctx.lineJoin = "round";
     ctx.lineWidth = 20;
     ctx.fillRect(20, 20, width - 40, height - 40);
     ctx.strokeRect(10, 10, width - 20, height - 20);
-    if (circulate) {
-        dark_degree += delta;
-        if (dark_degree > 276)
-            delta = -delta;
-        else if (dark_degree < -20)
-            delta = Math.abs(delta);
-    }
 }
-
-setTimeout(() => {
-    CheckSize();
-}, 1500);
 
 for (var i = 0; i < number_of_balls; i++) {
     let r = random_int(min_r, max_r);
@@ -398,45 +357,25 @@ for (var i = 0; i < number_of_balls; i++) {
     balls_valumn.push(b);
 }
 
-window.onresize = () => {
-    width = cans.width = window.innerWidth - 16;
-    height = cans.height = window.innerHeight - 30;
-    CheckSize();
-}
-
 setInterval(() => {
     cnt_of_balls_now.innerHTML = "Number of balls now: "
-        + sum_the_cnt_of_balls();
-}, cnt_interv);
-myCanvas.onmousedown = choose_this_ball;
-myCanvas.addEventListener("ontouchstart", choose_this_ball, { passive: true });
+        + SumOfBalls();
+}, universe_mode ? 50 : 250);
+myCanvas.onmousedown = ChooseBall;
+myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: true });
 
-if (window.DeviceMotionEvent) {
-    window.ondevicemotion = DeviceMove;
-    window.ondeviceorientation = DeviceRotate;
-}
-else {
-    alert("device move is not supported.");
-}
-
-document.getElementById("number").onkeydown = function (ev) {
-    if (ev.key === 'Enter') {
-        get_amount();
-    }
-}
-
-function moving_loop() {
-    draw_rect();
+function movingLoop() {
+    DrawRect();
     for (var i = 0; i < cnt; i++) {
-        balls_valumn[i].deal_with_collision(i);
+        balls_valumn[i].collideWith(i);
     }
     for (var i = 0; i < cnt; i++) {
-        balls_valumn[i].grav_around(i);
+        balls_valumn[i].gravAround(i);
     }
     for (var i = 0; i < cnt; i++) {
         balls_valumn[i].update();
         balls_valumn[i].draw();
     }
-    requestAnimationFrame(moving_loop);
+    requestAnimationFrame(movingLoop);
 }
-moving_loop();
+movingLoop();

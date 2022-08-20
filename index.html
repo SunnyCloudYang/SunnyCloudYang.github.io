@@ -11,21 +11,34 @@
     <p id="start">Welcome to BALL UNIVERSE!</p>
     <div>
         <label for="balls_amount">The number of balls: </label>
-        <input type="number" placeholder="1-500" id="number" style="width: 88px;">
-        <button id="balls_amount" onclick=get_amount()>Change</button>
+        <input type="number" id="number" style="width: 88px;">
+        <button id="balls_amount" onclick=GetAmount()>Change</button>
     </div>
     <span id='cnt'></span><br>
     <button id="gravity" style="float: left">Gravity</button>
     <button id="energy_loss" style="float: left">Energy loss</button>
     <button id="universe_mode" style="float: left">Universe mode</button>
-    <button id="circulation" style="float: right">Circulation</button>
+    <button id="custom" style="float: right">Custom</button>
     <button id="night_mode" style="color: azure; float: right">Night mode</button>
     <button id="day_mode" style="float: right">Day mode</button>
     <br>
+    <div id="user_settings" title="User Settings" style="display: none">
+        <form>
+            <p>Min ball radius: <input type="number" id="min_r" /></p>
+            <p>Max ball radius: <input type="number" id="max_r" /></p>
+            <p>Max speed in x : <input type="number" id="max_vx" /></p>
+            <p>Max speed in y : <input type="number" id="max_vy" /></p>
+            <div style="float: right;">
+                <button id="save_set" onclick="SaveSet">Save</button>
+                <button id="cancel_set" onclick="CancelSet">Cancel</button>
+            </div>
+        </form>
+    </div>
     <div id="myCanvas">
         <canvas></canvas>
     </div>
     <script src="./scripts/settings.js" type="text/javascript"></script>
+    <script src="./scripts/math.js" type="text/javascript"></script>
     <script src="./scripts/BouncePro.js" type="text/javascript"></script>
 </body>
 </html>

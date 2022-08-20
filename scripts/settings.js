@@ -1,4 +1,3 @@
-
 const cans = document.querySelector("canvas");
 const ctx = cans.getContext("2d");
 let myCanvas = document.getElementById("myCanvas");
@@ -7,24 +6,21 @@ let width = cans.width = window.innerWidth - 16;
 let height = cans.height = window.innerHeight - 30;
 let balls_valumn = [];
 let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
-let min_r = 10;
+let min_r = 7;
 let max_r = 20;
 let v = 3; //range of balls' speed;
-let delta = 0.5; //day-night delta speed
 let default_gy = 0.4; //acceleration of gravity
-let g_uni = 0.667; //the gravitational constant
+let g_uni = 0.5; //the gravitational constant
 let mu_floor = 0.007;
 let gy = 0;
 let rou = 1; //density of ball
 let cnt;
-let cnt_interv = 250;
 let dark_degree = 0;
 let recovery = 1;
 let fuzzy = 0.3;
-let circulate = false;
 let night_mode = true; //default mode
 let day_mode = false;
-let merge_mode = false;
+let merge_mode = true;
 let universe_mode = false;
 let gravity = false;
 let energy_loss = false;
@@ -38,13 +34,13 @@ console.log("Welcome to Version 1.2.3 with merge mode. And user-defined is going
 
 let day_btn = document.getElementById("day_mode");
 let night_btn = document.getElementById("night_mode");
-let circ_btn = document.getElementById("circulation");
+let cust_btn = document.getElementById("custom");
 
 night_btn.onclick = function () {
     //codes below set the modes.(in an awful way)
     dark_degree = 0;
     night_mode = true;
-    circulate = day_mode = false;
+    day_mode = false;
 };
 night_btn.ondblclick = function () {
     fuzzy = -fuzzy;
@@ -53,16 +49,19 @@ night_btn.ondblclick = function () {
 day_btn.onclick = function () {
     dark_degree = 255;
     day_mode = true;
-    circulate = night_mode = false;
+    night_mode = false;
 };
 day_btn.ondblclick = function () {
     fuzzy = -fuzzy;
 }
 
-circ_btn.onclick = function () {
-    circulate = true;
-    night_mode = day_mode = false;
-};
+var show = false;
+let user_set = document.getElementById("user_settings");
+cust_btn.onclick = UserDef;
+// function () {
+//     show = !show;
+//     show ? user_set.setAttribute("style", "display:block") : user_set.setAttribute("style", "display:none");
+// };
 
 
 let grav_btn = document.getElementById("gravity");
@@ -128,25 +127,64 @@ uni_btn.ondblclick = function () {
     merge_mode ? alert("Merge mode is open.") : alert("Merge mode is close.");
 }
 
+document.getElementById("number").onkeydown = function (ev) {
+    if (ev.key === 'Enter') {
+        GetAmount();
+    }
+}
+
+window.onresize = () => {
+    width = cans.width = window.innerWidth - 16;
+    height = cans.height = window.innerHeight - 30;
+    CheckSize();
+}
+
+setTimeout(() => {
+    CheckSize();
+    CheckMotion();
+}, 1500);
+
 function CheckSize() {
+    let input_num = document.getElementById("number");
     if (width <= 520) {
         day_btn.innerHTML = "Day";
         night_btn.innerHTML = "Night";
-        circ_btn.innerHTML = "Circ.";
+        cust_btn.innerHTML = "Cust.";
         grav_btn.innerHTML = "Grav.";
         engy_btn.innerHTML = "Loss";
         uni_btn.innerHTML = "Univ.";
         title.setAttribute("style", "font-size:28px");
-        document.getElementById("number").setAttribute("style", "width:50px");
+        input_num.setAttribute("style", "width:50px");
     }
     else {
         day_btn.innerHTML = "Day mode";
         night_btn.innerHTML = "Night mode";
-        circ_btn.innerHTML = "Circulation";
+        cust_btn.innerHTML = "Custom";
         grav_btn.innerHTML = "Gravity";
         engy_btn.innerHTML = "Energy loss";
         uni_btn.innerHTML = "Universe mode";
         title.setAttribute("style", "font-size:44px");
-        document.getElementById("number").setAttribute("style", "width:88px");
+        input_num.setAttribute("style", "width:88px");
+    }
+    max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
+    max_balls < 700 ? max_balls : 700;
+    input_num.setAttribute("placeholder", "1-" + max_balls);
+}
+
+function UserDef() {
+    alert("This function is going to be supported soon!");
+}
+
+function getEventPosition(ev) {
+    return { x: ev.layerX, y: ev.layerY };
+} //choose
+
+function CheckMotion() {
+    if (window.DeviceMotionEvent) {
+        window.ondevicemotion = DeviceMove;
+        window.ondeviceorientation = DeviceRotate;
+    }
+    else {
+        alert("device move is not supported.");
     }
 }
