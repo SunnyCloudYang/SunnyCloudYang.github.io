@@ -10,7 +10,7 @@ let min_r = 7;
 let max_r = 20;
 let v = 3; //range of balls' speed;
 let default_gy = 0.4; //acceleration of gravity
-let g_uni = 0.5; //the gravitational constant
+let g_uni = 0.667; //the gravitational constant
 let mu_floor = 0.007;
 let gy = 0;
 let rou = 1; //density of ball
@@ -25,6 +25,7 @@ let universe_mode = false;
 let gravity = false;
 let energy_loss = false;
 let shake_mode = true;
+let bg_color = null;
 
 let title = document.getElementById("start");
 title.onclick = () => {
@@ -171,14 +172,6 @@ function CheckSize() {
     input_num.setAttribute("placeholder", "1-" + max_balls);
 }
 
-function UserDef() {
-    alert("This function is going to be supported soon!");
-}
-
-function getEventPosition(ev) {
-    return { x: ev.layerX, y: ev.layerY };
-} //choose
-
 function CheckMotion() {
     if (window.DeviceMotionEvent) {
         window.ondevicemotion = DeviceMove;
@@ -187,4 +180,26 @@ function CheckMotion() {
     else {
         alert("device move is not supported.");
     }
+}
+
+function getEventPosition(ev) {
+    return { x: ev.layerX, y: ev.layerY };
+} //choose
+
+function UserDef() {
+    let set_menu = document.getElementById("user_settings");
+    set_menu.style.display == "none" ? set_menu.style.display = "inline-block" : set_menu.style.display = "none";
+}
+
+document.getElementById("val").value = g_uni;
+document.getElementById("g_const").value = g_uni;
+
+function SaveSet() {
+    
+}
+
+function CancelSet() {
+    cust_btn.click();
+    document.getElementById("val").value = g_uni;
+    document.getElementById("g_const").value = g_uni;
 }

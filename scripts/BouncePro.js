@@ -336,6 +336,9 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
+    if (bg_color!=null) {
+        
+    }
     if (day_mode)
         ctx.strokeStyle = ctx.fillStyle = "rgba(255,255,230," + (0.55 + fuzzy) + ")";
     else 
