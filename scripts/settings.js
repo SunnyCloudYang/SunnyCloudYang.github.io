@@ -1,8 +1,40 @@
+
+const cans = document.querySelector("canvas");
+const ctx = cans.getContext("2d");
+let myCanvas = document.getElementById("myCanvas");
+let cnt_of_balls_now = document.getElementById("cnt");
+let width = cans.width = window.innerWidth - 16;
+let height = cans.height = window.innerHeight - 30;
+let balls_valumn = [];
+let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
+let min_r = 10;
+let max_r = 20;
+let v = 3; //range of balls' speed;
+let delta = 0.5; //day-night delta speed
+let default_gy = 0.4; //acceleration of gravity
+let g_uni = 0.667; //the gravitational constant
+let mu_floor = 0.007;
+let gy = 0;
+let rou = 1; //density of ball
+let cnt;
+let cnt_interv = 250;
+let dark_degree = 0;
+let recovery = 1;
+let fuzzy = 0.3;
+let circulate = false;
+let night_mode = true; //default mode
+let day_mode = false;
+let merge_mode = false;
+let universe_mode = false;
+let gravity = false;
+let energy_loss = false;
+let shake_mode = true;
+
 let title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.2.2 with rounded borders and optimized UI.");
+    alert("Welcome to Version 1.2.3, double click univ_mode to open/close merge mode (under universe mode).");
 };
-console.log("Welcome to Version 1.2.2, rounded borders, optimized UI. And user-defined is going to be supported.");
+console.log("Welcome to Version 1.2.3 with merge mode. And user-defined is going to be supported.");
 
 let day_btn = document.getElementById("day_mode");
 let night_btn = document.getElementById("night_mode");
@@ -68,25 +100,30 @@ engy_btn.onclick = function () {
     }
 };
 
+let UniClick = null;
 uni_btn.onclick = function () {
-    if (!universe_mode) {
-        let conf;
-        cnt > 20 ? conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
+    clearInterval(UniClick);
+    UniClick = setTimeout(() => {
+        if (!universe_mode) {
+            let conf;
+            cnt > 20 ? conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
                 + "ARE YOU SURE TO GO ON?") : conf = true;
-        if (conf) {
-            universe_mode = true;
-            uni_btn.style.color = "white";
-            uni_btn.style.backgroundColor = "#002e63";
-            cnt_interv = 50;
+            if (conf) {
+                universe_mode = true;
+                uni_btn.style.color = "white";
+                uni_btn.style.backgroundColor = "#002e63";
+                cnt_interv = 50;
+            }
         }
-    }
-    else {
-        universe_mode = false;
-        uni_btn.style.color = "black";
-        uni_btn.style.backgroundColor = "rgba(225,225,225,1)";
-    }
+        else {
+            universe_mode = false;
+            uni_btn.style.color = "black";
+            uni_btn.style.backgroundColor = "rgba(225,225,225,1)";
+        }
+    }, 200);
 };
 uni_btn.ondblclick = function () {
+    clearInterval(UniClick);
     merge_mode = !merge_mode;
     merge_mode ? alert("Merge mode is open.") : alert("Merge mode is close.");
 }

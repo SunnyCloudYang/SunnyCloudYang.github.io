@@ -1,35 +1,4 @@
 //GoodNullName changed something magically
-const cans = document.querySelector("canvas");
-let myCanvas = document.getElementById("myCanvas");
-const ctx = cans.getContext("2d");
-let cnt_of_balls_now = document.getElementById("cnt");
-let width = cans.width = window.innerWidth - 16;
-let height = cans.height = window.innerHeight - 30;
-let balls_valumn = [];
-let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
-let min_r = 10;
-let max_r = 20;
-let v = 3; //range of balls' speed;
-let delta = 0.5; //day-night delta speed
-const default_gy = 0.4; //acceleration of gravity
-const g_uni = 0.667; //the gravitational constant
-const mu_floor = 0.007;
-let gy = 0;
-let rou = 1; //density of ball
-let cnt;
-let cnt_interv = 250;
-let dark_degree = 0;
-let recovery = 1;
-let fuzzy = 0.3;
-let circulate = false;
-let night_mode = true; //default mode
-let day_mode = false;
-let merge_mode = true;
-let universe_mode = false;
-let gravity = false;
-let energy_loss = false;
-let shake_mode = true;
-
 class Ball {
     constructor(x, y, velX, velY, color, r) {
         this.x = x;
@@ -52,6 +21,7 @@ class Ball {
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.fill();
     }
+
     update() {
         if (this.x <= this.radius) {
             //rebound at left
@@ -159,7 +129,12 @@ class Ball {
                     continue;
                 }
                 if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y)) {
-                    EatBall(me, i);
+                    try {
+                        EatBall(me, i);
+                    }
+                    catch (error) {
+                        console.log("Ignored " + error.message);
+                    }
                 }
                 else {
                     this.ax += this.a_gravation(i) * Math.cos(this.position_angel(i));
