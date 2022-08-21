@@ -186,8 +186,8 @@ function getEventPosition(ev) {
 } //choose
 
 cust_btn.onclick = UserDef;
+let set_menu = document.getElementById("user_settings");
 function UserDef() {
-    let set_menu = document.getElementById("user_settings");
     set_menu.style.display == "inline-flex" ? set_menu.style.display = "none" : set_menu.style.display = "inline-flex";
     document.getElementById("val").value = document.getElementById("g_const").value = g_uni;
     document.getElementById("color").value = bg_color;
@@ -255,7 +255,7 @@ document.getElementById("save_set").onclick = () => {
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
-    cust_btn.click();
+    set_menu.style.display = "none";
 }
 
 document.getElementById("cancel_set").onclick = () => {
@@ -263,5 +263,5 @@ document.getElementById("cancel_set").onclick = () => {
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
-    cust_btn.click();
+    set_menu.style.display = "none";
 }
