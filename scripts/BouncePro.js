@@ -287,7 +287,7 @@ function EatBall(num_ball0, num_ball1) {
 let last_time = 0;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
-    if (cur_time - last_time > 100) {
+    if (cur_time - last_time > 16) {
         last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
@@ -296,8 +296,8 @@ function DeviceMove(ev) {
             ax = Math.abs(ax) < 5 ? 0 : Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
             ay = Math.abs(ay) < 5 ? 0 : Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].ax -= ax / 5;
-                balls_valumn[i].ay -= ay / 5;
+                balls_valumn[i].ax -= ax / 2;
+                balls_valumn[i].ay -= ay / 2;
             }
             console.log("Shaking balls...", ax, ay);
         }
