@@ -13,6 +13,7 @@ class Ball {
         this.ay = 0;
         this.last_x = 0;
         this.last_y = 0;
+        this.stop = false;
     }
 
     draw() {
@@ -76,10 +77,15 @@ class Ball {
             this.vx += this.fri_ax;
         }
 
+        this.stop = (this.x == this.radius || this.x == width - this.radius
+            || this.y == this.radius || this.y == height - this.radius)
+            && Math.abs(this.vx) < gx + 0.05
+            && Math.abs(this.vy) < gy + 0.05;
+
         this.last_x = this.x;
         this.last_y = this.y; //choose
-        this.vx += (this.ax + gx);
-        this.vy += (this.ay + gy);
+        this.vx += this.ax + this.stop ? 0 : gx;
+        this.vy += this.ay + this.stop ? 0 : gy;
         this.x += this.vx;
         this.y += this.vy;
     }
@@ -296,13 +302,13 @@ function DeviceMove(ev) {
             console.log("Shaking balls...", ax, ay);
         }
     }
-    try {
-        gx = loc_g_mode && ev.accelerationIncludingGravity.x ? ev.accelerationIncludingGravity.x : 0;
-        gy = loc_g_mode && ev.accelerationIncludingGravity.y ? ev.accelerationIncludingGravity.y : 0;
-        console.log(gx, gy);
-    } catch (error) {
-        console.log(error);
-    }
+    // try {
+    //     gx = loc_g_mode && ev.accelerationIncludingGravity.x ? ev.accelerationIncludingGravity.x : 0;
+    //     gy = loc_g_mode && ev.accelerationIncludingGravity.y ? ev.accelerationIncludingGravity.y : 0;
+    //     console.log(gx, gy);
+    // } catch (error) {
+    //     console.log(error);
+    // }
 }
 
 function DeviceRotate(ev) {

@@ -85,7 +85,7 @@ grav_btn.onclick = function () {
             grav_btn.style.color = "black";
             grav_btn.style.backgroundColor = "rgba(225,225,225,1)";
         }
-    }, 100);
+    }, 200);
 };
 grav_btn.ondblclick = function () {
     clearTimeout(GravClick);

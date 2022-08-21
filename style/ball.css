@@ -75,7 +75,7 @@ button {
 }
 
 #gravity {
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 #energy_loss {
@@ -83,7 +83,7 @@ button {
 }
 
 #universe_mode {
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 #user_settings {
