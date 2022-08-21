@@ -78,7 +78,7 @@ class Ball {
 
         this.last_x = this.x;
         this.last_y = this.y; //choose
-        this.vx += this.ax;
+        this.vx += (this.ax + gx);
         this.vy += (this.ay + gy);
         this.x += this.vx;
         this.y += this.vy;
@@ -281,21 +281,29 @@ function EatBall(num_ball0, num_ball1) {
 let last_time = 0;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
-    if (shake_mode && cur_time - last_time > 300) {
+    if (cur_time - last_time > 100) {
         last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
         let ay = accl.y;
-        ax = Math.abs(ax) < 5 ? (ax / Math.abs(ax)) * 5 :
-            Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
-        ay = Math.abs(ay) < 5 ? (ay / Math.abs(ay)) * 5 :
-            Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
-        for (var i = 0; i < cnt; i++) {
+        if (ax != null && ay != null) {
+            ax = Math.abs(ax) < 5 ? (ax / Math.abs(ax)) * 5 :
+                Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
+            ay = Math.abs(ay) < 5 ? (ay / Math.abs(ay)) * 5 :
+                Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
+            for (var i = 0; i < cnt; i++) {
 
-            balls_valumn[i].ax -= ax / 5;
-            balls_valumn[i].ay -= ay / 5;
+                balls_valumn[i].ax -= ax / 5;
+                balls_valumn[i].ay -= ay / 5;
+            }
+            console.log("Shaking balls...", ax, ay);
         }
-        console.log("Shaking balls...", ax, ay);
+    }
+    try {
+        gx = loc_g_mode ? ev.accelerationIncludingGravity.x : 0;
+        gy = loc_g_mode ? ev.accelerationIncludingGravity.y : 0;
+    } catch (error) {
+        console.log(error);
     }
 }
 
