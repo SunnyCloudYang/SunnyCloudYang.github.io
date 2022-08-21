@@ -95,7 +95,7 @@ button {
 }
 
 #user_settings {
-    display: inline-flex;
+    display: none;
     margin-left: -120px;
     margin-top: -175px;
     width: 240px;

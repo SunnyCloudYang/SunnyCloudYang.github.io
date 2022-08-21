@@ -23,20 +23,20 @@
     <button id="day_mode" style="float: right">Day mode</button>
     <br>
     <div id="user_settings">
-        <form>
-            <p>Min ball radius: <input class="user_input" type="number" id="min_r" /></p>
-            <p>Max ball radius: <input class="user_input" type="number" id="max_r" /></p>
-            <p>Max speed in x: <input class="user_input" type="number" id="max_vx" /></p>
-            <p>Max speed in y: <input class="user_input" type="number" id="max_vy" /></p>
+        <span>
+            <p>Min ball radius: <input class="user_input" type="number" id="min_r" min=3 max=15 placeholder="3-15"/></p>
+            <p>Max ball radius: <input class="user_input" type="number" id="max_r" min=7 max=25 placeholder="7-25"/></p>
+            <p>Max speed in x: <input class="user_input" type="number" id="max_vx" min=0 max=6 placeholder="0-6" /></p>
+            <p>Max speed in y: <input class="user_input" type="number" id="max_vy" min=0 max=6 placeholder="0-6" /></p>
             <p id="grav_c">Gravitation const: <output id="val"></output>
                 <input type="range" id="g_const" min="0.001" max="0.999" step="0.001" oninput="val.value=this.value;" />
             </p>
             <p id="bg_color">Background color: &nbsp;<input type="color" id="color" /></p>
             <div style="text-align:center;">
-                <button id="save_set" onclick="SaveSet()">Save</button>
-                <button id="cancel_set" onclick="CancelSet()">Cancel</button>
+                <button id="save_set">Save</button>
+                <button id="cancel_set">Cancel</button>
             </div>
-        </form>
+        </span>
     </div>
     
     <div id="myCanvas">

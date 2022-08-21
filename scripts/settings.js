@@ -8,6 +8,8 @@ let balls_valumn = [];
 let number_of_balls = width * height < 300000 ? 50 : 100; //default balls amount
 let min_r = 7;
 let max_r = 20;
+let max_vx = 3;
+let max_vy = 3;
 let v = 3; //range of balls' speed;
 let default_gy = 0.4; //acceleration of gravity
 let g_uni = 0.667; //the gravitational constant
@@ -55,15 +57,6 @@ day_btn.onclick = function () {
 day_btn.ondblclick = function () {
     fuzzy = -fuzzy;
 }
-
-var show = false;
-let user_set = document.getElementById("user_settings");
-cust_btn.onclick = UserDef;
-// function () {
-//     show = !show;
-//     show ? user_set.setAttribute("style", "display:block") : user_set.setAttribute("style", "display:none");
-// };
-
 
 let grav_btn = document.getElementById("gravity");
 let engy_btn = document.getElementById("energy_loss");
@@ -186,20 +179,69 @@ function getEventPosition(ev) {
     return { x: ev.layerX, y: ev.layerY };
 } //choose
 
+cust_btn.onclick = UserDef;
 function UserDef() {
     let set_menu = document.getElementById("user_settings");
-    set_menu.style.display == "none" ? set_menu.style.display = "inline-block" : set_menu.style.display = "none";
+    set_menu.style.display == "inline-flex" ? set_menu.style.display = "none" : set_menu.style.display = "inline-flex";
+    document.getElementById("val").value = document.getElementById("g_const").value = g_uni;
+    day_mode ? document.getElementById("color").value = "#FEFFE6" : document.getElementById("color").value = "#2A273C";
 }
 
-document.getElementById("val").value = g_uni;
-document.getElementById("g_const").value = g_uni;
 
-function SaveSet() {
-    
-}
+document.getElementById("save_set").onclick = () => {
+let user_min_r = document.getElementById("min_r").value;
+let user_max_r = document.getElementById("max_r").value;
+let user_max_vx = document.getElementById("max_vx").value;
+let user_max_vy = document.getElementById("max_vy").value;
+let user_g = document.getElementById("g_const").value;
+let user_color = document.getElementById("color").value;
+    if (user_min_r &&
+        user_min_r <
+        max_r) {
+        min_r = user_min_r;
+        console.log("read min r.");
+    }
+    else if (user_min_r) {
+        alert("Invalid min radius! Must be less than " + max_r);
+    }
+    if (user_max_r &&
+        user_max_r >
+        min_r) {
+        max_r = user_max_r;
+        console.log("read max r.");
+    }
+    else if (user_max_r) {
+        alert("Invalid max radius! Must be bigger than " + min_r);
+    }
 
-function CancelSet() {
+    if (user_max_vx) {
+        max_vx = user_max_vx;
+        console.log("read max vx.");
+    }
+    if (user_max_vy) {
+        max_vy = user_max_vy;
+        console.log("read max vy.");
+    }
+    g_uni = user_g;
+    bg_color = user_color;
+    console.log(min_r, max_r, max_vx, max_vy, g_uni, bg_color);
+
+    for (var i = 0; i < cnt; i++) {
+        balls_valumn[i].radius = random_int(min_r + max_r);
+        balls_valumn[i].vx = random(-max_vx, max_vx);
+        balls_valumn[i].vy = random(-max_vy, max_vy);
+    }
+    user_color = user_g = user_max_r = user_max_vx = user_max_vy = user_min_r = '';
     cust_btn.click();
-    document.getElementById("val").value = g_uni;
-    document.getElementById("g_const").value = g_uni;
+}
+
+document.getElementById("cancel_set").onclick = () => {
+    let user_min_r = document.getElementById("min_r").value;
+    let user_max_r = document.getElementById("max_r").value;
+    let user_max_vx = document.getElementById("max_vx").value;
+    let user_max_vy = document.getElementById("max_vy").value;
+    let user_g = document.getElementById("g_const").value;
+    let user_color = document.getElementById("color").value;
+    user_color = user_g = user_max_r = user_max_vx = user_max_vy = user_min_r = '';
+    cust_btn.click();
 }
