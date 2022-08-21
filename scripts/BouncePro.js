@@ -84,17 +84,17 @@ class Ball {
         this.y += this.vy;
     }
 
-    a_gravation(serialNumber) {
-        let a_g = 0;
-        let a_gmax = (g_uni * balls_valumn[serialNumber].mess) /
+    F_grav(serialNumber) {
+        let F_g = 0;
+        let F_gmax = (g_uni * this.mess * balls_valumn[serialNumber].mess) /
             ((this.radius + balls_valumn[serialNumber].radius) ** 2);
         
         if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
         || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
-            a_g = (g_uni * balls_valumn[serialNumber].mess) /
+            F_g = (g_uni * this.mess * balls_valumn[serialNumber].mess) /
                 this.distance(serialNumber);
         }
-        return a_g < a_gmax ? a_g : a_gmax;
+        return F_g < F_gmax ? F_g : F_gmax;
     } //compute the acceleration of gravation
 
     position_angel(serialNumber) {
@@ -121,13 +121,11 @@ class Ball {
     } //compute the angel between ball[serialNumber]
 
     gravAround(me) {
-        this.ax = 0;
-        this.ay = 0;
         if (universe_mode) {
-            for (var i = 0; i < balls_valumn.length; i++) {
-                if (me == i) {
-                    continue;
-                }
+            let f_g = 0;
+            let cos_t = 0;
+            let sin_t = 0;
+            for (var i = me + 1; i < balls_valumn.length; i++) {
                 if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y, 1, 2)) {
                     try {
                         EatBall(me, i);
@@ -137,8 +135,13 @@ class Ball {
                     }
                 }
                 else {
-                    this.ax += this.a_gravation(i) * Math.cos(this.position_angel(i));
-                    this.ay += this.a_gravation(i) * Math.sin(this.position_angel(i));
+                    f_g = this.F_grav(i);
+                    cos_t = Math.cos(this.position_angel(i));
+                    sin_t = Math.sin(this.position_angel(i))
+                    this.ax += (f_g / this.mess) * cos_t;
+                    this.ay += (f_g / this.mess) * sin_t;
+                    balls_valumn[i].ax -= (f_g / balls_valumn[i].mess) * cos_t;
+                    balls_valumn[i].ay -= (f_g / balls_valumn[i].mess) * sin_t;
                 }
             }
         }
@@ -375,6 +378,7 @@ function movingLoop() {
     for (var i = 0; i < cnt; i++) {
         balls_valumn[i].update();
         balls_valumn[i].draw();
+        balls_valumn[i].ax = balls_valumn[i].ay = 0;
     }
     requestAnimationFrame(movingLoop);
 }
