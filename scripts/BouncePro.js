@@ -327,8 +327,8 @@ function NewBalls(amount) {
         let r_new = random_int(min_r, max_r);
         let x_new = random_int(r_new, width - r_new);
         let y_new = random_int(r_new, height - r_new);
-        let velX_new = random(-v, v);
-        let velY_new = random(-v, v);
+        let velX_new = random(-max_vx, max_vx);
+        let velY_new = random(-max_vy, max_vy);
         let color_new = random_color();
         let b_new = new Ball(x_new, y_new, velX_new, velY_new, color_new, r_new);
         balls_valumn.push(b_new);
@@ -336,7 +336,7 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    if (bg_color != null) {
+    if (bg_color != "#feffe6" && bg_color != "#2a273c") {
         ctx.strokeStyle = ctx.fillStyle = bg_color;
     }
     else if (day_mode)
@@ -353,8 +353,8 @@ for (var i = 0; i < number_of_balls; i++) {
     let r = random_int(min_r, max_r);
     let x = random_int(r, width - r);
     let y = random_int(r, height - r);
-    let velX = random(-v, v);
-    let velY = random(-v, v);
+    let velX = random(-max_vx, max_vx);
+    let velY = random(-max_vy, max_vy);
     let color = random_color();
     let b = new Ball(x, y, velX, velY, color, r);
     balls_valumn.push(b);
