@@ -25,7 +25,7 @@ let day_mode = false;
 let universe_mode = false;
 let merge_mode = true;
 let gravity = false;
-let loc_g_mode = true;
+let loc_g_mode = false;
 let energy_loss = false;
 let shake_mode = true;
 let night_color = "#2a273c";
@@ -34,7 +34,8 @@ let bg_color = night_mode ? night_color : day_color;
 
 let title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.3.2, now you can shake the balls and double click 'Gravity' to dis/enable ground pointing in gravity mode.");
+    alert("Welcome to Version 1.3.2, now you can shake the balls.");
+    // and double click 'Gravity' to dis / enable ground pointing in gravity mode
 };
 console.log("Welcome to Version 1.3.2 with shake mode. Shake your phone to see the changes.");
 
@@ -73,26 +74,25 @@ let GravClick = null;
 grav_btn.onclick = function () {
     clearTimeout(GravClick);
     GravClick = setTimeout(() => {
-        if (!gravity) {
-            gravity = true;
+        gravity = !gravity;
+        if (gravity) {
             gy = default_gy;
             grav_btn.style.color = "white";
             grav_btn.style.backgroundColor = "purple";
         }
         else {
-            gravity = false;
             gy = 0;
             grav_btn.style.color = "black";
             grav_btn.style.backgroundColor = "rgba(225,225,225,1)";
         }
-    }, 200);
+    }, 100);
 };
 grav_btn.ondblclick = function () {
     clearTimeout(GravClick);
-    loc_g_mode = !loc_g_mode;
+    //loc_g_mode = !loc_g_mode;
     gx = 0;
-    loc_g_mode ? gy = 0 : gravity ? gy = default_gy : 0;
-    loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
+    gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
+    //loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
 }
 
 engy_btn.onclick = function () {

@@ -287,12 +287,9 @@ function DeviceMove(ev) {
         let ax = accl.x;
         let ay = accl.y;
         if (ax != null && ay != null) {
-            ax = Math.abs(ax) < 5 ? (ax / Math.abs(ax)) * 5 :
-                Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
-            ay = Math.abs(ay) < 5 ? (ay / Math.abs(ay)) * 5 :
-                Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
+            ax = Math.abs(ax) < 5 ? 0 : Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
+            ay = Math.abs(ay) < 5 ? 0 : Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
             for (var i = 0; i < cnt; i++) {
-
                 balls_valumn[i].ax -= ax / 5;
                 balls_valumn[i].ay -= ay / 5;
             }
@@ -300,8 +297,9 @@ function DeviceMove(ev) {
         }
     }
     try {
-        gx = loc_g_mode ? ev.accelerationIncludingGravity.x : 0;
-        gy = loc_g_mode ? ev.accelerationIncludingGravity.y : 0;
+        gx = loc_g_mode && ev.accelerationIncludingGravity.x ? ev.accelerationIncludingGravity.x : 0;
+        gy = loc_g_mode && ev.accelerationIncludingGravity.y ? ev.accelerationIncludingGravity.y : 0;
+        console.log(gx, gy);
     } catch (error) {
         console.log(error);
     }
