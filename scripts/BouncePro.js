@@ -220,7 +220,7 @@ function ChooseBall(ev) {
         }
     }
     if (chosed < cnt) {
-        document.addEventListener("ontouchmove", MoveBall, { passive: true });
+        document.addEventListener("ontouchmove", MoveBall);
         document.onmousemove = MoveBall;
     }
 }
@@ -250,8 +250,8 @@ function MoveBall(ev) {
     balls_valumn[chosed].vy = y_pro - balls_valumn[chosed].last_y;
 
     document.onmouseup = ReleaseBall;
-    document.addEventListener("ontouchend", ReleaseBall, { passive: true });
-    document.addEventListener("ontouchcancel", ReleaseBall, { passive: true });
+    document.addEventListener("ontouchend", ReleaseBall);
+    document.addEventListener("ontouchcancel", ReleaseBall);
 };
 
 function ReleaseBall() {
@@ -285,8 +285,8 @@ function DeviceMove(ev) {
         last_time = cur_time;
         let accl = ev.acceleration;
         for (var i = 0; i < cnt; i++) {
-            balls_valumn[i].ax += accl.x;
-            balls_valumn[i].ay += accl.y;
+            balls_valumn[i].ax -= 5 * accl.x;
+            balls_valumn[i].ay -= 5 * accl.y;
         }
         console.log("Shaking balls...", accl.x, accl.y);
     }
