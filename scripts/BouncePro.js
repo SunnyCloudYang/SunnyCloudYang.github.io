@@ -88,9 +88,9 @@ class Ball {
         let F_g = 0;
         let F_gmax = (g_uni * this.mess * balls_valumn[serialNumber].mess) /
             ((this.radius + balls_valumn[serialNumber].radius) ** 2);
-        
+
         if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
-        || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
+            || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
             F_g = (g_uni * this.mess * balls_valumn[serialNumber].mess) /
                 this.distance(serialNumber);
         }
@@ -99,7 +99,7 @@ class Ball {
 
     position_angel(serialNumber) {
         if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
-         || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
+            || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
             if (balls_valumn[serialNumber].x > this.x) {
                 return Math.atan(
                     (this.y - balls_valumn[serialNumber].y) /
@@ -284,11 +284,18 @@ function DeviceMove(ev) {
     if (shake_mode && cur_time - last_time > 300) {
         last_time = cur_time;
         let accl = ev.acceleration;
+        let ax = accl.x;
+        let ay = accl.y;
+        ax = Math.abs(ax) < 5 ? (ax / Math.abs(ax)) * 5 :
+            Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
+        ay = Math.abs(ay) < 5 ? (ay / Math.abs(ay)) * 5 :
+            Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
         for (var i = 0; i < cnt; i++) {
-            balls_valumn[i].ax -= 5 * accl.x;
-            balls_valumn[i].ay -= 5 * accl.y;
+
+            balls_valumn[i].ax -= ax / 5;
+            balls_valumn[i].ay -= ay / 5;
         }
-        console.log("Shaking balls...", accl.x, accl.y);
+        console.log("Shaking balls...", ax, ay);
     }
 }
 
@@ -342,7 +349,7 @@ function NewBalls(amount) {
 function DrawRect() {
     if (day_mode)
         ctx.strokeStyle = ctx.fillStyle = hex2rgba(day_color, 0.55 + fuzzy);
-    else 
+    else
         ctx.strokeStyle = ctx.fillStyle = hex2rgba(night_color, 0.55 + fuzzy);
     ctx.lineJoin = "round";
     ctx.lineWidth = 20;
