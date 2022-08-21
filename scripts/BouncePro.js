@@ -226,6 +226,7 @@ function ChooseBall(ev) {
 }
 
 function MoveBall(ev) {
+    ev.preventDefault();
     let x_pro = ev.layerX;
     let y_pro = ev.layerY;
     let maxX = width - balls_valumn[chosed].radius;
