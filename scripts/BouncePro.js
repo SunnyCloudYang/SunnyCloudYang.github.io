@@ -84,8 +84,8 @@ class Ball {
 
         this.last_x = this.x;
         this.last_y = this.y; //choose
-        this.vx += this.ax + this.stop ? 0 : gx;
-        this.vy += this.ay + this.stop ? 0 : gy;
+        this.vx += this.ax + (this.stop ? 0 : gx);
+        this.vy += this.ay + (this.stop ? 0 : gy);
         this.x += this.vx;
         this.y += this.vy;
     }
@@ -131,8 +131,8 @@ class Ball {
             let f_g = 0;
             let cos_t = 0;
             let sin_t = 0;
-            for (var i = me + 1; i < balls_valumn.length; i++) {
-                if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y, 1, 2)) {
+            for (var i = me + 1; i < cnt; i++) {
+                if (merge_mode && this.isInsideMe(balls_valumn[i].x, balls_valumn[i].y, 1.1, 2)) {
                     try {
                         EatBall(me, i);
                     }
@@ -217,6 +217,7 @@ function CheckCollision(ball0, ball1) {
 
 let chosed = cnt;
 function ChooseBall(ev) {
+    ev.preventDefault();
     let mouse_down = getEventPosition(ev);
     for (var j = 0; j < cnt; j++) {
         if (balls_valumn[j].isInsideMe(mouse_down.x, mouse_down.y)) {
@@ -226,7 +227,7 @@ function ChooseBall(ev) {
         }
     }
     if (chosed < cnt) {
-        document.addEventListener("ontouchmove", MoveBall);
+        document.addEventListener("ontouchmove", MoveBall, { passive: false });
         document.onmousemove = MoveBall;
     }
 }
@@ -256,14 +257,13 @@ function MoveBall(ev) {
     balls_valumn[chosed].vy = y_pro - balls_valumn[chosed].last_y;
 
     document.onmouseup = ReleaseBall;
-    document.addEventListener("ontouchend", ReleaseBall);
-    document.addEventListener("ontouchcancel", ReleaseBall);
+    document.addEventListener("ontouchend", ReleaseBall, { passive: false });
+    document.addEventListener("ontouchcancel", ReleaseBall, { passive: false });
 };
 
 function ReleaseBall() {
     document.onmousemove = "";
     document.ontouchmove = "";
-    document.ontouchcancel = "";
     chosed = cnt;
 };
 
@@ -293,8 +293,8 @@ function DeviceMove(ev) {
         let ax = accl.x;
         let ay = accl.y;
         if (ax != null && ay != null) {
-            ax = Math.abs(ax) < 5 ? 0 : Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax;
-            ay = Math.abs(ay) < 5 ? 0 : Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay;
+            ax = (Math.abs(ax) < 5 ? 0 : Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax);
+            ay = (Math.abs(ay) < 5 ? 0 : Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay);
             for (var i = 0; i < cnt; i++) {
                 balls_valumn[i].ax -= ax / 2;
                 balls_valumn[i].ay -= ay / 2;
@@ -385,7 +385,7 @@ setInterval(() => {
         + SumOfBalls();
 }, universe_mode ? 50 : 250);
 myCanvas.onmousedown = ChooseBall;
-myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: true });
+myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: false });
 
 function movingLoop() {
     DrawRect();
