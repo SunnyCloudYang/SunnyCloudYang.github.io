@@ -19,3 +19,14 @@ function rotate(x, y, sin, cos, reverse) {
         y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)
     };
 }
+
+function hex2rgba(bgColor, alpha = 1) {
+    let color = bgColor.slice(1); // 去掉'#'号
+    let rgba = [
+        parseInt("0x" + color.slice(0, 2)),
+        parseInt("0x" + color.slice(2, 4)),
+        parseInt("0x" + color.slice(4, 6)),
+        alpha
+    ];
+    return "rgba(" + rgba.toString() + ")";
+};

@@ -27,8 +27,9 @@ let universe_mode = false;
 let gravity = false;
 let energy_loss = false;
 let shake_mode = true;
-let bg_color = null;
-bg_color = night_mode ? "#2a273c" : "#feffe6";
+let night_color = "#2a273c";
+let day_color = "#feffe6";
+let bg_color = night_mode ? night_color : day_color;
 
 let title = document.getElementById("start");
 title.onclick = () => {
@@ -45,7 +46,9 @@ night_btn.onclick = function () {
     dark_degree = 0;
     night_mode = true;
     day_mode = false;
-    bg_color = "#2a273c";
+    night_btn.style.backgroundColor = "black";
+    day_btn.style.backgroundColor = "rgb(225,225,225)";
+    bg_color = night_color;
 };
 night_btn.ondblclick = function () {
     fuzzy = -fuzzy;
@@ -55,7 +58,9 @@ day_btn.onclick = function () {
     dark_degree = 255;
     day_mode = true;
     night_mode = false;
-    bg_color = "#feffe6";
+    night_btn.style.backgroundColor = "dimgray";
+    day_btn.style.backgroundColor = "white";
+    bg_color = day_color;
 };
 day_btn.ondblclick = function () {
     fuzzy = -fuzzy;
@@ -102,19 +107,17 @@ uni_btn.onclick = function () {
     UniClick = setTimeout(() => {
         if (!universe_mode) {
             let conf;
-            cnt > 20 ? conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n"
-                + "ARE YOU SURE TO GO ON?") : conf = true;
+            cnt * g_uni > 10 ? conf = confirm("NOT SUGGESTED to open this mode with too much balls.\n" + "It'll be in a MESS and balls may FLY OUT.\n" + "ARE YOU SURE TO GO ON?") : conf = true;
             if (conf) {
                 universe_mode = true;
                 uni_btn.style.color = "white";
                 uni_btn.style.backgroundColor = "#002e63";
-                cnt_interv = 50;
             }
         }
         else {
             universe_mode = false;
             uni_btn.style.color = "black";
-            uni_btn.style.backgroundColor = "rgba(225,225,225,1)";
+            uni_btn.style.backgroundColor = "rgb(225,225,225)";
         }
     }, 200);
 };
@@ -202,7 +205,7 @@ document.getElementById("save_set").onclick = () => {
         user_min_r <=
         max_r) {
         min_r = Number(user_min_r);
-        console.log("read min r.");
+        console.log("Read min r: " + min_r);
     }
     else if (user_min_r) {
         alert("Invalid min radius! Must be no bigger than " + max_r);
@@ -211,26 +214,33 @@ document.getElementById("save_set").onclick = () => {
         user_max_r >=
         min_r) {
         max_r = Number(user_max_r);
-        console.log("read max r.");
+        console.log("Read max r: " + max_r);
     }
     else if (user_max_r) {
         alert("Invalid max radius! Must be no less than " + min_r);
     }
     if (user_min_r || user_max_r) {
-        for (var i = 0; i < cnt; i++) {
-            balls_valumn[i].radius = random_int(min_r, max_r);
-            balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+        if (max_r - min_r > cnt / 5) {
+            for (var i = 0; i < cnt; i++) {
+                balls_valumn[i].radius = random_int(min_r, max_r);
+                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+            }
         }
+        else
+            for (var i = 0; i < cnt; i++) {
+                balls_valumn[i].radius = random(min_r, max_r);
+                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+            }
         CheckSize();
     }
 
     if (user_max_vx) {
         max_vx = Number(user_max_vx);
-        console.log("read max vx.");
+        console.log("Read max vx: " + max_vx);
     }
     if (user_max_vy) {
         max_vy = Number(user_max_vy);
-        console.log("read max vy.");
+        console.log("Read max vy: " + max_vy);
     }
     if (user_max_vx || user_max_vy) {
         for (var i = 0; i < cnt; i++) {
@@ -239,7 +249,7 @@ document.getElementById("save_set").onclick = () => {
         }
     }
     g_uni = Number(user_g);
-    bg_color = user_color;
+    day_mode ? day_color = user_color : night_color = user_color;
     console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
     document.getElementById("min_r").value = '';
     document.getElementById("max_r").value = '';

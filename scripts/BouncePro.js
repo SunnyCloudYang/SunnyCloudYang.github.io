@@ -336,13 +336,10 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    if (bg_color != "#feffe6" && bg_color != "#2a273c") {
-        ctx.strokeStyle = ctx.fillStyle = bg_color;
-    }
-    else if (day_mode)
-        ctx.strokeStyle = ctx.fillStyle = "rgba(255,255,230," + (0.55 + fuzzy) + ")";
+    if (day_mode)
+        ctx.strokeStyle = ctx.fillStyle = hex2rgba(day_color, 0.55 + fuzzy);
     else 
-        ctx.strokeStyle = ctx.fillStyle = "rgba(40,40,60," + (0.55 + fuzzy) + ")";
+        ctx.strokeStyle = ctx.fillStyle = hex2rgba(night_color, 0.55 + fuzzy);
     ctx.lineJoin = "round";
     ctx.lineWidth = 20;
     ctx.fillRect(20, 20, width - 40, height - 40);
