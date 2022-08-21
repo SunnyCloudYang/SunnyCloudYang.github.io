@@ -296,8 +296,8 @@ function DeviceMove(ev) {
             ax = (Math.abs(ax) < 5 ? 0 : Math.abs(ax) > 30 ? (ax / Math.abs(ax)) * 30 : ax);
             ay = (Math.abs(ay) < 5 ? 0 : Math.abs(ay) > 30 ? (ay / Math.abs(ay)) * 30 : ay);
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].ax -= ax / 2;
-                balls_valumn[i].ay -= ay / 2;
+                balls_valumn[i].ax -= ax / 10;
+                balls_valumn[i].ay -= ay / 10;
             }
             console.log("Shaking balls...", ax, ay);
         }

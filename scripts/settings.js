@@ -13,7 +13,7 @@ let max_vx = 3;
 let max_vy = 3;
 let default_gy = 0.4; //acceleration of gravity
 let g_uni = 0.667; //the gravitational constant
-let mu_floor = 0.007;
+let mu_floor = 0.01;
 let gx = 0;
 let gy = 0;
 let rou = 1; //density of ball
@@ -75,16 +75,13 @@ grav_btn.onclick = function () {
     clearTimeout(GravClick);
     GravClick = setTimeout(() => {
         gravity = !gravity;
-        if (gravity) {
-            gy = default_gy;
-            grav_btn.style.color = "white";
-            grav_btn.style.backgroundColor = "purple";
+        if (gravity && (min_r + max_r) * cnt > 1.2 * width) {
+            alert("There are too many balls for the floor to contain!")
+            gravity = false;
         }
-        else {
-            gy = 0;
-            grav_btn.style.color = "black";
-            grav_btn.style.backgroundColor = "rgba(225,225,225,1)";
-        }
+        gy = gravity ? default_gy : 0;
+        grav_btn.style.color = gravity ? "white" : "black";
+        grav_btn.style.backgroundColor = gravity ? "purple" : "rgba(225,225,225,1)";
     }, 200);
 };
 grav_btn.ondblclick = function () {
