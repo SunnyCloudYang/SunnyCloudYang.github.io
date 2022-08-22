@@ -34,10 +34,10 @@ let bg_color = night_mode ? night_color : day_color;
 
 let title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.3.2, now you can shake the balls.");
+    alert("Welcome to Version 1.3.3, now you can shake the balls. Double click 'Loss' button to open/close this mode.");
     // and double click 'Gravity' to dis / enable ground pointing in gravity mode
 };
-console.log("Welcome to Version 1.3.2 with shake mode. Shake your phone to see the changes.");
+console.log("Welcome to Version 1.3.3 with shake mode. Shake your phone to see the changes.");
 
 let day_btn = document.getElementById("day_mode");
 let night_btn = document.getElementById("night_mode");
@@ -75,7 +75,7 @@ grav_btn.onclick = function () {
     clearTimeout(GravClick);
     GravClick = setTimeout(() => {
         gravity = !gravity;
-        if (gravity && (min_r + max_r) * cnt > 1.2 * width) {
+        if (gravity && (min_r + max_r) * cnt > 1.1 * width) {
             alert("There are too many balls for the floor to contain!")
             gravity = false;
         }
@@ -92,21 +92,31 @@ grav_btn.ondblclick = function () {
     //loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
 }
 
+let LossClick = null;
 engy_btn.onclick = function () {
-    if (!energy_loss) {
-        energy_loss = true;
-        recovery = 0.85;
-        engy_btn.style.color = "white";
-        engy_btn.style.backgroundColor = "purple";
-    }
-    else {
-        energy_loss = false;
-        recovery = 1;
-        engy_btn.style.color = "black";
-        engy_btn.style.backgroundColor =
-            "rgba(225,225,225,1)";
-    }
+    clearTimeout(LossClick);
+    LossClick=setTimeout(() => {
+        if (!energy_loss) {
+            energy_loss = true;
+            recovery = 0.85;
+            engy_btn.style.color = "white";
+            engy_btn.style.backgroundColor = "purple";
+        }
+        else {
+            energy_loss = false;
+            recovery = 1;
+            engy_btn.style.color = "black";
+            engy_btn.style.backgroundColor =
+                "rgba(225,225,225,1)";
+        }
+    }, 200);
 };
+engy_btn.ondblclick = function () {
+    clearTimeout(LossClick);
+    shake_mode = !shake_mode;
+    shake_mode ? alert("Shake mode is open.") : alert("Shake mode is close.");
+    shake_mode ? CheckMotion() : window.ondevicemotion = "";
+}
 
 let UniClick = null;
 uni_btn.onclick = function () {
@@ -184,7 +194,7 @@ function CheckMotion() {
         window.ondeviceorientation = DeviceRotate;
     }
     else {
-        alert("Device move is not supported.");
+        alert("Device move sensor is not supported.");
     }
 }
 
