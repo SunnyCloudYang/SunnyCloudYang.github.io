@@ -12,7 +12,7 @@
 
 ## 传送教程
 
-1. 下载BounceBalls的所有文件；
+1. [下载BounceBalls](https://github.com/SunnyCloudYang/BounceBalls)的所有文件；
 2. 其实只下载html文件<del>也可以</del>现在不太行，除非你会改；
 3. 其实现在不下载html文件也可以，只要在**看完之后**[点这里](./BounceBalls.html)；
 4. 双击打开[html文件](./BounceBalls.html)，传送进入小球宇宙；
