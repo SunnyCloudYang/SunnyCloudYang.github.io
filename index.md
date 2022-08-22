@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# Bounce Balls - 帮宝逝海洋球
 
-You can use the [editor on GitHub](https://github.com/SunnyCloudYang/SuunyCloudYang.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## 介绍
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**欢迎来到SCY(化名)的玩具仓库**
 
-### Markdown
+**这里是第一平行宇宙——球宇宙**
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 宇宙架构
 
-```markdown
-Syntax highlighted code block
+宇宙架构说明： 类Newton力学体系，类Galileo变换，SCY式(化名)碰撞方式；
 
-# Header 1
-## Header 2
-### Header 3
+## 传送教程
 
-- Bulleted
-- List
+1. 下载BounceBalls的所有文件；
+2. 其实只下载html文件也可以；
+3. 双击打开.html文件，传送进入小球宇宙；
+4. Enjoy and endure the balls!
 
-1. Numbered
-2. List
+## 使用说明
 
-**Bold** and _Italic_ and `Code` text
+1. 输入框<del>(按理说)</del>(现在可以了) 可以改变小球数量；
+2. 不同mode对应不同模式，都试试看（我是说右上角那些）；
+3. Gravity选项加入重力，Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；
+4. 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放;
+5. 如果卡住了，请刷新页面，这将重新开始；
+6. 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得；
+7. 建议在PC端浏览器中开启传送，手机的不会搞，摆烂了。
 
-[Link](url) and ![Image](src)
-```
+## 建议
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+1. 在Gravity或Universe模式下建议加入能量损失(Energy loss)
+2. 上面那条**很重要！！！**
 
-### Jekyll Themes
+## 鸣谢
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SunnyCloudYang/SuunyCloudYang.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+1. 对提供源码框架的Yan同学（化名）表示**严重感谢！！！**
+2. 感谢Edge行而不卡，卡而不死，死而不坏；
+3. 感谢头发不离不弃；
+4. 感谢牛顿叔叔提供理论支持；
+5. 感谢量子力学提供最终解释权。
 
-### Support or Contact
+## 特技
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1. Bug表演；
+2. 有时候能量不太守恒；
+3. 有时候动量也不太守恒；
+4. 可能同时治疗低血压和高血压。
+
+## 最后
+
+还在看？那点个Star吧，别逼我跪下来求你！
