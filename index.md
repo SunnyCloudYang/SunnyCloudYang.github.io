@@ -1,8 +1,8 @@
-# Bounce Balls - 帮宝逝海洋球
+# [Bounce Balls - 帮宝逝海洋球](./BounceBalls.html)
 
 ## 介绍
 
-### 欢迎来到第一平行宇宙——[球宇宙](https://sunnycloudyang.github.io/)
+### 欢迎来到第一平行宇宙——[球宇宙](./BounceBalls.html)
 
 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯‵□′)╯炸弹! •••*～●)
 
@@ -14,9 +14,9 @@
 
 1. 下载BounceBalls的所有文件；
 2. 其实只下载html文件<del>也可以</del>现在不太行，除非你会改；
-3. 其实现在不下载html文件也可以，只要在**看完之后**[点这里](https://sunnycloudyang.github.io/)；
-4. 双击打开[.html文件](./BounceBalls.html)，传送进入小球宇宙；
-5. Enjoy and endure the balls!
+3. 其实现在不下载html文件也可以，只要在**看完之后**[点这里](./BounceBalls.html)；
+4. 双击打开[html文件](./BounceBalls.html)，传送进入小球宇宙；
+5. **\>\>\>[传送门->进入球宇宙](./BounceBalls.html)<<<** Enjoy and endure the balls!
 
 ## 使用说明（请认真阅读！）
 
@@ -61,5 +61,5 @@
 
 ## 最后
 
-还在看？那点个Star吧~ 
+还在看？那点个Star吧~
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
