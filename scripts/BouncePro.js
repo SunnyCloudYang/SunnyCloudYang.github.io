@@ -83,8 +83,8 @@ class Ball {
         }
 
         this.stop =
-              (this.x < this.radius + 1 || this.x > width - this.radius - 1
-            || this.y < this.radius + 1 || this.y > height - this.radius - 1)
+              (Math.abs(this.x - width / 2) >= width / 2 - this.radius - 1
+            || Math.abs(this.y - height / 2) >= height / 2 - this.radius - 1)
             && Math.abs(this.vx) < 1.1 * gx
             && Math.abs(this.vy) < 1.1 * gy;
 
