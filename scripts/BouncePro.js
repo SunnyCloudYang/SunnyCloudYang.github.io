@@ -48,10 +48,17 @@ class Ball {
             }
             else {
                 if (!energy_loss) {
-                    this.vy += gy;
+                    this.vy += this.stop ? 0 : gy;
+                    if (gy * (this.y - height / 2) > 0 &&
+                        Math.abs(this.y - height / 2) >=
+                        height / 2 - this.radius - 1 && 
+                        Math.abs(this.vy) < 1.1 * gy) {
+                        this.y = gy > 0 ? height - this.radius : this.radius;
+                        this.vy = 0;
+                    }
                     this.vy = -Math.abs(gy * Math.round(this.vy / gy));
                 }
-                else if (this.vy ** 2 > 0.4 * this.radius * gy) {
+                else if (this.vy ** 2 >= 1.1 * gy ** 2) {
                     this.vy += gy;
                     this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
                 }
@@ -75,15 +82,18 @@ class Ball {
             this.vx += this.fri_ax;
         }
 
-        this.stop = (this.x == this.radius || this.x == width - this.radius
-            || this.y == this.radius || this.y == height - this.radius)
-            && Math.abs(this.vx) < gx + 0.05
-            && Math.abs(this.vy) < gy + 0.05;
+        this.stop =
+              (this.x < this.radius + 1 || this.x > width - this.radius - 1
+            || this.y < this.radius + 1 || this.y > height - this.radius - 1)
+            && Math.abs(this.vx) < 1.1 * gx
+            && Math.abs(this.vy) < 1.1 * gy;
 
         this.last_x = this.x;
         this.last_y = this.y; //choose
         this.vx += this.ax + (this.stop ? 0 : gx);
         this.vy += this.ay + (this.stop ? 0 : gy);
+        this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
+        this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
         this.x += this.vx;
         this.y += this.vy;
     }
