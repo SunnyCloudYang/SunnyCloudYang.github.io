@@ -41,19 +41,17 @@ class Ball {
             this.vy = Math.abs(recovery * this.vy);
         }
         else if (this.y >= height - this.radius) {
-            //at floor
+            //behaviors at floor
             if (!gravity) {
                 this.y = height - this.radius;
                 this.vy = -Math.abs(recovery * this.vy);
             }
             else {
                 if (!energy_loss) {
-                    this.y = height - this.radius;
                     this.vy += gy;
                     this.vy = -Math.abs(gy * Math.round(this.vy / gy));
                 }
                 else if (this.vy ** 2 > 0.4 * this.radius * gy) {
-                    this.y = height - this.radius;
                     this.vy += gy;
                     this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
                 }
@@ -302,6 +300,7 @@ function DeviceMove(ev) {
             console.log("Shaking balls...", ax, ay);
         }
     }
+    // console.log(ev.accelerationIncludingGravity.x, ev.accelerationIncludingGravity.y);
     // try {
     //     gx = loc_g_mode && ev.accelerationIncludingGravity.x ? ev.accelerationIncludingGravity.x : 0;
     //     gy = loc_g_mode && ev.accelerationIncludingGravity.y ? ev.accelerationIncludingGravity.y : 0;
