@@ -1,4 +1,4 @@
-//GoodNullName changed something magically
+//Last changed 2022-8-24 20:12
 class Ball {
     constructor(x, y, velX, velY, color, r) {
         this.x = x;
@@ -25,6 +25,15 @@ class Ball {
     }
 
     update() {
+        this.stop_x = gx * (this.x - width / 2) > 0 &&
+            Math.abs(this.x - width / 2) >=
+            width / 2 - this.radius - 1 &&
+            Math.abs(this.vx) < Math.abs(1.1 * gx);
+        this.stop_y = gy * (this.y - height / 2) > 0 &&
+            Math.abs(this.y - height / 2) >=
+            height / 2 - this.radius - 1 &&
+            Math.abs(this.vy) < Math.abs(1.1 * gy);
+        
         if (this.x < this.radius) {
             this.x = this.radius;
             this.vx -= this.stop_x ? 0 : Math.abs(gx / 2);
@@ -52,15 +61,6 @@ class Ball {
         }
 
         if (energy_loss) {
-            this.stop_x = gx * (this.x - width / 2) > 0 &&
-                Math.abs(this.x - width / 2) >=
-                width / 2 - this.radius - 1 &&
-                Math.abs(this.vx) < Math.abs(1.1 * gx);
-            this.stop_y = gy * (this.y - height / 2) > 0 &&
-                Math.abs(this.y - height / 2) >=
-                height / 2 - this.radius - 1 &&
-                Math.abs(this.vy) < Math.abs(1.1 * gy);
-            
             if (this.stop_x && gx != 0) {
                 this.fri_a = -mu_floor * (this.vy / Math.abs(this.vy));
                 this.vx = 0;
@@ -80,73 +80,14 @@ class Ball {
                 }
             }
         }
-
-        // if (this.x <= this.radius) {
-        //     //rebound at left
-        //     this.x = this.radius;
-        //     this.vx = Math.abs(recovery * this.vx);
-        // }
-        // else if (this.x >= width - this.radius) {
-        //     //rebound at right
-        //     this.x = width - this.radius;
-        //     this.vx = -Math.abs(recovery * this.vx);
-        // }
-
-        // if (this.y <= this.radius) {
-        //     //always rebound at ceil
-        //     this.y = this.radius;
-        //     this.vy = Math.abs(recovery * this.vy);
-        // }
-        // else if (this.y >= height - this.radius) {
-        //     //behaviors at floor
-        //     if (!gravity) {
-        //         this.y = height - this.radius;
-        //         this.vy = -Math.abs(recovery * this.vy);
-        //     }
-        //     else {
-        //         if (!energy_loss) {
-        //             this.vy += this.stop_y ? 0 : gy;
-        //             if (this.stop_y) {
-        //                 this.y = gy > 0 ? height - this.radius : this.radius;
-        //                 this.vy = 0;
-        //             }
-        //             this.vy = -Math.abs(gy * Math.round(this.vy / gy));
-        //         }
-        //         else if (this.vy ** 2 >= 1.1 * gy ** 2) {
-        //             this.vy += gy;
-        //             this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
-        //         }
-        //         else {
-        //             this.y = height - this.radius;
-        //             this.vy = 0;
-        //             if (energy_loss) {
-        //                 if (Math.abs(this.vx) > mu_floor)
-        //                     this.fri_ax = -mu_floor * (this.vx / Math.abs(this.vx));
-        //                 else {
-        //                     this.vx = 0;
-        //                     this.fri_a = 0;
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-        // if (this.stop_x) {
-        //     //acceleration of x
-        //     this.vy += this.fri_a;
-        // }
-        // if (this.stop_y) {
-        //     this.vx += this.fri_a;
-        // }
-
         this.last_x = this.x;
         this.last_y = this.y; //choose
         this.vx += this.ax
                 + (this.stop_x ? 0 : gx)
-                + (this.stop_y ? this.fri_a : 0);
+                + (this.stop_y && energy_loss ? this.fri_a : 0);
         this.vy += this.ay
                 + (this.stop_y ? 0 : gy)
-                + (this.stop_x ? this.fri_a : 0);
+                + (this.stop_x && energy_loss ? this.fri_a : 0);
         this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
         this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
         this.x += this.vx;

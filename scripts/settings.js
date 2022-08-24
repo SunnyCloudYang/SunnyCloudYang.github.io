@@ -37,7 +37,7 @@ let bg_color = night_mode ? night_color : day_color;
 
 const title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.3.5 with ground pointing(dev), double click 'Gravity' to dis/enable ground pointing in gravity mode.");
+    alert("Welcome to Version 1.3.5 with ground pointing, double click 'Gravity' to dis/enable ground pointing in gravity mode.");
 };
 console.log("Welcome to Version 1.3.5 with ground pointing mode. Rotate your phone and open gravity mode to see the changes.");
 
@@ -91,8 +91,9 @@ grav_btn.ondblclick = function () {
     loc_g_mode = !loc_g_mode;
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
-    loc_g_mode ? alert("Ground pointing mode is open.(Dev function, Unstable)") : alert("Ground pointing mode is close.");
+    loc_g_mode ? alert("Ground pointing mode is open.") : alert("Ground pointing mode is close.");
     shake_mode = loc_g_mode ? false : last_shake_mode;
+    shake_mode || loc_g_mode ? CheckMotion() : window.ondevicemotion = "";
 }
 
 let LossClick = null;
@@ -119,7 +120,7 @@ engy_btn.ondblclick = function () {
     shake_mode = !shake_mode;
     last_shake_mode = shake_mode;
     shake_mode ? alert("Shake mode is open.") : alert("Shake mode is close.");
-    shake_mode ? CheckMotion() : window.ondevicemotion = "";
+    shake_mode || loc_g_mode ? CheckMotion() : window.ondevicemotion = "";
 }
 
 let UniClick = null;
@@ -193,7 +194,7 @@ function CheckSize() {
 }
 
 function CheckMotion() {
-    if (shake_mode && window.DeviceMotionEvent) {
+    if (window.DeviceMotionEvent) {
         window.ondevicemotion = DeviceMove;
         // window.ondeviceorientation = DeviceRotate;
     }
