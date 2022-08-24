@@ -35,7 +35,7 @@
 8. 如果你觉得有时候碰撞过程不河里，<del>emmm，其实我也这么觉得</del> 现在恒河里，不用怀疑；
 9. 建议在PC端浏览器中开启传送，手机的<del>不会搞</del>屏幕比较小，不好玩；
 10. 超高校级隐藏操作：
-    * 打开控制台，balls_valumn[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls_valumn[0].mess=114514;）<del>一般人我都不告诉的</del>
+    * 打开控制台，balls_valumn\[i\]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls_valumn\[0\].mess = 114514;）<del>一般人我都不告诉的</del>
 
 ## 建议
 
