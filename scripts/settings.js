@@ -4,23 +4,26 @@ let myCanvas = document.getElementById("myCanvas");
 let cnt_of_balls_now = document.getElementById("cnt");
 let width = cans.width = window.innerWidth - 16;
 let height = cans.height = window.innerHeight - 30;
-let balls_valumn = [];
+
 let min_r = 7;
 let max_r = 20;
-let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
-let number_of_balls = (width * height < 300000 ? 50 : 100); //default balls amount
 let max_vx = 3;
 let max_vy = 3;
-let default_gy = 0.4; //acceleration of gravity
-let g_uni = 0.667; //the gravitational constant
+let balls_valumn = [];
+let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
+let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
+
+let default_gy = 0.4;               //acceleration of gravity
+let g_uni = 0.667;                  //the gravitational constant
 let mu_floor = 0.01;
 let gx = 0;
 let gy = 0;
-let rou = 1; //density of ball
+let rou = 1;                        //density of ball
 let cnt = 0;;
 let recovery = 1;
 let fuzzy = 0.3;
-let night_mode = true; //default mode
+
+let night_mode = true;              //default mode
 let day_mode = false;
 let universe_mode = false;
 let merge_mode = true;
@@ -32,19 +35,18 @@ let night_color = "#2a273c";
 let day_color = "#feffe6";
 let bg_color = night_mode ? night_color : day_color;
 
-let title = document.getElementById("start");
+const title = document.getElementById("start");
 title.onclick = () => {
     alert("Welcome to Version 1.3.3, now you can shake the balls. Double click 'Loss' button to open/close this mode.");
     // and double click 'Gravity' to dis / enable ground pointing in gravity mode
 };
 console.log("Welcome to Version 1.3.3 with shake mode. Shake your phone to see the changes.");
 
-let day_btn = document.getElementById("day_mode");
-let night_btn = document.getElementById("night_mode");
-let cust_btn = document.getElementById("custom");
+const day_btn = document.getElementById("day_mode");
+const night_btn = document.getElementById("night_mode");
+const cust_btn = document.getElementById("custom");
 
 night_btn.onclick = function () {
-    //codes below set the modes.(in an awful way)
     night_mode = true;
     day_mode = false;
     night_btn.style.backgroundColor = "black";
@@ -66,9 +68,9 @@ day_btn.ondblclick = function () {
     fuzzy = -fuzzy;
 }
 
-let grav_btn = document.getElementById("gravity");
-let engy_btn = document.getElementById("energy_loss");
-let uni_btn = document.getElementById("universe_mode");
+const grav_btn = document.getElementById("gravity");
+const engy_btn = document.getElementById("energy_loss");
+const uni_btn = document.getElementById("universe_mode");
 
 let GravClick = null;
 grav_btn.onclick = function () {
@@ -86,10 +88,10 @@ grav_btn.onclick = function () {
 };
 grav_btn.ondblclick = function () {
     clearTimeout(GravClick);
-    //loc_g_mode = !loc_g_mode;
+    loc_g_mode = !loc_g_mode;
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
-    //loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
+    loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
 }
 
 let LossClick = null;
@@ -162,7 +164,7 @@ setTimeout(() => {
 }, 1500);
 
 function CheckSize() {
-    let input_num = document.getElementById("number");
+    const input_num = document.getElementById("number");
     if (width <= 520) {
         day_btn.innerHTML = "Day";
         night_btn.innerHTML = "Night";
@@ -203,7 +205,7 @@ function getEventPosition(ev) {
 } //choose
 
 cust_btn.onclick = UserDef;
-let set_menu = document.getElementById("user_settings");
+const set_menu = document.getElementById("user_settings");
 function UserDef() {
     set_menu.style.display == "inline-flex" ? set_menu.style.display = "none" : set_menu.style.display = "inline-flex";
     document.getElementById("val").value = document.getElementById("g_const").value = g_uni;

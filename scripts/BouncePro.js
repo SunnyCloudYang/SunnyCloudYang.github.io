@@ -14,6 +14,8 @@ class Ball {
         this.last_x = 0;
         this.last_y = 0;
         this.stop = false;
+        this.stop_x = false;
+        this.stop_y = false;
     }
 
     draw() {
@@ -24,6 +26,14 @@ class Ball {
     }
 
     update() {
+        this.stop_x = gx * (this.x - width / 2) > 0 &&
+            Math.abs(this.x - width / 2) >=
+            width / 2 - this.radius - 1 &&
+            Math.abs(this.vx) < Math.abs(1.1 * gx);
+        this.stop_y = gy * (this.y - height / 2) > 0 &&
+            Math.abs(this.y - height / 2) >=
+            height / 2 - this.radius - 1 &&
+            Math.abs(this.vy) < Math.abs(1.1 * gy);
         if (this.x <= this.radius) {
             //rebound at left
             this.x = this.radius;
@@ -48,11 +58,8 @@ class Ball {
             }
             else {
                 if (!energy_loss) {
-                    this.vy += this.stop ? 0 : gy;
-                    if (gy * (this.y - height / 2) > 0 &&
-                        Math.abs(this.y - height / 2) >=
-                        height / 2 - this.radius - 1 && 
-                        Math.abs(this.vy) < 1.1 * gy) {
+                    this.vy += this.stop_y ? 0 : gy;
+                    if (this.stop_y) {
                         this.y = gy > 0 ? height - this.radius : this.radius;
                         this.vy = 0;
                     }
@@ -90,8 +97,8 @@ class Ball {
 
         this.last_x = this.x;
         this.last_y = this.y; //choose
-        this.vx += this.ax + (this.stop ? 0 : gx);
-        this.vy += this.ay + (this.stop ? 0 : gy);
+        this.vx += this.ax + (this.stop_x ? 0 : gx);
+        this.vy += this.ay + (this.stop_y ? 0 : gy);
         this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
         this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
         this.x += this.vx;
@@ -310,14 +317,18 @@ function DeviceMove(ev) {
             console.log("Shaking balls...", ax, ay);
         }
     }
-    // console.log(ev.accelerationIncludingGravity.x, ev.accelerationIncludingGravity.y);
-    // try {
-    //     gx = loc_g_mode && ev.accelerationIncludingGravity.x ? ev.accelerationIncludingGravity.x : 0;
-    //     gy = loc_g_mode && ev.accelerationIncludingGravity.y ? ev.accelerationIncludingGravity.y : 0;
-    //     console.log(gx, gy);
-    // } catch (error) {
-    //     console.log(error);
-    // }
+    if (loc_g_mode) {
+        try {
+            gx = ev.accelerationIncludingGravity.x;
+            gy = ev.accelerationIncludingGravity.y;
+            if (gx == 0 && gy == 0) {
+                gy = default_gy;
+            }
+            console.log(gx, gy);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 function DeviceRotate(ev) {
