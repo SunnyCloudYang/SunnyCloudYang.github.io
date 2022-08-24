@@ -84,6 +84,8 @@ grav_btn.onclick = function () {
         gy = gravity ? default_gy : 0;
         grav_btn.style.color = gravity ? "white" : "black";
         grav_btn.style.backgroundColor = gravity ? "purple" : "rgba(225,225,225,1)";
+        if (gravity && !energy_loss)
+            engy_btn.click();
     }, 200);
 };
 grav_btn.ondblclick = function () {

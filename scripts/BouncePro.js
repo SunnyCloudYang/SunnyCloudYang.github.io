@@ -25,6 +25,21 @@ class Ball {
     }
 
     update() {
+        this.last_x = this.x;
+        this.last_y = this.y; //choose
+        this.vx += this.ax
+            + (this.stop_x ? 0 : gx)
+            + (this.stop_y && energy_loss ? this.fri_a : 0);
+        this.vy += this.ay
+            + (this.stop_y ? 0 : gy)
+            + (this.stop_x && energy_loss ? this.fri_a : 0);
+        this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
+        this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
+        this.x += this.vx;
+        this.y += this.vy;
+    }
+
+    rebound() {
         this.stop_x = gx * (this.x - width / 2) > 0 &&
             Math.abs(this.x - width / 2) >=
             width / 2 - this.radius - 1 &&
@@ -33,7 +48,7 @@ class Ball {
             Math.abs(this.y - height / 2) >=
             height / 2 - this.radius - 1 &&
             Math.abs(this.vy) < Math.abs(1.1 * gy);
-        
+
         if (this.x < this.radius) {
             this.x = this.radius;
             this.vx -= this.stop_x ? 0 : Math.abs(gx / 2);
@@ -80,18 +95,6 @@ class Ball {
                 }
             }
         }
-        this.last_x = this.x;
-        this.last_y = this.y; //choose
-        this.vx += this.ax
-                + (this.stop_x ? 0 : gx)
-                + (this.stop_y && energy_loss ? this.fri_a : 0);
-        this.vy += this.ay
-                + (this.stop_y ? 0 : gy)
-                + (this.stop_x && energy_loss ? this.fri_a : 0);
-        this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
-        this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
-        this.x += this.vx;
-        this.y += this.vy;
     }
 
     F_grav(serialNumber) {
@@ -107,7 +110,7 @@ class Ball {
         return F_g < F_gmax ? F_g : F_gmax;
     } //compute the acceleration of gravation
 
-    position_angel(serialNumber) {
+    positionAngel(serialNumber) {
         if (Math.abs(balls_valumn[serialNumber].x - this.x) > 1
             || Math.abs(balls_valumn[serialNumber].y - this.y) > 1) {
             if (balls_valumn[serialNumber].x > this.x) {
@@ -146,8 +149,8 @@ class Ball {
                 }
                 else {
                     f_g = this.F_grav(i);
-                    cos_t = Math.cos(this.position_angel(i));
-                    sin_t = Math.sin(this.position_angel(i))
+                    cos_t = Math.cos(this.positionAngel(i));
+                    sin_t = Math.sin(this.positionAngel(i))
                     this.ax += (f_g / this.mess) * cos_t;
                     this.ay += (f_g / this.mess) * sin_t;
                     balls_valumn[i].ax -= (f_g / balls_valumn[i].mess) * cos_t;
@@ -393,12 +396,14 @@ myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: false });
 function movingLoop() {
     DrawRect();
     for (var i = 0; i < cnt; i++) {
+        balls_valumn[i].rebound();
         balls_valumn[i].collideWith(i);
     }
     for (var i = 0; i < cnt; i++) {
         balls_valumn[i].gravAround(i);
     }
     for (var i = 0; i < cnt; i++) {
+        balls_valumn[i].rebound();
         balls_valumn[i].update();
         balls_valumn[i].draw();
         balls_valumn[i].ax = balls_valumn[i].ay = 0;
