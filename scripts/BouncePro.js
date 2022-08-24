@@ -8,12 +8,11 @@ class Ball {
         this.color = color;
         this.radius = r;
         this.mess = rou * r ** 3;
-        this.fri_ax = 0;
+        this.fri_a = 0;
         this.ax = 0;
         this.ay = 0;
         this.last_x = 0;
         this.last_y = 0;
-        this.stop = false;
         this.stop_x = false;
         this.stop_y = false;
     }
@@ -26,81 +25,128 @@ class Ball {
     }
 
     update() {
-        this.stop_x = gx * (this.x - width / 2) > 0 &&
-            Math.abs(this.x - width / 2) >=
-            width / 2 - this.radius - 1 &&
-            Math.abs(this.vx) < Math.abs(1.1 * gx);
-        this.stop_y = gy * (this.y - height / 2) > 0 &&
-            Math.abs(this.y - height / 2) >=
-            height / 2 - this.radius - 1 &&
-            Math.abs(this.vy) < Math.abs(1.1 * gy);
-        if (this.x <= this.radius) {
-            //rebound at left
+        if (this.x < this.radius) {
             this.x = this.radius;
+            this.vx -= this.stop_x ? 0 : Math.abs(gx / 2);
             this.vx = Math.abs(recovery * this.vx);
+            // console.log(this.vx);
         }
-        else if (this.x >= width - this.radius) {
-            //rebound at right
+        else if (this.x > width - this.radius) {
             this.x = width - this.radius;
+            this.vx += this.stop_x ? 0 : Math.abs(gx / 2);
             this.vx = -Math.abs(recovery * this.vx);
+            // console.log(this.vx);
         }
 
-        if (this.y <= this.radius) {
-            //always rebound at ceil
+        if (this.y < this.radius) {
             this.y = this.radius;
+            this.vy -= this.stop_y ? 0 : Math.abs(gy / 2);
             this.vy = Math.abs(recovery * this.vy);
+            // console.log(this.vy);
         }
-        else if (this.y >= height - this.radius) {
-            //behaviors at floor
-            if (!gravity) {
-                this.y = height - this.radius;
-                this.vy = -Math.abs(recovery * this.vy);
-            }
-            else {
-                if (!energy_loss) {
-                    this.vy += this.stop_y ? 0 : gy;
-                    if (this.stop_y) {
-                        this.y = gy > 0 ? height - this.radius : this.radius;
-                        this.vy = 0;
-                    }
-                    this.vy = -Math.abs(gy * Math.round(this.vy / gy));
-                }
-                else if (this.vy ** 2 >= 1.1 * gy ** 2) {
-                    this.vy += gy;
-                    this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
-                }
-                else {
-                    this.y = height - this.radius;
+        else if (this.y > height - this.radius) {
+            this.y = height - this.radius;
+            this.vy += this.stop_y ? 0 : Math.abs(gy / 2);
+            this.vy = -Math.abs(recovery * this.vy);
+            // console.log(this.vy);
+        }
+
+        if (energy_loss) {
+            this.stop_x = gx * (this.x - width / 2) > 0 &&
+                Math.abs(this.x - width / 2) >=
+                width / 2 - this.radius - 1 &&
+                Math.abs(this.vx) < Math.abs(1.1 * gx);
+            this.stop_y = gy * (this.y - height / 2) > 0 &&
+                Math.abs(this.y - height / 2) >=
+                height / 2 - this.radius - 1 &&
+                Math.abs(this.vy) < Math.abs(1.1 * gy);
+            
+            if (this.stop_x && gx != 0) {
+                this.fri_a = -mu_floor * (this.vy / Math.abs(this.vy));
+                this.vx = 0;
+                this.x = gx > 0 ? width - this.radius : this.radius;
+                if (Math.abs(this.vy) < mu_floor) {
+                    this.fri_a = 0;
                     this.vy = 0;
-                    if (energy_loss) {
-                        if (Math.abs(this.vx) > mu_floor)
-                            this.fri_ax = -mu_floor * (this.vx / Math.abs(this.vx));
-                        else {
-                            this.vx = 0;
-                            this.fri_ax = 0;
-                        }
-                    }
+                }
+            }
+            if (this.stop_y && gy != 0) {
+                this.fri_a = -mu_floor * (this.vx / Math.abs(this.vx));
+                this.vy = 0;
+                this.y = gy > 0 ? height - this.radius : this.radius;
+                if (Math.abs(this.vx) < mu_floor) {
+                    this.fri_a = 0;
+                    this.vx = 0;
                 }
             }
         }
 
-        if (this.vy == 0 && this.y == height - this.radius) {
-            //acceleration of x
-            this.vx += this.fri_ax;
-        }
-        // if (this.stop_x) {
-        //     this.vy += this.fri_ax;
+        // if (this.x <= this.radius) {
+        //     //rebound at left
+        //     this.x = this.radius;
+        //     this.vx = Math.abs(recovery * this.vx);
         // }
-        this.stop =
-              (Math.abs(this.x - width / 2) >= width / 2 - this.radius - 1
-            || Math.abs(this.y - height / 2) >= height / 2 - this.radius - 1)
-            && Math.abs(this.vx) < 1.1 * gx
-            && Math.abs(this.vy) < 1.1 * gy;
+        // else if (this.x >= width - this.radius) {
+        //     //rebound at right
+        //     this.x = width - this.radius;
+        //     this.vx = -Math.abs(recovery * this.vx);
+        // }
+
+        // if (this.y <= this.radius) {
+        //     //always rebound at ceil
+        //     this.y = this.radius;
+        //     this.vy = Math.abs(recovery * this.vy);
+        // }
+        // else if (this.y >= height - this.radius) {
+        //     //behaviors at floor
+        //     if (!gravity) {
+        //         this.y = height - this.radius;
+        //         this.vy = -Math.abs(recovery * this.vy);
+        //     }
+        //     else {
+        //         if (!energy_loss) {
+        //             this.vy += this.stop_y ? 0 : gy;
+        //             if (this.stop_y) {
+        //                 this.y = gy > 0 ? height - this.radius : this.radius;
+        //                 this.vy = 0;
+        //             }
+        //             this.vy = -Math.abs(gy * Math.round(this.vy / gy));
+        //         }
+        //         else if (this.vy ** 2 >= 1.1 * gy ** 2) {
+        //             this.vy += gy;
+        //             this.vy = -Math.abs(recovery * gy * Math.floor(this.vy / gy));
+        //         }
+        //         else {
+        //             this.y = height - this.radius;
+        //             this.vy = 0;
+        //             if (energy_loss) {
+        //                 if (Math.abs(this.vx) > mu_floor)
+        //                     this.fri_ax = -mu_floor * (this.vx / Math.abs(this.vx));
+        //                 else {
+        //                     this.vx = 0;
+        //                     this.fri_a = 0;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+        // if (this.stop_x) {
+        //     //acceleration of x
+        //     this.vy += this.fri_a;
+        // }
+        // if (this.stop_y) {
+        //     this.vx += this.fri_a;
+        // }
 
         this.last_x = this.x;
         this.last_y = this.y; //choose
-        this.vx += this.ax + (this.stop_x ? 0 : gx);
-        this.vy += this.ay + (this.stop_y ? 0 : gy);
+        this.vx += this.ax
+                + (this.stop_x ? 0 : gx)
+                + (this.stop_y ? this.fri_a : 0);
+        this.vy += this.ay
+                + (this.stop_y ? 0 : gy)
+                + (this.stop_x ? this.fri_a : 0);
         this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
         this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
         this.x += this.vx;
@@ -319,7 +365,8 @@ function DeviceMove(ev) {
         }
         console.log("a: ", ax, ay);
     }
-    if (loc_g_mode) {
+    if (loc_g_mode && cur_time - last_time > 100) {
+        last_time = cur_time;
         gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
         gy = default_gy * ev.accelerationIncludingGravity.y / 9.8;
         if (gx == 0 && gy == 0) {
