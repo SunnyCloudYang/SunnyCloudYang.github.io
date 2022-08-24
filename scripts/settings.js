@@ -96,7 +96,7 @@ grav_btn.ondblclick = function () {
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
     loc_g_mode ? alert("Ground pointing mode is open.") : alert("Ground pointing mode is close.");
-    shake_mode = loc_g_mode ? false : last_shake_mode;
+    // shake_mode = loc_g_mode ? false : last_shake_mode;
     shake_mode || loc_g_mode ? CheckMotion() : window.ondevicemotion = "";
 }
 
