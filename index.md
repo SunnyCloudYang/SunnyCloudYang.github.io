@@ -22,24 +22,24 @@
 
 1. 单击网页标题（Welcome to balabala...那个）可以查看当前的版本；
 2. 输入框<del>(按理说)</del>（现在可以了）可以改变小球数量；
-3. Gravity选项加入重力，Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；
-4. Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色，
+3. Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；
+4. Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色；
 5. 高级隐藏操作：
-   * **双击**Gravity打开/关闭跟随重力模式，目前还在测试阶段
-   * **双击**Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！）
-   * **双击**Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球
-   * **双击**Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了
+   * **双击**Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为关闭
+   * **双击**Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为开启
+   * **双击**Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启
+   * **双击**Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭
    * <del>**双击**Custom？没有用</del>
 6. 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放;
 7. 如果卡住了，请刷新页面，这将重新开始；
 8. 如果你觉得有时候碰撞过程不河里，<del>emmm，其实我也这么觉得</del> 现在恒河里，不用怀疑；
-9. 建议在PC端浏览器中开启传送，手机的<del>不会搞</del>屏幕比较小，不好玩；
+9. PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆；
 10. 超高校级隐藏操作：
     * 打开控制台，balls_valumn\[i\]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls_valumn\[0\].mess = 114514;）<del>一般人我都不告诉的</del>
 
 ## 建议
 
-1. 在Gravity模式下建议加入能量损失(Energy loss)
+1. 在Gravity模式下<del>建议加入</del>不建议关闭能量损失(Energy loss)；
 2. 在Universe模式下建议把Graviation const调小一点；
 3. 上面两条**很重要！！！**
 
@@ -57,7 +57,7 @@
 2. <del>有时候能量不太守恒</del> 没有的事儿；
 3. <del>有时候动量也不太守恒</del> 没有的事儿；
 4. 可能同时治疗低血压和高血压；
-5. 程序员的事，能叫bug吗，那是Feature，Feature...
+5. 程序员的事，能叫Bug吗，那是Feature，feature...
 
 ## 最后
 
@@ -65,4 +65,4 @@
 
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
 
-**[Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
+**[Raise Your Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
