@@ -14,7 +14,7 @@ let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 
 let default_gy = 0.4;               //acceleration of gravity
-let g_uni = 0.667;                  //the gravitational constant
+let g_uni = 0.255;                  //the gravitational constant
 let mu_floor = 0.01;
 let gx = 0;
 let gy = 0;
@@ -37,10 +37,9 @@ let bg_color = night_mode ? night_color : day_color;
 
 const title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.3.3, now you can shake the balls. Double click 'Loss' button to open/close this mode.");
-    // and double click 'Gravity' to dis / enable ground pointing in gravity mode
+    alert("Welcome to Version 1.3.5 with ground pointing(dev), double click 'Gravity' to dis/enable ground pointing in gravity mode.");
 };
-console.log("Welcome to Version 1.3.3 with shake mode. Shake your phone to see the changes.");
+console.log("Welcome to Version 1.3.5 with ground pointing mode. Rotate your phone and open gravity mode to see the changes.");
 
 const day_btn = document.getElementById("day_mode");
 const night_btn = document.getElementById("night_mode");
@@ -91,7 +90,7 @@ grav_btn.ondblclick = function () {
     loc_g_mode = !loc_g_mode;
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
-    loc_g_mode ? alert("Local gravity mode is open.") : alert("Local gravity mode is close.");
+    loc_g_mode ? alert("Ground pointing mode is open.(Dev function, Unstable)") : alert("Ground pointing mode is close.");
 }
 
 let LossClick = null;

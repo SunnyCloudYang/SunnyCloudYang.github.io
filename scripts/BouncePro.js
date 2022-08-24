@@ -88,7 +88,9 @@ class Ball {
             //acceleration of x
             this.vx += this.fri_ax;
         }
-
+        // if (this.stop_x) {
+        //     this.vy += this.fri_ax;
+        // }
         this.stop =
               (Math.abs(this.x - width / 2) >= width / 2 - this.radius - 1
             || Math.abs(this.y - height / 2) >= height / 2 - this.radius - 1)

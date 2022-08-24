@@ -25,10 +25,10 @@
 3. Gravity选项加入重力，Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；
 4. Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色，
 5. 高级隐藏操作：
-   * **双击**Gravity打开/关闭跟随重力模式，你说没有用？哦我还没加呢别着急；
+   * **双击**Gravity打开/关闭跟随重力模式，目前还在测试阶段
    * **双击**Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！）
    * **双击**Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球
-   * **双击**Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了；
+   * **双击**Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了
    * <del>**双击**Custom？没有用</del>
 6. 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放;
 7. 如果卡住了，请刷新页面，这将重新开始；
@@ -39,8 +39,8 @@
 
 ## 建议
 
-1. 在Gravity或Universe模式下建议加入能量损失(Energy loss)
-2. 建议把Gravity const调小一点；
+1. 在Gravity模式下建议加入能量损失(Energy loss)
+2. 在Universe模式下建议把Graviation const调小一点；
 3. 上面两条**很重要！！！**
 
 ## 鸣谢
@@ -65,4 +65,4 @@
 
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
 
-[Issues and Report Bugs Here](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)
+**[Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
