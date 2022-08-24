@@ -318,7 +318,7 @@ function DeviceMove(ev) {
         if (gx == 0 && gy == 0) {
             gy = default_gy;
         }
-        // console.log("g: ", gx, gy);
+        console.log("g: ", gx, gy);
     }
 }
 
@@ -410,7 +410,6 @@ function movingLoop() {
         balls_valumn[i].rebound();
         balls_valumn[i].update();
         balls_valumn[i].draw();
-        balls_valumn[i].ax = balls_valumn[i].ay = 0;
     }
     requestAnimationFrame(movingLoop);
 }
