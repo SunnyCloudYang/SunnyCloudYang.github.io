@@ -294,7 +294,7 @@ function EatBall(num_ball0, num_ball1) {
 let last_time = 0;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
-    if (shake_mode && cur_time - last_time > 50) {
+    if (shake_mode && cur_time - last_time > 49) {
         last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
@@ -309,7 +309,7 @@ function DeviceMove(ev) {
         }
         // console.log("a: ", ax, ay);
     }
-    if (loc_g_mode && cur_time - last_time > 50) {
+    if (loc_g_mode && cur_time - last_time > 49) {
         last_time = cur_time;
         gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
         gy = default_gy * ev.accelerationIncludingGravity.y / 9.8;

@@ -124,6 +124,7 @@ engy_btn.ondblclick = function () {
     shake_mode = !shake_mode;
     last_shake_mode = shake_mode;
     shake_mode ? alert("Shake mode is open.") : alert("Shake mode is close.");
+    loc_g_mode = shake_mode ? false : loc_g_mode;
     shake_mode || loc_g_mode ? CheckMotion() : window.ondevicemotion = "";
 }
 
