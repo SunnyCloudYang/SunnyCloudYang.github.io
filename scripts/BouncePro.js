@@ -294,7 +294,7 @@ function EatBall(num_ball0, num_ball1) {
 let last_time = 0;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
-    if (shake_mode && cur_time - last_time > 100) {
+    if (shake_mode && cur_time - last_time > 50) {
         last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
@@ -303,20 +303,20 @@ function DeviceMove(ev) {
             ax = (Math.abs(ax) < 2 ? 0 : Math.abs(ax) > 20 ? (ax / Math.abs(ax)) * 20 : ax);
             ay = (Math.abs(ay) < 2 ? 0 : Math.abs(ay) > 20 ? (ay / Math.abs(ay)) * 20 : ay);
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].ax -= ax / 5;
-                balls_valumn[i].ay += ay / 5;
+                balls_valumn[i].ax -= ax / 4;
+                balls_valumn[i].ay += ay / 4;
             }
         }
-        console.log("a: ", ax, ay);
+        // console.log("a: ", ax, ay);
     }
-    if (loc_g_mode && cur_time - last_time > 100) {
+    if (loc_g_mode && cur_time - last_time > 50) {
         last_time = cur_time;
         gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
         gy = default_gy * ev.accelerationIncludingGravity.y / 9.8;
         if (gx == 0 && gy == 0) {
             gy = default_gy;
         }
-        console.log("g: ", gx, gy);
+        // console.log("g: ", gx, gy);
     }
 }
 

@@ -30,9 +30,9 @@ let day_mode = false;
 let universe_mode = false;
 let merge_mode = true;
 let gravity = false;
-let loc_g_mode = false;
+let loc_g_mode = true;
 let energy_loss = false;
-let shake_mode = true;
+let shake_mode = false;
 let night_color = "#2a273c";
 let day_color = "#feffe6";
 let bg_color = night_mode ? night_color : day_color;
@@ -96,7 +96,7 @@ grav_btn.ondblclick = function () {
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
     loc_g_mode ? alert("Ground pointing mode is open.") : alert("Ground pointing mode is close.");
-    // shake_mode = loc_g_mode ? false : last_shake_mode;
+    shake_mode = loc_g_mode ? false : last_shake_mode;
     shake_mode || loc_g_mode ? CheckMotion() : window.ondevicemotion = "";
 }
 
