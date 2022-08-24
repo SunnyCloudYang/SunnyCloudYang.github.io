@@ -316,7 +316,7 @@ function DeviceMove(ev) {
         if (gx == 0 && gy == 0) {
             gy = default_gy;
         }
-        console.log("g: ", gx, gy);
+        // console.log("g: ", gx, gy);
     }
 }
 
