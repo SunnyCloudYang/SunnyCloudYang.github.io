@@ -28,11 +28,11 @@ class Ball {
         this.last_x = this.x;
         this.last_y = this.y; //choose
         this.vx += this.ax
-            + (this.stop_x ? 0 : gx)
-            + (this.stop_y && energy_loss ? this.fri_a : 0);
+            + (gravity && (!this.stop_x) ? gx : 0)
+            + (energy_loss && this.stop_y ? this.fri_a : 0);
         this.vy += this.ay
-            + (this.stop_y ? 0 : gy)
-            + (this.stop_x && energy_loss ? this.fri_a : 0);
+            + (gravity && (!this.stop_y) ? gy : 0)
+            + (energy_loss && this.stop_x  ? this.fri_a : 0);
         this.vx = this.vx ** 2 > GlobalMaxSpeed ** 2 ? (this.vx / Math.abs(this.vx)) * GlobalMaxSpeed : this.vx;
         this.vy = this.vy ** 2 > GlobalMaxSpeed ** 2 ? (this.vy / Math.abs(this.vy)) * GlobalMaxSpeed : this.vy;
         this.x += this.vx;
