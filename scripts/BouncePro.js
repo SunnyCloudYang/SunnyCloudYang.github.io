@@ -314,6 +314,7 @@ function DeviceMove(ev) {
                 balls_valumn[i].ay += ay / 5;
             }
         }
+        console.log("a: ", ax, ay);
     }
     if (loc_g_mode) {
         gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
@@ -321,6 +322,7 @@ function DeviceMove(ev) {
         if (gx == 0 && gy == 0) {
             gy = default_gy;
         }
+        console.log("g: ", gx, gy);
     }
 }
 
