@@ -303,7 +303,6 @@ function EatBall(num_ball0, num_ball1) {
 
 function DeviceMove(ev) {
     if (shake_mode) {
-        last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
         let ay = accl.y;
