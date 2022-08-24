@@ -301,8 +301,11 @@ function EatBall(num_ball0, num_ball1) {
     cnt--;
 }
 
+let last_time = 0;
 function DeviceMove(ev) {
-    if (shake_mode) {
+    var cur_time = new Date().getTime();
+    if (shake_mode && cur_time - last_time > 16) {
+        last_time = cur_time;
         let accl = ev.acceleration;
         let ax = accl.x;
         let ay = accl.y;

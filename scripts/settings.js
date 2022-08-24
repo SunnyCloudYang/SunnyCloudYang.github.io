@@ -195,7 +195,7 @@ function CheckSize() {
 function CheckMotion() {
     if (shake_mode && window.DeviceMotionEvent) {
         window.ondevicemotion = DeviceMove;
-        window.ondeviceorientation = DeviceRotate;
+        // window.ondeviceorientation = DeviceRotate;
     }
     else {
         alert("Device move sensor is not supported.");
