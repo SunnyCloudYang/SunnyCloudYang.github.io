@@ -294,13 +294,11 @@ function EatBall(num_ball0, num_ball1) {
 let last_time = 0;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
-    let ax = 0;
-    let ay = 0;
     if (shake_mode && cur_time - last_time > 49) {
         last_time = cur_time;
         let accl = ev.acceleration;
-        ax = accl.x;
-        ay = accl.y;
+        let ax = accl.x;
+        let ay = accl.y;
         if (ax != null && ay != null) {
             ax = (Math.abs(ax) < 2 ? 0 : Math.abs(ax) > 20 ? (ax / Math.abs(ax)) * 20 : ax);
             ay = (Math.abs(ay) < 2 ? 0 : Math.abs(ay) > 20 ? (ay / Math.abs(ay)) * 20 : ay);
