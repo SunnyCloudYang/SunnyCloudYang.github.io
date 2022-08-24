@@ -72,6 +72,7 @@ const engy_btn = document.getElementById("energy_loss");
 const uni_btn = document.getElementById("universe_mode");
 
 let GravClick = null;
+let last_shake_mode = shake_mode;
 grav_btn.onclick = function () {
     clearTimeout(GravClick);
     GravClick = setTimeout(() => {
@@ -91,6 +92,7 @@ grav_btn.ondblclick = function () {
     gx = 0;
     gy = loc_g_mode ? 0 : gravity ? default_gy : 0;
     loc_g_mode ? alert("Ground pointing mode is open.(Dev function, Unstable)") : alert("Ground pointing mode is close.");
+    shake_mode = loc_g_mode ? false : last_shake_mode;
 }
 
 let LossClick = null;
@@ -115,6 +117,7 @@ engy_btn.onclick = function () {
 engy_btn.ondblclick = function () {
     clearTimeout(LossClick);
     shake_mode = !shake_mode;
+    last_shake_mode = shake_mode;
     shake_mode ? alert("Shake mode is open.") : alert("Shake mode is close.");
     shake_mode ? CheckMotion() : window.ondevicemotion = "";
 }
