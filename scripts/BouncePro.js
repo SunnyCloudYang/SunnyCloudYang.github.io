@@ -319,8 +319,8 @@ function DeviceMove(ev) {
     }
     if (loc_g_mode) {
         try {
-            gx = ev.accelerationIncludingGravity.x;
-            gy = ev.accelerationIncludingGravity.y;
+            gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
+            gy = default_gy * ev.accelerationIncludingGravity.y / 9.8;
             if (gx == 0 && gy == 0) {
                 gy = default_gy;
             }
