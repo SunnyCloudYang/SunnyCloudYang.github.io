@@ -296,8 +296,6 @@ function DeviceMove(ev) {
     var cur_time = new Date().getTime();
     let ax = 0;
     let ay = 0;
-    gx = 0;
-    gy = default_gy;
     if (shake_mode && cur_time - last_time > 49) {
         last_time = cur_time;
         let accl = ev.acceleration;
