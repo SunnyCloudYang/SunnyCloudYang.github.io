@@ -4,7 +4,7 @@
 
 ### 欢迎来到第一平行宇宙——[球宇宙](./BounceBalls.html)
 
-简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯‵□′)╯炸弹! •••*～●)
+简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
 
 ## 宇宙架构
 
@@ -64,3 +64,5 @@
 还在看？那点个Star吧~
 
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
+<br><center>
+[Issues and Report Bugs Here](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)

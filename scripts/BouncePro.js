@@ -368,14 +368,11 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    if (day_mode)
-        ctx.strokeStyle = ctx.fillStyle = hex2rgba(day_color, 0.55 + fuzzy);
-    else
-        ctx.strokeStyle = ctx.fillStyle = hex2rgba(night_color, 0.55 + fuzzy);
+    ctx.strokeStyle = ctx.fillStyle = day_mode ? hex2rgba(day_color, 0.55 + fuzzy) : hex2rgba(night_color, 0.55 + fuzzy);
     ctx.lineJoin = "round";
-    ctx.lineWidth = 20;
-    ctx.fillRect(20, 20, width - 40, height - 40);
-    ctx.strokeRect(10, 10, width - 20, height - 20);
+    const border = ctx.lineWidth = 20;
+    ctx.fillRect(border, border, width - 2 * border, height - 2 * border);
+    ctx.strokeRect(border / 2, border / 2, width - border, height - border);
 }
 
 for (var i = 0; i < number_of_balls; i++) {
