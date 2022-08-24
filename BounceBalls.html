@@ -28,8 +28,14 @@
             <p>Max ball radius: <input class="user_input" type="number" id="max_r" min="5" max="25" placeholder="5-25"/></p>
             <p>Max speed in x: <input class="user_input" type="number" id="max_vx" min="0" max="6" placeholder="0-6" /></p>
             <p>Max speed in y: <input class="user_input" type="number" id="max_vy" min="0" max="6" placeholder="0-6" /></p>
-            <p id="grav_c">Gravitation const: <output id="val"></output>
-                <input type="range" id="g_const" min="0.001" max="0.999" step="0.001" oninput="val.value=this.value;" />
+            <p id="grav_c">Gravitation const: <output id="val_g"></output>
+                <input type="range" id="g_const" min="0.001" max="0.999" step="0.001" oninput="val_g.value=this.value;" />
+            </p>
+            <p id="mu_c">Floor's friction factor : <output id="val_mu"></output>
+                <input type="range" id="mu_floor" min="0.01" max="0.09" step="0.01" oninput="val_mu.value=this.value;" />
+            </p>
+            <p id="recov_c">Coefficient of restitution: <output id="val_loss"></output>
+                <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05" oninput="val_loss.value=this.value;" />
             </p>
             <p id="bg_color">Background color: &nbsp;<input type="color" id="color" /></p>
             <div style="text-align:center;">

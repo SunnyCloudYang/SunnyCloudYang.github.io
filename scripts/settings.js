@@ -12,18 +12,20 @@ let max_vy = 3;
 let balls_valumn = [];
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
+const GlobalMaxSpeed = 40;
 
-let default_gy = 0.4;               //acceleration of gravity
-let g_uni = 0.255;                  //the gravitational constant
-let mu_floor = 0.01;
+const default_gy = 0.4;                 //acceleration of gravity
+let g_uni = 0.255;                      //the gravitational constant
+let mu_floor = 0.03;                    //friction coefficient of the floor
 let gx = 0;
 let gy = 0;
-let rou = 1;                        //density of ball
-let cnt = 0;;
+let rou = 1;                            //density of ball
+let cnt = 0;
 let recovery = 1;
+let recov_loss = 0.85;
 let fuzzy = 0.3;
 
-let night_mode = true;              //default mode
+let night_mode = true;
 let day_mode = false;
 let universe_mode = false;
 let merge_mode = true;
@@ -104,7 +106,7 @@ engy_btn.onclick = function () {
     LossClick=setTimeout(() => {
         if (!energy_loss) {
             energy_loss = true;
-            recovery = 0.85;
+            recovery = recov_loss;
             engy_btn.style.color = "white";
             engy_btn.style.backgroundColor = "purple";
         }
@@ -213,7 +215,9 @@ cust_btn.onclick = UserDef;
 const set_menu = document.getElementById("user_settings");
 function UserDef() {
     set_menu.style.display == "inline-flex" ? set_menu.style.display = "none" : set_menu.style.display = "inline-flex";
-    document.getElementById("val").value = document.getElementById("g_const").value = g_uni;
+    document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni;
+    document.getElementById("val_mu").value = document.getElementById("mu_floor").value = mu_floor;
+    document.getElementById("val_loss").value = document.getElementById("recov_loss").value = recov_loss;
     document.getElementById("color").value = bg_color;
 }
 
@@ -225,6 +229,8 @@ document.getElementById("save_set").onclick = () => {
     let user_max_vy = document.getElementById("max_vy").value;
     let user_g = document.getElementById("g_const").value;
     let user_color = document.getElementById("color").value;
+    let user_mu = document.getElementById("mu_floor").value;
+    let user_recov = document.getElementById("recov_loss").value;
     if (user_min_r &&
         user_min_r <=
         max_r) {
@@ -273,6 +279,8 @@ document.getElementById("save_set").onclick = () => {
         }
     }
     g_uni = Number(user_g);
+    mu_floor = Number(user_mu);
+    recov_loss = Number(user_recov);
     day_mode ? day_color = user_color : night_color = user_color;
     console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
     document.getElementById("min_r").value = '';

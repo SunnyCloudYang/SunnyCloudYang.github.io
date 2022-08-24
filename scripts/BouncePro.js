@@ -33,8 +33,8 @@ class Ball {
         this.vy += this.ay
             + (this.stop_y ? 0 : gy)
             + (this.stop_x && energy_loss ? this.fri_a : 0);
-        this.vx = this.vx ** 2 > 50 * 50 ? (this.vx / Math.abs(this.vx)) * 50 : this.vx;
-        this.vy = this.vy ** 2 > 50 * 50 ? (this.vy / Math.abs(this.vy)) * 50 : this.vy;
+        this.vx = this.vx ** 2 > GlobalMaxSpeed ** 2 ? (this.vx / Math.abs(this.vx)) * GlobalMaxSpeed : this.vx;
+        this.vy = this.vy ** 2 > GlobalMaxSpeed ** 2 ? (this.vy / Math.abs(this.vy)) * GlobalMaxSpeed : this.vy;
         this.x += this.vx;
         this.y += this.vy;
     }
@@ -97,7 +97,7 @@ class Ball {
         }
     }
 
-    F_grav(serialNumber) {
+    fGrav(serialNumber) {
         let F_g = 0;
         let F_gmax = (g_uni * this.mess * balls_valumn[serialNumber].mess) /
             ((this.radius + balls_valumn[serialNumber].radius) ** 2);
@@ -148,7 +148,7 @@ class Ball {
                     }
                 }
                 else {
-                    f_g = this.F_grav(i);
+                    f_g = this.fGrav(i);
                     cos_t = Math.cos(this.positionAngel(i));
                     sin_t = Math.sin(this.positionAngel(i))
                     this.ax += (f_g / this.mess) * cos_t;
@@ -342,7 +342,8 @@ function GetAmount() {
 
 function SumOfBalls() {
     cnt = balls_valumn.length;
-    for (var i = 0; i < balls_valumn.length; i++)
+    for (var i = 0; i < cnt; i++) {
+        balls_valumn[i].rebound();
         if (!(balls_valumn[i].x > 0 - balls_valumn[i].radius &&
             balls_valumn[i].x < width + balls_valumn[i].radius &&
             balls_valumn[i].y > 0 - balls_valumn[i].radius &&
@@ -350,7 +351,8 @@ function SumOfBalls() {
             balls_valumn.splice(i, 1);
             cnt--;
         }
-    return cnt;
+        return cnt;
+    }
 }
 
 function NewBalls(amount) {
