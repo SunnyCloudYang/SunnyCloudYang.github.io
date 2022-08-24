@@ -64,5 +64,5 @@
 还在看？那点个Star吧~
 
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
-<br><center>
+
 [Issues and Report Bugs Here](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)
