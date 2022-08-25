@@ -89,7 +89,7 @@ button {
 #user_settings {
     display: none;
     margin-left: -130px;
-    margin-top: -234px;
+    margin-top: -266px;
     width: 260px;
     background-color: rgba(250, 250, 250, 0.5);
     -webkit-backdrop-filter: blur(18px);
@@ -101,6 +101,10 @@ button {
     border-radius: 10px;
     z-index: 9;
     text-align: center;
+}
+
+span > p {
+    margin: 12px 0px;
 }
 
 #grav_c {
@@ -121,6 +125,11 @@ button {
     margin-bottom: 8px;
     margin-left: 16px;
     text-align: left;
+}
+
+#gy_c {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #bg_color {
@@ -144,13 +153,19 @@ button {
 
 #mu_floor {
     margin-top: 10px;
-    margin-left: 9px;
+    margin-left: 11px;
     width: 180px;
 }
 
 #recov_loss {
     margin-top: 10px;
-    margin-left: 19px;
+    margin-left: 21px;
+    width: 180px;
+}
+
+#default_gy {
+    margin-top: 10px;
+    margin-left: 0px;
     width: 180px;
 }
 

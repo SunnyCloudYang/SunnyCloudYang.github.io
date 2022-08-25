@@ -15,7 +15,7 @@ let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;
 
 let default_gy = 0.4;                 //acceleration of gravity
-let g_uni = 0.255;                      //the gravitational constant
+let g_uni = 0.473;                      //the gravitational constant
 let mu_floor = 0.03;                    //friction coefficient of the floor
 let gx = 0;
 let gy = 0;
@@ -75,6 +75,7 @@ const uni_btn = document.getElementById("universe_mode");
 
 let GravClick = null;
 let last_shake_mode = shake_mode;
+// let default_g_mode = gravity && (gx == 0 && gy == default_gy);
 grav_btn.onclick = function () {
     clearTimeout(GravClick);
     GravClick = setTimeout(() => {
@@ -221,6 +222,7 @@ function UserDef() {
     document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni;
     document.getElementById("val_mu").value = document.getElementById("mu_floor").value = mu_floor;
     document.getElementById("val_loss").value = document.getElementById("recov_loss").value = recov_loss;
+    document.getElementById("val_gy").value = document.getElementById("default_gy").value = default_gy;
     document.getElementById("color").value = bg_color;
 }
 
@@ -234,6 +236,7 @@ document.getElementById("save_set").onclick = () => {
     let user_color = document.getElementById("color").value;
     let user_mu = document.getElementById("mu_floor").value;
     let user_recov = document.getElementById("recov_loss").value;
+    let user_gy = document.getElementById("default_gy").value;
     if (user_min_r &&
         user_min_r <=
         max_r) {
@@ -284,6 +287,8 @@ document.getElementById("save_set").onclick = () => {
     g_uni = Number(user_g);
     mu_floor = Number(user_mu);
     recov_loss = Number(user_recov);
+    recovery = energy_loss ? 1 : recov_loss;
+    default_gy = Number(user_gy);
     day_mode ? day_color = user_color : night_color = user_color;
     console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
     document.getElementById("min_r").value = '';

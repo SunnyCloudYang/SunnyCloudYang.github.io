@@ -37,6 +37,9 @@
             <p id="recov_c">Coefficient of restitution: <output id="val_loss"></output>
                 <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05" oninput="val_loss.value=this.value;" />
             </p>
+            <p id="gy_c">Acceleration of g on Earth: <output id="val_gy"></output>
+                <input type="range" id="default_gy" min="0.1" max="0.9" step="0.1" oninput="val_gy.value=this.value;" />
+            </p>
             <p id="bg_color">Background color: &nbsp;<input type="color" id="color" /></p>
             <div style="text-align:center;">
                 <button id="save_set">Save</button>

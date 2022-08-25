@@ -48,7 +48,6 @@ class Ball {
             Math.abs(this.y - height / 2) >=
             height / 2 - this.radius - 1 &&
             Math.abs(this.vy) < Math.abs(1.1 * gy);
-        // let default_g_mode = gravity && (gx == 0 && gy == default_gy);
 
         if (this.x < this.radius) {
             this.x = this.radius;
