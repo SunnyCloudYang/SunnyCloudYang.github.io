@@ -14,7 +14,7 @@ let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;
 
-const default_gy = 0.3;                 //acceleration of gravity
+let default_gy = 0.4;                 //acceleration of gravity
 let g_uni = 0.255;                      //the gravitational constant
 let mu_floor = 0.03;                    //friction coefficient of the floor
 let gx = 0;
