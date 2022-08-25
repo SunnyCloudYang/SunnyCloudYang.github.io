@@ -6,7 +6,7 @@ let width = cans.width = window.innerWidth - 16;
 let height = cans.height = window.innerHeight - 30;
 
 let min_r = 7;
-let max_r = 20;
+let max_r = 15;
 let max_vx = 3;
 let max_vy = 3;
 let balls_valumn = [];
