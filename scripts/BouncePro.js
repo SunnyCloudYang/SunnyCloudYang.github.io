@@ -48,6 +48,7 @@ class Ball {
             Math.abs(this.y - height / 2) >=
             height / 2 - this.radius - 1 &&
             Math.abs(this.vy) < Math.abs(1.1 * gy);
+        // let default_g_mode = gravity && (gx == 0 && gy == default_gy);
 
         if (this.x < this.radius) {
             this.x = this.radius;
@@ -66,12 +67,14 @@ class Ball {
             this.y = this.radius;
             this.vy -= this.stop_y ? 0 : Math.abs(gy / 2);
             this.vy = Math.abs(recovery * this.vy);
+            // this.vy = default_g_mode && !energy_loss ? Math.abs(gy * Math.round(this.vy / gy)) : Math.abs(recovery * this.vy);
             // console.log(this.vy);
         }
         else if (this.y > height - this.radius) {
             this.y = height - this.radius;
             this.vy += this.stop_y ? 0 : Math.abs(gy / 2);
             this.vy = -Math.abs(recovery * this.vy);
+            // this.vy = default_g_mode && !energy_loss ? -Math.abs(gy * Math.round(this.vy / gy)) : -Math.abs(recovery * this.vy);
             // console.log(this.vy);
         }
 
@@ -343,7 +346,6 @@ function GetAmount() {
 function SumOfBalls() {
     cnt = balls_valumn.length;
     for (var i = 0; i < cnt; i++) {
-        balls_valumn[i].rebound();
         if (!(balls_valumn[i].x > 0 - balls_valumn[i].radius &&
             balls_valumn[i].x < width + balls_valumn[i].radius &&
             balls_valumn[i].y > 0 - balls_valumn[i].radius &&
@@ -388,17 +390,13 @@ for (var i = 0; i < number_of_balls; i++) {
     balls_valumn.push(b);
 }
 
-setInterval(() => {
-    cnt_of_balls_now.innerHTML = "Number of balls now: "
-        + SumOfBalls();
-}, universe_mode ? 50 : 250);
 myCanvas.onmousedown = ChooseBall;
 myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: false });
 
+let counter = 0;
 function movingLoop() {
     DrawRect();
     for (var i = 0; i < cnt; i++) {
-        balls_valumn[i].rebound();
         balls_valumn[i].collideWith(i);
     }
     for (var i = 0; i < cnt; i++) {
@@ -411,5 +409,11 @@ function movingLoop() {
         balls_valumn[i].ax = balls_valumn[i].ay = 0;
     }
     requestAnimationFrame(movingLoop);
+    if (counter == 10) {
+        cnt_of_balls_now.innerHTML = "Number of balls now: "
+            + SumOfBalls();
+        counter = 0;
+    }
+    counter++;
 }
 movingLoop();
