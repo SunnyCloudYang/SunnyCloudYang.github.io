@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./icon/bounce.png">
     <title>Bounce Balls</title>
-    <link rel="stylesheet" href="./style/ball.css">
+    <link rel="stylesheet" href="./style/BounceBalls.css">
 </head>
+
 <body style="background-color:ivory">
     <p id="start">Welcome to BALL UNIVERSE!</p>
     <div>
@@ -24,18 +27,25 @@
     <br>
     <div id="user_settings">
         <span>
-            <p>Min ball radius: <input class="user_input" type="number" id="min_r" min="3" max="20" placeholder="3-20"/></p>
-            <p>Max ball radius: <input class="user_input" type="number" id="max_r" min="5" max="25" placeholder="5-25"/></p>
-            <p>Max speed in x: <input class="user_input" type="number" id="max_vx" min="0" max="6" placeholder="0-6" /></p>
-            <p>Max speed in y: <input class="user_input" type="number" id="max_vy" min="0" max="6" placeholder="0-6" /></p>
+            <p>Min ball radius: <input class="user_input" type="number" id="min_r" min="3" max="20"
+                    placeholder="3-20" /></p>
+            <p>Max ball radius: <input class="user_input" type="number" id="max_r" min="5" max="25"
+                    placeholder="5-25" /></p>
+            <p>Max speed in x: <input class="user_input" type="number" id="max_vx" min="0" max="6" placeholder="0-6" />
+            </p>
+            <p>Max speed in y: <input class="user_input" type="number" id="max_vy" min="0" max="6" placeholder="0-6" />
+            </p>
             <p id="grav_c">Gravitation const: <output id="val_g"></output>
-                <input type="range" id="g_const" min="0.001" max="0.999" step="0.001" oninput="val_g.value=this.value;" />
+                <input type="range" id="g_const" min="0.001" max="0.999" step="0.001"
+                    oninput="val_g.value=this.value;" />
             </p>
             <p id="mu_c">Floor's friction factor : <output id="val_mu"></output>
-                <input type="range" id="mu_floor" min="0.01" max="0.09" step="0.01" oninput="val_mu.value=this.value;" />
+                <input type="range" id="mu_floor" min="0.01" max="0.09" step="0.01"
+                    oninput="val_mu.value=this.value;" />
             </p>
             <p id="recov_c">Coefficient of restitution: <output id="val_loss"></output>
-                <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05" oninput="val_loss.value=this.value;" />
+                <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05"
+                    oninput="val_loss.value=this.value;" />
             </p>
             <p id="gy_c">Acceleration of g on Earth: <output id="val_gy"></output>
                 <input type="range" id="default_gy" min="0.1" max="0.9" step="0.1" oninput="val_gy.value=this.value;" />
@@ -47,12 +57,14 @@
             </div>
         </span>
     </div>
-    
+
     <div id="myCanvas">
         <canvas></canvas>
     </div>
+
     <script src="./scripts/math.js" type="text/javascript"></script>
-    <script src="./scripts/settings.js" type="text/javascript"></script>
+    <script src="./scripts/BounceSettings.js" type="text/javascript"></script>
     <script src="./scripts/BouncePro.js" type="text/javascript"></script>
 </body>
+
 </html>

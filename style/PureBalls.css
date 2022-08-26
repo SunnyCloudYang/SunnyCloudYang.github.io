@@ -1,0 +1,8 @@
+body {
+    background-color: rgb(20, 20, 40);
+}
+
+p {
+    font-size: large;
+    color: rgba(240, 240, 240, 0.6);
+}
