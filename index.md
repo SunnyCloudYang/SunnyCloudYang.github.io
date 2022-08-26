@@ -13,10 +13,11 @@
 ## 传送教程
 
 1. [下载BounceBalls](https://github.com/SunnyCloudYang/BounceBalls)的所有文件；
-2. 其实只下载html文件<del>也可以</del>现在不太行，除非你会改；
+2. 其实只下载html文件 <del>也可以</del> 现在不太行，除非你会改；
 3. 其实现在不下载html文件也可以，只要在**看完之后**[点这里](./BounceBalls.html)；
 4. 双击打开[html文件](./BounceBalls.html)，传送进入小球宇宙；
 5. **\>\>\>[传送门->进入球宇宙](./BounceBalls.html)\<\<\<** Enjoy and endure the balls!
+6. 纯享版 <del>在这里</del> 还没写完
 
 ## 使用说明（请认真阅读！）
 
@@ -25,8 +26,8 @@
 3. Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；
 4. Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色；
 5. 高级隐藏操作：
-   * **双击**Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为关闭
-   * **双击**Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为开启
+   * **双击**Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启
+   * **双击**Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭
    * **目前暂时不能同时开启shake mode和gravity follow！**
    * **双击**Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启
    * **双击**Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭
@@ -40,7 +41,7 @@
 
 ## 建议
 
-1. 在Gravity模式下<del>建议加入</del>不建议关闭能量损失(Energy loss)；
+1. 在Gravity模式下 <del>建议加入</del> 不建议关闭能量损失(Energy loss)；
 2. 在Universe模式下建议把Graviation const调小一点；
 3. 上面两条**很重要！！！**
 
