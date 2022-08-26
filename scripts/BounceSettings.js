@@ -9,7 +9,6 @@ let min_r = 7;
 let max_r = 15;
 let max_vx = 3;
 let max_vy = 3;
-let balls_valumn = [];
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;

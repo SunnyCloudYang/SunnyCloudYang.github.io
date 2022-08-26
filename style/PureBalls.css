@@ -1,8 +1,26 @@
 body {
     background-color: rgb(20, 20, 40);
+    margin: 1px;
 }
 
-p {
+canvas {
+    position: absolute;
+}
+
+#menu {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 4px 8px;
+    color: rgba(240, 240, 240, 0.6);
+}
+
+#cnt{
+    display: inline-block;
+    position: absolute;
+    margin: 4px 8px;
     font-size: large;
     color: rgba(240, 240, 240, 0.6);
+    cursor: pointer;
 }
