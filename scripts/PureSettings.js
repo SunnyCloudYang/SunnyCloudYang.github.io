@@ -29,7 +29,7 @@ let gravity = false;
 let loc_g_mode = true;
 let energy_loss = false;
 let shake_mode = false;
-let night_color = "#2a273c";
+let bg_color = "#2a273c";
 
 window.onresize = () => {
     width = canvas.width = window.innerWidth - 1;
@@ -81,7 +81,92 @@ function CreateBall({ x, y }, ev) {
     balls.push(ball);
 }
 
-const setting = document.getElementById("user-settings");
+const setting = document.getElementById("setting-icon");
+const set_menu = document.getElementById("user-settings");
 setting.onclick = function () {
-    setting.style.display = setting.style.display == "block" ? "none" : "block";
+    set_menu.style.display = set_menu.style.display == "block" ? "none" : "block";
+    document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni;
+    document.getElementById("val_mu").value = document.getElementById("mu_floor").value = mu_floor;
+    document.getElementById("val_loss").value = document.getElementById("recov_loss").value = recov_loss;
+    document.getElementById("val_gy").value = document.getElementById("default_gy").value = default_gy * 24.5;
+    document.getElementById("color").value = bg_color;
+}
+
+document.getElementById("save_set").onclick = () => {
+    let user_min_r = document.getElementById("min_r").value;
+    let user_max_r = document.getElementById("max_r").value;
+    let user_max_vx = document.getElementById("max_vx").value;
+    let user_max_vy = document.getElementById("max_vy").value;
+    let user_g = document.getElementById("g_const").value;
+    let user_color = document.getElementById("color").value;
+    let user_mu = document.getElementById("mu_floor").value;
+    let user_recov = document.getElementById("recov_loss").value;
+    let user_gy = document.getElementById("default_gy").value;
+    if (user_min_r &&
+        user_min_r <=
+        max_r) {
+        min_r = Number(user_min_r);
+        console.log("Read min r: " + min_r);
+    }
+    else if (user_min_r) {
+        alert("Invalid min radius! Must be no bigger than " + max_r);
+    }
+    if (user_max_r &&
+        user_max_r >=
+        min_r) {
+        max_r = Number(user_max_r);
+        console.log("Read max r: " + max_r);
+    }
+    else if (user_max_r) {
+        alert("Invalid max radius! Must be no less than " + min_r);
+    }
+    if (user_min_r || user_max_r) {
+        if (max_r - min_r > cnt / 5) {
+            for (var i = 0; i < cnt; i++) {
+                balls_valumn[i].radius = random_int(min_r, max_r);
+                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+            }
+        }
+        else
+            for (var i = 0; i < cnt; i++) {
+                balls_valumn[i].radius = random(min_r, max_r);
+                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+            }
+        CheckSize();
+    }
+
+    if (user_max_vx) {
+        max_vx = Number(user_max_vx);
+        console.log("Read max vx: " + max_vx);
+    }
+    if (user_max_vy) {
+        max_vy = Number(user_max_vy);
+        console.log("Read max vy: " + max_vy);
+    }
+    if (user_max_vx || user_max_vy) {
+        for (var i = 0; i < cnt; i++) {
+            balls_valumn[i].vx = random(-max_vx, max_vx);
+            balls_valumn[i].vy = random(-max_vy, max_vy);
+        }
+    }
+    g_uni = Number(user_g);
+    mu_floor = Number(user_mu);
+    recov_loss = Number(user_recov);
+    recovery = energy_loss ? 1 : recov_loss;
+    default_gy = Number(user_gy) / 24.5;
+    bg_color = user_color;
+    console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
+    document.getElementById("min_r").value = '';
+    document.getElementById("max_r").value = '';
+    document.getElementById("max_vx").value = '';
+    document.getElementById("max_vy").value = '';
+    set_menu.style.display = "none";
+}
+
+document.getElementById("cancel_set").onclick = () => {
+    document.getElementById("min_r").value = '';
+    document.getElementById("max_r").value = '';
+    document.getElementById("max_vx").value = '';
+    document.getElementById("max_vy").value = '';
+    set_menu.style.display = "none";
 }

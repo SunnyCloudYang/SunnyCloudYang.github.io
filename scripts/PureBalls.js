@@ -141,7 +141,7 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    ctx.fillStyle = hex2rgba(night_color, fuzzy);
+    ctx.fillStyle = hex2rgba(bg_color, fuzzy);
     ctx.fillRect(0, 0, width, height);
 }
 
