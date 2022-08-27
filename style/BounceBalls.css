@@ -1,13 +1,13 @@
 #start {
     color: dodgerblue;
     font-size: 44px;
-    font-family:  "Impact", "Britannic", "Comic Sans MS";
+    font-family: "Impact", "Britannic", "Comic Sans MS";
+    src: url("../font/impact.ttf");
     font-weight: 600;
     text-align: center;
     margin-top: 24px;
     margin-bottom: 12px;
 }
-
 #loading {
     display: block;
     width: 120%;
