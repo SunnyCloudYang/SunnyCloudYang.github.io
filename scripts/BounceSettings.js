@@ -13,7 +13,7 @@ let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;
 
-let default_gy = 0.4;                 //acceleration of gravity
+let default_gy = 0.4;                   //acceleration of gravity
 let g_uni = 0.473;                      //the gravitational constant
 let mu_floor = 0.03;                    //friction coefficient of the floor
 let gx = 0;
@@ -36,10 +36,10 @@ let night_color = "#2a273c";
 let day_color = "#feffe6";
 let bg_color = night_mode ? night_color : day_color;
 
-document.onreadystatechange = function () {
-    if (document.readyState=="complete") {
+function LoadEnd() {
+    if (document.readyState == "complete") {
         document.getElementById("loading").setAttribute("style", "display:none");
-        console.log("loaded");
+        document.getElementsByClassName("load")[0].setAttribute("style", "display:none");
     }
 }
 
@@ -178,6 +178,7 @@ window.onresize = () => {
 setTimeout(() => {
     CheckSize();
     CheckMotion();
+    LoadEnd();
 }, 1500);
 
 function CheckSize() {
