@@ -34,10 +34,10 @@
     font-weight: 500;
     text-align: center;
     position: fixed;
-    top: 50%;
+    bottom: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -25px;
+    transform: translate(-50%, 0%);
+    margin-bottom: -75px;
     z-index: 99;
 }
 .blob-1,
