@@ -190,7 +190,7 @@ function CheckSize() {
         grav_btn.innerHTML = "Grav.";
         engy_btn.innerHTML = "Loss";
         uni_btn.innerHTML = "Univ.";
-        title.setAttribute("style", "font-size:28px");
+        title.setAttribute("style", "font-size:28px;font-weight:500");
         input_num.setAttribute("style", "width:50px");
     }
     else {
@@ -200,7 +200,7 @@ function CheckSize() {
         grav_btn.innerHTML = "Gravity";
         engy_btn.innerHTML = "Energy loss";
         uni_btn.innerHTML = "Universe mode";
-        title.setAttribute("style", "font-size:44px");
+        title.setAttribute("style", "font-size:44px;font-weight:600");
         input_num.setAttribute("style", "width:88px");
     }
     max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));

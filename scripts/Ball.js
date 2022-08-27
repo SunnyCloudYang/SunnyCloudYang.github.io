@@ -50,27 +50,27 @@ class Ball {
 
         if (this.x < this.radius) {
             this.x = this.radius;
-            this.vx -= this.stop_x ? 0 : Math.abs(gx / 2);
+            this.vx -= gravity ? (this.stop_x ? 0 : Math.abs(gx / 2)) : 0;
             this.vx = Math.abs(recovery * this.vx);
             // console.log(this.vx);
         }
         else if (this.x > width - this.radius) {
             this.x = width - this.radius;
-            this.vx += this.stop_x ? 0 : Math.abs(gx / 2);
+            this.vx += gravity ? (this.stop_x ? 0 : Math.abs(gx / 2)) : 0;
             this.vx = -Math.abs(recovery * this.vx);
             // console.log(this.vx);
         }
 
         if (this.y < this.radius) {
             this.y = this.radius;
-            this.vy -= this.stop_y ? 0 : Math.abs(gy / 2);
+            this.vy -= gravity ? (this.stop_y ? 0 : Math.abs(gy / 2)) : 0;
             this.vy = Math.abs(recovery * this.vy);
             // this.vy = default_g_mode && !energy_loss ? Math.abs(gy * Math.round(this.vy / gy)) : Math.abs(recovery * this.vy);
             // console.log(this.vy);
         }
         else if (this.y > height - this.radius) {
             this.y = height - this.radius;
-            this.vy += this.stop_y ? 0 : Math.abs(gy / 2);
+            this.vy += gravity ? (this.stop_y ? 0 : Math.abs(gy / 2)) : 0;
             this.vy = -Math.abs(recovery * this.vy);
             // this.vy = default_g_mode && !energy_loss ? -Math.abs(gy * Math.round(this.vy / gy)) : -Math.abs(recovery * this.vy);
             // console.log(this.vy);
