@@ -1,19 +1,14 @@
 //Last changed 2022-8-24 20:12
 let balls = [];
-function ChooseBall(ev) {
-    ev.preventDefault();
-    let mouse_down = getEventPosition(ev);
+function ChooseBall({ x, y }) {
     for (var j = 0; j < cnt; j++) {
-        if (balls[j].isInsideMe(mouse_down.x, mouse_down.y)) {
+        if (balls[j].isInsideMe(x, y)) {
             balls[j].vx = 0;
             balls[j].vy = 0;
             chosed = j;
         }
     }
-    if (chosed < cnt) {
-        document.addEventListener("ontouchmove", MoveBall, { passive: false });
-        document.onmousemove = MoveBall;
-    }
+    return chosed < cnt;
 }
 
 function MoveBall(ev) {
@@ -146,24 +141,14 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    ctx.fillStyle = hex2rgba(night_color, 0.55 + fuzzy);
+    ctx.fillStyle = hex2rgba(night_color, fuzzy);
     ctx.fillRect(0, 0, width, height);
 }
 
-for (var i = 0; i < number_of_balls; i++) {
-    let r = random_int(min_r, max_r);
-    let x = random_int(r, width - r);
-    let y = random_int(r, height - r);
-    let velX = random(-max_vx, max_vx);
-    let velY = random(-max_vy, max_vy);
-    let color = random_color();
-    let b = new Ball(x, y, velX, velY, color, r);
-    balls.push(b);
-}
+document.addEventListener("onmousedown", MousedownHandler);
+document.addEventListener("ontouchstart", MousedownHandler);
 
-canvas.onmousedown = ChooseBall;
-canvas.addEventListener("ontouchstart", ChooseBall, { passive: false });
-
+NewBalls(20);
 let chosed = balls.length;
 let counter = 0;
 function movingLoop() {
@@ -182,7 +167,7 @@ function movingLoop() {
     }
     requestAnimationFrame(movingLoop);
     if (counter == 10) {
-        cnt_of_balls_now.innerHTML = "Number of balls now: "
+        cnt_of_balls_now.innerHTML = "Current balls: "
             + SumOfBalls();
         counter = 0;
     }

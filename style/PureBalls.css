@@ -1,26 +1,162 @@
 body {
     background-color: rgb(20, 20, 40);
-    margin: 1px;
+    margin: 0px;
 }
 
 canvas {
     position: absolute;
 }
 
-#menu {
-    display: inline-block;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    margin: 4px 8px;
-    color: rgba(240, 240, 240, 0.6);
+p {
+    font-family: "impact";
+    font-size: large;
+    letter-spacing: 0.5px;
+    color: rgb(252, 252, 252);
+    cursor: pointer;
+    opacity: 70%;
+    transition: 0.2s;
+}
+p:hover {
+    opacity: 100%;
+    font-size: larger;
 }
 
-#cnt{
+#cnt {
     display: inline-block;
     position: absolute;
     margin: 4px 8px;
     font-size: large;
-    color: rgba(240, 240, 240, 0.6);
+    opacity: 50%;
+    transition: 0.1s;
     cursor: pointer;
+}
+#cnt:hover {
+    opacity: 80%;
+}
+
+#setting-icon {
+    display: inline-block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 25px;
+    height: 25px;
+    margin: 6px;
+    opacity:50%;
+    cursor: pointer;
+    transition: 0.2s;
+    transition-delay: 0.15s;
+    z-index: 9;
+}
+#setting-icon:hover {
+    opacity: 80%;
+    animation-name: rotateZ;
+    animation-duration: 1s;
+}
+@keyframes rotateZ {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(135deg); }
+}
+
+#user-settings {
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 256px;
+    height: 100%;
+    border-radius: 50px 0px 0px 50px;
+    text-align: center;
+    color: rgb(171, 171, 171);
+    background-color: rgba(20, 20, 40, 0.5);
+    backdrop-filter: blur(15px);
+    z-index: 8;
+}
+.input-num {
+    margin: 20px 10px 16px 10px;
+    text-align: right;
+}
+.input-num:first-child {
+    margin-top: 32px;
+}
+.user-input {
+    width: 36px;
+    height: 20px;
+    margin-left: 4px;
+    margin-right: 30px;
+    border: 0px;
+    border-radius: 4px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 180px;
+    height: 6px;
+    margin-top: 10px;
+    border: 1.2px inset white;
+    border-radius: 8px;
+    background: -webkit-linear-gradient(left, #00e1ff, #ff00d9);
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: rgb(250, 245, 255);
+    filter: drop-shadow(1px 1px 1px);
+}
+
+#save_set {
+    position: fixed;
+    bottom: 10px;
+    left: 36px;
+    width: 78px;
+    height: 36px;
+    margin: 10px;
+    border: 0px;
+    border-radius: 20px;
+    font-family: "impact";
+    color: rgb(176, 176, 176);
+    background-color: rgba(48, 48, 106, 0.75);
+    transition: 0.15s;
+}
+#save_set:hover {
+    width: 80px;
+    height: 40px;
+    color: azure;
+    background-color: rgba(72, 72, 168, 0.8);
+    font-size: medium;
+}
+#save_set:active {
+    width: 76px;
+    height: 36px;
+    color: rgb(186, 197, 197);
+    background-color: rgba(60, 60, 152, 0.8);
+}
+
+#cancel_set {
+    position: fixed;
+    bottom: 10px;
+    right: 24px;
+    width: 76px;
+    height: 36px;
+    margin: 10px;
+    border: 0px;
+    border-radius: 20px;
+    font-family: "impact";
+    color: rgb(176, 176, 176);
+    background-color: rgba(50, 50, 75, 0.75);
+    transition: 0.15s;
+}
+#cancel_set:hover {
+    width: 80px;
+    height: 40px;
+    color: azure;
+    background-color: rgba(84, 84, 112, 0.8);
+    font-size: 15px;
+}
+#cancel_set:active {
+    width: 76px;
+    height: 36px;
+    color: rgb(186, 197, 197);
+    background-color: rgba(72, 72, 100, 0.8);
 }
