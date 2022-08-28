@@ -57,7 +57,15 @@ function CheckMotion() {
 
 const setting = document.getElementById("setting-icon");
 const set_menu = document.getElementById("user-settings");
-setting.onclick = function () {
+setting.onclick = Menu;
+document.onkeydown = function (ev) {
+    console.log(ev.key);
+    if (ev.key === "Control") {
+        Menu();
+    }
+}
+
+function Menu() {
     if (set_menu.style.display == "block") {
         set_menu.style.display = "none";
         executable = true;
