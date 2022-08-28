@@ -64,9 +64,12 @@ function ChooseBall({ x, y }) {
     return chosed < cnt;
 }
 
+
+let last_x = 0;
+let last_y = 0;
 function MoveBall(ev) {
-    let x_pro = ev.layerX;
-    let y_pro = ev.layerY;
+    x_pro = ev.pageX;
+    y_pro = ev.pageY;
     let maxX = width - balls[chosed].radius;
     let maxY = height - balls[chosed].radius;
     if (x_pro < balls[chosed].radius) {
@@ -84,8 +87,11 @@ function MoveBall(ev) {
 
     balls[chosed].x = x_pro;
     balls[chosed].y = y_pro;
-    balls[chosed].vx = x_pro - balls[chosed].last_x;
-    balls[chosed].vy = y_pro - balls[chosed].last_y;
+    balls[chosed].vx = x_pro - last_x;
+    balls[chosed].vy = y_pro - last_y;
+    console.log(last_x, x_pro);
+    last_x = x_pro;
+    last_y = y_pro;
 
     canvas.onmouseup = ReleaseBall;
     canvas.ontouchend = ReleaseBall;
