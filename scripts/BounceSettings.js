@@ -40,6 +40,7 @@ function LoadEnd() {
     if (document.readyState == "complete") {
         document.getElementById("loading").setAttribute("style", "display:none");
         document.getElementsByClassName("load")[0].setAttribute("style", "display:none");
+        clearInterval(CheckLoad);
     }
 }
 
@@ -175,10 +176,13 @@ window.onresize = () => {
     CheckSize();
 }
 
+let CheckLoad = null;
 setTimeout(() => {
     CheckSize();
     CheckMotion();
-    LoadEnd();
+    CheckLoad = setInterval(() => {
+        LoadEnd();
+    }, 500);
 }, 1500);
 
 function CheckSize() {

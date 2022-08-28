@@ -4,8 +4,8 @@ let cnt_of_balls_now = document.getElementById("cnt");
 let width = canvas.width = window.innerWidth - 1;
 let height = canvas.height = window.innerHeight - 1;
 
-let min_r = 10;
-let max_r = 25;
+let min_r = 7;
+let max_r = 20;
 let max_vx = 3;
 let max_vy = 3;
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
