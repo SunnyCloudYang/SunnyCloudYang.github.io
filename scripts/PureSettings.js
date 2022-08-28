@@ -5,7 +5,7 @@ let width = canvas.width = window.innerWidth - 1;
 let height = canvas.height = window.innerHeight - 1;
 
 let min_r = 10;
-let max_r = 20;
+let max_r = 25;
 let max_vx = 3;
 let max_vy = 3;
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
@@ -39,7 +39,7 @@ window.onresize = () => {
 
 setTimeout(() => {
     CheckSize();
-    // CheckMotion();
+    CheckMotion();
 }, 1500);
 
 function CheckSize() {
@@ -47,44 +47,33 @@ function CheckSize() {
 
 function CheckMotion() {
     if (window.DeviceMotionEvent) {
-        // window.ondevicemotion = DeviceMove;
-        // window.ondeviceorientation = DeviceRotate;
+        window.ondevicemotion = DeviceMove;
+        window.ondeviceorientation = DeviceRotate;
     }
     else {
         alert("Device move sensor is not supported.");
     }
 }
 
-function getEventPosition(ev) {
-    return { x: ev.layerX, y: ev.layerY };
-} //choose
-
-function MousedownHandler(ev) {
-    console.log("Click");
-    let x = getEventPosition(ev).x;
-    let y = getEventPosition(ev).y;
-    if (ChooseBall({ x, y })) {
-        console.log("Choose Ball");
-        document.addEventListener("ontouchmove", MoveBall);
-        document.addEventListener("onmousemove", MoveBall);
-    }
-    else {
-        console.log("Create Ball");
-        document.addEventListener("ontouchmove", CreateBall({ x, y }, ev));
-        document.addEventListener("onmousemove", CreateBall({ x, y }, ev));
-    }
-}
-
-function CreateBall({ x, y }, ev) {
-    let r = ((ev.layerX - x0) ** 2 + (ev.layerY - y0) ** 2) ** 0.5;
-    let ball = new Ball(x, y, 0, 0, random_color(), r);
-    balls.push(ball);
-}
-
 const setting = document.getElementById("setting-icon");
 const set_menu = document.getElementById("user-settings");
 setting.onclick = function () {
-    set_menu.style.display = set_menu.style.display == "block" ? "none" : "block";
+    if (set_menu.style.display == "block") {
+        set_menu.style.display = "none";
+        executable = true;
+    }
+    else {
+        set_menu.style.display = "block";
+        executable = false;
+        canvas.onclick = function () {
+            set_menu.style.display = "none";
+            executable = true;
+        }
+    }
+    document.getElementById("min_r").placeholder = min_r;
+    document.getElementById("max_r").placeholder = max_r;
+    document.getElementById("max_vx").placeholder = max_vx;
+    document.getElementById("max_vy").placeholder = max_vy;
     document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni;
     document.getElementById("val_mu").value = document.getElementById("mu_floor").value = mu_floor;
     document.getElementById("val_loss").value = document.getElementById("recov_loss").value = recov_loss;
@@ -123,14 +112,14 @@ document.getElementById("save_set").onclick = () => {
     if (user_min_r || user_max_r) {
         if (max_r - min_r > cnt / 5) {
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].radius = random_int(min_r, max_r);
-                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+                balls[i].radius = random_int(min_r, max_r);
+                balls[i].mess = rou * balls[i].radius ** 3;
             }
         }
         else
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].radius = random(min_r, max_r);
-                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+                balls[i].radius = random(min_r, max_r);
+                balls[i].mess = rou * balls[i].radius ** 3;
             }
         CheckSize();
     }
@@ -145,8 +134,8 @@ document.getElementById("save_set").onclick = () => {
     }
     if (user_max_vx || user_max_vy) {
         for (var i = 0; i < cnt; i++) {
-            balls_valumn[i].vx = random(-max_vx, max_vx);
-            balls_valumn[i].vy = random(-max_vy, max_vy);
+            balls[i].vx = random(-max_vx, max_vx);
+            balls[i].vy = random(-max_vy, max_vy);
         }
     }
     g_uni = Number(user_g);
@@ -155,7 +144,6 @@ document.getElementById("save_set").onclick = () => {
     recovery = energy_loss ? 1 : recov_loss;
     default_gy = Number(user_gy) / 24.5;
     bg_color = user_color;
-    console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
     document.getElementById("min_r").value = '';
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';

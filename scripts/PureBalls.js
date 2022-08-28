@@ -1,5 +1,55 @@
 //Last changed 2022-8-24 20:12
 let balls = [];
+let x0 = -1;
+let y0 = -1;
+let n_color = "";
+let n_r = 0;
+let sleep = false;
+let executable = true;
+function MousedownHandler(ev) {
+    if (executable) {
+        x0 = ev.layerX;
+        y0 = ev.layerY;
+        if (ChooseBall({ x0, y0 })) {
+            canvas.onmousemove = MoveBall;
+        }
+        else {
+            n_color = random_color();
+            canvas.onmousemove = ShapeBall;
+        }
+    }
+    else {
+        canvas.onmousemove = canvas.onmouseup = null;
+    }
+}
+
+function ShapeBall(ev) {
+    sleep = true;
+    n_r = ((ev.layerX - x0) ** 2 + (ev.layerY - y0) ** 2) ** 0.5;
+    n_r = n_r < min_r ? min_r : (n_r > max_r ? max_r : n_r);
+    requestAnimationFrame(() => {
+        ctx.fillStyle = hex2rgba(bg_color, 1);
+        ctx.fillRect(0, 0, width, height);
+        for (var i = 0; i < cnt; i++) {
+            balls[i].draw();
+        }
+        ctx.beginPath();
+        ctx.fillStyle = n_color;
+        ctx.arc(x0, y0, n_r, 0, 2 * Math.PI);
+        ctx.fill();
+    });
+    canvas.onmouseup = function () {
+        let n_ball = new Ball(x0, y0, 0, 0, n_color, n_r);
+        balls.push(n_ball);
+        chosed = balls.length;
+        sleep = false;
+        x0 = y0 = -1;
+        canvas.onmousemove = null;
+    };
+}
+
+
+
 function ChooseBall({ x, y }) {
     for (var j = 0; j < cnt; j++) {
         if (balls[j].isInsideMe(x, y)) {
@@ -12,7 +62,6 @@ function ChooseBall({ x, y }) {
 }
 
 function MoveBall(ev) {
-    ev.preventDefault();
     let x_pro = ev.layerX;
     let y_pro = ev.layerY;
     let maxX = width - balls[chosed].radius;
@@ -35,14 +84,13 @@ function MoveBall(ev) {
     balls[chosed].vx = x_pro - balls[chosed].last_x;
     balls[chosed].vy = y_pro - balls[chosed].last_y;
 
-    document.onmouseup = ReleaseBall;
-    document.addEventListener("ontouchend", ReleaseBall, { passive: false });
-    document.addEventListener("ontouchcancel", ReleaseBall, { passive: false });
+    canvas.onmouseup = ReleaseBall;
+    canvas.ontouchend = ReleaseBall;
 };
 
 function ReleaseBall() {
-    document.onmousemove = "";
-    document.ontouchmove = "";
+    canvas.onmousemove = null;
+    canvas.ontouchmove = null;
     chosed = cnt;
 };
 
@@ -93,7 +141,7 @@ function DeviceMove(ev) {
 }
 
 function DeviceRotate(ev) {
-    console.log("rotate: " + ev.gamma);
+    // console.log("rotate: " + ev.gamma);
 }
 
 function GetAmount() {
@@ -145,25 +193,27 @@ function DrawRect() {
     ctx.fillRect(0, 0, width, height);
 }
 
-document.addEventListener("onmousedown", MousedownHandler);
-document.addEventListener("ontouchstart", MousedownHandler);
+canvas.onmousedown = MousedownHandler;
+canvas.ontouchstart = MousedownHandler;
 
-NewBalls(20);
+NewBalls(1);
 let chosed = balls.length;
 let counter = 0;
 function movingLoop() {
-    DrawRect();
-    for (var i = 0; i < cnt; i++) {
-        balls[i].collideWith(i);
-    }
-    for (var i = 0; i < cnt; i++) {
-        balls[i].gravAround(i);
-    }
-    for (var i = 0; i < cnt; i++) {
-        balls[i].rebound();
-        balls[i].update();
-        balls[i].draw();
-        balls[i].ax = balls[i].ay = 0;
+    if (!sleep) {
+        DrawRect();
+        for (var i = 0; i < cnt; i++) {
+            balls[i].collideWith(i);
+        }
+        for (var i = 0; i < cnt; i++) {
+            balls[i].gravAround(i);
+        }
+        for (var i = 0; i < cnt; i++) {
+            balls[i].rebound();
+            balls[i].update();
+            balls[i].draw();
+            balls[i].ax = balls[i].ay = 0;
+        }
     }
     requestAnimationFrame(movingLoop);
     if (counter == 10) {
