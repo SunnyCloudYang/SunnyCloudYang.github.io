@@ -16,6 +16,7 @@ function MousedownHandler(ev) {
         else {
             n_color = random_color();
             canvas.onmousemove = canvas.ontouchmove = ShapeBall;
+            ev.pageX ? canvas.ontouchmove = null : canvas.onmousemove = null;
         }
     }
     else {
@@ -48,6 +49,7 @@ function ShapeBall(ev) {
         x0 = y0 = -1;
         canvas.onmousemove = canvas.ontouchmove = null;
     };
+    ev.pageX ? canvas.ontouchend = null : canvas.onmouseup = null;
 }
 
 
@@ -92,13 +94,12 @@ function MoveBall(ev) {
     last_x = x_pro;
     last_y = y_pro;
 
-    canvas.onmouseup = ReleaseBall;
-    canvas.ontouchend = ReleaseBall;
+    canvas.onmouseup = canvas.ontouchend = ReleaseBall;
+    ev.pageX ? canvas.ontouchend = null : canvas.onmouseup = null;
 };
 
 function ReleaseBall() {
-    canvas.onmousemove = null;
-    canvas.ontouchmove = null;
+    canvas.onmousemove = canvas.ontouchmove = null;
     chosed = cnt;
 };
 
