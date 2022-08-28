@@ -15,7 +15,7 @@ function MousedownHandler(ev) {
         }
         else {
             n_color = random_color();
-            canvas.onmousemove = ShapeBall;
+            canvas.onmousemove = canvas.ontouchmove = ShapeBall;
         }
     }
     else {
@@ -38,13 +38,13 @@ function ShapeBall(ev) {
         ctx.arc(x0, y0, n_r, 0, 2 * Math.PI);
         ctx.fill();
     });
-    canvas.onmouseup = function () {
+    canvas.onmouseup = canvas.ontouchend = function () {
         let n_ball = new Ball(x0, y0, 0, 0, n_color, n_r);
         balls.push(n_ball);
         chosed = balls.length;
         sleep = false;
         x0 = y0 = -1;
-        canvas.onmousemove = null;
+        canvas.onmousemove = canvas.ontouchmove = null;
     };
 }
 
@@ -196,7 +196,7 @@ function DrawRect() {
 canvas.onmousedown = MousedownHandler;
 canvas.ontouchstart = MousedownHandler;
 
-NewBalls(1);
+NewBalls(50);
 let chosed = balls.length;
 let counter = 0;
 function movingLoop() {

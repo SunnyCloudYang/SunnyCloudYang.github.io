@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "impact";
+    src: url("../font/impact.woff") format("woff");
+}
+
 body {
     background-color: rgb(20, 20, 40);
     margin: 0px;
@@ -65,7 +70,7 @@ p:hover {
     display: none;
     position: absolute;
     right: 0px;
-    width: 256px;
+    width: 264px;
     height: 100%;
     border-radius: 50px 0px 0px 50px;
     text-align: center;
