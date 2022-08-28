@@ -6,6 +6,7 @@ let n_color = "";
 let n_r = 0;
 let sleep = false;
 let executable = true;
+
 function MousedownHandler(ev) {
     if (executable) {
         x0 = ev.pageX || ev.touches[0].pageX;
@@ -15,8 +16,8 @@ function MousedownHandler(ev) {
         }
         else {
             n_color = random_color();
-            canvas.onmousemove = canvas.ontouchmove = ShapeBall;
-            ev.pageX ? canvas.ontouchmove = null : canvas.onmousemove = null;
+            canvas.onmousemove = canvas.ontouchmove = null;
+            ev.pageX ? canvas.onmousemove = ShapeBall : canvas.ontouchmove = ShapeBall;
         }
     }
     else {
@@ -41,7 +42,9 @@ function ShapeBall(ev) {
         ctx.arc(x0, y0, n_r, 0, 2 * Math.PI);
         ctx.fill();
     });
-    canvas.onmouseup = canvas.ontouchend = function () {
+    canvas.onmouseup = canvas.ontouchend = null;
+    ev.pageX ? canvas.onmouseup = CreateBall : canvas.ontouchend = CreateBall;
+    function CreateBall() {
         let n_ball = new Ball(x0, y0, 0, 0, n_color, n_r);
         balls.push(n_ball);
         chosed = balls.length;
@@ -49,10 +52,7 @@ function ShapeBall(ev) {
         x0 = y0 = -1;
         canvas.onmousemove = canvas.ontouchmove = null;
     };
-    ev.pageX ? canvas.ontouchend = null : canvas.onmouseup = null;
 }
-
-
 
 function ChooseBall({ x, y }) {
     for (var j = 0; j < cnt; j++) {
@@ -94,8 +94,8 @@ function MoveBall(ev) {
     last_x = x_pro;
     last_y = y_pro;
 
-    canvas.onmouseup = canvas.ontouchend = ReleaseBall;
-    ev.pageX ? canvas.ontouchend = null : canvas.onmouseup = null;
+    canvas.onmousemove = canvas.ontouchmove = null;
+    ev.pageX ? canvas.onmouseup = ReleaseBall : canvas.ontouchend = ReleaseBall;
 };
 
 function ReleaseBall() {

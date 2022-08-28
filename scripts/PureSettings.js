@@ -59,7 +59,6 @@ const setting = document.getElementById("setting-icon");
 const set_menu = document.getElementById("user-settings");
 setting.onclick = Menu;
 document.onkeydown = function (ev) {
-    console.log(ev.key);
     if (ev.key === "Control") {
         Menu();
     }
