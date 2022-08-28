@@ -8,9 +8,8 @@ let sleep = false;
 let executable = true;
 function MousedownHandler(ev) {
     if (executable) {
-        x0 = ev.pageX;
-        y0 = ev.pageY;
-        console.log(ev.layerX, ev.pageX, ev.clientX, ev.x);
+        x0 = ev.pageX || ev.touches[0].pageX;
+        y0 = ev.pageY || ev.touches[0].pageY;
         if (ChooseBall({ x0, y0 })) {
             canvas.onmousemove = MoveBall;
         }
@@ -25,10 +24,11 @@ function MousedownHandler(ev) {
 }
 
 function ShapeBall(ev) {
+    let x = ev.pageX || ev.touches[0].pageX;
+    let y = ev.pageY || ev.touches[0].pageY;
     sleep = true;
-    n_r = ((ev.pageX - x0) ** 2 + (ev.pageY - y0) ** 2) ** 0.5;
+    n_r = ((x - x0) ** 2 + (y - y0) ** 2) ** 0.5;
     n_r = !n_r || n_r < min_r ? min_r : (n_r > max_r ? max_r : n_r);
-    console.log(x0, y0, ev.pageX, ev.pageY, !n_r);
     requestAnimationFrame(() => {
         ctx.fillStyle = hex2rgba(bg_color, 1);
         ctx.fillRect(0, 0, width, height);
@@ -47,7 +47,6 @@ function ShapeBall(ev) {
         sleep = false;
         x0 = y0 = -1;
         canvas.onmousemove = canvas.ontouchmove = null;
-        console.log("Create");
     };
 }
 
@@ -68,8 +67,8 @@ function ChooseBall({ x, y }) {
 let last_x = 0;
 let last_y = 0;
 function MoveBall(ev) {
-    x_pro = ev.pageX;
-    y_pro = ev.pageY;
+    x_pro = ev.pageX || ev.touches[0].pageX;
+    y_pro = ev.pageY || ev.touches[0].pageY;
     let maxX = width - balls[chosed].radius;
     let maxY = height - balls[chosed].radius;
     if (x_pro < balls[chosed].radius) {
