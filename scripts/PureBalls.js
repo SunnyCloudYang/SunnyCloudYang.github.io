@@ -1,7 +1,7 @@
 //Last changed 2022-8-24 20:12
 let balls = [];
-let x0 = -1;
-let y0 = -1;
+let x0 = width / 2;
+let y0 = height / 2;
 let n_color = "";
 let n_r = 0;
 let sleep = false;
