@@ -1,7 +1,7 @@
 @font-face {
     font-family: "impact";
-    src: url("../font/impact.ttf") format("truetype"),
-        url("../font/impact.woff") format("woff");
+    src: url("../font/impact.woff") format("woff");
+    /* url("../font/impact.ttf") format("truetype"); */
 }
 
 #start {
