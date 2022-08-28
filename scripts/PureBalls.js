@@ -27,8 +27,8 @@ function MousedownHandler(ev) {
 function ShapeBall(ev) {
     sleep = true;
     n_r = ((ev.pageX - x0) ** 2 + (ev.pageY - y0) ** 2) ** 0.5;
-    n_r = n_r < min_r ? min_r : (n_r > max_r ? max_r : n_r);
-    console.log(x0, y0, ev.pageX, ev.pageY, n_r);
+    n_r = !n_r || n_r < min_r ? min_r : (n_r > max_r ? max_r : n_r);
+    console.log(x0, y0, ev.pageX, ev.pageY, !n_r);
     requestAnimationFrame(() => {
         ctx.fillStyle = hex2rgba(bg_color, 1);
         ctx.fillRect(0, 0, width, height);
