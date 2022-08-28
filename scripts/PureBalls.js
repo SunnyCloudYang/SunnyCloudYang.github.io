@@ -8,8 +8,9 @@ let sleep = false;
 let executable = true;
 function MousedownHandler(ev) {
     if (executable) {
-        x0 = ev.layerX;
-        y0 = ev.layerY;
+        x0 = ev.pageX;
+        y0 = ev.pageY;
+        console.log(ev.layerX, ev.pageX, ev.clientX, ev.x);
         if (ChooseBall({ x0, y0 })) {
             canvas.onmousemove = MoveBall;
         }
@@ -25,9 +26,9 @@ function MousedownHandler(ev) {
 
 function ShapeBall(ev) {
     sleep = true;
-    n_r = ((ev.layerX - x0) ** 2 + (ev.layerY - y0) ** 2) ** 0.5;
+    n_r = ((ev.pageX - x0) ** 2 + (ev.pageY - y0) ** 2) ** 0.5;
     n_r = n_r < min_r ? min_r : (n_r > max_r ? max_r : n_r);
-    console.log(x0, y0, ev.layerX, ev.layerY, n_r);
+    console.log(x0, y0, ev.pageX, ev.pageY, n_r);
     requestAnimationFrame(() => {
         ctx.fillStyle = hex2rgba(bg_color, 1);
         ctx.fillRect(0, 0, width, height);

@@ -4,15 +4,15 @@ let cnt_of_balls_now = document.getElementById("cnt");
 let width = canvas.width = window.innerWidth - 1;
 let height = canvas.height = window.innerHeight - 1;
 
-let min_r = 7;
-let max_r = 20;
+let min_r = 8;
+let max_r = 15;
 let max_vx = 3;
 let max_vy = 3;
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;
 
-let default_gy = 0.4;                 //acceleration of gravity
+let default_gy = 0.4;                   //acceleration of gravity
 let g_uni = 0.473;                      //the gravitational constant
 let mu_floor = 0.03;                    //friction coefficient of the floor
 let gx = 0;
