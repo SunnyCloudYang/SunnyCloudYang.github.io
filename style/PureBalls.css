@@ -59,7 +59,6 @@ p:hover {
     scale: 1.2;
     animation-name: rotateZ;
     animation-duration: 1s;
-    animation-iteration-count: infinite;
 }
 @keyframes rotateZ {
     0% { transform: rotateZ(0deg); }
