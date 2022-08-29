@@ -23,7 +23,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: #000;
-    filter: blur(10px) contrast(20);
+    filter: blur(7px) contrast(10);
     z-index: 99;
 }
 
@@ -37,7 +37,7 @@
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, 0%);
-    margin-bottom: -75px;
+    margin-bottom: -96px;
     z-index: 99;
 }
 .blob-1,
@@ -54,40 +54,77 @@
 
 .blob-1 {
     left: 40%;
-    animation: osc-l 2s ease infinite;
+    animation: osc-l 3s ease infinite, scale-l 3s linear infinite;
 }
 
 .blob-2 {
     left: 60%;
-    animation: osc-r 2s ease infinite;
+    animation: osc-r 3s ease infinite, scale-r 3s linear infinite;
     background: #0ff;
 }
 
 @keyframes osc-l {
     0% {
-        left: 40%;
+        left: 42%;
     }
-
     50% {
-        left: 50%;
+        left: 58%;
     }
-
     100% {
-        left: 40%;
+        left: 42%;
     }
 }
-
+@keyframes scale-l {
+    0% {
+        scale: 1;
+        z-index: 99;
+    }
+    20% {
+        scale: 0.8;
+    }
+    50% {
+        scale: 1;
+    }
+    70% {
+        scale: 1.1;
+    }
+    100% {
+        scale: 1;
+        z-index: 100;
+    }
+}
 @keyframes osc-r {
     0% {
-        left: 60%;
+        left: 58%;
+    }
+    50% {
+        left: 42%;
+    }
+    100% {
+        left: 58%;
+    }
+}
+@keyframes scale-r {
+    0% {
+        scale: 1;
+        z-index: 100;
+    }
+
+    20% {
+        scale: 1.1;
     }
 
     50% {
-        left: 50%;
+        scale: 1;
+    }
+
+    70% {
+        scale: 0.8;
     }
 
     100% {
-        left: 60%;
+        scale: 1;
+        z-index: 99;
     }
 }
 

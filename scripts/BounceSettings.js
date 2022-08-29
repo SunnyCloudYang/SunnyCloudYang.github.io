@@ -36,14 +36,6 @@ let night_color = "#2a273c";
 let day_color = "#feffe6";
 let bg_color = night_mode ? night_color : day_color;
 
-function LoadEnd() {
-    if (document.readyState == "complete") {
-        document.getElementById("loading").setAttribute("style", "display:none");
-        document.getElementsByClassName("load")[0].setAttribute("style", "display:none");
-        clearInterval(CheckLoad);
-    }
-}
-
 const title = document.getElementById("start");
 title.onclick = () => {
     alert("Welcome to Version 1.3.5 with ground pointing, double click 'Gravity' to dis/enable ground pointing in gravity mode.");
@@ -184,6 +176,14 @@ setTimeout(() => {
         LoadEnd();
     }, 500);
 }, 1500);
+
+function LoadEnd() {
+    if (document.readyState == "complete") {
+        document.getElementById("loading").setAttribute("style", "display:none");
+        document.getElementsByClassName("load")[0].setAttribute("style", "display:none");
+        clearInterval(CheckLoad);
+    }
+}
 
 function CheckSize() {
     const input_num = document.getElementById("number");
