@@ -6,6 +6,7 @@
 body {
     background-color: rgb(20, 20, 40);
     margin: 0px;
+    overflow: hidden;
 }
 
 canvas {
@@ -66,9 +67,9 @@ p:hover {
 }
 
 #user-settings {
-    display: none;
+    display: block;
     position: absolute;
-    right: 0px;
+    right: -264px;
     width: 264px;
     height: 100%;
     border-radius: 50px 0px 0px 50px;
@@ -77,6 +78,7 @@ p:hover {
     color: rgb(171, 171, 171);
     background-color: rgba(20, 20, 40, 0.5);
     backdrop-filter: blur(10px);
+    transition: 0.7s ease;
     z-index: 8;
 }
 .input-num {
@@ -94,9 +96,9 @@ p:hover {
     border-radius: 4px;
 }
 
-#grav_c, #mu_c, #recov_c, #gy_c {
+#grav_c, #mu_c, #recov_c, #gy_c, #bg_color{
     text-align: left;
-    margin-left: 36px;
+    margin-left: 32px;
 }
 input[type=range] {
     -webkit-appearance: none;

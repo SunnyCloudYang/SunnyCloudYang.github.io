@@ -65,15 +65,15 @@ document.onkeydown = function (ev) {
 }
 
 function Menu() {
-    if (set_menu.style.display == "block") {
-        set_menu.style.display = "none";
+    if (set_menu.style.right == "0px") {
+        set_menu.style.right = "-264px";
         executable = true;
     }
     else {
-        set_menu.style.display = "block";
+        set_menu.style.right = "0px";
         executable = false;
         canvas.onclick = function () {
-            set_menu.style.display = "none";
+            set_menu.style.right = "-264px";
             executable = true;
         }
     }
@@ -155,7 +155,7 @@ document.getElementById("save_set").onclick = () => {
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
-    set_menu.style.display = "none";
+    set_menu.style.right = "-264px";
 }
 
 document.getElementById("cancel_set").onclick = () => {
@@ -163,5 +163,5 @@ document.getElementById("cancel_set").onclick = () => {
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
-    set_menu.style.display = "none";
+    set_menu.style.right = "-264px";
 }

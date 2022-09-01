@@ -129,8 +129,8 @@ function DeviceMove(ev) {
         let ax = accl.x;
         let ay = accl.y;
         if (ax != null && ay != null) {
-            ax = (Math.abs(ax) < 2 ? 0 : Math.abs(ax) > 20 ? (ax / Math.abs(ax)) * 20 : ax);
-            ay = (Math.abs(ay) < 2 ? 0 : Math.abs(ay) > 20 ? (ay / Math.abs(ay)) * 20 : ay);
+            ax = Math.abs(ax) > 20 ? (ax / Math.abs(ax)) * 20 : ax;
+            ay = Math.abs(ay) > 20 ? (ay / Math.abs(ay)) * 20 : ay;
             for (var i = 0; i < cnt; i++) {
                 balls[i].ax -= ax / 4;
                 balls[i].ay += ay / 4;

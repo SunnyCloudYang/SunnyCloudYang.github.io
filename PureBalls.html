@@ -29,21 +29,22 @@
         </p>
         <p class="input-num">Max speed in y : <input class="user-input" type="number" id="max_vy" min="0" max="6"/>
         </p>
-        <p id="grav_c">Gravitation Const: <output id="val_g"></output><br>
+        <p id="grav_c">Gravitation Const : <output id="val_g"></output><br>
             <input type="range" id="g_const" min="0.001" max="0.999" step="0.001" oninput="val_g.value=this.value;" />
         </p>
         <p id="mu_c">Friction Factor : <output id="val_mu"></output><br>
             <input type="range" id="mu_floor" min="0.01" max="0.09" step="0.01" oninput="val_mu.value=this.value;" />
         </p>
-        <p id="recov_c">Restitution Factor: <output id="val_loss"></output><br>
+        <p id="recov_c">Restitution Factor : <output id="val_loss"></output><br>
             <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05"
                 oninput="val_loss.value=this.value;" />
         </p>
-        <p id="gy_c">g on the Earth: <output id="val_gy"></output>
+        <p id="gy_c">g on the Earth : <output id="val_gy"></output>
             <br><input type="range" id="default_gy" min="4.9" max="14.7" step="0.1"
                 oninput="val_gy.value=this.value;" />
         </p>
-        <p id="bg_color">Background color: &nbsp;<input type="color" id="color" /></p>
+        <p id="bg_color">Background color : &nbsp;<input type="color" id="color" /></p>
+        
         <button id="save_set">Save</button>
         <button id="cancel_set">Cancel</button>
     </div>
