@@ -68,7 +68,8 @@ p:hover {
 
 #user-settings {
     display: block;
-    position: absolute;
+    position: fixed;
+    top: 0px;
     right: -264px;
     width: 264px;
     height: 100%;
