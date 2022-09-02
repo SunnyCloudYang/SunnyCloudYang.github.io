@@ -21,6 +21,7 @@ title: Toys of SunnyCloudYang
 4. 双击打开[html文件](./BounceBalls.html)，传送进入小球宇宙；
 5. **\>\>\>[传送门->进入球宇宙](./BounceBalls.html)\<\<\<** Enjoy and endure the balls!
 6. 纯享版[在这里内测](./PureBalls.html)还没写完
+7. [new page1](./index-test.html), [new page2](./test.html)
 
 ## 使用说明（请认真阅读！）
 
