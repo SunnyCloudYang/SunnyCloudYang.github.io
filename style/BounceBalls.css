@@ -188,7 +188,7 @@ body {
     margin: 6.2px 7px;
     width: 9px;
     height: 6px;
-    border: #88a solid 2.5px;
+    border: #889 solid 2.5px;
     border-bottom: 0px;
     border-radius: 8px 8px 2px 2px;
     transition: 0.5s;
@@ -203,7 +203,7 @@ body {
     margin: 5px;
     width: 4px;
     height: 2px;
-    border: #88a solid 7.2px;
+    border: #889 solid 7.2px;
     border-radius: 5px;
     z-index: 9;
 }
