@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "impact";
+    src: url(../../font/impact.woff) format("woff");
+}
+
+body {
+    font-family: sans-serif;
+}

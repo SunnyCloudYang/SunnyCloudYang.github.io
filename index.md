@@ -1,3 +1,6 @@
+---
+title: Toys of SunnyCloudYang
+---
 # [Bounce Balls - 帮宝逝海洋球](./BounceBalls.html)
 
 ## 介绍
@@ -17,7 +20,7 @@
 3. 其实现在不下载html文件也可以，只要在**看完之后**[点这里](./BounceBalls.html)；
 4. 双击打开[html文件](./BounceBalls.html)，传送进入小球宇宙；
 5. **\>\>\>[传送门->进入球宇宙](./BounceBalls.html)\<\<\<** Enjoy and endure the balls!
-6. 纯享版 <del>[在这里内测](./PureBalls.html)</del> 还没写完
+6. 纯享版[在这里内测](./PureBalls.html)还没写完
 
 ## 使用说明（请认真阅读！）
 
