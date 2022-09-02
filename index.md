@@ -40,7 +40,7 @@ title: Toys of SunnyCloudYang
 8. 如果你觉得有时候碰撞过程不河里，<del>emmm，其实我也这么觉得</del> 现在恒河里，不用怀疑；
 9. PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆；
 10. 超高校级隐藏操作：
-    * 打开控制台，balls_valumn\[i\]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls_valumn\[0\].mess = 114514;）<del>一般人我都不告诉的</del>
+    * 打开控制台，balls\[i\]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. `balls[0].mess = 114514;`）<del>一般人我都不告诉的</del>
 
 ## 建议
 
