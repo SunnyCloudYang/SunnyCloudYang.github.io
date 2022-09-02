@@ -1,5 +1,5 @@
-theme: 
-  name: jekyll-theme-merlot
-  language: zh
+theme: jekyll-theme-merlot
+  # name: jekyll-theme-merlot
+  # language: zh
 title: Toys of SunnyCloudYang
-show_downloads: true
+# show_downloads: true

@@ -168,6 +168,46 @@ body {
     margin-bottom: 2px;
 }
 
+#lock {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 2px;
+    width: 28px;
+    height: 34px;
+    opacity: 10%;
+    transition: 0.2s;
+}
+#lock:hover {
+    opacity: 80%;
+}
+#lock-1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 6.2px 7px;
+    width: 9px;
+    height: 6px;
+    border: #88a solid 2.5px;
+    border-bottom: 0px;
+    border-radius: 8px 8px 2px 2px;
+    transition: 0.5s;
+    transform: rotate(-30deg);
+    transform-origin: left bottom;
+    z-index: 9;
+}
+#lock-2 {
+    position: absolute;
+    top: 9px;
+    right: 0px;
+    margin: 5px;
+    width: 4px;
+    height: 2px;
+    border: #88a solid 7.2px;
+    border-radius: 5px;
+    z-index: 9;
+}
+
 button {
     border-radius: 5px;
     border: 1px solid rgb(183, 183, 183);

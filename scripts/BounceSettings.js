@@ -38,9 +38,9 @@ let bg_color = night_mode ? night_color : day_color;
 
 const title = document.getElementById("start");
 title.onclick = () => {
-    alert("Welcome to Version 1.3.5 with ground pointing, double click 'Gravity' to dis/enable ground pointing in gravity mode.");
+    alert("Welcome to Version 1.3.6 with scroll lock, you can stop the page from scrolling by click lock icon on the top right corner.");
 };
-console.log("Welcome to Version 1.3.5 with ground pointing mode. Rotate your phone and open gravity mode to see the changes.");
+console.log("Welcome to Version 1.3.6 with scroll lock.");
 
 const day_btn = document.getElementById("day_mode");
 const night_btn = document.getElementById("night_mode");
@@ -315,4 +315,10 @@ document.getElementById("cancel_set").onclick = () => {
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
     set_menu.style.display = "none";
+}
+
+let lock = document.getElementById("lock");
+lock.onclick = function () {
+    document.body.style.overflow = document.body.style.overflow == "hidden" ? "auto" : "hidden";
+    document.getElementById("lock-1").style.transform = document.getElementById("lock-1").style.transform == "rotate(0deg)" ? "rotate(-30deg)" : "rotate(0deg)";
 }
