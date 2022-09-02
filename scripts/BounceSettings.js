@@ -223,7 +223,7 @@ function CheckMotion() {
 }
 
 function getEventPosition(ev) {
-    return { x: ev.layerX, y: ev.layerY };
+    return { x: ev.layerX || ev.touches[0].pageX, y: ev.layerY || ev.touches[0].pageY };
 } //choose
 
 cust_btn.onclick = UserDef;
@@ -252,7 +252,7 @@ document.getElementById("save_set").onclick = () => {
         user_min_r <=
         max_r) {
         min_r = Number(user_min_r);
-        console.log("Read min r: " + min_r);
+        console.log("Set min r: " + min_r);
     }
     else if (user_min_r) {
         alert("Invalid min radius! Must be no bigger than " + max_r);
@@ -261,7 +261,7 @@ document.getElementById("save_set").onclick = () => {
         user_max_r >=
         min_r) {
         max_r = Number(user_max_r);
-        console.log("Read max r: " + max_r);
+        console.log("Set max r: " + max_r);
     }
     else if (user_max_r) {
         alert("Invalid max radius! Must be no less than " + min_r);
@@ -269,30 +269,30 @@ document.getElementById("save_set").onclick = () => {
     if (user_min_r || user_max_r) {
         if (max_r - min_r > cnt / 5) {
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].radius = random_int(min_r, max_r);
-                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+                balls[i].radius = random_int(min_r, max_r);
+                balls[i].mess = rou * balls[i].radius ** 3;
             }
         }
         else
             for (var i = 0; i < cnt; i++) {
-                balls_valumn[i].radius = random(min_r, max_r);
-                balls_valumn[i].mess = rou * balls_valumn[i].radius ** 3;
+                balls[i].radius = random(min_r, max_r);
+                balls[i].mess = rou * balls[i].radius ** 3;
             }
         CheckSize();
     }
 
     if (user_max_vx) {
         max_vx = Number(user_max_vx);
-        console.log("Read max vx: " + max_vx);
+        console.log("Set max vx: " + max_vx);
     }
     if (user_max_vy) {
         max_vy = Number(user_max_vy);
-        console.log("Read max vy: " + max_vy);
+        console.log("Set max vy: " + max_vy);
     }
     if (user_max_vx || user_max_vy) {
         for (var i = 0; i < cnt; i++) {
-            balls_valumn[i].vx = random(-max_vx, max_vx);
-            balls_valumn[i].vy = random(-max_vy, max_vy);
+            balls[i].vx = random(-max_vx, max_vx);
+            balls[i].vy = random(-max_vy, max_vy);
         }
     }
     g_uni = Number(user_g);
@@ -301,7 +301,6 @@ document.getElementById("save_set").onclick = () => {
     recovery = energy_loss ? 1 : recov_loss;
     default_gy = Number(user_gy);
     day_mode ? day_color = user_color : night_color = user_color;
-    console.log("Current settings: ", min_r, max_r, max_vx, max_vy, g_uni, bg_color);
     document.getElementById("min_r").value = '';
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';

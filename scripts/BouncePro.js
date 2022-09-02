@@ -18,8 +18,8 @@ function ChooseBall(ev) {
 
 function MoveBall(ev) {
     ev.preventDefault();
-    let x_pro = ev.layerX;
-    let y_pro = ev.layerY;
+    let x_pro = ev.layerX || ev.touches[0].pageX;
+    let y_pro = ev.layerY || ev.touches[0].pageY;
     let maxX = width - balls[chosed].radius;
     let maxY = height - balls[chosed].radius;
     if (x_pro < balls[chosed].radius) {
