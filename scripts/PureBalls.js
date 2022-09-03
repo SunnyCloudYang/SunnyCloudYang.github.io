@@ -11,12 +11,22 @@ function MousedownHandler(ev) {
     if (executable) {
         x0 = ev.pageX || ev.touches[0].pageX;
         y0 = ev.pageY || ev.touches[0].pageY;
-        if (ChooseBall({ x0, y0 })) {
-            canvas.onmousemove = MoveBall;
+        for (var j = 0; j < cnt; j++) {
+            if (balls[j].isInsideMe(x0, y0)) {
+                balls[j].vx = 0;
+                balls[j].vy = 0;
+                chosed = j;
+                break;
+            }
+        }
+        canvas.onmousemove = canvas.ontouchmove = null;
+        if (chosed < cnt) {
+            last_x = x0;
+            last_y = y0;
+            ev.pageX ? canvas.onmousemove = MoveBall : canvas.ontouchmove = MoveBall;
         }
         else {
             n_color = random_color();
-            canvas.onmousemove = canvas.ontouchmove = null;
             ev.pageX ? canvas.onmousemove = ShapeBall : canvas.ontouchmove = ShapeBall;
         }
     }
@@ -54,20 +64,8 @@ function ShapeBall(ev) {
     };
 }
 
-function ChooseBall({ x, y }) {
-    for (var j = 0; j < cnt; j++) {
-        if (balls[j].isInsideMe(x, y)) {
-            balls[j].vx = 0;
-            balls[j].vy = 0;
-            chosed = j;
-        }
-    }
-    return chosed < cnt;
-}
-
-
-let last_x = 0;
-let last_y = 0;
+let x_pro = 0;
+let y_pro = 0;
 function MoveBall(ev) {
     x_pro = ev.pageX || ev.touches[0].pageX;
     y_pro = ev.pageY || ev.touches[0].pageY;
@@ -88,13 +86,11 @@ function MoveBall(ev) {
 
     balls[chosed].x = x_pro;
     balls[chosed].y = y_pro;
-    balls[chosed].vx = x_pro - last_x;
-    balls[chosed].vy = y_pro - last_y;
-    console.log(last_x, x_pro);
-    last_x = x_pro;
-    last_y = y_pro;
-
-    canvas.onmousemove = canvas.ontouchmove = null;
+    balls[chosed].vx = x_pro - balls[chosed].last_x;
+    balls[chosed].vy = y_pro - balls[chosed].last_y;
+    balls[chosed].last_x = x_pro;
+    balls[chosed].last_y = y_pro;
+    canvas.onmouseup = canvas.ontouchend = null
     ev.pageX ? canvas.onmouseup = ReleaseBall : canvas.ontouchend = ReleaseBall;
 };
 
@@ -198,16 +194,17 @@ function NewBalls(amount) {
 }
 
 function DrawRect() {
-    ctx.fillStyle = hex2rgba(bg_color, fuzzy);
+    ctx.fillStyle = hex2rgba(bg_color, 1 - fuzzy);
     ctx.fillRect(0, 0, width, height);
 }
 
 canvas.onmousedown = MousedownHandler;
 canvas.ontouchstart = MousedownHandler;
 
-NewBalls(50);
+NewBalls(number_of_balls);
 let chosed = balls.length;
 let counter = 0;
+let p = 0;
 function movingLoop() {
     if (!sleep) {
         DrawRect();
@@ -229,6 +226,10 @@ function movingLoop() {
         cnt_of_balls_now.innerHTML = "Current balls: "
             + SumOfBalls();
         counter = 0;
+        p = 0;
+        for (var i = 0; i < balls.length; i++) {
+            p += balls[i].mess * (balls[i].vx ** 2 + balls[i].vy ** 2);
+        }
     }
     counter++;
 }

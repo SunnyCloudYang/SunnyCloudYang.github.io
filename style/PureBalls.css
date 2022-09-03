@@ -16,29 +16,36 @@ canvas {
 p {
     font-family: "impact";
     font-size: large;
+    color: #eee;
     letter-spacing: 0.5px;
-    color: rgb(252, 252, 252);
     cursor: pointer;
     opacity: 70%;
     transition: 0.2s;
 }
 p:hover {
-    opacity: 100%;
+    opacity: 90%;
+    background-color: rgba(80, 80, 100, 0.45);
     font-size: larger;
 }
 
 #cnt {
     display: inline-block;
     position: absolute;
-    margin: 4px 8px;
+    padding: 0px 6px;
+    margin: 6px;
+    border-radius: 8px;
     font-size: large;
-    opacity: 20%;
+    color: #888;
+    opacity: 25%;
     transition: 0.15s;
     cursor: pointer;
 }
 #cnt:hover {
-    opacity: 70%;
+    opacity: 90%;
     font-size: larger;
+    color: #eee;
+    background-color: rgba(80, 80, 100, 0.25);
+    filter: drop-shadow(0px 0px 1.5px #666);
 }
 
 #setting-icon {
@@ -48,22 +55,26 @@ p:hover {
     right: 0px;
     width: 22px;
     height: 22px;
-    margin: 8px;
-    opacity: 20%;
+    border-radius: 50%;
+    margin: 6px;
+    filter: brightness(80%);
+    opacity: 40%;
     cursor: pointer;
     transition: 0.2s;
-    transition-delay: 0.15s;
     z-index: 9;
 }
 #setting-icon:hover {
-    opacity: 80%;
-    scale: 1.2;
+    opacity: 90%;
+    scale: 1.1;
+    padding: 4px;
+    filter: brightness(95%) drop-shadow(0px 0px 1.5px #666);
+    background-color: rgba(60, 60, 80, 0.5);
     animation-name: rotateZ;
-    animation-duration: 1s;
+    animation-duration: 1.5s;
 }
 @keyframes rotateZ {
     0% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(180deg); }
+    100% { transform: rotateZ(360deg); }
 }
 
 #user-settings {
@@ -84,24 +95,39 @@ p:hover {
     z-index: 8;
 }
 .input-num {
-    margin: 16px 36px;
+    padding: 8px 32px;
+    border-radius: 8px 0px 0px 8px;
+    margin: 0px;
+    margin-left: 4px;
     text-align: left;
 }
 .input-num:first-child {
-    margin-top: 32px;
+    margin-top: 42px;
+    border-radius: 8px 0px 0px 8px;
 }
 .user-input {
-    width: 36px;
-    height: 20px;
+    vertical-align: text-top;
+    width: 42px;
+    height: 18px;
     margin: 4px;
     border: 0px;
     border-radius: 4px;
 }
 
-#grav_c, #mu_c, #recov_c, #gy_c, #bg_color{
+#grav_c, #mu_c, #recov_c, #gy_c, #fuzzy_c, #univ, #grav, #loss, #bg_color{
     text-align: left;
-    margin-left: 32px;
+    padding: 5px 20px 6px 32px;
+    border-radius: 8px 0px 0px 8px;
+    margin: 0px;
+    margin-left: 4px;
 }
+#bg_color {
+    padding: 12px 20px 12px 32px;
+}
+#univ, #grav, #loss {
+    padding: 10px 20px 12px 32px;
+}
+
 input[type=range] {
     -webkit-appearance: none;
     width: 180px;
@@ -119,6 +145,63 @@ input[type=range]::-webkit-slider-thumb {
     background-color: rgb(250, 245, 255);
     filter: drop-shadow(1px 1px 1px);
 }
+
+input[type='checkbox'] {
+    vertical-align: text-bottom;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background: #bbb;
+    border-radius: 12px;
+    -moz-transition:
+        border-color 0.2s,
+        background 0.2s;
+    -webkit-transition:
+        border-color 0.2s,
+        background 0.2s;
+    -o-transition:
+        border-color 0.2s,
+        background 0.2s;
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+input[type='checkbox']::after {
+    content: '';
+    display: inline-block;
+    text-align: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    filter: drop-shadow(1px 0px 1.5px #444);
+    background: #888;
+    transition: 0.2s;
+    -moz-transition: 0.2s;
+    -webkit-transition: 0.2s, background 0.3s ease-in-out;
+    -o-transition: 0.2s;
+    top: 2px;
+    position: relative;
+    left: 2px;
+}
+
+input[type='checkbox']:checked {
+    background: #fff;
+}
+
+input[type='checkbox']:checked::after {
+    content: '';
+    position: relative;
+    left: 55%;
+    top: 2px;
+    background: #44a;
+    filter: drop-shadow(-1px 0px 1.5px #ccc);
+}
+
 #color {
     width: 27px;
     height: 27px;

@@ -1,23 +1,21 @@
-//Last changed 2022-8-24 20:12
 let balls = [];
 function ChooseBall(ev) {
-    ev.preventDefault();
-    let mouse_down = getEventPosition(ev);
+    let x = ev.layerX || ev.touches[0].pageX;
+    let y = ev.layerY || ev.touches[0].pageY;
     for (var j = 0; j < cnt; j++) {
-        if (balls[j].isInsideMe(mouse_down.x, mouse_down.y)) {
+        if (balls[j].isInsideMe(x, y)) {
             balls[j].vx = 0;
             balls[j].vy = 0;
             chosed = j;
         }
     }
     if (chosed < cnt) {
-        document.addEventListener("ontouchmove", MoveBall, { passive: false });
+        document.ontouchmove = MoveBall;
         document.onmousemove = MoveBall;
     }
 }
 
 function MoveBall(ev) {
-    ev.preventDefault();
     let x_pro = ev.layerX || ev.touches[0].pageX;
     let y_pro = ev.layerY || ev.touches[0].pageY;
     let maxX = width - balls[chosed].radius;
@@ -41,13 +39,12 @@ function MoveBall(ev) {
     balls[chosed].vy = y_pro - balls[chosed].last_y;
 
     document.onmouseup = ReleaseBall;
-    document.addEventListener("ontouchend", ReleaseBall, { passive: false });
-    document.addEventListener("ontouchcancel", ReleaseBall, { passive: false });
+    document.ontouchend = ReleaseBall;
 };
 
 function ReleaseBall() {
-    document.onmousemove = "";
-    document.ontouchmove = "";
+    document.onmousemove = null;
+    document.ontouchmove = null;
     chosed = cnt;
 };
 
@@ -164,8 +161,8 @@ for (var i = 0; i < number_of_balls; i++) {
     balls.push(b);
 }
 
-myCanvas.onmousedown = ChooseBall;
-myCanvas.addEventListener("ontouchstart", ChooseBall, { passive: false });
+document.onmousedown = ChooseBall;
+document.ontouchstart = ChooseBall;
 
 let chosed = balls.length;
 let counter = 0;

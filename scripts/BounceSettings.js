@@ -163,7 +163,7 @@ document.getElementById("number").onkeydown = function (ev) {
 }
 
 window.onresize = () => {
-    width = cans.width = window.innerWidth - 16;
+    width = cans.width = (document.body.style.overflow == "hidden" ? window.innerWidth - 8 : window.innerWidth - 16);
     height = cans.height = window.innerHeight - 30;
     CheckSize();
 }
@@ -221,10 +221,6 @@ function CheckMotion() {
         alert("Device move sensor is not supported.");
     }
 }
-
-function getEventPosition(ev) {
-    return { x: ev.layerX || ev.touches[0].pageX, y: ev.layerY || ev.touches[0].pageY };
-} //choose
 
 cust_btn.onclick = UserDef;
 const set_menu = document.getElementById("user_settings");
@@ -320,4 +316,5 @@ let lock = document.getElementById("lock");
 lock.onclick = function () {
     document.body.style.overflow = document.body.style.overflow == "hidden" ? "auto" : "hidden";
     document.getElementById("lock-1").style.transform = document.getElementById("lock-1").style.transform == "rotate(0deg)" ? "rotate(-30deg)" : "rotate(0deg)";
+    width = cans.width = (document.body.style.overflow == "hidden" ? window.innerWidth - 8 : window.innerWidth - 16);
 }

@@ -1,7 +1,7 @@
 function random_color() {
-    let random_num1 = random_int(20, 130) + 50;
-    let random_num2 = random_int(20, 130) + 50;
-    let random_num3 = random_int(30, 160) + 40; //deliberately
+    let random_num1 = random_int(60, 196);
+    let random_num2 = random_int(60, 196);
+    let random_num3 = random_int(60, 196);
     return "rgb(" + random_num1 + "," + random_num2 + "," + random_num3 + ")";
 }
 
@@ -21,7 +21,7 @@ function rotate(x, y, sin, cos, reverse) {
 }
 
 function hex2rgba(bgColor, alpha = 1) {
-    let color = bgColor.slice(1); // 去掉'#'号
+    let color = bgColor.slice(1);
     let rgba = [
         parseInt("0x" + color.slice(0, 2)),
         parseInt("0x" + color.slice(2, 4)),

@@ -4,24 +4,24 @@ let cnt_of_balls_now = document.getElementById("cnt");
 let width = canvas.width = window.innerWidth - 1;
 let height = canvas.height = window.innerHeight - 1;
 
-let min_r = 8;
-let max_r = 15;
 let max_vx = 3;
 let max_vy = 3;
+let number_of_balls = (width * height < 300000 ? 50 : 70); //default amount
+let min_r = 8 + (number_of_balls == 50 ? 0 : 4);
+let max_r = 15 + (number_of_balls == 50 ? 0 : 5);
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
-let number_of_balls = (width * height < 300000 ? 50 : 100); //default amount
 const GlobalMaxSpeed = 100;
 
 let default_gy = 0.4;                   //acceleration of gravity
-let g_uni = 0.473;                      //the gravitational constant
-let mu_floor = 0.03;                    //friction coefficient of the floor
+let g_uni = 0.16675;                      //gravitational constant
+let mu_floor = 0.03;                    //friction factor of the floor
 let gx = 0;
 let gy = 0;
 let rou = 1;                            //density of ball
 let cnt = 0;
 let recovery = 1;
 let recov_loss = 0.85;
-let fuzzy = 0.9;
+let fuzzy = 0.1;
 
 let universe_mode = false;
 let merge_mode = true;
@@ -29,7 +29,7 @@ let gravity = false;
 let loc_g_mode = true;
 let energy_loss = false;
 let shake_mode = false;
-let bg_color = "#2a273c";
+let bg_color = "#27273c";
 
 window.onresize = () => {
     width = canvas.width = window.innerWidth - 1;
@@ -43,6 +43,8 @@ setTimeout(() => {
 }, 1500);
 
 function CheckSize() {
+    max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
+    max_balls = max_balls < 600 ? max_balls : 600;
 }
 
 function CheckMotion() {
@@ -51,7 +53,7 @@ function CheckMotion() {
         window.ondeviceorientation = DeviceRotate;
     }
     else {
-        alert("Device move sensor is not supported.");
+        alert("Device move sensor is not accessable.");
     }
 }
 
@@ -64,6 +66,11 @@ document.onkeydown = function (ev) {
     }
 }
 
+
+const min_r_input = document.getElementById("min_r");
+const max_r_input = document.getElementById("max_r");
+const max_vx_input = document.getElementById("max_vx");
+const max_vy_input = document.getElementById("max_vy");
 function Menu() {
     if (set_menu.style.right == "0px") {
         set_menu.style.right = "-264px";
@@ -77,46 +84,73 @@ function Menu() {
             executable = true;
         }
     }
-    document.getElementById("min_r").placeholder = min_r;
-    document.getElementById("max_r").placeholder = max_r;
-    document.getElementById("max_vx").placeholder = max_vx;
-    document.getElementById("max_vy").placeholder = max_vy;
-    document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni;
+    min_r_input.placeholder = min_r;
+    max_r_input.placeholder = max_r;
+    max_vx_input.placeholder = max_vx;
+    max_vy_input.placeholder = max_vy;
+    document.getElementById("val_g").value = document.getElementById("g_const").value = g_uni * 4;
     document.getElementById("val_mu").value = document.getElementById("mu_floor").value = mu_floor;
     document.getElementById("val_loss").value = document.getElementById("recov_loss").value = recov_loss;
     document.getElementById("val_gy").value = document.getElementById("default_gy").value = default_gy * 24.5;
+    document.getElementById("val_fuzzy").value = document.getElementById("fuzzy").value = fuzzy;
     document.getElementById("color").value = bg_color;
 }
 
 document.getElementById("save_set").onclick = () => {
-    let user_min_r = document.getElementById("min_r").value;
-    let user_max_r = document.getElementById("max_r").value;
-    let user_max_vx = document.getElementById("max_vx").value;
-    let user_max_vy = document.getElementById("max_vy").value;
+    let valid_set = true;
+    let user_min_r = min_r_input.value;
+    let user_max_r = max_r_input.value;
+    let user_max_vx = max_vx_input.value;
+    let user_max_vy = max_vy_input.value;
     let user_g = document.getElementById("g_const").value;
     let user_color = document.getElementById("color").value;
     let user_mu = document.getElementById("mu_floor").value;
     let user_recov = document.getElementById("recov_loss").value;
     let user_gy = document.getElementById("default_gy").value;
-    if (user_min_r &&
-        user_min_r <=
-        max_r) {
-        min_r = Number(user_min_r);
-        console.log("Read min r: " + min_r);
+    let user_fuzzy = document.getElementById("fuzzy").value;
+    const min_r_style = min_r_input.style;
+    const max_r_style = max_r_input.style;
+    const max_vx_style = max_vx_input.style;
+    const max_vy_style = max_vy_input.style;
+
+    if (user_min_r) {
+        if (user_min_r >= 3 && user_max_r <= Math.min(width, height) / 25) {
+            min_r = Number(user_min_r);
+            console.log("Read min r: " + min_r);
+        }
+        else {
+            valid_set = false;
+            min_r_style.border = "2px solid red";
+            alert("Invalid min radius! Must be no less than 3 and no more than " + Math.min(width, height) / 25);
+        }
     }
-    else if (user_min_r) {
-        alert("Invalid min radius! Must be no bigger than " + max_r);
+
+    if (user_max_r) {
+        if (user_max_r >= 3 &&
+            user_max_r <= Math.min(width, height) / 20) {
+            max_r = Number(user_max_r);
+            console.log("Read max r: " + max_r);
+        }
+        else {
+            valid_set = false;
+            max_r_style.border = "2px solid red";
+            alert("Invalid max radius! Must be no less than 3 and no more than " + Math.min(width, height) / 20);
+        }
     }
-    if (user_max_r &&
-        user_max_r >=
-        min_r) {
-        max_r = Number(user_max_r);
-        console.log("Read max r: " + max_r);
+
+    if ((min_r > max_r) && valid_set) {
+        valid_set = false;
+        if (user_max_r) {
+            max_r_style.border = "2px solid red";
+            alert("Invalid max radius! Must be no less than " + min_r);
+        }
+        else {
+            min_r_style.border = "2px solid red";
+            alert("Invalid min radius! Must be no more than " + max_r);
+        }
     }
-    else if (user_max_r) {
-        alert("Invalid max radius! Must be no less than " + min_r);
-    }
-    if (user_min_r || user_max_r) {
+
+    if ((user_min_r || user_max_r) && valid_set) {
         if (max_r - min_r > cnt / 5) {
             for (var i = 0; i < cnt; i++) {
                 balls[i].radius = random_int(min_r, max_r);
@@ -132,30 +166,55 @@ document.getElementById("save_set").onclick = () => {
     }
 
     if (user_max_vx) {
-        max_vx = Number(user_max_vx);
-        console.log("Read max vx: " + max_vx);
+        if (Math.abs(user_max_vx) <= 6) {
+            max_vx = Math.abs(Number(user_max_vx));
+            console.log("Read max vx: " + max_vx);
+        }
+        else {
+            valid_set = false;
+            max_vx_style.border = "2px solid red";
+            alert("Absolute value of vx must be no more than 6.");
+        }
+        
     }
     if (user_max_vy) {
-        max_vy = Number(user_max_vy);
-        console.log("Read max vy: " + max_vy);
+        if (Math.abs(user_max_vy) <= 6) {
+            max_vy = Math.abs(Number(user_max_vy));
+            console.log("Read max vy: " + max_vy);
+        }
+        else {
+            valid_set = false;
+            max_vy_style.border = "2px solid red";
+            alert("Absolute value of vy must be no more than 6.");
+        }
     }
-    if (user_max_vx || user_max_vy) {
+
+    if ((user_max_vx || user_max_vy) && valid_set) {
         for (var i = 0; i < cnt; i++) {
             balls[i].vx = random(-max_vx, max_vx);
             balls[i].vy = random(-max_vy, max_vy);
         }
     }
-    g_uni = Number(user_g);
+
+    g_uni = Number(user_g) / 4;
     mu_floor = Number(user_mu);
     recov_loss = Number(user_recov);
-    recovery = energy_loss ? 1 : recov_loss;
+    recovery = energy_loss ? recov_loss : 1;
     default_gy = Number(user_gy) / 24.5;
+    fuzzy = Number(user_fuzzy);
     bg_color = user_color;
-    document.getElementById("min_r").value = '';
-    document.getElementById("max_r").value = '';
-    document.getElementById("max_vx").value = '';
-    document.getElementById("max_vy").value = '';
-    set_menu.style.right = "-264px";
+
+    if (valid_set) {
+        min_r_style.border =
+            max_r_style.border =
+            max_vx_style.border =
+            max_vy_style.border = "0px";
+        document.getElementById("min_r").value = '';
+        document.getElementById("max_r").value = '';
+        document.getElementById("max_vx").value = '';
+        document.getElementById("max_vy").value = '';
+        set_menu.style.right = "-264px";
+    }
 }
 
 document.getElementById("cancel_set").onclick = () => {
