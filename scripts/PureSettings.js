@@ -6,14 +6,14 @@ let height = canvas.height = window.innerHeight - 1;
 
 let max_vx = 3;
 let max_vy = 3;
-let number_of_balls = (width * height < 300000 ? 50 : 70); //default amount
+let number_of_balls = (width * height < 300000 ? 50 : 7); //default amount
 let min_r = 8 + (number_of_balls == 50 ? 0 : 4);
 let max_r = 15 + (number_of_balls == 50 ? 0 : 5);
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
 const GlobalMaxSpeed = 100;
 
 let default_gy = 0.4;                   //acceleration of gravity
-let g_uni = 0.16675;                      //gravitational constant
+let g_uni = 0.16675;                    //gravitational constant
 let mu_floor = 0.03;                    //friction factor of the floor
 let gx = 0;
 let gy = 0;
@@ -53,7 +53,8 @@ function CheckMotion() {
         window.ondeviceorientation = DeviceRotate;
     }
     else {
-        alert("Device move sensor is not accessable.");
+        alert("Device's move sensor is not accessable.");
+        a_sensor = false;
     }
 }
 
@@ -70,6 +71,12 @@ const min_r_input = document.getElementById("min_r");
 const max_r_input = document.getElementById("max_r");
 const max_vx_input = document.getElementById("max_vx");
 const max_vy_input = document.getElementById("max_vy");
+const univ_set = document.getElementById("universe");
+const grav_set = document.getElementById("gravity");
+const loss_set = document.getElementById("energy_loss");
+const merge_set = document.getElementById("merge_mode");
+const shake_set = document.getElementById("shake_mode");
+const ground_set = document.getElementById("loc_g_mode");
 function Menu() {
     if (set_menu.style.right == "0px") {
         set_menu.style.right = "-264px";
@@ -93,32 +100,63 @@ function Menu() {
     document.getElementById("val_gy").value = document.getElementById("default_gy").value = default_gy * 24.5;
     document.getElementById("val_fuzzy").value = document.getElementById("fuzzy").value = fuzzy;
     document.getElementById("color").value = bg_color;
+    univ_set.checked = universe_mode;
+    grav_set.checked = gravity;
+    loss_set.checked = energy_loss;
+    merge_set.checked = merge_mode;
+    shake_set.checked = shake_mode;
+    ground_set.checked = a_sensor && loc_g_mode;
 }
 
-const univ_set = document.getElementById("universe");
-const grav_set = document.getElementById("gravity");
-const loss_set = document.getElementById("energy_loss");
+let pre_loss = false;
+let pre_shake = shake_mode;
 univ_set.onclick = () => {
     univ_set.checked && grav_set.checked ? grav_set.click() : console.log("Universe mode: " + univ_set.checked);
 }
-let pre_loss = false;
 grav_set.onclick = () => {
-    grav_set.checked && univ_set.checked ? univ_set.click() : console.log("Gravity mode: " + grav_set.checked);
-    if (grav_set.checked) {
-        pre_loss = loss_set.checked;
-        loss_set.checked = true;
+    if (grav_set.checked && (min_r + max_r) * cnt > 1.1 * width) {
+        alert("There are too many balls for the floor to contain!");
+        grav_set.checked = false;
     }
     else {
-        loss_set.checked = pre_loss;
+        grav_set.checked && univ_set.checked ? univ_set.click() : console.log("Gravity mode: " + grav_set.checked);
+        if (grav_set.checked) {
+            pre_loss = loss_set.checked;
+            loss_set.checked = true;
+        }
+        else {
+            loss_set.checked = pre_loss;
+        }
     }
 }
 loss_set.onclick = () => {
     if (!grav_set.checked) {
-        loss_set.checked = !pre_loss;
-        pre_loss = loss_set.checked;
+        pre_loss = loss_set.checked = !pre_loss;
     }
     else {
         loss_set.checked = true;
+    }
+}
+ground_set.onclick = () => {
+    if (ground_set.checked && !a_sensor) {
+        alert("Device doesn't have acceleration sensor.");
+        ground_set.checked = false;
+    } else {
+        ground_set.checked && shake_set.checked ? shake_set.click() : console.log("Ground pointing: " + ground_set.checked);
+        if (ground_set.checked) {
+            pre_shake = shake_set.checked;
+            shake_set.checked = false;
+        } else {
+            shake_set.checked = pre_shake;
+        }
+    }
+}
+shake_set.onclick = () => {
+    if (!ground_set.checked) {
+        pre_shake = shake_set.checked = !pre_shake;
+    }
+    else {
+        shake_set.checked = false;
     }
 }
 
@@ -233,6 +271,9 @@ document.getElementById("save_set").onclick = () => {
     universe_mode = univ_set.checked;
     gravity = grav_set.checked;
     energy_loss = loss_set.checked;
+    merge_mode = merge_set.checked;
+    shake_mode = shake_set.checked;
+    loc_g_mode = ground_set.checked;
 
     if (valid_set) {
         min_r_style.border =

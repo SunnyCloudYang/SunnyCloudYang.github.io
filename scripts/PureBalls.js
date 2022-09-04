@@ -117,6 +117,7 @@ function EatBall(num_ball0, num_ball1) {
 }
 
 let last_time = 0;
+let a_sensor = true;
 function DeviceMove(ev) {
     var cur_time = new Date().getTime();
     if (shake_mode && cur_time - last_time > 49) {
@@ -138,8 +139,10 @@ function DeviceMove(ev) {
         last_time = cur_time;
         gx = -default_gy * ev.accelerationIncludingGravity.x / 9.8;
         gy = default_gy * ev.accelerationIncludingGravity.y / 9.8;
+        a_sensor = true;
         if (gx == 0 && gy == 0) {
             gy = default_gy;
+            a_sensor = false;
         }
         // console.log("g: ", gx, gy);
     }

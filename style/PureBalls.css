@@ -160,7 +160,8 @@ p:hover {
     border-radius: 4px;
 }
 
-#grav_c, #mu_c, #recov_c, #gy_c, #fuzzy_c, #univ, #grav, #loss, #bg_color{
+#grav_c, #mu_c, #recov_c, #gy_c, #fuzzy_c, #univ, 
+#grav, #loss, #bg_color, #merge, #shake, #ground {
     text-align: left;
     padding: 5px 20px 6px 32px;
     border-radius: 8px;
@@ -169,7 +170,7 @@ p:hover {
 #bg_color {
     padding: 12px 20px 12px 32px;
 }
-#univ, #grav, #loss {
+#univ, #grav, #loss, #merge, #shake, #ground {
     padding: 10px 20px 12px 32px;
 }
 
