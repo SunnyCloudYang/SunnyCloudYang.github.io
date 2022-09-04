@@ -263,7 +263,6 @@ document.getElementById("save_set").onclick = () => {
     g_uni = Number(user_g) / 4;
     mu_floor = Number(user_mu);
     recov_loss = Number(user_recov);
-    recovery = energy_loss ? recov_loss : 1;
     default_gy = Number(user_gy) / 24.5;
     fuzzy = Number(user_fuzzy);
     bg_color = user_color;
@@ -274,6 +273,7 @@ document.getElementById("save_set").onclick = () => {
     merge_mode = merge_set.checked;
     shake_mode = shake_set.checked;
     loc_g_mode = ground_set.checked;
+    recovery = energy_loss ? recov_loss : 1;
 
     if (valid_set) {
         min_r_style.border =
