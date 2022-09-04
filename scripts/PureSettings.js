@@ -66,7 +66,6 @@ document.onkeydown = function (ev) {
     }
 }
 
-
 const min_r_input = document.getElementById("min_r");
 const max_r_input = document.getElementById("max_r");
 const max_vx_input = document.getElementById("max_vx");
@@ -94,6 +93,33 @@ function Menu() {
     document.getElementById("val_gy").value = document.getElementById("default_gy").value = default_gy * 24.5;
     document.getElementById("val_fuzzy").value = document.getElementById("fuzzy").value = fuzzy;
     document.getElementById("color").value = bg_color;
+}
+
+const univ_set = document.getElementById("universe");
+const grav_set = document.getElementById("gravity");
+const loss_set = document.getElementById("energy_loss");
+univ_set.onclick = () => {
+    univ_set.checked && grav_set.checked ? grav_set.click() : console.log("Universe mode: " + univ_set.checked);
+}
+let pre_loss = false;
+grav_set.onclick = () => {
+    grav_set.checked && univ_set.checked ? univ_set.click() : console.log("Gravity mode: " + grav_set.checked);
+    if (grav_set.checked) {
+        pre_loss = loss_set.checked;
+        loss_set.checked = true;
+    }
+    else {
+        loss_set.checked = pre_loss;
+    }
+}
+loss_set.onclick = () => {
+    if (!grav_set.checked) {
+        loss_set.checked = !pre_loss;
+        pre_loss = loss_set.checked;
+    }
+    else {
+        loss_set.checked = true;
+    }
 }
 
 document.getElementById("save_set").onclick = () => {
@@ -203,6 +229,10 @@ document.getElementById("save_set").onclick = () => {
     default_gy = Number(user_gy) / 24.5;
     fuzzy = Number(user_fuzzy);
     bg_color = user_color;
+
+    universe_mode = univ_set.checked;
+    gravity = grav_set.checked;
+    energy_loss = loss_set.checked;
 
     if (valid_set) {
         min_r_style.border =
