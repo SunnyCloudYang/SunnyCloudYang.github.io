@@ -6,7 +6,7 @@ let height = canvas.height = window.innerHeight - 1;
 
 let max_vx = 3;
 let max_vy = 3;
-let number_of_balls = (width * height < 300000 ? 50 : 7); //default amount
+let number_of_balls = (width * height < 300000 ? 50 : 70); //default amount
 let min_r = 8 + (number_of_balls == 50 ? 0 : 4);
 let max_r = 15 + (number_of_balls == 50 ? 0 : 5);
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
@@ -141,7 +141,8 @@ ground_set.onclick = () => {
     if (ground_set.checked && !a_sensor) {
         alert("Device doesn't have acceleration sensor.");
         ground_set.checked = false;
-    } else {
+    }
+    else {
         ground_set.checked && shake_set.checked ? shake_set.click() : console.log("Ground pointing: " + ground_set.checked);
         if (ground_set.checked) {
             pre_shake = shake_set.checked;
@@ -239,7 +240,7 @@ document.getElementById("save_set").onclick = () => {
             max_vx_style.border = "2px solid red";
             alert("Absolute value of vx must be no more than 6.");
         }
-        
+
     }
     if (user_max_vy) {
         if (Math.abs(user_max_vy) <= 6) {
@@ -276,10 +277,8 @@ document.getElementById("save_set").onclick = () => {
     recovery = energy_loss ? recov_loss : 1;
 
     if (valid_set) {
-        min_r_style.border =
-            max_r_style.border =
-            max_vx_style.border =
-            max_vy_style.border = "0px";
+        min_r_style.border = max_r_style.border =
+            max_vx_style.border = max_vy_style.border = "0px";
         document.getElementById("min_r").value = '';
         document.getElementById("max_r").value = '';
         document.getElementById("max_vx").value = '';
