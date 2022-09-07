@@ -1,4 +1,3 @@
-//Last changed 2022-8-24 20:12
 let balls = [];
 let x0 = width / 2;
 let y0 = height / 2;
