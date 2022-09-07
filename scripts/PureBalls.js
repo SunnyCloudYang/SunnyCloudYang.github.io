@@ -151,24 +151,25 @@ function DeviceRotate(ev) {
     // console.log("rotate: " + ev.gamma);
 }
 
-function GetAmount() {
+function GetAmount(new_number) {
     //adjust the number of balls
-    let new_number = document.getElementById("number").value;
-    if (new_number > 0 && new_number <= max_balls) {
+    if (new_number >= 0 && new_number <= max_balls) {
         if (new_number > cnt) {
             NewBalls(new_number - cnt);
         }
         else
             balls.splice(0, cnt - new_number);
         cnt = new_number;
-        document.getElementById("number").value = "";
     }
     else
-        alert("Invalid number! Balls must be less than " + max_balls + " and not null.");
+        alert("Invalid number! Balls must be positive and less than " + max_balls);
 }
 
 function SumOfBalls() {
     cnt = balls.length;
+    if (!cnt) {
+        return 0;
+    }
     for (var i = 0; i < cnt; i++) {
         if (!(balls[i].x > 0 - balls[i].radius &&
             balls[i].x < width + balls[i].radius &&
@@ -217,15 +218,15 @@ function movingLoop() {
             balls[i].gravAround(i);
         }
         for (var i = 0; i < cnt; i++) {
-            balls[i].rebound();
             balls[i].update();
+            balls[i].rebound();
             balls[i].draw();
             balls[i].ax = balls[i].ay = 0;
         }
     }
     requestAnimationFrame(movingLoop);
     if (counter == 10) {
-        cnt_of_balls_now.innerHTML = "Current balls: "
+        balls_cnt.innerHTML = "Current balls: "
             + SumOfBalls();
         counter = 0;
         p = 0;

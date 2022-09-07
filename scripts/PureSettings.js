@@ -1,12 +1,13 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-let cnt_of_balls_now = document.getElementById("cnt");
+const balls_cnt = document.getElementById("cnt");
 let width = canvas.width = window.innerWidth - 1;
 let height = canvas.height = window.innerHeight - 1;
 
 let max_vx = 3;
 let max_vy = 3;
 let number_of_balls = (width * height < 300000 ? 50 : 70); //default amount
+let new_number = number_of_balls;
 let min_r = 8 + (number_of_balls == 50 ? 0 : 4);
 let max_r = 15 + (number_of_balls == 50 ? 0 : 5);
 let max_balls = 25 * Math.floor(width * height / (1500 * (min_r + max_r)));
@@ -56,6 +57,12 @@ function CheckMotion() {
         alert("Device's move sensor is not accessable.");
         a_sensor = false;
     }
+}
+
+balls_cnt.onclick = function () {
+    let user_new = prompt("Balls amount: ", cnt);
+    new_number = user_new == null || user_new == "" ? cnt : parseInt(user_new);
+    new_number < 0 ? alert("Number can't be negative") : new_number > max_balls ? alert("Balls must be LESS than " + max_balls) : gravity && (min_r + max_r) * new_number > 1.1 * width ? alert("There are too many balls for the floor to contain!") : GetAmount(new_number);
 }
 
 const setting = document.getElementById("setting-icon");
@@ -139,7 +146,7 @@ loss_set.onclick = () => {
 }
 ground_set.onclick = () => {
     if (ground_set.checked && !a_sensor) {
-        alert("Device doesn't have acceleration sensor.");
+        alert("This device doesn't have acceleration sensor.");
         ground_set.checked = false;
     }
     else {
