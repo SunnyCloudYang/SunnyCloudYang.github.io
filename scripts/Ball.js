@@ -39,13 +39,15 @@ class Ball {
     }
 
     rebound() {
-        this.stop_x = gx * (this.x - width / 2) > 0 &&
-            Math.abs(this.x - width / 2) >=
-            width / 2 - this.radius - 1 &&
+        this.stop_x = gravity &&
+            gx * (this.x - width / 2) > 0 &&
+            (Math.abs(this.x - width / 2) >=
+            width / 2 - this.radius - 1) &&
             Math.abs(this.vx) < Math.abs(1.1 * gx);
-        this.stop_y = gy * (this.y - height / 2) > 0 &&
-            Math.abs(this.y - height / 2) >=
-            height / 2 - this.radius - 1 &&
+        this.stop_y = gravity &&
+            gy * (this.y - height / 2) > 0 &&
+            (Math.abs(this.y - height / 2) >=
+            height / 2 - this.radius - 1) &&
             Math.abs(this.vy) < Math.abs(1.1 * gy);
 
         if (this.x < this.radius) {
