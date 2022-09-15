@@ -1,8 +1,8 @@
-# [Bounce Balls - 帮宝逝海洋球](./BounceBalls.html)
+# Bounce Balls - 帮宝逝海洋球
 
 ## 介绍
 
-### 欢迎来到第一平行宇宙——[球宇宙](./BounceBalls.html)
+### 欢迎来到第一平行宇宙——球宇宙
 
 ### 全新界面，全新体验！
 
