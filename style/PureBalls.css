@@ -48,15 +48,31 @@ p:hover {
     filter: drop-shadow(0px 0px 1.5px #666);
 }
 
-#setting-icon {
-    display: inline-block;
-    position: fixed;
+#menu-icon {
+    display: block;
+    position: absolute;
     top: 0px;
+    right: 0px;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+    margin: 6px;
+    background-color: transparent;
+    transition: 0.5s;
+}
+#menu-icon:hover {
+    width: 68px;
+    background-color: rgba(80, 80, 100, 0.5);
+}
+#setting-icon {
+    display: block;
+    position: absolute;
     right: 0px;
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    margin: 6px;
+    padding: 3px;
+    margin: 3px;
     filter: brightness(80%);
     opacity: 40%;
     cursor: pointer;
@@ -66,15 +82,33 @@ p:hover {
 #setting-icon:hover {
     opacity: 90%;
     scale: 1.1;
-    padding: 4px;
     filter: brightness(95%) drop-shadow(0px 0px 1.5px #666);
-    background-color: rgba(60, 60, 80, 0.5);
     animation-name: rotateZ;
     animation-duration: 1.5s;
 }
 @keyframes rotateZ {
     0% { transform: rotateZ(0deg); }
     100% { transform: rotateZ(360deg); }
+}
+#home-icon {
+    position: relative;
+    right: 0px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    padding: 3px;
+    margin: 3px;
+    filter: brightness(60%);
+    opacity: 0%;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    z-index: 9;
+}
+#home-icon:hover {
+    filter: brightness(100%) drop-shadow(1px 1px 1px #ddd);
+}
+#menu-icon:hover #home-icon {
+    opacity: 100%;
 }
 
 #user-settings {
@@ -181,7 +215,7 @@ input[type=range] {
     margin-top: 10px;
     border: 1.2px inset white;
     border-radius: 8px;
-    background: -webkit-linear-gradient(left, #00e1ff, #ff00d9);
+    background: -webkit-linear-gradient(left, #58ecff, #ff41e2);
 }
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -203,15 +237,6 @@ input[type='checkbox'] {
     height: 20px;
     background: #bbb;
     border-radius: 12px;
-    -moz-transition:
-        border-color 0.2s,
-        background 0.2s;
-    -webkit-transition:
-        border-color 0.2s,
-        background 0.2s;
-    -o-transition:
-        border-color 0.2s,
-        background 0.2s;
     transition:
         border-color 0.2s,
         background 0.2s;
@@ -221,31 +246,28 @@ input[type='checkbox']::after {
     content: '';
     display: inline-block;
     text-align: center;
-    width: 1rem;
-    height: 1rem;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    filter: drop-shadow(1px 0px 1.5px #444);
+    filter: drop-shadow(1px 0px 1.2px #444);
     background: #888;
     transition: 0.2s;
     -moz-transition: 0.2s;
     -webkit-transition: 0.2s, background 0.3s ease-in-out;
     -o-transition: 0.2s;
-    top: 2px;
     position: relative;
-    left: 2px;
+    top: 3px;
+    left: 4px;
 }
-
 input[type='checkbox']:checked {
     background: #fff;
 }
-
 input[type='checkbox']:checked::after {
     content: '';
     position: relative;
-    left: 55%;
-    top: 2px;
+    left: 57%;
     background: #44a;
-    filter: drop-shadow(-1px 0px 1.5px #339);
+    filter: drop-shadow(-1px 0px 1.5px #338);
 }
 
 #color {
