@@ -137,28 +137,26 @@ class Ball {
     } //compute the angel between ball[serialNumber]
 
     gravAround(me) {
-        if (universe_mode) {
-            let f_g = 0;
-            let cos_t = 0;
-            let sin_t = 0;
-            for (var i = me + 1; i < cnt; i++) {
-                if (merge_mode && this.isInsideMe(balls[i].x, balls[i].y, 1.1, 2)) {
-                    try {
-                        EatBall(me, i);
-                    }
-                    catch (error) {
-                        console.log("Ignored " + error.message);
-                    }
+        let f_g = 0;
+        let cos_t = 0;
+        let sin_t = 0;
+        for (var i = me + 1; i < cnt; i++) {
+            if (merge_mode && this.isInsideMe(balls[i].x, balls[i].y, 1.1, 2)) {
+                try {
+                    EatBall(me, i);
                 }
-                else {
-                    f_g = this.fGrav(i);
-                    cos_t = Math.cos(this.positionAngel(i));
-                    sin_t = Math.sin(this.positionAngel(i))
-                    this.ax += (f_g / this.mess) * cos_t;
-                    this.ay += (f_g / this.mess) * sin_t;
-                    balls[i].ax -= (f_g / balls[i].mess) * cos_t;
-                    balls[i].ay -= (f_g / balls[i].mess) * sin_t;
+                catch (error) {
+                    console.log("Ignored " + error.message);
                 }
+            }
+            else {
+                f_g = this.fGrav(i);
+                cos_t = Math.cos(this.positionAngel(i));
+                sin_t = Math.sin(this.positionAngel(i))
+                this.ax += (f_g / this.mess) * cos_t;
+                this.ay += (f_g / this.mess) * sin_t;
+                balls[i].ax -= (f_g / balls[i].mess) * cos_t;
+                balls[i].ay -= (f_g / balls[i].mess) * sin_t;
             }
         }
     } //compute a of gravation in x and y in total

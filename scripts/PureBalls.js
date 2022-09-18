@@ -207,6 +207,9 @@ canvas.ontouchstart = MousedownHandler;
 NewBalls(number_of_balls);
 let chosed = balls.length;
 let counter = 0;
+let frame = 0;
+let fps = 60;
+let show_fps = false;
 let p = 0;
 function movingLoop() {
     if (!sleep) {
@@ -214,8 +217,10 @@ function movingLoop() {
         for (var i = 0; i < cnt; i++) {
             balls[i].collideWith(i);
         }
-        for (var i = 0; i < cnt; i++) {
-            balls[i].gravAround(i);
+        if (universe_mode) {
+            for (var i = 0; i < cnt; i++) {
+                balls[i].gravAround(i);
+            }
         }
         for (var i = 0; i < cnt; i++) {
             balls[i].update();
@@ -225,15 +230,27 @@ function movingLoop() {
         }
     }
     requestAnimationFrame(movingLoop);
-    if (counter == 10) {
-        balls_cnt.innerHTML = "Current balls: "
-            + SumOfBalls();
-        counter = 0;
-        p = 0;
-        for (var i = 0; i < balls.length; i++) {
-            p += balls[i].mess * (balls[i].vx ** 2 + balls[i].vy ** 2);
-        }
-    }
     counter++;
+    frame++;
+    if (counter == 10) {
+        balls_cnt.innerHTML = "Current balls: " + SumOfBalls();
+        counter = 0;
+        // p = 0;
+        // for (var i = 0; i < cnt; i++) {
+        //     p += balls[i].mess * (balls[i].vx ** 2 + balls[i].vy ** 2);
+        // }
+        // console.log(p);
+    }
+    pro_time = new Date().getTime();
+    if (pro_time - pre_time > 999) {
+        fps = Math.round(1000 * frame / (pro_time - pre_time));
+        if (show_fps) {
+            console.log("FPS: " + fps);
+        }
+        frame = 0;
+        pre_time = pro_time;
+    }
 }
+let pre_time = new Date().getTime();
+let pro_time = pre_time;
 movingLoop();

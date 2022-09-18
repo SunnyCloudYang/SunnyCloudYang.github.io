@@ -67,7 +67,7 @@ function EatBall(num_ball0, num_ball1) {
 
 let last_time = 0;
 function DeviceMove(ev) {
-    var cur_time = new Date().getTime();
+    let cur_time = new Date().getTime();
     if (shake_mode && cur_time - last_time > 49) {
         last_time = cur_time;
         let accl = ev.acceleration;
@@ -166,13 +166,17 @@ document.ontouchstart = ChooseBall;
 
 let chosed = balls.length;
 let counter = 0;
+let frame = 0;
+let show_fps = true;
 function movingLoop() {
     DrawRect();
     for (var i = 0; i < cnt; i++) {
         balls[i].collideWith(i);
     }
-    for (var i = 0; i < cnt; i++) {
-        balls[i].gravAround(i);
+    if (universe_mode) {
+        for (var i = 0; i < cnt; i++) {
+            balls[i].gravAround(i);
+        }
     }
     for (var i = 0; i < cnt; i++) {
         balls[i].rebound();
@@ -186,6 +190,15 @@ function movingLoop() {
             + SumOfBalls();
         counter = 0;
     }
+    pro_time = new Date().getTime();
+    if (show_fps && pro_time - pre_time > 1000) {
+        console.log("FPS: " + frame);
+        frame = 0;
+        pre_time = pro_time;
+    }
     counter++;
+    frame++;
 }
+let pre_time = new Date().getTime();
+let pro_time = pre_time;
 movingLoop();
