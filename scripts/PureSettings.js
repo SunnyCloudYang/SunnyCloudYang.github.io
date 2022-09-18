@@ -32,6 +32,8 @@ let energy_loss = false;
 let shake_mode = false;
 let bg_color = "#27273c";
 
+let show_setting = false;
+
 window.onresize = () => {
     width = canvas.width = window.innerWidth - 1;
     height = canvas.height = window.innerHeight - 1;
@@ -67,6 +69,20 @@ balls_cnt.onclick = function () {
 
 const setting = document.getElementById("setting-icon");
 const set_menu = document.getElementById("user-settings");
+const menu_icons = document.getElementById("menu-icon");
+const home_icon = document.getElementById("home-icon");
+menu_icons.onmouseenter = function () {
+    menu_icons.style.width = menu_icons.childElementCount * 36 + "px";
+    setTimeout(() => {
+        home_icon.style.display = "block";
+    }, 150);
+}
+menu_icons.onmouseleave = function () {
+    menu_icons.style.width = "36px";
+    setTimeout(() => {
+        home_icon.style.display = "none";
+    }, 150);
+}
 setting.onclick = Menu;
 document.onkeydown = function (ev) {
     if (ev.key === "Control") {
@@ -86,14 +102,14 @@ const shake_set = document.getElementById("shake_mode");
 const ground_set = document.getElementById("loc_g_mode");
 function Menu() {
     if (set_menu.style.right == "0px") {
-        set_menu.style.right = "-264px";
+        closeSetting();
         executable = true;
     }
     else {
-        set_menu.style.right = "0px";
+        showSetting();
         executable = false;
         canvas.onclick = function () {
-            set_menu.style.right = "-264px";
+            closeSetting();
             executable = true;
         }
     }
@@ -290,7 +306,7 @@ document.getElementById("save_set").onclick = () => {
         document.getElementById("max_r").value = '';
         document.getElementById("max_vx").value = '';
         document.getElementById("max_vy").value = '';
-        set_menu.style.right = "-264px";
+        closeSetting();
     }
 }
 
@@ -299,5 +315,14 @@ document.getElementById("cancel_set").onclick = () => {
     document.getElementById("max_r").value = '';
     document.getElementById("max_vx").value = '';
     document.getElementById("max_vy").value = '';
+    closeSetting();
+}
+
+function showSetting() {
+    show_setting = true;
+    set_menu.style.right = "0px";
+}
+function closeSetting() {
+    show_setting = false;
     set_menu.style.right = "-264px";
 }
