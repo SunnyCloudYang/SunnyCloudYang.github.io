@@ -74,7 +74,7 @@
 本程序不采集任何用户个人数据，也不会将任何数据上传至云端，所有数据处理均在本地进行。所有必需设备参数如下：
 
 * 屏幕宽与高（window.innerWidth，window.innerHeight），用于确定显示大小，默认小球数量等
-* 设备加速度传感器数据（DeviceMotionEvent.acceleration, DeviceMotionEvent.accelerationIncludingGravity），用于在Ground Pointing模式和Shake模式中确定小球加速度
+* 设备加速度传感器数据（DeviceMotionEvent.acceleration, \*.accelerationIncludingGravity），用于在Ground Pointing模式和Shake模式中确定小球加速度
 * <del>设备旋转传感器（DeviceOrientationEvent），这一项数据并未参与任何计算，已去除</del>
 
 ## 鸣谢
