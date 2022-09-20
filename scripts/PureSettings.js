@@ -101,7 +101,7 @@ const merge_set = document.getElementById("merge_mode");
 const shake_set = document.getElementById("shake_mode");
 const ground_set = document.getElementById("loc_g_mode");
 function Menu() {
-    if (set_menu.style.right == "0px") {
+    if (show_setting) {
         closeSetting();
         executable = true;
     }
