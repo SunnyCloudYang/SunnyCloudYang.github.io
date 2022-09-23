@@ -58,7 +58,7 @@ p:hover {
     border-radius: 17px;
     margin: 6px;
     background-color: transparent;
-    transition: 0.5s;
+    transition: 0.5s cubic-bezier(.25, .1, .1, 1.5);
 }
 #menu-icon:hover {
     background-color: rgba(80, 80, 100, 0.5);
@@ -76,6 +76,7 @@ p:hover {
     opacity: 40%;
     cursor: pointer;
     transition: 0.2s;
+    transform: rotateZ(30deg);
     z-index: 9;
 }
 #setting-icon:hover {
@@ -83,11 +84,14 @@ p:hover {
     scale: 1.1;
     filter: brightness(95%) drop-shadow(0px 0px 1.5px #666);
     animation-name: rotateZ;
-    animation-duration: 1.5s;
+    animation-duration: .7s;
 }
 @keyframes rotateZ {
-    0% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(360deg); }
+    0% { transform: rotateZ(30deg); }
+    50% { transform: rotateZ(240deg); }
+    75% { transform: rotateZ(190deg); }
+    90% { transform: rotateZ(220deg); }
+    100% { transform: rotateZ(210deg); }
 }
 #home-icon {
     position: relative;
