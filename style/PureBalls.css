@@ -76,7 +76,6 @@ p:hover {
     opacity: 40%;
     cursor: pointer;
     transition: 0.2s;
-    transform: rotateZ(30deg);
     z-index: 9;
 }
 #setting-icon:hover {
@@ -87,11 +86,11 @@ p:hover {
     animation-duration: .7s;
 }
 @keyframes rotateZ {
-    0% { transform: rotateZ(30deg); }
-    50% { transform: rotateZ(240deg); }
-    75% { transform: rotateZ(190deg); }
-    90% { transform: rotateZ(220deg); }
-    100% { transform: rotateZ(210deg); }
+    0% { transform: rotateZ(0deg); }
+    50% { transform: rotateZ(210deg); }
+    75% { transform: rotateZ(160deg); }
+    90% { transform: rotateZ(190deg); }
+    100% { transform: rotateZ(180deg); }
 }
 #home-icon {
     position: relative;
