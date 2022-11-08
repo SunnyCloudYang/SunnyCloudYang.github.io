@@ -30,6 +30,7 @@ window.onload = function () {
         audio.play();
         MeritsPlus();
     } : woodBlock.ontouchstart = function (event) {
+        event.preventDefault();
         woodBlock.style.scale = "1.0";
         audio.currentTime = 0;
         audio.play();
