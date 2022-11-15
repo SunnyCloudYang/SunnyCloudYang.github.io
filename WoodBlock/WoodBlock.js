@@ -3,6 +3,7 @@ const woodBlock = document.getElementById("WoodBlock");
 let imgWidth = woodBlock.style.width;
 let imgHeight = woodBlock.style.height;
 let mobile = false;
+let cnt = 0;
 window.onload = function () {
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -13,17 +14,17 @@ window.onload = function () {
         woodBlock.style.height = imgHeight + "px";
         mobile = true;
     }
-    woodBlock.onmouseenter = !mobile ? function (event) {
+    woodBlock.onmouseenter = !mobile ? function () {
         woodBlock.style.scale = "1.05";
     } : null;
 
-    woodBlock.onmouseleave = !mobile ? function (event) {
+    woodBlock.onmouseleave = !mobile ? function () {
         woodBlock.style.scale = "1";
     } : null;
 
-    !mobile ? woodBlock.onmousedown = function (event) {
+    !mobile ? woodBlock.onmousedown = function () {
         woodBlock.style.scale = "1.0";
-        woodBlock.onmouseup = function (event) {
+        woodBlock.onmouseup = function () {
             woodBlock.style.scale = "1.05";
         };
         audio.currentTime = 0;
@@ -35,7 +36,7 @@ window.onload = function () {
         audio.currentTime = 0;
         audio.play();
         MeritsPlus();
-        woodBlock.ontouchend = function (event) {
+        woodBlock.ontouchend = function () {
             woodBlock.style.scale = "1.05";
         };
     };
@@ -45,7 +46,7 @@ window.onload = function () {
 
 function MeritsPlus() {
     let merits = document.createElement("p");
-    merits.innerHTML = "功德+999";
+    merits.innerHTML = "功德+1";
     merits.style.position = "absolute";
     merits.style.top = !mobile ? "calc(50% - 180px)" : "calc(50% - " + (imgHeight / 2 + 75) + "px)";
     merits.style.left = !mobile ? "calc(50% + 180px)" : "calc(50% + " + (imgWidth / 2 - 15) + "px)";
@@ -53,6 +54,8 @@ function MeritsPlus() {
     merits.style.color = "white";
     merits.style.fontWeight = "bold";
     document.getElementById("main").appendChild(merits);
+    cnt++;
+    document.getElementById("cnt").innerHTML = "功德：" + cnt;
     let t = 0;
     setInterval(() => {
         merits.style.opacity = 1 - 0.02 * t;
