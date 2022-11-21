@@ -18,7 +18,7 @@
 
 ### -> 在这里[进入全新UI的小球宇宙](./PureBalls.html)！
 
-### -> 在这里[敲电子木鱼，攒电子功德](./WoodBlock/WoodBlock.html)🙏
+### -> 在这里[敲电子木鱼，攒赛博功德](./WoodBlock/WoodBlock.html)🙏
 
 ### -> 在这里[下载BounceBalls的所有文件](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)
 
