@@ -1,9 +1,12 @@
 CACHE MANIFEST
 # 2022-11-21 v1.0
+# 2022-11-21 v1.1 adjust picture's initial size
+# 2022-11-21 v1.2 added alternative audio
 # res
 https://sunnycloudyang.github.io/WoodBlock/WoodBlock.css
 https://sunnycloudyang.github.io/WoodBlock/res/WoodBlock.jpg
 https://sunnycloudyang.github.io/WoodBlock/res/WoodBlock.wav
+https://sunnycloudyang.github.io/WoodBlock/res/WoodBlock.mp3
 https://sunnycloudyang.github.io/WoodBlock/res/cursor.ico
 # main
 https://sunnycloudyang.github.io/WoodBlock/WoodBlock.js
