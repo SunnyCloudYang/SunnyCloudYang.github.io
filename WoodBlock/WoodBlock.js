@@ -1,5 +1,7 @@
 document.body.style.cursor = "url(./res/cursor.ico),auto";
 const woodBlock = document.getElementById("WoodBlock");
+const audio = document.getElementById("audio");
+const alt_audio = document.getElementById("alt_audio");
 let imgWidth = woodBlock.style.width;
 let imgHeight = woodBlock.style.height;
 let mobile = false;
