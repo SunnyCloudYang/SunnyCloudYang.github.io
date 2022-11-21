@@ -1,4 +1,4 @@
-document.body.style.cursor = "url(./src/cursor.ico),auto";
+document.body.style.cursor = "url(./res/cursor.ico),auto";
 const woodBlock = document.getElementById("WoodBlock");
 let imgWidth = woodBlock.style.width;
 let imgHeight = woodBlock.style.height;
@@ -14,17 +14,25 @@ window.onload = function () {
         woodBlock.style.height = imgHeight + "px";
         mobile = true;
     }
-    woodBlock.onmouseenter = !mobile ? function () {
+    else {
+        woodBlock.style.width = "435px";
+        woodBlock.style.height = "330px";
+    }
+    woodBlock.onmouseenter = !mobile ? function (event) {
+        event.preventDefault();
         woodBlock.style.scale = "1.05";
     } : null;
 
-    woodBlock.onmouseleave = !mobile ? function () {
+    woodBlock.onmouseleave = !mobile ? function (event) {
+        event.preventDefault();
         woodBlock.style.scale = "1";
     } : null;
 
-    !mobile ? woodBlock.onmousedown = function () {
+    !mobile ? woodBlock.onmousedown = function (event) {
+        event.preventDefault();
         woodBlock.style.scale = "1.0";
-        woodBlock.onmouseup = function () {
+        woodBlock.onmouseup = function (event) {
+            event.preventDefault();
             woodBlock.style.scale = "1.05";
         };
         audio.currentTime = 0;
@@ -36,7 +44,8 @@ window.onload = function () {
         audio.currentTime = 0;
         audio.play();
         MeritsPlus();
-        woodBlock.ontouchend = function () {
+        woodBlock.ontouchend = function (event) {
+            event.preventDefault();
             woodBlock.style.scale = "1.05";
         };
     };
