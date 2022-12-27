@@ -36,3 +36,11 @@ p {
     left: 50%;
     transform: translate(-50%, 0%);
 }
+
+#setting {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: calc(100% - 32px);
+    color: white;
+}

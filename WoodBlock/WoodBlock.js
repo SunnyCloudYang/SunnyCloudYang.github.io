@@ -77,3 +77,9 @@ function MeritsPlus() {
         document.getElementById("main").removeChild(merits);
     }, 2000);
 }
+
+const setting = document.getElementById("setting");
+setting.onclick = function (event) {
+    event.preventDefault();
+    alert("功能尚未开放");
+}
