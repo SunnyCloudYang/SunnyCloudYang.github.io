@@ -1,5 +1,5 @@
 +++
-title = '开博第一弹'
+title = '一点儿说明'
 slug = 'generic-page'
 image = 'images/bg.jpg'
 description = '哟，来了，里面请'
