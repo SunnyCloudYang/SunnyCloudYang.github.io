@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SunnyCloudYang</title>
+    <link>https://sunnycloudyang.github.io/</link>
+    <description>Recent content on SunnyCloudYang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>first post</title>
+      <link>https://sunnycloudyang.github.io/post/post/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/post/post/</guid>
+      <description>害™想看Full Story呢，憋看了，快帮我找找中文版的第一弹搁哪呢！</description>
+    </item>
+    
+    <item>
+      <title>Explanations</title>
+      <link>https://sunnycloudyang.github.io/generic-page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/generic-page/</guid>
+      <description>Well, as you can see, it&amp;rsquo;s my personal blog.
+It&amp;rsquo;s still at the demo stage, so</description>
+    </item>
+    
+  </channel>
+</rss>
