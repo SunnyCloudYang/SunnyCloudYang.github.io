@@ -14,9 +14,9 @@
 
 ## 传送门
 
-#### -> 在这里[进入初代小球模拟器](./BounceBalls.html)！
+#### -> 在这里[进入初代小球模拟器](./Balls/BounceBalls.html)！
 
-#### -> 在这里[进入全新UI的小球宇宙](./PureBalls.html)！
+#### -> 在这里[进入全新UI的小球宇宙](./Balls/PureBalls.html)！
 
 #### -> 在这里[敲电子木鱼，攒赛博功德](./WoodBlock/WoodBlock.html)🙏
 
@@ -96,5 +96,3 @@
 还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
 
 **[Raise Your Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
-
-[-> css test page](./test.html)
