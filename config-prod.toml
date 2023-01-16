@@ -4,6 +4,7 @@ baseURL = "https://sunnycloudyang.github.io/"
 theme = "massively"
 googleanalytics = ""
 disqusShortname = ""
+publishDir = "docs"
 disableKinds = ["taxonomy", "taxonomyTerm", "section"]
 
 
