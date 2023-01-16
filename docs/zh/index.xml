@@ -5,16 +5,27 @@
     <link>https://sunnycloudyang.github.io/zh/</link>
     <description>Recent content on SunnyCloudYang</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language><atom:link href="https://sunnycloudyang.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>豆角成长记实</title>
+      <link>https://sunnycloudyang.github.io/zh/post/post1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/zh/post/post1/</guid>
+      <description>再等等，人豆角还没长好，长好了再说</description>
+    </item>
+    
     <item>
       <title>开博第一弹</title>
       <link>https://sunnycloudyang.github.io/zh/post/post/</link>
-      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunnycloudyang.github.io/zh/post/post/</guid>
-      <description>找着了，搁这呢，为啥加上时间它就犯病啊
-哪位大佬儿要是知道，烦您邮箱告诉咱一声，谢谢您嘞</description>
+      <description>一时间找不到合适的图，就先这样吧
+想不到假期的第一个Commit就实现了之前的“宏伟”蓝图——搭个博客儿。但是怎么说呢，这玩意儿搞起来，说简单它也不简单，说不简单吧，咱也还能整出来个模样。主要可能还是咱太菜了吧。
+记得我最早的“类博客”应该是那个Bounce Balls，弹弹球，主页大概可以算半个博客吧（以后可能还会留下它，不能喜新厌旧嘛不是），但是呢总整几个小球弹来弹去的多没意思，所以萌生了搭个正式的博客的想法。最初想纯手撸来着，后来想想，都2023年了，没必要为难自己，遂换用了Hugo（最初是GitHub默认的JekyII），整个一套搭下来，发现最难的还是认真看教程，笑。记得Bounce Balls的主页也有我自己生产的长篇大论的教程，前面用加粗的几个大字写着：请认真阅读以下教程。连一个不需要任何技术要求的小游戏的教程人们都容易一带而过，又何谈这些有些烧脑并且充满无法理解之处的技术教程呢。
+看来认真倾听并完全搞懂别人的意思，真是个稀缺的技能（没别的意思，我也没有）
+实在是晚了，明天聊，拜拜</description>
     </item>
     
     <item>
@@ -23,7 +34,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunnycloudyang.github.io/zh/generic-page/</guid>
-      <description>怎么说呢，第一次搞这个博客儿，有些回到十年前的意味了，但是又很新鲜。主要还是因为什么呢，就是看着大家文思泉涌，又想着自己当年的神勇，手痒痒，没忍住，就有了这玩意儿。行嘞，不说了，您先凑合着看吧</description>
+      <description>怎么说呢，第一次搞这个博客儿，有些回到十年前的意味了，但是又很新鲜。主要还是因为什么呢，就是看着大家文思泉涌，又想起自己当年的神勇，手痒痒，没忍住，就有了这玩意儿。行嘞，不说了，您先凑合着看吧。
+您说没找着返回键？欸这就对了，因为我也没找着儿，先点上面的“SUNNYCLOUDYANG”返回吧。
+慢走，不送，常来哈</description>
     </item>
     
   </channel>

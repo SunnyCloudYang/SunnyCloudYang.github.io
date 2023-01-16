@@ -3,7 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sunnycloudyang.github.io/zh/</loc>
-    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,8 +14,9 @@
                 href="https://sunnycloudyang.github.io/zh/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/post/post1/</loc>
+  </url><url>
     <loc>https://sunnycloudyang.github.io/zh/post/post/</loc>
-    <lastmod>2023-01-16T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
