@@ -14,12 +14,12 @@ disableKinds = ["taxonomy", "taxonomyTerm", "section"]
   # backgroundPath = "images/bg.jpg"
 
 # Below parameters can be set to override default post settings
-[params.posts]
-    folderName = "post"
-    pageSize = "6"
-    featuredPost = true
-    paginationPages = 2
-    showFirstLast = true
+# [params.posts]
+#     folderName = "post"
+#     pageSize = "6"
+#     featuredPost = true
+#     paginationPages = 2
+#     showFirstLast = true
  
 [languages]
 [languages.zh]
