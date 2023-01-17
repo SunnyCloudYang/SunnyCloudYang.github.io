@@ -1,7 +1,7 @@
 [CONTACT_ADDRESS]
   other = "地址"
 [CONTACT_EMAIL]
-  other = "邮箱"
+  other = "信箱子"
 [CONTACT_FORM_FIELD_EMAIL]
   other = "邮箱"
 [CONTACT_FORM_FIELD_MESSAGE]
@@ -15,9 +15,9 @@
 [CONTACT_SOCIAL]
   other = "人有千面"
 [COPYRIGHT_MESSAGE_1]
-  other = "设计: [HTML5 UP](https://html5up.net)"
+  other = "Design: [HTML5 UP](https://html5up.net)"
 [COPYRIGHT_MESSAGE_2]
-  other = "不知道咋翻: [curtiscode](https://curtiscode.dev)"
+  other = "Hugo Port: [curtiscode](https://curtiscode.dev)"
 [INTRO_CONTINUE]
   other = "继续"
 [NAV_CONTACT]
@@ -27,6 +27,6 @@
 [PAGINATION_PREVIOUS]
   other = "上一页"
 [PAGINATION_FIRST]
-  other = "nang到头"
+  other = "怼到头"
 [PAGINATION_LAST]
   other = "拉到尾"
