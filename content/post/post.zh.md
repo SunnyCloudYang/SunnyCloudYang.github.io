@@ -1,13 +1,11 @@
 +++
 title = '开博第一弹'
 slug = 'post'
-image = 'images/pic01.jpg'
+image = 'images/meme1.jpg'
 date = "2023-01-17T00:00:00"
 description = '这是咱第一次开博儿，新鲜，难搞，并且扯淡儿'
 disableComments = true
 +++
-
-一时间找不到合适的图，就先这样吧
 
 想不到假期的第一个Commit就实现了之前的“宏伟”蓝图——搭个博客儿。但是怎么说呢，这玩意儿搞起来，说简单它也不简单，说不简单吧，咱也还能整出来个模样。主要可能还是咱太菜了吧。
 
