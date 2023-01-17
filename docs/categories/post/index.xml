@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>post on PaperMod</title>
-    <link>https://adityatelange.github.io/hugo-PaperMod/categories/post/</link>
-    <description>Recent content in post on PaperMod</description>
+    <title>post on SunnyCloudYang&#39;s Blog</title>
+    <link>https://sunnycloudyang.github.io/categories/post/</link>
+    <description>Recent content in post on SunnyCloudYang&#39;s Blog</description>
     <image>
-      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+      <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
+      <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://adityatelange.github.io/hugo-PaperMod/categories/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/categories/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Some Explanations</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/posts/post/</link>
+      <link>https://sunnycloudyang.github.io/posts/post/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/posts/post/</guid>
+      <guid>https://sunnycloudyang.github.io/posts/post/</guid>
       <description>Happy to see you here.</description>
     </item>
     
     <item>
       <title>First Post</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/posts/post1/</link>
+      <link>https://sunnycloudyang.github.io/posts/post1/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/posts/post1/</guid>
+      <guid>https://sunnycloudyang.github.io/posts/post1/</guid>
       <description>It&amp;#39;s my first post, machine-translated, ugly, and meaningless.</description>
     </item>
     

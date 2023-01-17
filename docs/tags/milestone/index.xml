@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>milestone on PaperMod</title>
-    <link>https://adityatelange.github.io/hugo-PaperMod/tags/milestone/</link>
-    <description>Recent content in milestone on PaperMod</description>
+    <title>milestone on SunnyCloudYang&#39;s Blog</title>
+    <link>https://sunnycloudyang.github.io/tags/milestone/</link>
+    <description>Recent content in milestone on SunnyCloudYang&#39;s Blog</description>
     <image>
-      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+      <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
+      <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://adityatelange.github.io/hugo-PaperMod/tags/milestone/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/tags/milestone/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First Post</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/posts/post1/</link>
+      <link>https://sunnycloudyang.github.io/posts/post1/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/posts/post1/</guid>
+      <guid>https://sunnycloudyang.github.io/posts/post1/</guid>
       <description>It&amp;#39;s my first post, machine-translated, ugly, and meaningless.</description>
     </item>
     

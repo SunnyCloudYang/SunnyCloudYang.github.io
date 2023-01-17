@@ -2,89 +2,99 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/posts/post/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/posts/post/</loc>
     <lastmod>2023-01-16T19:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/posts/post/"
+                href="https://sunnycloudyang.github.io/posts/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/post/"
+                href="https://sunnycloudyang.github.io/zh/posts/post/"
                 />
   </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/"
+                href="https://sunnycloudyang.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/"
+                href="https://sunnycloudyang.github.io/zh/"
                 />
   </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/posts/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/posts/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/posts/"
+                href="https://sunnycloudyang.github.io/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/"
+                href="https://sunnycloudyang.github.io/zh/posts/"
                 />
   </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/posts/post1/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/posts/post1/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/posts/post1/"
+                href="https://sunnycloudyang.github.io/posts/post1/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/post1/"
+                href="https://sunnycloudyang.github.io/zh/posts/post1/"
                 />
   </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/posts/old/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/posts/old/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/%E6%A0%87%E7%AD%BE/</loc>
-  </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/%E5%88%86%E7%B1%BB/</loc>
-  </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/%E8%BF%9E%E8%BD%BD/</loc>
-  </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/archives/"
+                href="https://sunnycloudyang.github.io/posts/old/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/archives/"
+                href="https://sunnycloudyang.github.io/zh/posts/old/"
                 />
   </url><url>
-    <loc>https://adityatelange.github.io/hugo-PaperMod/zh/search/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/%E6%A0%87%E7%AD%BE/</loc>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/%E5%88%86%E7%B1%BB/</loc>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/%E8%BF%9E%E8%BD%BD/</loc>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/archives/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adityatelange.github.io/hugo-PaperMod/search/"
+                href="https://sunnycloudyang.github.io/archives/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://adityatelange.github.io/hugo-PaperMod/zh/search/"
+                href="https://sunnycloudyang.github.io/zh/archives/"
+                />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/zh/search/"
                 />
   </url>
 </urlset>
