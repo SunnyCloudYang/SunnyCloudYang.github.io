@@ -2,8 +2,7 @@
 title = '开博第一弹'
 slug = 'post'
 image = 'images/pic01.jpg'
-date = "2023-01-17T"
-lastMod = "2023-01-17T"
+date = "2023-01-17T00:00:00"
 description = '这是咱第一次开博儿，新鲜，难搞，并且扯淡儿'
 disableComments = true
 +++
