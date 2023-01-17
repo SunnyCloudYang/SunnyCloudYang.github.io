@@ -3,7 +3,7 @@ author: "SunnyCloudYang"
 title: "Toys"
 date: "2023-01-17T17:00:00+08:00"
 summary: "Some toys I made before, take a look?"
-description: "以前的Bounce Balls，放到这了。但是链接还没修好，玩不了，也没翻译，再等等吧"
+description: "以前的Bounce Balls，放到这了。还没翻译，再等等吧"
 tags: ["gadgets"]
 categories: "gadgets"
 hideMeta: false

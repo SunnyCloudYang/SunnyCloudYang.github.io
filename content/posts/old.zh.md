@@ -3,7 +3,7 @@ author: "SunnyCloudYang"
 title: "老宝贝们"
 date: "2023-01-17T17:00:00+08:00"
 summary: "一些过去写的小玩意儿，随便玩，不怕坏"
-description: "以前的Bounce Balls，放到这了。但是链接还没修好，还玩不了，再等等吧"
+description: "以前的Bounce Balls，放到这了。玩得尽兴"
 tags: ["gadgets"]
 categories: "gadgets"
 hideMeta: false
