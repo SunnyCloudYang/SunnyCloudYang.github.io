@@ -1,4 +1,5 @@
 baseURL: "https://sunnycloudyang.github.io/"
+languageCode: "zh-cn"
 title: SunnyCloudYang's Blog
 paginate: 7
 theme: PaperMod

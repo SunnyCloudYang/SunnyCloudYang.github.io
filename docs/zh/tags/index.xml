@@ -9,7 +9,17 @@
       <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 18 Jan 2023 00:30:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>record</title>
+      <link>https://sunnycloudyang.github.io/zh/tags/record/</link>
+      <pubDate>Wed, 18 Jan 2023 00:30:00 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/zh/tags/record/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gadgets</title>
       <link>https://sunnycloudyang.github.io/zh/tags/gadgets/</link>
@@ -25,15 +35,6 @@
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
       <guid>https://sunnycloudyang.github.io/zh/tags/milestone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>record</title>
-      <link>https://sunnycloudyang.github.io/zh/tags/record/</link>
-      <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
-      
-      <guid>https://sunnycloudyang.github.io/zh/tags/record/</guid>
       <description></description>
     </item>
     
