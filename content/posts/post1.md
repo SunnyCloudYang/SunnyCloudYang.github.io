@@ -17,6 +17,8 @@ ShowReadingTime: false
 
 Finally, the first commit of this holiday fulfilled my "grand" blueprint -- a blog. To be honest, it's not very hard to build a thing like this. But it still took me nearly two days.
 
+![That is me](/images/meme1.jpg)
+
 I remembered that my first "blog-like thing" was the Bounce Balls. The homepage perhaps can be considered as half a blog, but it was just so boring to watch a bounch of balls bouncing around, so I came up with the idea of a formal blog.
 
 I thought of pure "hand-made" website firstly, but the workload will be too heavy for me to finish it in my vacation, so I turned to Hugo (from GitHub's JekyII).After the whole process, I found that the most difficult thing is to take a seriously look at the tutorial. I remember that Bounce Balls' homepage also has a long tutorial of my own, with the words "**Please read this tutorial carefully**" in big bold letters. It's easy to walk through a tutorial on a small game that doesn't require any technical requirements, but it's not easy to talk about a technical tutorial that is a bit brain-burning and full of incomprehensible aspects.

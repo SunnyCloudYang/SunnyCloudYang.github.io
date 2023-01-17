@@ -2,8 +2,8 @@
 author: "SunnyCloudYang"
 title: "Toys"
 date: "2023-01-17T17:00:00+08:00"
-summary: "一些过去写的小玩意儿，随便玩，不怕坏"
-description: "以前的Bounce Balls，放到这了。但是链接还没修好，还玩不了，再等等吧"
+summary: "Some toys I made before, take a look?"
+description: "以前的Bounce Balls，放到这了。但是链接还没修好，玩不了，也没翻译，再等等吧"
 tags: ["gadgets"]
 categories: "gadgets"
 hideMeta: false
@@ -34,11 +34,11 @@ ShowReadingTime: false
 
 ### 传送门
 
-#### -> 在这里[进入初代小球模拟器](../gadgets/oldsite/Balls/BounceBalls.html)
+#### -> 在这里[进入初代小球模拟器](/oldsite/Balls/BounceBalls.html)
 
-#### -> 在这里[进入全新UI的小球宇宙](../gadgets/oldsite/Balls/PureBalls.html)
+#### -> 在这里[进入全新UI的小球宇宙](/oldsite/Balls/PureBalls.html)
 
-#### -> 在这里[敲电子木鱼，攒赛博功德](../gadgets/oldsite/WoodBlock/WoodBlock.html)🙏
+#### -> 在这里[敲电子木鱼，攒赛博功德](/oldsite/WoodBlock/WoodBlock.html)🙏
 
 #### -> 在这里[下载BounceBalls的所有文件](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)
 
