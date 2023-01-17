@@ -1,32 +1,43 @@
-# Bounce Balls - 帮宝逝海洋球
++++
+title = '老宝贝们'
+slug = 'old'
+description = '一些过去写的小玩意儿，随便玩，不怕坏'
+disableComments = true
++++
 
-## 介绍
+## Bounce Balls - 帮宝逝海洋球
 
-### 欢迎来到第一平行宇宙——球宇宙
+### 说在前面
 
-### 全新界面，全新体验！
+因为这个主题的原因（也有可能是我的原因）有些删除线没有办法正常显示，因此有些地方读起来可能有些怪异。还有就是目前链接暂时也没办法打开，等我慢慢修一修吧。
+
+### 介绍
+
+#### 欢迎来到第一平行宇宙——球宇宙
+
+#### 全新界面，全新体验！
 
 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
 
-## 宇宙架构
+### 宇宙架构
 
 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；
 
-## 传送门
+### 传送门
 
-#### -> 在这里[进入初代小球模拟器](./Balls/BounceBalls.html)！
+#### -> 在这里[进入初代小球模拟器](./oldsite/Balls/BounceBalls.html)！
 
-#### -> 在这里[进入全新UI的小球宇宙](./Balls/PureBalls.html)！
+#### -> 在这里[进入全新UI的小球宇宙](./oldsite/Balls/PureBalls.html)！
 
-#### -> 在这里[敲电子木鱼，攒赛博功德](./WoodBlock/WoodBlock.html)🙏
+#### -> 在这里[敲电子木鱼，攒赛博功德](./oldsite/WoodBlock/WoodBlock.html)🙏
 
 #### -> 在这里[下载BounceBalls的所有文件](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)
 
 #### -> 在这里[下载电子木鱼(for Android)](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk)
 
-## 使用说明（请认真阅读！）
+### 使用说明（请认真阅读！）
 
-### Ⅰ. 初代模拟器
+#### Ⅰ. 初代模拟器
 
 1. 单击网页标题（Welcome to balabala...那个）可以查看当前的版本；
 2. 输入框<del>(按理说)</del>（现在可以了）可以改变小球数量；
@@ -47,7 +58,7 @@
 11. 超高校级隐藏操作：
     * 打开控制台，`balls[i]`对应的就是每一个小球，有`mess`/`radius`/`x`/`y`/`vx`/`vy`等属性，直接赋值即可突破限制（eg. `balls[0].mess = 114514;`）<del>一般人我都不告诉的</del>
 
-### Ⅱ. 全新小球宇宙
+#### Ⅱ. 全新小球宇宙
 
 1. 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！
 2. 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中
@@ -60,12 +71,12 @@
     * Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 <del>所以不必画蛇添足，脱裤裤放屁</del> 如果想打开Shake模式，请先关闭Ground Pointing
     * **重点**：在小球上**按住**鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方**按住**鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球
 
-## 建议
+### 建议
 
 1. 在Universe模式下建议把Graviation const调小一点(suggested: 0.200~0.450)；
 2. 上面那条**很重要！！！**
 
-## 特技
+### 特技
 
 1. Bug表演；
 2. <del>有时候能量不太守恒</del> 没有的事儿；
@@ -73,15 +84,14 @@
 4. 可能同时治疗低血压和高血压；
 5. 程序员的事，能叫Bug吗，那是Feature，feature...
 
-## 隐私
+### 隐私
 
 本程序不采集任何用户个人数据，也不会将任何数据上传至云端，所有数据处理均在本地进行。所有必需设备参数如下：
 
 * 屏幕宽与高（window.innerWidth，window.innerHeight），用于确定显示大小，默认小球数量等
 * 设备加速度传感器数据（DeviceMotionEvent.acceleration, \*.accelerationIncludingGravity），用于在Ground Pointing模式和Shake模式中确定小球加速度
-* <del>设备旋转传感器（DeviceOrientationEvent），这一项数据并未参与任何计算，已去除</del>
 
-## 鸣谢
+### 鸣谢
 
 1. 对提供源码框架的**Yan同学**（化名）表示**严重感谢！！！** 吃井不忘挖水人！
 2. 感谢Edge行而不卡，卡而不死，死而不坏；
@@ -89,10 +99,8 @@
 4. 感谢牛顿叔叔提供理论支持；
 5. 感谢量子力学提供最终解释权。
 
-## 最后
+### 最后
 
 还在看？那[点个Star](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)吧~
-
-还有一件事——记得把网址(<https://sunnycloudyang.github.io/>)加入收藏夹！
 
 **[Raise Your Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
