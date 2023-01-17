@@ -1,4 +1,4 @@
-languageCode = "zh-cn"
+languageCode = "zh"
 title = "SunnyCloudYang"
 baseURL = "https://sunnycloudyang.github.io/"
 theme = "massively"
