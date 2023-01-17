@@ -1,0 +1,211 @@
+baseURL: "https://adityatelange.github.io/hugo-PaperMod/" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+title: PaperMod
+paginate: 5
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: true
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+publishDir: docs
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    zh:
+        languageName: "简体中文"
+        weight: 1
+        title: Home
+        taxonomies:
+          category: 分类
+          tag: 标签
+          series: 连载
+        profileMode:
+            enabled: true
+            title: 来听我唠嗑
+            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
+            imageTitle: ProfileMode image
+            # imageWidth: 120
+            # imageHeight: 120
+            subtitle: "随便听听，引以为乐"
+            buttons:
+                - name: 博客儿
+                  url: posts/
+                - name: 弹弹球
+                  url: posts/old
+        menu:
+            main:
+                - name: 时间线
+                  url: archives/
+                  weight: 5
+                - name: 标签
+                  url: tags
+                  weight: 10
+                # - name: 分类
+                #   url: categories
+                #   weight: 10
+                # - name: 连载
+                #   url: series
+                  weight: 10
+                - name: 搜索
+                  url: search/
+                  weight: 15
+    en:
+        languageName: "English"
+        weight: 2
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        profileMode:
+            enabled: true
+            title: SunnyCloudYang
+            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
+            imageTitle: ProfileMode image
+            # imageWidth: 120
+            # imageHeight: 120
+            subtitle: "Have thoughts and have fun!"
+            buttons:
+                - name: Blog
+                  url: posts/
+                - name: Bounce Ball
+                  url: posts/old
+        menu:
+            main:
+                - name: Archive
+                  url: archives
+                  weight: 5
+                - name: Tags
+                  url: tags/
+                  weight: 10
+                - name: Search
+                  url: search/
+                  weight: 15
+
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    description: ""
+    author: SunnyCloudYang
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: auto
+    # disableThemeToggle: true
+    ShowShareButtons: false
+    ShowReadingTime: false
+    # disableSpecial1stPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    ShowRssButtonInSectionTermList: false
+    ShowToc: true
+    # comments: false
+    images: ["papermod-cover.png"]
+
+    profileMode:
+        enabled: false
+        title: SunnyCloudYang
+        imageUrl: "#"
+        imageTitle: my image
+        # imageWidth: 120
+        # imageHeight: 120
+        buttons:
+            - name: Archives
+              url: archives
+            - name: Tags
+              url: tags
+
+    homeInfoParams:
+        Title: "来听我唠嗑"
+        Content: >
+            随便听听，引以为乐
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/SunnyCloudYang"
+        - name: youtube
+
+    editPost:
+        URL: "https://github.com/sunnycloudyang"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+    label:
+        text: "Home"
+        icon: icon.png
+        iconHeight: 35
+
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "XYZabc"
+
+    assets:
+        disableHLJS: true
+    #     favicon: "<link / abs url>"
+    #     favicon16x16: "<link / abs url>"
+    #     favicon32x32: "<link / abs url>"
+    #     apple_touch_icon: "<link / abs url>"
+    #     safari_pinned_tab: "<link / abs url>"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    # fuseOpts:
+    #     isCaseSensitive: false
+    #     shouldSort: true
+    #     location: 0
+    #     distance: 1000
+    #     threshold: 0.4
+    #     minMatchCharLength: 0
+    #     keys: ["title", "permalink", "summary", "content"]
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        noClasses: false
+        # anchorLineNos: true
+        # codeFences: true
+        # guessSyntax: true
+        # lineNos: true
+        # style: monokai
+
+privacy:
+    vimeo:
+        disabled: true
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: true
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true

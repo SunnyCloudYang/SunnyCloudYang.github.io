@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>连载 on Home</title>
+    <link>https://adityatelange.github.io/hugo-PaperMod/zh/%E8%BF%9E%E8%BD%BD/</link>
+    <description>Recent content in 连载 on Home</description>
+    <image>
+      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
+      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://adityatelange.github.io/hugo-PaperMod/zh/%E8%BF%9E%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

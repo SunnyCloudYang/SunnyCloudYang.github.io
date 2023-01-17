@@ -2,44 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sunnycloudyang.github.io/post/post/</loc>
-    <lastmod>2023-01-17T00:00:00+00:00</lastmod>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/posts/post/</loc>
+    <lastmod>2023-01-16T19:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/post/post/"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/post/post/"
+                href="https://adityatelange.github.io/hugo-PaperMod/posts/post/"
                 />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/</loc>
-    <lastmod>2023-01-17T00:00:00+00:00</lastmod>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/categories/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/posts/post1/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/post1/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/"
+                href="https://adityatelange.github.io/hugo-PaperMod/posts/post1/"
                 />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/oldsite/readme/</loc>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/tags/milestone/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/generic-page/</loc>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/generic-page/"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/generic-page/"
+                href="https://adityatelange.github.io/hugo-PaperMod/"
                 />
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/categories/post/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/posts/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adityatelange.github.io/hugo-PaperMod/posts/"
+                />
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/tags/record/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/tags/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/tags/intro/</loc>
+    <lastmod>2023-01-16T19:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/</loc>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adityatelange.github.io/hugo-PaperMod/archives/"
+                />
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/categories/function/</loc>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/gadgets/</loc>
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://adityatelange.github.io/hugo-PaperMod/zh/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adityatelange.github.io/hugo-PaperMod/search/"
+                />
+  </url><url>
+    <loc>https://adityatelange.github.io/hugo-PaperMod/series/</loc>
   </url>
 </urlset>

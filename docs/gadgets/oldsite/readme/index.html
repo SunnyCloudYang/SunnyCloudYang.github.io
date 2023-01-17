@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>PaperMod</title>
+<meta name="keywords" content="">
+<meta name="description" content="Bounce Balls - 帮宝逝海洋球 介绍 欢迎来到第一平行宇宙——球宇宙 全新界面，全新体验！ 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
+宇宙架构 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；
+传送门 -&gt; 在这里进入初代小球模拟器！ -&gt; 在这里进入全新UI的小球宇宙！ -&gt; 在这里敲电子木鱼，攒赛博功德🙏 -&gt; 在这里下载BounceBalls的所有文件 -&gt; 在这里下载电子木鱼(for Android) 使用说明（请认真阅读！） Ⅰ. 初代模拟器（BounceBalls.html） 单击网页标题（Welcome to balabala&hellip;那个）可以查看当前的版本； 输入框(按理说)（现在可以了）可以改变小球数量； Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力； Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色； 高级隐藏操作： 双击Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启 双击Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭 目前暂时不能同时开启shake mode和gravity follow！ 双击Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启 双击Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭 双击Custom？没有用 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放; 如果卡住了，请刷新页面，这将重新开始； 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得 现在恒河里，不用怀疑； PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆； 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧 超高校级隐藏操作： 打开控制台，balls[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls[0].mess = 114514;）一般人我都不告诉的 Ⅱ. 全新小球宇宙（PureBalls.html） 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！ 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中 右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了 ⚠️注意：设置数据只有在点击保存（Save）之后才会生效 相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬 限制说明：在这个版本中，我们加入了一些限制，以 限制你的作恶能力 尽力呈现最好的使用体验，主要有如下几点： Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）； Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态（好贴心！他真的，我哭死） Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 所以不必画蛇添足，脱裤裤放屁 如果想打开Shake模式，请先关闭Ground Pointing 重点：在小球上按住鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方按住鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球 建议 在Universe模式下建议把Graviation const调小一点(suggested: 0.">
+<meta name="author" content="SunnyCloudYang">
+<link rel="canonical" href="https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/">
+<link crossorigin="anonymous" href="/hugo-PaperMod/assets/css/stylesheet.deec51b4ebb14229cda677d98d194ddeeebc27943c57f551ca001ed945bcb9ec.css" integrity="sha256-3uxRtOuxQinNpnfZjRlN3u68J5Q8V/VRygAe2UW8uew=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://adityatelange.github.io/hugo-PaperMod/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://adityatelange.github.io/hugo-PaperMod/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://adityatelange.github.io/hugo-PaperMod/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://adityatelange.github.io/hugo-PaperMod/apple-touch-icon.png">
+<link rel="mask-icon" href="https://adityatelange.github.io/hugo-PaperMod/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="Bounce Balls - 帮宝逝海洋球 介绍 欢迎来到第一平行宇宙——球宇宙 全新界面，全新体验！ 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
+宇宙架构 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；
+传送门 -&gt; 在这里进入初代小球模拟器！ -&gt; 在这里进入全新UI的小球宇宙！ -&gt; 在这里敲电子木鱼，攒赛博功德🙏 -&gt; 在这里下载BounceBalls的所有文件 -&gt; 在这里下载电子木鱼(for Android) 使用说明（请认真阅读！） Ⅰ. 初代模拟器（BounceBalls.html） 单击网页标题（Welcome to balabala&hellip;那个）可以查看当前的版本； 输入框(按理说)（现在可以了）可以改变小球数量； Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力； Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色； 高级隐藏操作： 双击Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启 双击Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭 目前暂时不能同时开启shake mode和gravity follow！ 双击Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启 双击Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭 双击Custom？没有用 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放; 如果卡住了，请刷新页面，这将重新开始； 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得 现在恒河里，不用怀疑； PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆； 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧 超高校级隐藏操作： 打开控制台，balls[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls[0].mess = 114514;）一般人我都不告诉的 Ⅱ. 全新小球宇宙（PureBalls.html） 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！ 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中 右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了 ⚠️注意：设置数据只有在点击保存（Save）之后才会生效 相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬 限制说明：在这个版本中，我们加入了一些限制，以 限制你的作恶能力 尽力呈现最好的使用体验，主要有如下几点： Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）； Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态（好贴心！他真的，我哭死） Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 所以不必画蛇添足，脱裤裤放屁 如果想打开Shake模式，请先关闭Ground Pointing 重点：在小球上按住鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方按住鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球 建议 在Universe模式下建议把Graviation const调小一点(suggested: 0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/" /><meta property="og:image" content="https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png"/><meta property="article:section" content="gadgets" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png"/>
+
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Bounce Balls - 帮宝逝海洋球 介绍 欢迎来到第一平行宇宙——球宇宙 全新界面，全新体验！ 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
+宇宙架构 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；
+传送门 -&gt; 在这里进入初代小球模拟器！ -&gt; 在这里进入全新UI的小球宇宙！ -&gt; 在这里敲电子木鱼，攒赛博功德🙏 -&gt; 在这里下载BounceBalls的所有文件 -&gt; 在这里下载电子木鱼(for Android) 使用说明（请认真阅读！） Ⅰ. 初代模拟器（BounceBalls.html） 单击网页标题（Welcome to balabala&hellip;那个）可以查看当前的版本； 输入框(按理说)（现在可以了）可以改变小球数量； Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力； Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色； 高级隐藏操作： 双击Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启 双击Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭 目前暂时不能同时开启shake mode和gravity follow！ 双击Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启 双击Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭 双击Custom？没有用 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放; 如果卡住了，请刷新页面，这将重新开始； 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得 现在恒河里，不用怀疑； PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆； 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧 超高校级隐藏操作： 打开控制台，balls[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls[0].mess = 114514;）一般人我都不告诉的 Ⅱ. 全新小球宇宙（PureBalls.html） 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！ 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中 右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了 ⚠️注意：设置数据只有在点击保存（Save）之后才会生效 相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬 限制说明：在这个版本中，我们加入了一些限制，以 限制你的作恶能力 尽力呈现最好的使用体验，主要有如下几点： Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）； Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态（好贴心！他真的，我哭死） Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 所以不必画蛇添足，脱裤裤放屁 如果想打开Shake模式，请先关闭Ground Pointing 重点：在小球上按住鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方按住鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球 建议 在Universe模式下建议把Graviation const调小一点(suggested: 0."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Gadgets",
+      "item": "https://adityatelange.github.io/hugo-PaperMod/gadgets/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "",
+      "item": "https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "name": "",
+  "description": "Bounce Balls - 帮宝逝海洋球 介绍 欢迎来到第一平行宇宙——球宇宙 全新界面，全新体验！ 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)\n宇宙架构 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；\n传送门 -\u0026gt; 在这里进入初代小球模拟器！ -\u0026gt; 在这里进入全新UI的小球宇宙！ -\u0026gt; 在这里敲电子木鱼，攒赛博功德🙏 -\u0026gt; 在这里下载BounceBalls的所有文件 -\u0026gt; 在这里下载电子木鱼(for Android) 使用说明（请认真阅读！） Ⅰ. 初代模拟器（BounceBalls.html） 单击网页标题（Welcome to balabala\u0026hellip;那个）可以查看当前的版本； 输入框(按理说)（现在可以了）可以改变小球数量； Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力； Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色； 高级隐藏操作： 双击Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启 双击Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭 目前暂时不能同时开启shake mode和gravity follow！ 双击Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启 双击Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭 双击Custom？没有用 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放; 如果卡住了，请刷新页面，这将重新开始； 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得 现在恒河里，不用怀疑； PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆； 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧 超高校级隐藏操作： 打开控制台，balls[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls[0].mess = 114514;）一般人我都不告诉的 Ⅱ. 全新小球宇宙（PureBalls.html） 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！ 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中 右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了 ⚠️注意：设置数据只有在点击保存（Save）之后才会生效 相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬 限制说明：在这个版本中，我们加入了一些限制，以 限制你的作恶能力 尽力呈现最好的使用体验，主要有如下几点： Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）； Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态（好贴心！他真的，我哭死） Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 所以不必画蛇添足，脱裤裤放屁 如果想打开Shake模式，请先关闭Ground Pointing 重点：在小球上按住鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方按住鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球 建议 在Universe模式下建议把Graviation const调小一点(suggested: 0.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Bounce Balls - 帮宝逝海洋球 介绍 欢迎来到第一平行宇宙——球宇宙 全新界面，全新体验！ 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)\n宇宙架构 宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；\n传送门 -\u003e 在这里进入初代小球模拟器！ -\u003e 在这里进入全新UI的小球宇宙！ -\u003e 在这里敲电子木鱼，攒赛博功德🙏 -\u003e 在这里下载BounceBalls的所有文件 -\u003e 在这里下载电子木鱼(for Android) 使用说明（请认真阅读！） Ⅰ. 初代模拟器（BounceBalls.html） 单击网页标题（Welcome to balabala…那个）可以查看当前的版本； 输入框(按理说)（现在可以了）可以改变小球数量； Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力； Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色； 高级隐藏操作： 双击Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启 双击Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭 目前暂时不能同时开启shake mode和gravity follow！ 双击Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启 双击Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭 双击Custom？没有用 在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放; 如果卡住了，请刷新页面，这将重新开始； 如果你觉得有时候碰撞过程不河里，emmm，其实我也这么觉得 现在恒河里，不用怀疑； PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆； 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧 超高校级隐藏操作： 打开控制台，balls[i]对应的就是每一个小球，有mess/radius/x/y/vx/vy等属性，直接赋值即可突破限制（eg. balls[0].mess = 114514;）一般人我都不告诉的 Ⅱ. 全新小球宇宙（PureBalls.html） 本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！ 左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中 右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了 ⚠️注意：设置数据只有在点击保存（Save）之后才会生效 相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬 限制说明：在这个版本中，我们加入了一些限制，以 限制你的作恶能力 尽力呈现最好的使用体验，主要有如下几点： Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）； Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态（好贴心！他真的，我哭死） Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 所以不必画蛇添足，脱裤裤放屁 如果想打开Shake模式，请先关闭Ground Pointing 重点：在小球上按住鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方按住鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球 建议 在Universe模式下建议把Graviation const调小一点(suggested: 0.200~0.450)； 上面那条很重要！！！ 特技 Bug表演； 有时候能量不太守恒 没有的事儿； 有时候动量也不太守恒 没有的事儿； 可能同时治疗低血压和高血压； 程序员的事，能叫Bug吗，那是Feature，feature… 隐私 本程序不采集任何用户个人数据，也不会将任何数据上传至云端，所有数据处理均在本地进行。所有必需设备参数如下：\n屏幕宽与高（window.innerWidth，window.innerHeight），用于确定显示大小，默认小球数量等 设备加速度传感器数据（DeviceMotionEvent.acceleration, DeviceMotionEvent.accelerationIncludingGravity），用于在Ground Pointing模式和Shake模式中确定小球加速度 设备旋转传感器（DeviceOrientationEvent），这一项数据并未参与任何计算，已去除 鸣谢 对提供源码框架的Yan同学（化名）表示严重感谢！！！ 吃井不忘挖水人！ 感谢Edge行而不卡，卡而不死，死而不坏； 感谢头发不离不弃； 感谢牛顿叔叔提供理论支持； 感谢量子力学提供最终解释权。 最后 还在看？那点个Star吧~\n还有一件事——记得把网址(https://sunnycloudyang.github.io/)加入收藏夹！\nFeel Free to Raise Your Issues and Report Bugs!\n",
+  "wordCount" : "122",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "SunnyCloudYang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://adityatelange.github.io/hugo-PaperMod/gadgets/oldsite/readme/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "PaperMod",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://adityatelange.github.io/hugo-PaperMod/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://adityatelange.github.io/hugo-PaperMod/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://adityatelange.github.io/hugo-PaperMod/icon.png" alt="" aria-label="logo"
+                    height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://adityatelange.github.io/hugo-PaperMod/zh/" title="简体中文"
+                            aria-label="简体中文">简体中文</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://adityatelange.github.io/hugo-PaperMod/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/hugo-PaperMod/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://adityatelange.github.io/hugo-PaperMod/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://adityatelange.github.io/hugo-PaperMod/">Home</a>&nbsp;»&nbsp;<a href="https://adityatelange.github.io/hugo-PaperMod/gadgets/">Gadgets</a></div>
+    <h1 class="post-title">
+      
+    </h1>
+    <div class="post-meta">SunnyCloudYang&nbsp;|&nbsp;<a href="https://github.com/sunnycloudyang/gadgets/oldsite/README.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#bounce-balls---%e5%b8%ae%e5%ae%9d%e9%80%9d%e6%b5%b7%e6%b4%8b%e7%90%83" aria-label="Bounce Balls - 帮宝逝海洋球">Bounce Balls - 帮宝逝海洋球</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bb%8b%e7%bb%8d" aria-label="介绍">介绍</a><ul>
+                        
+                <li>
+                    <a href="#%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%88%b0%e7%ac%ac%e4%b8%80%e5%b9%b3%e8%a1%8c%e5%ae%87%e5%ae%99%e7%90%83%e5%ae%87%e5%ae%99" aria-label="欢迎来到第一平行宇宙——球宇宙">欢迎来到第一平行宇宙——球宇宙</a></li>
+                <li>
+                    <a href="#%e5%85%a8%e6%96%b0%e7%95%8c%e9%9d%a2%e5%85%a8%e6%96%b0%e4%bd%93%e9%aa%8c" aria-label="全新界面，全新体验！">全新界面，全新体验！</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%87%e5%ae%99%e6%9e%b6%e6%9e%84" aria-label="宇宙架构">宇宙架构</a></li>
+                <li>
+                    <a href="#%e4%bc%a0%e9%80%81%e9%97%a8" aria-label="传送门">传送门</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e8%bf%9b%e5%85%a5%e5%88%9d%e4%bb%a3%e5%b0%8f%e7%90%83%e6%a8%a1%e6%8b%9f%e5%99%a8httpssunnycloudyanggithubiobounceballshtml" aria-label="-&amp;gt; 在这里进入初代小球模拟器！">-&gt; 在这里<a href="https://SunnyCloudYang.github.io/BounceBalls.html">进入初代小球模拟器</a>！</a></li>
+                <li>
+                    <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e8%bf%9b%e5%85%a5%e5%85%a8%e6%96%b0ui%e7%9a%84%e5%b0%8f%e7%90%83%e5%ae%87%e5%ae%99httpssunnycloudyanggithubiopureballshtml" aria-label="-&amp;gt; 在这里进入全新UI的小球宇宙！">-&gt; 在这里<a href="https://SunnyCloudYang.github.io/PureBalls.html">进入全新UI的小球宇宙</a>！</a></li>
+                <li>
+                    <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e6%95%b2%e7%94%b5%e5%ad%90%e6%9c%a8%e9%b1%bc%e6%94%92%e8%b5%9b%e5%8d%9a%e5%8a%9f%e5%be%b7woodblockwoodblockhtml" aria-label="-&amp;gt; 在这里敲电子木鱼，攒赛博功德🙏">-&gt; 在这里<a href="./WoodBlock/WoodBlock.html">敲电子木鱼，攒赛博功德</a>🙏</a></li>
+                <li>
+                    <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e4%b8%8b%e8%bd%bdbounceballs%e7%9a%84%e6%89%80%e6%9c%89%e6%96%87%e4%bb%b6httpsgithubcomsunnycloudyangsunnycloudyanggithubio" aria-label="-&amp;gt; 在这里下载BounceBalls的所有文件">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io">下载BounceBalls的所有文件</a></a></li>
+                <li>
+                    <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e4%b8%8b%e8%bd%bd%e7%94%b5%e5%ad%90%e6%9c%a8%e9%b1%bcfor-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk" aria-label="-&amp;gt; 在这里下载电子木鱼(for Android)">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk">下载电子木鱼(for Android)</a></a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e%e8%af%b7%e8%ae%a4%e7%9c%9f%e9%98%85%e8%af%bb" aria-label="使用说明（请认真阅读！）">使用说明（请认真阅读！）</a><ul>
+                        
+                <li>
+                    <a href="#-%e5%88%9d%e4%bb%a3%e6%a8%a1%e6%8b%9f%e5%99%a8bounceballshtml" aria-label="Ⅰ. 初代模拟器（BounceBalls.html）">Ⅰ. 初代模拟器（BounceBalls.html）</a></li>
+                <li>
+                    <a href="#-%e5%85%a8%e6%96%b0%e5%b0%8f%e7%90%83%e5%ae%87%e5%ae%99pureballshtml" aria-label="Ⅱ. 全新小球宇宙（PureBalls.html）">Ⅱ. 全新小球宇宙（PureBalls.html）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%bb%ba%e8%ae%ae" aria-label="建议">建议</a></li>
+                <li>
+                    <a href="#%e7%89%b9%e6%8a%80" aria-label="特技">特技</a></li>
+                <li>
+                    <a href="#%e9%9a%90%e7%a7%81" aria-label="隐私">隐私</a></li>
+                <li>
+                    <a href="#%e9%b8%a3%e8%b0%a2" aria-label="鸣谢">鸣谢</a></li>
+                <li>
+                    <a href="#%e6%9c%80%e5%90%8e" aria-label="最后">最后</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="bounce-balls---帮宝逝海洋球">Bounce Balls - 帮宝逝海洋球<a hidden class="anchor" aria-hidden="true" href="#bounce-balls---帮宝逝海洋球">#</a></h1>
+<h2 id="介绍">介绍<a hidden class="anchor" aria-hidden="true" href="#介绍">#</a></h2>
+<h3 id="欢迎来到第一平行宇宙球宇宙">欢迎来到第一平行宇宙——球宇宙<a hidden class="anchor" aria-hidden="true" href="#欢迎来到第一平行宇宙球宇宙">#</a></h3>
+<h3 id="全新界面全新体验">全新界面，全新体验！<a hidden class="anchor" aria-hidden="true" href="#全新界面全新体验">#</a></h3>
+<p>简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)</p>
+<h2 id="宇宙架构">宇宙架构<a hidden class="anchor" aria-hidden="true" href="#宇宙架构">#</a></h2>
+<p>宇宙架构说明： Newton力学体系，Galileo变换，SCY式(化名)碰撞方式；</p>
+<h2 id="传送门">传送门<a hidden class="anchor" aria-hidden="true" href="#传送门">#</a></h2>
+<h4 id="--在这里进入初代小球模拟器httpssunnycloudyanggithubiobounceballshtml">-&gt; 在这里<a href="https://SunnyCloudYang.github.io/BounceBalls.html">进入初代小球模拟器</a>！<a hidden class="anchor" aria-hidden="true" href="#--在这里进入初代小球模拟器httpssunnycloudyanggithubiobounceballshtml">#</a></h4>
+<h4 id="--在这里进入全新ui的小球宇宙httpssunnycloudyanggithubiopureballshtml">-&gt; 在这里<a href="https://SunnyCloudYang.github.io/PureBalls.html">进入全新UI的小球宇宙</a>！<a hidden class="anchor" aria-hidden="true" href="#--在这里进入全新ui的小球宇宙httpssunnycloudyanggithubiopureballshtml">#</a></h4>
+<h4 id="--在这里敲电子木鱼攒赛博功德woodblockwoodblockhtml">-&gt; 在这里<a href="./WoodBlock/WoodBlock.html">敲电子木鱼，攒赛博功德</a>🙏<a hidden class="anchor" aria-hidden="true" href="#--在这里敲电子木鱼攒赛博功德woodblockwoodblockhtml">#</a></h4>
+<h4 id="--在这里下载bounceballs的所有文件httpsgithubcomsunnycloudyangsunnycloudyanggithubio">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io">下载BounceBalls的所有文件</a><a hidden class="anchor" aria-hidden="true" href="#--在这里下载bounceballs的所有文件httpsgithubcomsunnycloudyangsunnycloudyanggithubio">#</a></h4>
+<h4 id="--在这里下载电子木鱼for-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk">下载电子木鱼(for Android)</a><a hidden class="anchor" aria-hidden="true" href="#--在这里下载电子木鱼for-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk">#</a></h4>
+<h2 id="使用说明请认真阅读">使用说明（请认真阅读！）<a hidden class="anchor" aria-hidden="true" href="#使用说明请认真阅读">#</a></h2>
+<h3 id="-初代模拟器bounceballshtml">Ⅰ. 初代模拟器（BounceBalls.html）<a hidden class="anchor" aria-hidden="true" href="#-初代模拟器bounceballshtml">#</a></h3>
+<ol>
+<li>单击网页标题（Welcome to balabala&hellip;那个）可以查看当前的版本；</li>
+<li>输入框<del>(按理说)</del>（现在可以了）可以改变小球数量；</li>
+<li>Gravity选项加入重力（会默认打开Energy loss），Energy loss加入碰撞墙壁时的能量损失, Universe mode加入万有引力；</li>
+<li>Custom选项可以自定义小球大小/速度、万有引力常量、背景颜色；</li>
+<li>高级隐藏操作：
+<ul>
+<li><strong>双击</strong>Gravity打开/关闭跟随重力模式，旋转手机，小球会始终向着地面掉落，默认值为开启</li>
+<li><strong>双击</strong>Energy Loss打开/关闭摇晃模式(shake mode)，小球会随着设备摇晃（你晃电脑干嘛呀，电脑可没有加速度计！），默认值为关闭</li>
+<li><strong>目前暂时不能同时开启shake mode和gravity follow！</strong></li>
+<li><strong>双击</strong>Universe mode打开/关闭融合模式(merge mode)，大球会吃掉被压进自己内部的小球，默认值为开启</li>
+<li><strong>双击</strong>Day mode或者Night mode打开/关闭尾部拖影，看个人爱好了，默认值为关闭</li>
+<li><del><strong>双击</strong>Custom？没有用</del></li>
+</ul>
+</li>
+<li>在小球内部按下鼠标左键可以控制任意小球，松开鼠标左键可将其释放;</li>
+<li>如果卡住了，请刷新页面，这将重新开始；</li>
+<li>如果你觉得有时候碰撞过程不河里，<del>emmm，其实我也这么觉得</del> 现在恒河里，不用怀疑；</li>
+<li>PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆；</li>
+<li>画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧</li>
+<li>超高校级隐藏操作：
+<ul>
+<li>打开控制台，<code>balls[i]</code>对应的就是每一个小球，有<code>mess</code>/<code>radius</code>/<code>x</code>/<code>y</code>/<code>vx</code>/<code>vy</code>等属性，直接赋值即可突破限制（eg. <code>balls[0].mess = 114514;</code>）<del>一般人我都不告诉的</del></li>
+</ul>
+</li>
+</ol>
+<h3 id="-全新小球宇宙pureballshtml">Ⅱ. 全新小球宇宙（PureBalls.html）<a hidden class="anchor" aria-hidden="true" href="#-全新小球宇宙pureballshtml">#</a></h3>
+<ol>
+<li>本模式为全屏纯享版，采用了全新的UI设计，适合作为壁纸或者对界面比较挑剔的有艺术眼光的优秀的你！</li>
+<li>左上角为当前球数统计，支持单击直接快速批量改变小球数量，UI还在优化中</li>
+<li>右上角点击设置图标可以打开设置菜单，单击其他地方/设置图标/Save/Cancel可以关闭菜单。上下滚一滚？目前可以自定义的变量几乎都在那儿了
+<ul>
+<li>⚠️<strong>注意</strong>：设置数据<strong>只有</strong>在点击保存（Save）之后才会生效</li>
+</ul>
+</li>
+<li>相信你已经看完了初代模拟器的操作指南（对吧？），在这个版本中所有的双击操作都作为开关直接呈现，避免了记不住的尴尬</li>
+<li>限制说明：在这个版本中，我们加入了一些限制，以 <del>限制你的作恶能力</del> 尽力呈现最好的使用体验，主要有如下几点：
+<ul>
+<li>Universe模式与Gravity模式不可得兼（什么你说你在卡门线分不清在地表还是在宇宙？不知道，听不清，不在乎🙉）；</li>
+<li>Gravity模式下强制加入了能量损失（毕竟都在地面上了，也得入乡随俗吧），当你关闭Gravity模式，Energy Loss会自动恢复至开启Gravity之前时的状态<del>（好贴心！他真的，我哭死）</del></li>
+<li>Ground Pointing模式和Shake模式不可得兼，因为Ground Pointing采集的加速度包括了你死命摇手机时产生的加速度 <del>所以不必画蛇添足，脱裤裤放屁</del> 如果想打开Shake模式，请先关闭Ground Pointing</li>
+<li><strong>重点</strong>：在小球上<strong>按住</strong>鼠标可以控制并拖动小球横冲直撞，而在没有小球的地方<strong>按住</strong>鼠标会制造一个新的小球（并暂停所有运动），拖动鼠标可以控制其大小（极限值取决于你设置的最大/最小球半径），如果不想控制大小的话单击会默认创造和上一次一样大的小球</li>
+</ul>
+</li>
+</ol>
+<h2 id="建议">建议<a hidden class="anchor" aria-hidden="true" href="#建议">#</a></h2>
+<ol>
+<li>在Universe模式下建议把Graviation const调小一点(suggested: 0.200~0.450)；</li>
+<li>上面那条<strong>很重要！！！</strong></li>
+</ol>
+<h2 id="特技">特技<a hidden class="anchor" aria-hidden="true" href="#特技">#</a></h2>
+<ol>
+<li>Bug表演；</li>
+<li><del>有时候能量不太守恒</del> 没有的事儿；</li>
+<li><del>有时候动量也不太守恒</del> 没有的事儿；</li>
+<li>可能同时治疗低血压和高血压；</li>
+<li>程序员的事，能叫Bug吗，那是Feature，feature&hellip;</li>
+</ol>
+<h2 id="隐私">隐私<a hidden class="anchor" aria-hidden="true" href="#隐私">#</a></h2>
+<p>本程序不采集任何用户个人数据，也不会将任何数据上传至云端，所有数据处理均在本地进行。所有必需设备参数如下：</p>
+<ul>
+<li>屏幕宽与高（<code>window.innerWidth</code>，<code>window.innerHeight</code>），用于确定显示大小，默认小球数量等</li>
+<li>设备加速度传感器数据（<code>DeviceMotionEvent.acceleration</code>, <code>DeviceMotionEvent.accelerationIncludingGravity</code>），用于在Ground Pointing模式和Shake模式中确定小球加速度</li>
+<li><del>设备旋转传感器（<code>DeviceOrientationEvent</code>），这一项数据并未参与任何计算，已去除</del></li>
+</ul>
+<h2 id="鸣谢">鸣谢<a hidden class="anchor" aria-hidden="true" href="#鸣谢">#</a></h2>
+<ol>
+<li>对提供源码框架的<strong>Yan同学</strong>（化名）表示<strong>严重感谢！！！</strong> 吃井不忘挖水人！</li>
+<li>感谢Edge行而不卡，卡而不死，死而不坏；</li>
+<li>感谢头发不离不弃；</li>
+<li>感谢牛顿叔叔提供理论支持；</li>
+<li>感谢量子力学提供最终解释权。</li>
+</ol>
+<h2 id="最后">最后<a hidden class="anchor" aria-hidden="true" href="#最后">#</a></h2>
+<p>还在看？那点个Star吧~</p>
+<p>还有一件事——记得把网址(<a href="https://sunnycloudyang.github.io/">https://sunnycloudyang.github.io/</a>)加入收藏夹！</p>
+<p><strong>Feel Free to Raise Your Issues and Report Bugs!</strong></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://adityatelange.github.io/hugo-PaperMod/">PaperMod</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
