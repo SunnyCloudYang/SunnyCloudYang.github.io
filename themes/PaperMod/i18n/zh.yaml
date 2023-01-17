@@ -6,8 +6,8 @@
 
 - id: read_time
   translation:
-    one : "1 分钟"
-    other: "{{ .Count }} 分钟"
+    one : "大约需要 1 分钟"
+    other: "大约需要 {{ .Count }} 分钟"
 
 - id: words
   translation: 
@@ -27,7 +27,7 @@
   translation: "编辑"
 
 - id: code_copy
-  translation: "复制"
+  translation: "借我抄抄"
 
 - id: code_copied
-  translation: "已复制！"
+  translation: "给你了"

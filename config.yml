@@ -1,6 +1,6 @@
-baseURL: "https://sunnycloudyang.github.io/" # if your site is in 'https', then make sure your base url isn't written using 'http' otherwise your sitemap would contain http (as opposeed to https) URLs. This would affect Google indexing of your URLs.
+baseURL: "https://sunnycloudyang.github.io/"
 title: SunnyCloudYang's Blog
-paginate: 5
+paginate: 7
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -21,11 +21,11 @@ languages:
     zh:
         languageName: "简体中文"
         weight: 1
-        title: Home
+        title: 抽象艺术集散地
         taxonomies:
-          category: 分类
-          tag: 标签
-          series: 连载
+          category: categories
+          tag: tags
+          series: series
         profileMode:
             enabled: true
             title: 来听我唠嗑
@@ -45,17 +45,25 @@ languages:
                   url: archives/
                   weight: 5
                 - name: 标签
-                  url: tags
+                  url: tags/
                   weight: 10
-                # - name: 分类
-                #   url: categories
-                #   weight: 10
-                # - name: 连载
-                #   url: series
+                - name: 分类
+                  url: categories
+                  weight: 10
+                - name: 连载
+                  url: series
                   weight: 10
                 - name: 搜索
                   url: search/
                   weight: 15
+        socialIcons:
+            - name: github
+              url: "https://gitee.com/sunnycloudyang"
+            - name: telegram
+              url: "https://t.me/goodnullname"
+            - name: bilibili
+              url: "https://space.bilibili.com/1699653390"
+
     en:
         languageName: "English"
         weight: 2
@@ -65,7 +73,7 @@ languages:
           series: series
         profileMode:
             enabled: true
-            title: SunnyCloudYang
+            title: Funny Mud Pee
             imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
             imageTitle: ProfileMode image
             # imageWidth: 120
@@ -84,10 +92,25 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
+                - name: Categories
+                  url: categories
+                  weight: 10
+                - name: Series
+                  url: series
+                  weight: 12
                 - name: Search
                   url: search/
                   weight: 15
-
+        date_format: "Jan 26, 2002"
+        socialIcons:
+            - name: github
+              url: "https://github.com/SunnyCloudYang"
+            - name: twitter
+              url: "https://twitter.com/ApparentNull"
+            - name: telegram
+              url: "https://t.me/goodnullname"
+            - name: youtube
+              url: "https://youtube.com/@sunnycloudyang8574"
 
 outputs:
     home:
@@ -109,10 +132,10 @@ params:
     displayFullLangName: true
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
-    ShowCodeCopyButtons: false
+    ShowCodeCopyButtons: true
     ShowRssButtonInSectionTermList: false
     ShowToc: true
-    # comments: false
+    comments: false
     images: ["papermod-cover.png"]
 
     profileMode:
@@ -137,6 +160,12 @@ params:
         - name: github
           url: "https://github.com/SunnyCloudYang"
         - name: youtube
+          url: "https://youtube.com/@sunnycloudyang8574"
+        - name: telegram
+        - name: twitter
+          url: "https://twitter.com/ApparentNull"
+        - name: bilibili
+          url: "https://space.bilibili.com/1699653390"
 
     editPost:
         URL: "https://github.com/sunnycloudyang"
@@ -154,11 +183,11 @@ params:
 
     assets:
         disableHLJS: true
-    #     favicon: "<link / abs url>"
-    #     favicon16x16: "<link / abs url>"
-    #     favicon32x32: "<link / abs url>"
-    #     apple_touch_icon: "<link / abs url>"
-    #     safari_pinned_tab: "<link / abs url>"
+        favicon: "/favicon/favicon.ico"
+        favicon16x16: "/favicon/favicon-16x16.png"
+        favicon32x32: "/favicon/favicon-32x32.png"
+        apple_touch_icon: "/favicon/apple-touch-icon.png"
+        safari_pinned_tab: "/favicon/favicon-16x16.png"
 
     # cover:
     #     hidden: true # hide everywhere but not in structured data
@@ -180,11 +209,11 @@ markup:
             unsafe: true
     highlight:
         noClasses: false
-        # anchorLineNos: true
-        # codeFences: true
-        # guessSyntax: true
-        # lineNos: true
-        # style: monokai
+        anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        style: monokai
 
 privacy:
     vimeo:

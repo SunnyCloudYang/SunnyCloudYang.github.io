@@ -11,11 +11,11 @@
 <meta name="author" content="SunnyCloudYang">
 <link rel="canonical" href="https://sunnycloudyang.github.io/posts/post1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.deec51b4ebb14229cda677d98d194ddeeebc27943c57f551ca001ed945bcb9ec.css" integrity="sha256-3uxRtOuxQinNpnfZjRlN3u68J5Q8V/VRygAe2UW8uew=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://sunnycloudyang.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://sunnycloudyang.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://sunnycloudyang.github.io/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/zh/posts/post1/">
@@ -100,8 +100,8 @@
   "keywords": [
     "record", "milestone"
   ],
-  "articleBody": " This blogpost knows that its biggest role, is just to take up some place to make it seems meaningful.\n“Like the zero in mathematics”, it thought.\nFinally, the first commit of this holiday fulfilled my “grand” blueprint – a blog. To be honest, it’s not very hard to build a thing like this. But it still took me nearly two days.\nI remembered that my first “blog-like thing” was the Bounce Balls. The homepage perhaps can be considered as half a blog, but it was just so boring to watch a bounch of balls bouncing around, so I came up with the idea of a formal blog.\nI thought of pure “hand-made” website firstly, but the workload will be too heavy for me to finish it in my vacation, so I turned to Hugo (from GitHub’s JekyII).After the whole process, I found that the most difficult thing is to take a seriously look at the tutorial. I remember that Bounce Balls’ homepage also has a long tutorial of my own, with the words “Please read this tutorial carefully” in big bold letters. It’s easy to walk through a tutorial on a small game that doesn’t require any technical requirements, but it’s not easy to talk about a technical tutorial that is a bit brain-burning and full of incomprehensible aspects.\nAnd here’s my first and biggest challenge during my setup. There is such a line in the tutorial:\npublishDir = 'docs' which I didn’t see. So I just couldn’t deploy it to GitHub Pages. And I was so anxious that I finally took a look at the tutorial and GitHub build requirements. It was finally successful.\nIt seems that being able to listen carefully and fully understand others is a rare skill.\nOn top of that, the biggest difficulty in building it, and the biggest difficulty right now, is figuring out what all these many configurations do, and for the foreseeable future I’m going to be blogging and working on the rest of it.\nThere’s nothing more I can say. Let’s just work on it and this post will continue to be updated.\nAnd thank you for reading this far. See you later!\n",
-  "wordCount" : "362",
+  "articleBody": " This blogpost knows that its biggest role, is just to take up some place to make it seems meaningful.\n“Like the zero in mathematics”, it thought.\nFinally, the first commit of this holiday fulfilled my “grand” blueprint – a blog. To be honest, it’s not very hard to build a thing like this. But it still took me nearly two days.\nI remembered that my first “blog-like thing” was the Bounce Balls. The homepage perhaps can be considered as half a blog, but it was just so boring to watch a bounch of balls bouncing around, so I came up with the idea of a formal blog.\nI thought of pure “hand-made” website firstly, but the workload will be too heavy for me to finish it in my vacation, so I turned to Hugo (from GitHub’s JekyII).After the whole process, I found that the most difficult thing is to take a seriously look at the tutorial. I remember that Bounce Balls’ homepage also has a long tutorial of my own, with the words “Please read this tutorial carefully” in big bold letters. It’s easy to walk through a tutorial on a small game that doesn’t require any technical requirements, but it’s not easy to talk about a technical tutorial that is a bit brain-burning and full of incomprehensible aspects.\nAnd here’s my first and biggest challenge during my setup. There is such a line in the tutorial:\n1 publishDir = 'docs' which I didn’t see. So I just couldn’t deploy it to GitHub Pages. And I was so anxious that I finally took a look at the tutorial and GitHub build requirements. It was finally successful.\nIt seems that being able to listen carefully and fully understand others is a rare skill.\nOn top of that, the biggest difficulty in building it, and the biggest difficulty right now, is figuring out what all these many configurations do, and for the foreseeable future I’m going to be blogging and working on the rest of it.\nThere’s nothing more I can say. Let’s just work on it and this post will continue to be updated.\nAnd thank you for reading this far. See you later!\n",
+  "wordCount" : "363",
   "inLanguage": "en",
   "datePublished": "2023-01-17T17:00:00+08:00",
   "dateModified": "2023-01-17T17:00:00+08:00",
@@ -118,7 +118,7 @@
     "name": "SunnyCloudYang's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sunnycloudyang.github.io/favicon.ico"
+      "url": "https://sunnycloudyang.github.io/favicon/favicon.ico"
     }
   }
 }
@@ -179,8 +179,18 @@
                 </a>
             </li>
             <li>
+                <a href="https://sunnycloudyang.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
                 <a href="https://sunnycloudyang.github.io/tags/" title="Tags">
                     <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/series" title="Series">
+                    <span>Series</span>
                 </a>
             </li>
             <li>
@@ -221,8 +231,15 @@
 <p>I remembered that my first &ldquo;blog-like thing&rdquo; was the Bounce Balls. The homepage perhaps can be considered as half a blog, but it was just so boring to watch a bounch of balls bouncing around, so I came up with the idea of a formal blog.</p>
 <p>I thought of pure &ldquo;hand-made&rdquo; website firstly, but the workload will be too heavy for me to finish it in my vacation, so I turned to Hugo (from GitHub&rsquo;s JekyII).After the whole process, I found that the most difficult thing is to take a seriously look at the tutorial. I remember that Bounce Balls&rsquo; homepage also has a long tutorial of my own, with the words &ldquo;<strong>Please read this tutorial carefully</strong>&rdquo; in big bold letters. It&rsquo;s easy to walk through a tutorial on a small game that doesn&rsquo;t require any technical requirements, but it&rsquo;s not easy to talk about a technical tutorial that is a bit brain-burning and full of incomprehensible aspects.</p>
 <p>And here&rsquo;s my first and biggest challenge during my setup. There is such a line in the tutorial:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">publishDir</span> <span class="p">=</span> <span class="s1">&#39;docs&#39;</span>
-</span></span></code></pre></div><p>which I didn&rsquo;t see. So I just couldn&rsquo;t deploy it to GitHub Pages. And I was so anxious that I finally took a look at the tutorial and GitHub build requirements. It was finally successful.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a>
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">publishDir</span> <span class="p">=</span> <span class="s1">&#39;docs&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>which I didn&rsquo;t see. So I just couldn&rsquo;t deploy it to GitHub Pages. And I was so anxious that I finally took a look at the tutorial and GitHub build requirements. It was finally successful.</p>
 <p>It seems that being able to listen carefully and fully understand others is a rare skill.</p>
 <p>On top of that, the biggest difficulty in building it, and the biggest difficulty right now, is figuring out what all these many configurations do, and for the foreseeable future I&rsquo;m going to be blogging and working on the rest of it.</p>
 <p>There&rsquo;s nothing more I can say. Let&rsquo;s just work on it and this post will continue to be updated.</p>
@@ -320,6 +337,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 

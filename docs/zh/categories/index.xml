@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on Home</title>
-    <link>https://adityatelange.github.io/hugo-PaperMod/zh/categories/</link>
-    <description>Recent content in Categories on Home</description>
+    <title>Categories on 抽象艺术集散地</title>
+    <link>https://sunnycloudyang.github.io/zh/categories/</link>
+    <description>Recent content in Categories on 抽象艺术集散地</description>
     <image>
-      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+      <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
+      <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://adityatelange.github.io/hugo-PaperMod/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gadgets</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/categories/gadgets/</link>
+      <link>https://sunnycloudyang.github.io/zh/categories/gadgets/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/categories/gadgets/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/categories/gadgets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>post</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/categories/post/</link>
-      <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
+      <link>https://sunnycloudyang.github.io/zh/categories/post/</link>
+      <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/categories/post/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/categories/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>function</title>
+      <link>https://sunnycloudyang.github.io/zh/categories/function/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/zh/categories/function/</guid>
       <description></description>
     </item>
     

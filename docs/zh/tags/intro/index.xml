@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>intro on Home</title>
-    <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/intro/</link>
-    <description>Recent content in intro on Home</description>
+    <title>intro on 抽象艺术集散地</title>
+    <link>https://sunnycloudyang.github.io/zh/tags/intro/</link>
+    <description>Recent content in intro on 抽象艺术集散地</description>
     <image>
-      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+      <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
+      <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 16 Jan 2023 19:30:00 +0800</lastBuildDate><atom:link href="https://adityatelange.github.io/hugo-PaperMod/zh/tags/intro/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2023 19:30:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/tags/intro/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一些说明</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/posts/post/</link>
+      <link>https://sunnycloudyang.github.io/zh/posts/post/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/posts/post/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/posts/post/</guid>
       <description>哟，来了，里面请</description>
     </item>
     

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Home</title>
-    <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/</link>
-    <description>Recent content in Tags on Home</description>
+    <title>Tags on 抽象艺术集散地</title>
+    <link>https://sunnycloudyang.github.io/zh/tags/</link>
+    <description>Recent content in Tags on 抽象艺术集散地</description>
     <image>
-      <url>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</url>
-      <link>https://adityatelange.github.io/hugo-PaperMod/papermod-cover.png</link>
+      <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
+      <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://adityatelange.github.io/hugo-PaperMod/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gadgets</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/gadgets/</link>
+      <link>https://sunnycloudyang.github.io/zh/tags/gadgets/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/tags/gadgets/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/tags/gadgets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>milestone</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/milestone/</link>
+      <link>https://sunnycloudyang.github.io/zh/tags/milestone/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/tags/milestone/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/tags/milestone/</guid>
       <description></description>
     </item>
     
     <item>
       <title>record</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/record/</link>
+      <link>https://sunnycloudyang.github.io/zh/tags/record/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/tags/record/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/tags/record/</guid>
       <description></description>
     </item>
     
     <item>
       <title>intro</title>
-      <link>https://adityatelange.github.io/hugo-PaperMod/zh/tags/intro/</link>
+      <link>https://sunnycloudyang.github.io/zh/tags/intro/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
-      <guid>https://adityatelange.github.io/hugo-PaperMod/zh/tags/intro/</guid>
+      <guid>https://sunnycloudyang.github.io/zh/tags/intro/</guid>
       <description></description>
     </item>
     

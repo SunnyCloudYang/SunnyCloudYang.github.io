@@ -11,11 +11,11 @@
 <meta name="author" content="SunnyCloudYang">
 <link rel="canonical" href="https://sunnycloudyang.github.io/posts/old/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.deec51b4ebb14229cda677d98d194ddeeebc27943c57f551ca001ed945bcb9ec.css" integrity="sha256-3uxRtOuxQinNpnfZjRlN3u68J5Q8V/VRygAe2UW8uew=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://sunnycloudyang.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://sunnycloudyang.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://sunnycloudyang.github.io/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/zh/posts/old/">
@@ -118,7 +118,7 @@
     "name": "SunnyCloudYang's Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sunnycloudyang.github.io/favicon.ico"
+      "url": "https://sunnycloudyang.github.io/favicon/favicon.ico"
     }
   }
 }
@@ -179,8 +179,18 @@
                 </a>
             </li>
             <li>
+                <a href="https://sunnycloudyang.github.io/categories" title="Categories">
+                    <span>Categories</span>
+                </a>
+            </li>
+            <li>
                 <a href="https://sunnycloudyang.github.io/tags/" title="Tags">
                     <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/series" title="Series">
+                    <span>Series</span>
                 </a>
             </li>
             <li>
@@ -457,6 +467,53 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
 </script>
 </body>
 
