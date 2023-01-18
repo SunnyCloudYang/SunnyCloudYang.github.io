@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Intro on SunnyCloudYang&#39;s Blog</title>
+    <title>intro on 抽象艺术大巴扎</title>
     <link>https://sunnycloudyang.github.io/tags/intro/</link>
-    <description>Recent content in Intro on SunnyCloudYang&#39;s Blog</description>
+    <description>Recent content in intro on 抽象艺术大巴扎</description>
     <image>
       <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
       <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
@@ -12,12 +12,12 @@
     <language>zh-cn</language>
     <lastBuildDate>Mon, 16 Jan 2023 19:30:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/tags/intro/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Some Explanations [Stick]</title>
+      <title>一些说明 [置顶]</title>
       <link>https://sunnycloudyang.github.io/posts/post/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
       <guid>https://sunnycloudyang.github.io/posts/post/</guid>
-      <description>Happy to see you here.</description>
+      <description>哟，来了，里面请</description>
     </item>
     
   </channel>

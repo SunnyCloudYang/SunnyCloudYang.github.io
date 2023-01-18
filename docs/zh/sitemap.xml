@@ -2,237 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sunnycloudyang.github.io/zh/posts/post/</loc>
+    <loc>https://sunnycloudyang.github.io/posts/post/</loc>
     <lastmod>2023-01-16T19:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/posts/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/posts/post/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/categories/</loc>
+    <loc>https://sunnycloudyang.github.io/categories/</loc>
     <lastmod>2023-01-18T00:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://sunnycloudyang.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
                 href="https://sunnycloudyang.github.io/categories/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/categories/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/categories/post/</loc>
+    <loc>https://sunnycloudyang.github.io/categories/post/</loc>
+    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/posts/</loc>
+    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/record/</loc>
+    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/</loc>
     <lastmod>2023-01-18T00:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/categories/post/"
+                href="https://sunnycloudyang.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/categories/post/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/posts/</loc>
-    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/posts/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/tags/record/</loc>
-    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/tags/record/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/tags/record/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/tags/</loc>
-    <lastmod>2023-01-18T00:30:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
                 href="https://sunnycloudyang.github.io/tags/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/tags/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/</loc>
+    <loc>https://sunnycloudyang.github.io/</loc>
     <lastmod>2023-01-18T00:30:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
+                href="https://sunnycloudyang.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
                 href="https://sunnycloudyang.github.io/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/posts/post2/</loc>
+    <loc>https://sunnycloudyang.github.io/posts/post2/</loc>
     <lastmod>2023-01-18T00:30:00+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/tags/gadgets/</loc>
+    <loc>https://sunnycloudyang.github.io/tags/gadgets/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/tags/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/tags/gadgets/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/categories/gadgets/</loc>
+    <loc>https://sunnycloudyang.github.io/categories/gadgets/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/categories/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/categories/gadgets/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/gadgets/</loc>
+    <loc>https://sunnycloudyang.github.io/gadgets/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/gadgets/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/tags/milestone/</loc>
+    <loc>https://sunnycloudyang.github.io/tags/milestone/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/tags/milestone/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/tags/milestone/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/posts/post1/</loc>
+    <loc>https://sunnycloudyang.github.io/posts/post1/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/posts/post1/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/posts/post1/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/gadgets/old/</loc>
+    <loc>https://sunnycloudyang.github.io/gadgets/old/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/gadgets/old/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/gadgets/old/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/tags/intro/</loc>
+    <loc>https://sunnycloudyang.github.io/tags/intro/</loc>
     <lastmod>2023-01-16T19:30:00+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/function/</loc>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/tags/intro/"
+                href="https://sunnycloudyang.github.io/en/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/tags/intro/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/categories/function/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/categories/function/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/categories/function/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/series/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
                 href="https://sunnycloudyang.github.io/series/"
                 />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/series/"
-                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/archives/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/archives/"
-                />
+    <loc>https://sunnycloudyang.github.io/archives/</loc>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/search/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/search/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/search/"
-                />
+    <loc>https://sunnycloudyang.github.io/search/</loc>
   </url>
 </urlset>
