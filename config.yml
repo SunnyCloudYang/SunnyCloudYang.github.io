@@ -22,24 +22,24 @@ languages:
     zh:
         languageName: "简体中文"
         weight: 1
-        title: 抽象艺术集散地
+        title: 抽象艺术大巴扎
         taxonomies:
           category: categories
           tag: tags
           series: series
         profileMode:
             enabled: true
-            title: 来听我唠嗑
-            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-            imageTitle: ProfileMode image
+            title: 抽象艺术大巴扎
+            imageUrl: "/images/profile.svg"
+            imageTitle: 一个图儿
             # imageWidth: 120
             # imageHeight: 120
-            subtitle: "随便听听，引以为乐"
+            subtitle: "随便逛逛，引以为乐"
             buttons:
-                - name: 博客儿
+                - name: 龙门阵
                   url: posts/
-                - name: 弹弹球
-                  url: posts/old
+                - name: 小卖部
+                  url: gadgets/old
         menu:
             main:
                 - name: 时间线
@@ -74,17 +74,17 @@ languages:
           series: series
         profileMode:
             enabled: true
-            title: Funny Mud Pee
-            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
+            title: Fanta Mud Pee
+            imageUrl: "/images/profile.svg"
             imageTitle: ProfileMode image
             # imageWidth: 120
             # imageHeight: 120
-            subtitle: "Have thoughts and have fun!"
+            subtitle: "Have thoughts and have fun"
             buttons:
-                - name: Blog
+                - name: Blogposts
                   url: posts/
-                - name: Bounce Ball
-                  url: posts/old
+                - name: Gadgets
+                  url: gadgets/old
         menu:
             main:
                 - name: Archive
@@ -134,7 +134,7 @@ params:
     ShowPostNavLinks: true
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
-    ShowRssButtonInSectionTermList: false
+    ShowRssButtonInSectionTermList: true
     ShowToc: true
     comments: false
     images: ["papermod-cover.png"]

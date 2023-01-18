@@ -122,6 +122,19 @@
                 href="https://sunnycloudyang.github.io/zh/categories/gadgets/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/zh/gadgets/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/gadgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/zh/gadgets/"
+                />
+  </url><url>
     <loc>https://sunnycloudyang.github.io/zh/tags/milestone/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
@@ -148,17 +161,17 @@
                 href="https://sunnycloudyang.github.io/zh/posts/post1/"
                 />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/zh/posts/old/</loc>
+    <loc>https://sunnycloudyang.github.io/zh/gadgets/old/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sunnycloudyang.github.io/posts/old/"
+                href="https://sunnycloudyang.github.io/gadgets/old/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://sunnycloudyang.github.io/zh/posts/old/"
+                href="https://sunnycloudyang.github.io/zh/gadgets/old/"
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/zh/tags/intro/</loc>

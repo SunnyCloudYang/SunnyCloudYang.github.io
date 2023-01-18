@@ -8,7 +8,7 @@ tags: ["gadgets"]
 categories: "gadgets"
 hideMeta: false
 searchHidden: false
-ShowBreadCrumbs: true
+ShowBreadCrumbs: false
 ShowReadingTime: false
 ---
 

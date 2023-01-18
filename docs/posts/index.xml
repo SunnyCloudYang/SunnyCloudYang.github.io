@@ -12,7 +12,7 @@
     <language>zh-cn</language>
     <lastBuildDate>Tue, 17 Jan 2023 17:00:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Some Explanations</title>
+      <title>Some Explanations [Stick]</title>
       <link>https://sunnycloudyang.github.io/posts/post/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
@@ -27,15 +27,6 @@
       
       <guid>https://sunnycloudyang.github.io/posts/post1/</guid>
       <description>It&amp;#39;s my first post, machine-translated, ugly, and meaningless.</description>
-    </item>
-    
-    <item>
-      <title>Toys</title>
-      <link>https://sunnycloudyang.github.io/posts/old/</link>
-      <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
-      
-      <guid>https://sunnycloudyang.github.io/posts/old/</guid>
-      <description>以前的Bounce Balls，放到这了。还没翻译，再等等吧</description>
     </item>
     
   </channel>
