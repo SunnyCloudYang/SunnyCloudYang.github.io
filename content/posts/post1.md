@@ -7,6 +7,7 @@ summary: "这是咱第一次开博儿，新鲜，难搞，并且扯淡儿"
 description: "这是咱第一次开博儿，新鲜，难搞，并且扯淡儿"
 tags: ["record", "milestone"]
 categories: "post"
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true

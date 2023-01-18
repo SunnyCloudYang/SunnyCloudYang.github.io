@@ -7,6 +7,7 @@ summary: "Happy to see you here."
 tags: ["Intro"]
 categories: "post"
 weight: 1
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true

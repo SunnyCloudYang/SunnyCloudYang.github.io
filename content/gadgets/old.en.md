@@ -7,6 +7,7 @@ description: "以前的Bounce Balls，放到这了。还没翻译完，再等等
 tags: ["gadgets"]
 categories: "gadgets"
 draft: true
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: false

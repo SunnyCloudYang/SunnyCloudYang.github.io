@@ -7,6 +7,7 @@ summary: "哟，来了，里面请"
 tags: ["about"]
 categories: "post"
 weight: 1
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true

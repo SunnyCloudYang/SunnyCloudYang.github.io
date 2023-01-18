@@ -7,6 +7,7 @@ summary: "It's my first post, machine-translated, ugly, and meaningless."
 description: "It's my first post, machine-translated, ugly, and meaningless."
 tags: ["record", "milestone"]
 categories: "post"
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true

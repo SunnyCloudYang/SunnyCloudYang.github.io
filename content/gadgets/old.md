@@ -6,6 +6,7 @@ summary: "一些过去写的小玩意儿，随便玩，不怕坏"
 description: "以前的Bounce Balls，放到这了。玩得尽兴"
 tags: ["gadgets"]
 categories: "gadgets"
+comments: true
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: false
