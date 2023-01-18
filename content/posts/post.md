@@ -1,20 +1,27 @@
 ---
 author: "SunnyCloudYang"
-title: "Some Explanations [Stick]"
+title: "一些说明 [置顶]"
 draft: false
 date: "2023-01-16T19:30:00+08:00"
-summary: "Happy to see you here."
-tags: ["Intro"]
+summary: "哟，来了，里面请"
+tags: ["about"]
 categories: "post"
 weight: 1
 hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true
-ShowReadingTime: false
 ---
 
-Well, as you can see, it's my personal blog.
+怎么说呢，第一次搞这个博客儿，颇有些回到十年前的意味了，但是又很新鲜。主要还是因为什么呢，就是看着大家文思泉涌，又想起自己当年也还能写点东西，手痒痒，没忍住，就有了这玩意儿。
 
-It's still at the demo stage, so there aren't so many interesting things yet, but I'll find and add them here gradually.
+一位名人（就是沃兹基）曾说过：“这博客儿本没有风格，但是当你写了第一条博文，也就决定了你博客儿的风格。”我觉得甚有道理。本来这个小东西，我打算让它走严肃路线，因为以前对那种苍茫渺远的风格很是有些向往，于是想着能不能继续输出一些还算严肃（实际并没有什么营养）的思考，或者是一些平淡见真意的小品文。但是这第一篇文章一下笔，我就知道，我和我的那些思考之间已经隔了一层可悲的厚壁障了。我已经失去了认真表达的欲望和能力。（此处应有福柯的那张图）
 
-Wish you have fun here!
+也许以前的我也并没有真正拥有过这种能力。
+
+但是万一还有呢，或者说，万一这玩意儿真的是可以培养出来的呢，对吧。我这么想着，还是起了搭博客的心，于是有了现在这么个东西。说句心里话，大家的生活多半日复一日，毫无变化，我的也平平无奇，瘠薄的土壤难以长出斗艳的花，甚至连朴素的花都不一定长得出来！所以这里的东西呢，大多也就图一乐。我尽量不把它们当日记写，但您最好当个日记看。前车之鉴，引以为乐罢了。
+
+至于我自己呢，也许你认识的是Origakid，也许你知道我的真名，也许我只是dz或者SunnyCloudYang，都无所谓，这里的人大多没有姓名，大多没有所指。你我不过芸芸众生，谁又能指望留下一个值得被记住的名字呢。
+
+这一篇写的很乱，看了看自己以前写的东西，也是这种纯意识流儿的东西。不出所料的话，这里的大多数博客儿也会是这种风格，希望日后能有所改进。
+
+行嘞，先到这儿吧。慢走，常来哈。

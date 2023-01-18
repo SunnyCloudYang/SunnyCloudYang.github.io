@@ -1,6 +1,6 @@
 ---
-title: "搜索"
+title: "Search"
 layout: "search"
-placeholder: "帮我找找"
+placeholder: "Type to search"
 categories: "function"
 ---

@@ -1,6 +1,6 @@
 baseURL: "https://sunnycloudyang.github.io/"
 languageCode: "zh-cn"
-title: SunnyCloudYang's Blog
+title: 抽象艺术大巴扎
 paginate: 7
 theme: PaperMod
 
@@ -53,9 +53,9 @@ languages:
                 - name: 分类
                   url: categories
                   weight: 10
-                - name: 连载
-                  url: series
-                  weight: 10
+                # - name: 连载
+                #   url: series
+                #   weight: 10
                 - name: 搜索
                   url: search/
                   weight: 15
@@ -74,11 +74,12 @@ languages:
           category: categories
           tag: tags
           series: series
+        ShowWordCount: true
         profileMode:
             enabled: true
             title: Fanta Mud Pee
             imageUrl: "/images/profile.svg"
-            imageTitle: ProfileMode image
+            imageTitle: A Simple Pic
             # imageWidth: 120
             # imageHeight: 120
             subtitle: "Have thoughts and have fun"
@@ -98,9 +99,9 @@ languages:
                 - name: Categories
                   url: categories
                   weight: 10
-                - name: Series
-                  url: series
-                  weight: 12
+                # - name: Series
+                #   url: series
+                #   weight: 12
                 - name: Search
                   url: search/
                   weight: 15
