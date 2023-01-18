@@ -116,7 +116,7 @@ This program does NOT collect any personal data of users, nor will it upload any
 ## Special Thanks
 
 1. Sincere thanks to Yan (pseudonym) who provided the source code framework!
-2. Thanks to Edge as it suffers a lot in debugging;
+2. Thanks to Edge as it suffered a lot in debugging;
 3. Tanks to my hair as they never leave my head alone;
 4. Thanks to Newton for the theoretical support；
 5. Thanks to quantum mechanics for it's omnipotent explanation to all the strange behaviors;
