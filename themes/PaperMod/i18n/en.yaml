@@ -31,3 +31,6 @@
 
 - id: code_copied
   translation: "copied!"
+
+- id: Page_Not_Found
+  translation: "Seems nobody alive, but you and me"

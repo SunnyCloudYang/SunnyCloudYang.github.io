@@ -11,8 +11,8 @@
 
 - id: words
   translation: 
-    one: "字"
-    other: "{{ .Count }} 字"
+    one: "只有1个字"
+    other: "共 {{ .Count }} 字"
 
 - id: toc
   translation: "目录"
@@ -31,3 +31,6 @@
 
 - id: code_copied
   translation: "给你了"
+
+- id: Page_Not_Found
+  translation: "这里什么都没有诶，只有你和我"

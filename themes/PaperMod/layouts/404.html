@@ -1,3 +1,15 @@
 {{- define "main" }}
-<div class="not-found">404</div>
+<div class="not-found">
+    <p>404</p>
+</div>
+<div style="line-height:1500%;">
+    <p style="text-align: center;"> {{- i18n "Page_Not_Found" -}} </p>
+</div>
+<p style="line-height:2000%;text-align: center; font-size: small;" id="homo_number"></p>
+<script>
+    let homo_str1 = " = -11-4+5+14+((-11-4+5+14)*(-11/4+51/4)^(-11+4-5+14))";
+    let homo_str2 = " = (114-51)*4+(-11-4+5+14)+1+1+(4+5)*14+11-4-5+14-11-4+5+14";
+    document.getElementById("homo_number").innerHTML=Math.round(Math.random())?homo_str1:homo_str2;
+</script>
+
 {{- end }}{{/* end main */ -}}
