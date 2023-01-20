@@ -16,7 +16,6 @@ publishDir: docs
 defaultContentLanguage: "zh"
 hasCJKLanguage: true
 hrefTargetBlank: true
-noTimes: false
 # googleAnalytics: UA-123-45
 
 minify:
@@ -83,7 +82,6 @@ languages:
           tag: tags
           series: series
         Create: "Created at"
-        ShowWordCount: true
         profileMode:
             enabled: true
             title: Fanta Mud Pee
@@ -142,6 +140,7 @@ params:
     defaultTheme: auto
     # disableThemeToggle: true
     ShowShareButtons: false
+    ShowWordCount: true
     ShowReadingTime: false
     # disableSpecial1stPost: true
     displayFullLangName: true
