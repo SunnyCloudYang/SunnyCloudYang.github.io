@@ -1,0 +1,42 @@
+- id: prev_page
+  translation: "上一页"
+
+- id: next_page
+  translation: "下一页"
+
+- id: read_time
+  translation:
+    one : "大约需要 1 分钟"
+    other: "大约需要{{ .Count }}分钟"
+
+- id: words
+  translation: 
+    one: "只有 1 个字"
+    other: "共{{ .Count }}字"
+
+- id: toc
+  translation: "目录"
+
+- id: translations
+  translation: "语言"
+
+- id: home
+  translation: "主页"
+
+- id: edit_post
+  translation: "编辑"
+
+- id: code_copy
+  translation: "借我抄抄"
+
+- id: code_copied
+  translation: "给你了"
+
+- id: Page_Not_Found
+  translation: "这里什么都没有诶，只有你和我"
+
+- id: create_at
+  translation: "创建于"
+
+- id: last_mod
+  translation: "修改于"

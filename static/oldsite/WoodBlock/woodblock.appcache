@@ -1,0 +1,13 @@
+CACHE MANIFEST
+# 2022-11-21 v1.0
+# 2022-11-21 v1.1 adjust picture's initial size
+# 2022-11-21 v1.2 added alternative audio
+CACHE:
+# res
+/WoodBlock.css
+/res/WoodBlock.jpg
+/res/WoodBlock.wav
+/res/WoodBlock.mp3
+/res/cursor.ico
+# main
+/WoodBlock.js

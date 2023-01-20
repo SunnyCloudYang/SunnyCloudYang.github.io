@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/pure-icon.png">
+    <title>Enjoy Pure Balls</title>
+    <link rel="stylesheet" href="../style/PureBalls.css">
+</head>
+
+<body>
+    <div>
+        <canvas>Sorry, your browser doesn't support canvas.</canvas>
+    </div>
+    <div>
+        <p id="cnt">Current Balls: </p>
+    </div>
+    <div id="menu-icon">
+        <img id="setting-icon" src="../img/setting-icon.png" title="Settings">
+        <a href="https://sunnycloudyang.github.io/"><img id="home-icon" src="../img/home-icon.png" title="Home"></a>
+    </div>
+    <div id="user-settings">
+        <div id="menu-head">
+        </div>
+        <div id="setting-options">
+            <p class="input-num">Min ball radius:
+                <input class="user-input" type="number" id="min_r" min="3" max="20" />
+            </p>
+            <p class="input-num">Max ball radius:
+                <input class="user-input" type="number" id="max_r" min="3" max="25" />
+            </p>
+            <p class="input-num">Max speed in x :
+                <input class="user-input" type="number" id="max_vx" min="0" max="6" />
+            </p>
+            <p class="input-num">Max speed in y :
+                <input class="user-input" type="number" id="max_vy" min="0" max="6" />
+            </p>
+            <p id="grav_c">Gravitation Const :
+                <output id="val_g"></output><br>
+                <input type="range" id="g_const" min="0.001" max="0.999" step="0.001"
+                    oninput="val_g.value=this.value;" />
+            </p>
+            <p id="mu_c">Friction Factor :
+                <output id="val_mu"></output><br>
+                <input type="range" id="mu_floor" min="0.01" max="0.09" step="0.01"
+                    oninput="val_mu.value=this.value;" />
+            </p>
+            <p id="recov_c">Restitution Factor :
+                <output id="val_loss"></output><br>
+                <input type="range" id="recov_loss" min="0.50" max="0.95" step="0.05"
+                    oninput="val_loss.value=this.value;" />
+            </p>
+            <p id="gy_c">g on the Earth :
+                <output id="val_gy"></output><br>
+                <input type="range" id="default_gy" min="4.9" max="14.7" step="0.1"
+                    oninput="val_gy.value=this.value;" />
+            </p>
+            <p id="fuzzy_c">Length of Fuzzy Tail :
+                <output id="val_fuzzy"></output><br>
+                <input type="range" id="fuzzy" min="0" max="0.9" step="0.1" oninput="val_fuzzy.value=this.value;" />
+            </p>
+            <p id="bg_color">Background Color : &nbsp;<input type="color" id="color" /></p>
+            <p id="univ">Universe Mode :
+                <input type="checkbox" id="universe" />
+            </p>
+            <p id="grav">Gravity Mode :
+                <input type="checkbox" id="gravity" />
+            </p>
+            <p id="loss">Energy Loss :
+                <input type="checkbox" id="energy_loss" />
+            </p>
+            <p id="merge">Merge Mode :
+                <input type="checkbox" id="merge_mode" />
+            </p>
+            <p id="ground">Ground Pointing:
+                <input type="checkbox" id="loc_g_mode" />
+            </p>
+            <p id="shake">Shake Mode :
+                <input type="checkbox" id="shake_mode" />
+            </p>
+        </div>
+        <div id="menu-foot">
+            <button id="save_set">Save</button>
+            <button id="cancel_set">Cancel</button>
+        </div>
+
+    </div>
+    <script src="../scripts/math.js"></script>
+    <script src="../scripts/Ball.js"></script>
+    <script src="../scripts/PureSettings.js"></script>
+    <script src="../scripts/PureBalls.js"></script>
+</body>
+
+</html>

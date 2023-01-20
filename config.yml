@@ -1,0 +1,255 @@
+baseURL: "https://sunnycloudyang.github.io/"
+languageCode: "zh-cn"
+title: 抽象艺术大巴扎
+paginate: 7
+theme: PaperMod
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: true
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+publishDir: docs
+defaultContentLanguage: "zh"
+hasCJKLanguage: true
+hrefTargetBlank: true
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    zh:
+        languageName: "简体中文"
+        weight: 1
+        title: 抽象艺术大巴扎
+        Create: "创建于"
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        profileMode:
+            enabled: true
+            title: 抽象艺术大巴扎
+            imageUrl: "/images/profile.svg"
+            imageTitle: 一个图儿
+            # imageWidth: 120
+            # imageHeight: 120
+            subtitle: "随便逛逛，引以为乐"
+            buttons:
+                - name: 龙门阵
+                  url: posts/
+                - name: 小卖部
+                  url: gadgets/
+        menu:
+            main:
+                - name: 时间线
+                  url: archives/
+                  weight: 5
+                - name: 标签
+                  url: tags/
+                  weight: 10
+                - name: 分类
+                  url: categories
+                  weight: 10
+                # - name: 连载
+                #   url: series
+                #   weight: 10
+                - name: 搜索
+                  url: search/
+                  weight: 15
+        socialIcons:
+            - name: github
+              url: "https://gitee.com/sunnycloudyang"
+            - name: telegram
+              url: "https://t.me/goodnullname"
+            - name: bilibili
+              url: "https://space.bilibili.com/1699653390"
+            - name: email
+              url: "mailto:sunnycloudyang@outlook.com"
+            - name: steam
+              url: "https://steamcommunity.com/id/sunnycloudyang/"
+
+    en:
+        languageName: "English"
+        weight: 2
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        Create: "Created at"
+        profileMode:
+            enabled: true
+            title: Fanta Mud Pee
+            imageUrl: "/images/profile.svg"
+            imageTitle: A Simple Pic
+            # imageWidth: 120
+            # imageHeight: 120
+            subtitle: "Have thoughts and have fun"
+            buttons:
+                - name: Blogposts
+                  url: posts/
+                - name: Gadgets
+                  url: gadgets/
+        menu:
+            main:
+                - name: Archive
+                  url: archives
+                  weight: 5
+                - name: Tags
+                  url: tags/
+                  weight: 10
+                - name: Categories
+                  url: categories
+                  weight: 10
+                # - name: Series
+                #   url: series
+                #   weight: 12
+                - name: Search
+                  url: search/
+                  weight: 15
+        date_format: "Jan 26, 2002"
+        socialIcons:
+            - name: github
+              url: "https://github.com/SunnyCloudYang"
+            - name: twitter
+              url: "https://twitter.com/ApparentNull"
+            - name: telegram
+              url: "https://t.me/goodnullname"
+            - name: youtube
+              url: "https://youtube.com/@sunnycloudyang8574"
+            - name: email
+              url: "mailto:sunnycloudyang@outlook.com"
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    description: ""
+    author: SunnyCloudYang
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: auto
+    # disableThemeToggle: true
+    ShowShareButtons: false
+    ShowWordCount: true
+    ShowReadingTime: false
+    # disableSpecial1stPost: true
+    displayFullLangName: true
+    ShowLastMod: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: true
+    ShowToc: true
+    comments: true
+    images: ["papermod-cover.png"]
+
+    profileMode:
+        enabled: false
+        title: SunnyCloudYang
+        imageUrl: "#"
+        imageTitle: my image
+        # imageWidth: 120
+        # imageHeight: 120
+        buttons:
+            - name: Archives
+              url: archives
+            - name: Tags
+              url: tags
+
+    homeInfoParams:
+        Title: "来听我唠嗑"
+        Content: >
+            随便听听，引以为乐
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/SunnyCloudYang"
+        - name: youtube
+          url: "https://youtube.com/@sunnycloudyang8574"
+        - name: telegram
+        - name: twitter
+          url: "https://twitter.com/ApparentNull"
+        - name: bilibili
+          url: "https://space.bilibili.com/1699653390"
+
+    # editPost:
+    #     URL: "https://github.com/sunnycloudyang"
+    #     Text: "Suggest Changes" # edit text
+    #     appendFilePath: true # to append file path to Edit link
+
+    label:
+        text: "Home"
+        icon: icon.png
+        iconHeight: 35
+
+    # analytics:
+    #     google:
+    #         SiteVerificationTag: "XYZabc"
+
+    assets:
+        disableHLJS: true
+        favicon: "/favicon/favicon.ico"
+        favicon16x16: "/favicon/favicon-16x16.png"
+        favicon32x32: "/favicon/favicon-32x32.png"
+        apple_touch_icon: "/favicon/apple-touch-icon.png"
+        safari_pinned_tab: "/favicon/favicon-16x16.png"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        noClasses: false
+        anchorLineNos: false
+        codeFences: true
+        guessSyntax: true
+        lineNos: true
+        style: monokai
+
+privacy:
+    vimeo:
+        disabled: true
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: true
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true

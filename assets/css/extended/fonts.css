@@ -1,0 +1,13 @@
+.post-content {
+    font-family: "仓耳今楷";
+    src: url(/fonts/仓耳今楷2.woff) format("woff");
+}
+
+.post-content blockquote {
+    font-family: "STKaiti", "KaiTi", "楷体", "SimKai", "DFKai-SB", "NSimSun", "serif";
+    margin: 20px 0;
+    padding: 0 14px;
+    border-radius: 0px 8px 8px 0px;
+    border-inline-start: 3px solid var(--primary);
+    box-shadow: 3px 2px 13px -3px rgb(69, 70, 72);
+}
