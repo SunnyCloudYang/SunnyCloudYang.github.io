@@ -62,7 +62,7 @@
 {{- end }}
 
 <article class="{{ $class }}">
-    <div class="post-info"> <!--新添加的行-->
+    <div class="post-info"> <!--custom-->
         <header class="entry-header">
             <h2>
                 {{- .Title }}
@@ -79,7 +79,7 @@
             {{- partial "post_meta.html" . -}}
         </footer>
         {{- end }}
-    </div> <!--新添加的行-->
+    </div> <!--custom-->
     {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>

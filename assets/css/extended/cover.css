@@ -1,7 +1,9 @@
-/* .post-entry {
+.post-entry {
     display: flex;
     flex-direction: row;
     align-items: center;
+    transition: box-shadow .4s ease, transform .4s ease;
+    box-shadow: 0 2px 4px rgb(5 10 15 / 5%), 0 7px 13px -3px rgb(5 10 15 / 30%);
 }
 
 .entry-cover {
@@ -16,4 +18,8 @@
     display: inline-block;
     overflow: hidden;
     width: 100%;
-} */
+}
+
+.post-meta {
+    align-items: baseline;
+}

@@ -3,9 +3,9 @@ author: "SunnyCloudYang"
 title: "Some Explanations [Stick]"
 draft: false
 date: "2023-01-16T19:30:00+08:00"
-lastmod: "2023-01-16T17:00:00+08:00"
+lastmod: "2023-01-16T22:00:00+08:00"
 summary: "Happy to see you here."
-tags: ["Intro"]
+tags: ["intro"]
 categories: "post"
 weight: 1
 comments: true

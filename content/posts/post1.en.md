@@ -19,7 +19,7 @@ ShowReadingTime: false
 
 Finally, the first commit of this holiday fulfilled my "grand" blueprint -- a blog. To be honest, it's not very hard to build a thing like this. But it still took me nearly two days.
 
-![That is me](/images/meme1.jpg)
+![That is me](/images/meme1.jpg#center)
 
 I remembered that my first "blog-like thing" was the [Bounce Balls](/gadgets/old). The homepage perhaps can be considered as half a blog, but it was just so boring to watch a bounch of balls bouncing around, so I came up with the idea of a formal blog.
 

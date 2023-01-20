@@ -14,6 +14,9 @@ pygmentsUseClasses: true
 
 publishDir: docs
 defaultContentLanguage: "zh"
+hasCJKLanguage: true
+hrefTargetBlank: true
+noTimes: false
 # googleAnalytics: UA-123-45
 
 minify:
@@ -67,6 +70,10 @@ languages:
               url: "https://t.me/goodnullname"
             - name: bilibili
               url: "https://space.bilibili.com/1699653390"
+            - name: email
+              url: "mailto:sunnycloudyang@outlook.com"
+            - name: steam
+              url: "https://steamcommunity.com/id/sunnycloudyang/"
 
     en:
         languageName: "English"
@@ -117,6 +124,8 @@ languages:
               url: "https://t.me/goodnullname"
             - name: youtube
               url: "https://youtube.com/@sunnycloudyang8574"
+            - name: email
+              url: "mailto:sunnycloudyang@outlook.com"
 
 outputs:
     home:
@@ -174,10 +183,10 @@ params:
         - name: bilibili
           url: "https://space.bilibili.com/1699653390"
 
-    editPost:
-        URL: "https://github.com/sunnycloudyang"
-        Text: "Suggest Changes" # edit text
-        appendFilePath: true # to append file path to Edit link
+    # editPost:
+    #     URL: "https://github.com/sunnycloudyang"
+    #     Text: "Suggest Changes" # edit text
+    #     appendFilePath: true # to append file path to Edit link
 
     label:
         text: "Home"
@@ -201,14 +210,14 @@ params:
     #     hiddenInList: true # hide on list pages and home
     #     hiddenInSingle: true # hide on single page
 
-    # fuseOpts:
-    #     isCaseSensitive: false
-    #     shouldSort: true
-    #     location: 0
-    #     distance: 1000
-    #     threshold: 0.4
-    #     minMatchCharLength: 0
-    #     keys: ["title", "permalink", "summary", "content"]
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
 
 markup:
     goldmark:
@@ -216,7 +225,7 @@ markup:
             unsafe: true
     highlight:
         noClasses: false
-        anchorLineNos: true
+        anchorLineNos: false
         codeFences: true
         guessSyntax: true
         lineNos: true

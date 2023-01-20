@@ -8,6 +8,8 @@ summary: ""
 description: ""
 tags: [""]
 categories: "post"
+# cover:
+#     image: "images/.jpg"
 comments: true
 hideMeta: false
 searchHidden: false

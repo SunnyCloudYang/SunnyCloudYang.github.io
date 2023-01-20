@@ -7,12 +7,12 @@
 - id: read_time
   translation:
     one : "大约需要 1 分钟"
-    other: "大约需要 {{ .Count }} 分钟"
+    other: "大约需要{{ .Count }}分钟"
 
 - id: words
   translation: 
-    one: "只有1个字"
-    other: "共 {{ .Count }} 字"
+    one: "只有 1 个字"
+    other: "共{{ .Count }}字"
 
 - id: toc
   translation: "目录"
