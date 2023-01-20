@@ -3,9 +3,11 @@ author: "SunnyCloudYang"
 title: "一些说明 [置顶]"
 draft: false
 date: "2023-01-16T19:30:00+08:00"
+lastmod: "2023-01-18T17:00:00+08:00"
 summary: "哟，来了，里面请"
 tags: ["about"]
 categories: "post"
+# cover: "images/meme1.jpg"
 weight: 1
 comments: true
 hideMeta: false

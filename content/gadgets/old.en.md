@@ -10,8 +10,7 @@ draft: true
 comments: true
 hideMeta: false
 searchHidden: false
-ShowBreadCrumbs: false
-ShowReadingTime: false
+ShowReadingTime: true
 ---
 
 # Bounce Balls

@@ -3,6 +3,7 @@ author: "SunnyCloudYang"
 title: "一些随想"
 draft: true
 date: "2023-01-18T00:30:00+08:00"
+lastmod: "2023-01-18T17:00:00+08:00"
 summary: "在开博的第二天，王师傅开始了他的胡思乱想"
 description: "换了个主题吃了顿饭，又过了一天但是想了不少"
 tags: ["record"]

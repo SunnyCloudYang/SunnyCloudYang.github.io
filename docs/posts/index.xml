@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on 抽象艺术大巴扎</title>
+    <title>龙门阵 on 抽象艺术大巴扎</title>
     <link>https://sunnycloudyang.github.io/posts/</link>
-    <description>Recent content in Posts on 抽象艺术大巴扎</description>
+    <description>Recent content in 龙门阵 on 抽象艺术大巴扎</description>
     <image>
       <url>https://sunnycloudyang.github.io/papermod-cover.png</url>
       <link>https://sunnycloudyang.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 18 Jan 2023 00:30:00 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jan 2023 14:04:30 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一些说明 [置顶]</title>
       <link>https://sunnycloudyang.github.io/posts/post/</link>

@@ -34,3 +34,9 @@
 
 - id: Page_Not_Found
   translation: "这里什么都没有诶，只有你和我"
+
+- id: create_at
+  translation: "创建于"
+
+- id: last_mod
+  translation: "修改于"

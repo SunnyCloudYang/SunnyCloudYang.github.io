@@ -3,6 +3,7 @@ author: "SunnyCloudYang"
 title: "First Post"
 draft: false
 date: "2023-01-17T17:00:00+08:00"
+lastmod: "2023-01-18T17:00:00+08:00"
 summary: "It's my first post, machine-translated, ugly, and meaningless."
 description: "It's my first post, machine-translated, ugly, and meaningless."
 tags: ["record", "milestone"]

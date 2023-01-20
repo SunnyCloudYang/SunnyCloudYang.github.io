@@ -9,7 +9,6 @@ categories: "gadgets"
 comments: true
 hideMeta: false
 searchHidden: false
-ShowBreadCrumbs: false
 ShowReadingTime: false
 ---
 

@@ -34,3 +34,9 @@
 
 - id: Page_Not_Found
   translation: "Seems nobody alive, but you and me"
+
+- id: create_at
+  translation: "Created at"
+  
+- id: last_mod
+  translation: "Modified at"

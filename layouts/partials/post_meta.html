@@ -1,0 +1,25 @@
+{{- $scratch := newScratch }}
+
+{{- if not .Date.IsZero -}}
+{{- $scratch.Add "meta" (slice (printf "%s&nbsp;<span title='%s'>%s</span>" (i18n "create_at") (.Date) (.Date.Format (default "2006-01-02" .Site.Params.DateFormat)))) }}
+{{- end }}
+
+{{- if (.Param "ShowLastMod") -}}
+{{- $scratch.Add "meta" (slice (printf "%s&nbsp;%s" (i18n "last_mod") (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
+{{- end }}
+
+{{- if (.Param "ShowWordCount") -}}
+{{- $scratch.Add "meta" (slice (i18n "words" .WordCount | default (printf "%d words" .WordCount))) }}
+{{- end }}
+
+{{- if (.Param "ShowReadingTime") -}}
+{{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
+{{- end }}
+
+{{- with (partial "author.html" .) }}
+{{- $scratch.Add "meta" (slice .) }}
+{{- end }}
+
+{{- with ($scratch.Get "meta") }}
+{{- delimit . "&nbsp;|&nbsp;" -}}
+{{- end -}}
