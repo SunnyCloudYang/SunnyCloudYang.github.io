@@ -40,3 +40,9 @@
   
 - id: last_mod
   translation: "Modified at"
+
+- id: total_visit
+  translation: "Total visit: "
+
+- id: times
+  translation: " times"

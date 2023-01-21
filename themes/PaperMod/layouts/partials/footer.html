@@ -6,10 +6,21 @@
     <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
     {{- end }}
     <span>
-        Powered by
+        | Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
+    {{- if (not site.Params.disableBusuanzi) }}
+    {{- if not .IsPage }}
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        | {{ i18n "total_visit" }}<span id="busuanzi_value_site_pv"></span> {{- i18n "times" }}
+    </span>
+    {{- else }}
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        | {{ i18n "total_visit" }}<span id="busuanzi_value_page_pv"></span>{{- i18n "times" }}
+    </span>
+    {{- end }}
+    {{- end }}
 </footer>
 {{- end }}
 

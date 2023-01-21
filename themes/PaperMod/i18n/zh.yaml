@@ -40,3 +40,9 @@
 
 - id: last_mod
   translation: "修改于"
+
+- id: total_visit
+  translation: "一共有"
+
+- id: times
+  translation: "人来过这里"

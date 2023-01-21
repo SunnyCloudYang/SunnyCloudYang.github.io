@@ -27,7 +27,6 @@ languages:
         languageName: "简体中文"
         weight: 1
         title: 抽象艺术大巴扎
-        Create: "创建于"
         taxonomies:
           category: categories
           tag: tags
@@ -64,15 +63,16 @@ languages:
                   weight: 15
         socialIcons:
             - name: github
+              title: Gitee
               url: "https://gitee.com/sunnycloudyang"
+            - name: steam
+              url: "https://steamcommunity.com/id/sunnycloudyang/"
             - name: telegram
               url: "https://t.me/goodnullname"
             - name: bilibili
               url: "https://space.bilibili.com/1699653390"
             - name: email
               url: "mailto:sunnycloudyang@outlook.com"
-            - name: steam
-              url: "https://steamcommunity.com/id/sunnycloudyang/"
 
     en:
         languageName: "English"
@@ -112,7 +112,6 @@ languages:
                 - name: Search
                   url: search/
                   weight: 15
-        date_format: "Jan 26, 2002"
         socialIcons:
             - name: github
               url: "https://github.com/SunnyCloudYang"
@@ -151,7 +150,8 @@ params:
     ShowRssButtonInSectionTermList: true
     ShowToc: true
     comments: true
-    images: ["papermod-cover.png"]
+    # images: ["papermod-cover.png"]
+    disableBusuanzi: false
 
     profileMode:
         enabled: false
