@@ -1,0 +1,9 @@
+.button {
+    box-shadow: 0 1px 5px 1px rgba(120, 120, 120, 0.5);
+    transition: 0.15s;
+}
+
+.button:hover {
+    box-shadow: 0 1px 5px 1px rgba(120, 120, 120, 0.8);
+    transform: translateY(-1px);
+}

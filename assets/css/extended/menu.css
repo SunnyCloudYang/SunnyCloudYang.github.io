@@ -1,0 +1,28 @@
+#theme-toggle svg, .logo a, #menu li {
+    transition: all 0.15s ease-in-out;
+}
+
+#theme-toggle svg:hover {
+    filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
+    transform: translateY(-1px) scale(1.1);
+}
+
+.logo a:hover {
+    filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
+    transform: translateY(-1px) scale(1.05);
+}
+
+#menu li:hover {
+    filter: drop-shadow(0 0 0.04rem var(--primary));
+    transform: translateY(-1px);
+}
+
+.main .terms-tags li a {
+    box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(120, 120, 120, 0.5);
+    transition: 0.15s;
+}
+
+.main .terms-tags li a:hover {
+    box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(120, 120, 120, 0.8);
+    transform: translateY(-2px);
+}
