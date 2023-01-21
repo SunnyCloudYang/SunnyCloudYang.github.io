@@ -11,6 +11,8 @@
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
     {{- if (not site.Params.disableBusuanzi) }}
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
     {{- if not .IsPage }}
     <span id="busuanzi_container_site_pv" style='display:none'>
         | {{ i18n "total_visit" }}<span id="busuanzi_value_site_pv"></span> {{- i18n "times" }}
