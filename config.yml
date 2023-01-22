@@ -190,7 +190,7 @@ params:
     label:
         text: "Home"
         icon: icon.png
-        iconHeight: 35
+        iconHeight: 30
 
     # analytics:
     #     google:

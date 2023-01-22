@@ -23,19 +23,9 @@
     transform: scale(1);
 }
 
-.logo a img {
-    width: 30px;
-    height: auto;
-}
-
 .logo a:hover {
     filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
     transform: translateY(-1px) scale(1.05);
-}
-
-.logo a img:hover {
-    filter: none;
-    transform: none;
 }
 
 .main .terms-tags li a {
