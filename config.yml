@@ -26,6 +26,7 @@ languages:
         languageName: "简体中文"
         weight: 1
         title: 抽象艺术大巴扎
+        description: "这里是我兜售心里的抽象艺术的地方，也就是大家俗称的博客儿，进来看看呗，不收钱！"
         taxonomies:
           category: categories
           tag: tags
@@ -76,6 +77,7 @@ languages:
     en:
         languageName: "English"
         title: Fanta Mud Pee
+        description: "This is where I go insane, but don't be afraid, I won't hurt you as you are the few people who found this place. What about take a walk with me?"
         weight: 2
         taxonomies:
           category: categories
