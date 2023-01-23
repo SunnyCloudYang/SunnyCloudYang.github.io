@@ -1,6 +1,5 @@
 baseURL: "https://sunnycloudyang.github.io/"
 languageCode: "zh-cn"
-title: 抽象艺术大巴扎
 paginate: 7
 theme: PaperMod
 
@@ -76,6 +75,7 @@ languages:
 
     en:
         languageName: "English"
+        title: Fanta Mud Pee
         weight: 2
         taxonomies:
           category: categories
