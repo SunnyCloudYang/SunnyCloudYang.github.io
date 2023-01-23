@@ -2,7 +2,9 @@
 {{- if (ne .Layout "search") }}
 {{- if or .Params.author site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) }}&nbsp;|&nbsp;{{- end -}}
 {{- end }}
-<i class="fa fa-language" aria-hidden="true">&nbsp;</i>{{ i18n "translations" | default "Translations" }}:
+<div>
+    <i class="fa fa-language" aria-hidden="true">&nbsp;</i>{{ i18n "translations" | default "Translations" }}:
+</div>
 <ul class="i18n_list">
     {{- range .Translations }}
     <li>
