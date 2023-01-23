@@ -1,6 +1,19 @@
+@font-face {
+    font-family: "仓耳今楷";
+    src: url("/fonts/仓耳今楷2.eot"); /* IE9 */
+    src: url("/fonts/仓耳今楷2.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    
+    url("/fonts/仓耳今楷2.woff") format("woff"), /* chrome、firefox */
+    url("/fonts/仓耳今楷2.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    
+    url("/fonts/仓耳今楷2.svg#仓耳今楷2") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+}
+
 .post-content {
-    font-family: "仓耳今楷2";
-    src: url(/fonts/仓耳今楷2.woff) format("woff");
+    font-family: "仓耳今楷";
 }
 
 .post-content blockquote {
