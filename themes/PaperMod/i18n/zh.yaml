@@ -46,3 +46,6 @@
 
 - id: times
   translation: "人来过这里"
+
+- id: go_to_top
+  translation: "回到梦开始的地方"

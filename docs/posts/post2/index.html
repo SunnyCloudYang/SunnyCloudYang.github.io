@@ -211,7 +211,7 @@
 </div>
     </header> <aside id="toc-container" class="toc-container wide">
         <div class="toc">
-            <details >
+            <details  open>
                 <summary accesskey="c" title="(Alt + C)">
                     <span class="details">目录</span>
                 </summary>
@@ -339,9 +339,10 @@ async>
         | 一共有<span id="busuanzi_value_page_pv"></span>人来过这里
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" aria-label="go to top" title="回到梦开始的地方" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 160 110" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <polyline points="20 145 80 90 140 145" stroke="currentColor" stroke-width="25" stroke-linecap="round" fill="none"
+            stroke-linejoin="round" />
     </svg>
 </a>
 
@@ -379,7 +380,7 @@ async>
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
             mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+            mybutton.style.opacity = "0.9";
         } else {
             mybutton.style.visibility = "hidden";
             mybutton.style.opacity = "0";

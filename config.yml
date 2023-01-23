@@ -63,12 +63,13 @@ languages:
                   weight: 15
         socialIcons:
             - name: github
-              title: Gitee
+              url: "https://github.com/SunnyCloudYang"
+            - name: gitee
               url: "https://gitee.com/sunnycloudyang"
             - name: steam
               url: "https://steamcommunity.com/id/sunnycloudyang/"
-            - name: telegram
-              url: "https://t.me/goodnullname"
+            # - name: telegram
+            #   url: "https://t.me/goodnullname"
             - name: bilibili
               url: "https://space.bilibili.com/1699653390"
             - name: email
@@ -151,6 +152,7 @@ params:
     ShowCodeCopyButtons: true
     ShowRssButtonInSectionTermList: true
     ShowToc: true
+    TocOpen: true
     comments: true
     # images: ["papermod-cover.png"]
     disableBusuanzi: false

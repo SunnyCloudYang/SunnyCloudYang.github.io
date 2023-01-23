@@ -46,3 +46,6 @@
 
 - id: times
   translation: " times"
+  
+- id: go_to_top
+  translation: "Go to Top"
