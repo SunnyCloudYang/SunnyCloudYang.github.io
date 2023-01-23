@@ -35,3 +35,7 @@
 .post-meta {
     align-items: baseline;
 }
+
+.meta-tag {
+    display: inline-block;
+}

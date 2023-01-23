@@ -2,20 +2,20 @@
 {{- if (ne .Layout "search") }}
 {{- if or .Params.author site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) }}&nbsp;|&nbsp;{{- end -}}
 {{- end }}
-<div>
+<div class="meta-tag">
     <i class="fa fa-language" aria-hidden="true">&nbsp;</i>{{ i18n "translations" | default "Translations" }}:
 </div>
-<ul class="i18n_list">
-    {{- range .Translations }}
-    <li>
-        <a href="{{ .Permalink }}">
-            {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-            {{- .Language.LanguageName | emojify -}}
-            {{- else }}
-            {{- .Lang | title -}}
-            {{- end -}}
-        </a>
-    </li>
-    {{- end }}
-</ul>
+    <ul class="i18n_list">
+        {{- range .Translations }}
+        <li>
+            <a href="{{ .Permalink }}">
+                {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
+                {{- .Language.LanguageName | emojify -}}
+                {{- else }}
+                {{- .Lang | title -}}
+                {{- end -}}
+            </a>
+        </li>
+        {{- end }}
+    </ul>
 {{- end -}}

@@ -3,23 +3,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
 {{- if not .Date.IsZero -}}
-{{- $scratch.Add "meta" (slice (printf "<div><span class=\"fa fa-calendar-plus-o\"></span>&nbsp;<span title='%s'>%s</span></div>" (.Date) (.Date.Format (default "2006-01-02" .Site.Params.DateFormat)))) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-calendar-plus-o\"></span>&nbsp;<span title='%s'>%s</span></div>" (.Date) (.Date.Format (default "2006-01-02" .Site.Params.DateFormat)))) }}
 {{- end }}
 
 {{- if (.Param "ShowLastMod") -}}
-{{- $scratch.Add "meta" (slice (printf "<div><span class=\"fa fa-pencil-square-o\"></span>&nbsp;%s</div>" (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-pencil-square-o\"></span>&nbsp;%s</div>" (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
 {{- end }}
 
 {{- if (.Param "ShowWordCount") -}}
-{{- $scratch.Add "meta" (slice (printf "<div><span class=\"fa fa-file-word-o\"></span>&nbsp;<span>%s</span></div>" (i18n "words" .WordCount | default (printf "%d words" .WordCount)))) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-file-word-o\"></span>&nbsp;<span>%s</span></div>" (i18n "words" .WordCount | default (printf "%d words" .WordCount)))) }}
 {{- end }}
 
 {{- if (.Param "ShowReadingTime") -}}
-{{- $scratch.Add "meta" (slice (printf "<div></div><span class=\"fa fa-hourglass-half\"></span>&nbsp;<span>%s</span></div></div>" (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime)))) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-hourglass-half\"></span>&nbsp;<span>%s</span></div>" (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime)))) }}
 {{- end }}
 
 {{- with (partial "author.html" .) }}
-{{- $scratch.Add "meta" (slice (printf "<div><span class=\"fa fa-user-circle-o\"></span>&nbsp;<span>%s</span></div>" .)) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-user-circle-o\"></span>&nbsp;<span>%s</span></div>" .)) }}
 {{- end }}
 
 {{- with ($scratch.Get "meta") }}
