@@ -61,7 +61,7 @@
 <meta property="og:url" content="https://sunnycloudyang.github.io/posts/post3/" />
 <meta property="og:image" content="https://sunnycloudyang.github.io/images/code1.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-01-27T15:00:23+08:00" />
-<meta property="article:modified_time" content="2023-01-27T17:33:14+08:00" /><meta property="og:site_name" content="抽象艺术大巴扎" />
+<meta property="article:modified_time" content="2023-01-27T17:40:32+08:00" /><meta property="og:site_name" content="抽象艺术大巴扎" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://sunnycloudyang.github.io/images/code1.jpg" />
@@ -103,7 +103,7 @@
   "wordCount" : "1952",
   "inLanguage": "zh",
   "image":"https://sunnycloudyang.github.io/images/code1.jpg","datePublished": "2023-01-27T15:00:23+08:00",
-  "dateModified": "2023-01-27T17:33:14+08:00",
+  "dateModified": "2023-01-27T17:40:32+08:00",
   "author":{
     "@type": "Person",
     "name": "SunnyCloudYang"
@@ -272,7 +272,7 @@
 </div>
 </div><p>我思来想去也找不到问题，途中胡乱改了几个地方也没解决（说不定下一个bug就是这些胡乱改的地方），没办法，没了Copilot的我只能阿巴阿巴。我只好打开全局，祈祷此时此刻和ChapGPT聊天的人不多。</p>
 <p>我把单个儿的函数发给了CGPT，CGPT看了看，说我应该去掉<code>http.get()</code>里的options。窝铐，这可是我放UA的地方，去掉了服务器根本不认我好吧！但是人可是AI，学过的代码比我冲过的浪儿都多，我只好试着照做，果然无果。我又问，那我想设置UA怎么办呢？CGPT说：那好办，你只需要在刚刚去掉options的地方加上一个options，就可以设置UA啦。<del>我可q**d</del>我心平气和，认真思考了一会，又把相关函数和完整的报错信息复制给了GPT，这回GPT虽然还是建议我去掉options再加上options（服了，真的），但是在最后终于给出了一条有用的建议。它说，你这个函数的参数好像不对：</p>
-<p><img loading="lazy" src="./images/code1.jpg#center" alt="盲人的错误代码"  />
+<p><img loading="lazy" src="/images/code1.jpg#center" alt="盲人的错误代码"  />
 </p>
 <p>我一看，好家伙，还得是GPT。我看了一晚上，把自己都快看生气了都没发现少了个参数，这GPT看来有点东西<del>还有这VSCode居然不提醒我</del>。至此，这个脚本终于可以正常下载单个章节的所有图片了，但是多个章节之间怎么安排我还没想好，希望今天能写出来吧，也希望哪位大佬有思路可以不吝赐教。</p>
 <p>最后，第一次写nodejs，也是第一次哗啦啦写这么长的文，谁也没理<del>，谁也不爱</del>。主要还是心中悲愤难平，气急败坏，难以抒发，于是记之。估计脚本剩下的部分也会有无数的问题，希望我和我的电脑能相安无事，锕焖。</p>
