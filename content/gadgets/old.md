@@ -1,14 +1,16 @@
 ---
 author: "SunnyCloudYang"
-title: "老宝贝们"
+title: "弹弹球儿"
 date: "2023-01-17T17:00:00+08:00"
-summary: "一些过去写的小玩意儿，随便玩，不怕坏"
+lastmod: "2023-01-28T21:58:24+08:00"
+summary: "一个过去写的小玩意儿，随便玩，不怕坏"
 description: "以前的Bounce Balls，放到这了。玩得尽兴"
 tags: ["gadgets"]
 categories: "gadgets"
 comments: true
 hideMeta: false
 searchHidden: false
+ShowWordCount: false
 ShowReadingTime: false
 ---
 
@@ -38,11 +40,7 @@ ShowReadingTime: false
 
 #### -> 在这里[进入全新UI的小球宇宙](/oldsite/Balls/PureBalls.html)
 
-#### -> 在这里[敲电子木鱼，攒赛博功德](/oldsite/WoodBlock/WoodBlock.html)🙏
-
 #### -> 在这里[下载BounceBalls的所有文件](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)
-
-#### -> 在这里[下载电子木鱼(for Android)](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk)
 
 ---
 
