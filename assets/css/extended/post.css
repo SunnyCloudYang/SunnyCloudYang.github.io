@@ -39,3 +39,11 @@
 .meta-tag {
     display: inline-block;
 }
+
+.post-title {
+    font-size: 32px;
+}
+
+.post-content h1 {
+    font-size: 36px;
+}
