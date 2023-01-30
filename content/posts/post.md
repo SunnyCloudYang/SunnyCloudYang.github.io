@@ -1,6 +1,6 @@
 ---
 author: "SunnyCloudYang"
-title: "一些说明 [置顶]"
+title: "一些说明ᵀᴼᴾ"
 draft: false
 date: "2023-01-16T19:30:00+08:00"
 lastmod: "2023-01-18T17:00:00+08:00"

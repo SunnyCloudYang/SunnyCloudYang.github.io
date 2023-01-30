@@ -1,8 +1,8 @@
 ---
 author: "SunnyCloudYang"
-title: "Some Explanations [Stick]"
+title: "Some Explanationsᵀᴼᴾ"
 date: "2023-01-16T19:30:00+08:00"
-lastmod: "2023-01-17T00:39:09+08:00"
+lastmod: "2023-01-30T22:30:41+08:00"
 draft: false
 summary: "Happy to see you here."
 tags: ["intro"]

@@ -44,6 +44,8 @@ languages:
                   url: posts/
                 - name: 小卖部
                   url: gadgets/
+                - name: 记账本
+                  url: diary/
         menu:
             main:
                 - name: 时间线
