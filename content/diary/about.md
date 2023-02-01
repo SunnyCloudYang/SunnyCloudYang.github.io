@@ -1,7 +1,7 @@
 ---
 author: SunnyCloudYang
 date: "2023-01-30T19:43:13+08:00"
-lastmod: "2023-01-31T00:42:50+08:00"
+lastmod: "2023-02-01T13:45:35+08:00"
 description: "一些说法"
 title: "关于ᵀᴼᴾ"
 summary: "哈玩意儿？记账本？记的啥啊？"
@@ -44,6 +44,6 @@ ShowReadingTime: false
 
 以上所述均不保真，日记结构/频率等都可能发生变化，请以实际情况为准。
 
-最终解释权归俺所有。另外对所有可能出现在“账本”中的（赛博and真实）人物表示严重感谢！
+另外对所有可能出现在“账本”中的（赛博and真实）人物表示严重感谢！如有冒犯，请[联系我](mailto:sunnycloudyang@outlook.com)删除或修改。
 
-如有冒犯，请[联系我](mailto:sunnycloudyang@outlook.com)删除或修改。
+最终解释权归俺所有。
