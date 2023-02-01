@@ -5,7 +5,7 @@ lastmod: "2023-02-01T13:45:35+08:00"
 description: "一些说法"
 title: "关于ᵀᴼᴾ"
 summary: "哈玩意儿？记账本？记的啥啊？"
-tags: [""]
+tags: ["about"]
 categories: "diary"
 weight: 1
 draft: false

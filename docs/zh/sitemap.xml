@@ -69,6 +69,9 @@
     <loc>https://sunnycloudyang.github.io/diary/</loc>
     <lastmod>2023-01-30T20:16:30+08:00</lastmod>
   </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/about/</loc>
+    <lastmod>2023-02-01T13:45:35+08:00</lastmod>
+  </url><url>
     <loc>https://sunnycloudyang.github.io/tags/gadgets/</loc>
     <lastmod>2023-01-28T22:04:14+08:00</lastmod>
     <xhtml:link
@@ -197,9 +200,6 @@
                 hreflang="zh"
                 href="https://sunnycloudyang.github.io/posts/post1/"
                 />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/about/</loc>
-    <lastmod>2023-01-18T17:00:00+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/categories/function/</loc>
     <xhtml:link
