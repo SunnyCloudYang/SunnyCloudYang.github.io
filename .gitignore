@@ -1,3 +1,4 @@
+
 .hugo_build.lock
-startPS.bat
+*.bat
 .vscode/settings.json
