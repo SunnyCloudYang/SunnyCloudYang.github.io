@@ -47,3 +47,27 @@
 .post-content h1 {
     font-size: 36px;
 }
+
+.post-content del {
+    background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1.5px repeat-x;
+}
+
+.copy-code {
+    display: block;
+    opacity: 0;
+    transition: 0.15s;
+    color: rgb(255, 255, 255);
+    background: rgb(78, 78, 78);
+}
+
+div.highlight .lntable:hover .copy-code {
+    opacity: 0.6;
+}
+
+div.highlight .lntable:hover .copy-code:hover {
+    opacity: 1;
+}
+
+:root {
+    --hljs-bg: rgb(45, 45, 55);
+}
