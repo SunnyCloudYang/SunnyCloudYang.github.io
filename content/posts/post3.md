@@ -2,7 +2,7 @@
 title: "胡言乱语的ChatGPT和胡写八写的我"
 author: "SunnyCloudYang"
 date: "2023-01-27T15:00:23+08:00"
-lastmod: "2023-01-27T17:40:32+08:00"
+lastmod: "2023-02-04T23:24:50+08:00"
 draft: false
 summary: "这是一个关于救赎与被救赎的故事（什么"
 description: "插件只写了一半，心态倒是完全崩了"
@@ -48,15 +48,15 @@ function downloadImg(book, curChap, curChapURL, pageCnt, ext, cnt) {
 
 ```JS
 setTimeout(() => {
-        http.get(imgURL, options, (res) => { // 这里报错
-            // 阿巴阿巴
-        });
-        if () {
-            //阿巴阿巴
-        }
-        else {
-            downloadImgs(book, curChapURL, pageCnt, ext, cnt + 1);
-        }
+    http.get(imgURL, options, (res) => { // 这里报错
+        // 阿巴阿巴
+    });
+    if () {
+        //阿巴阿巴
+    }
+    else {
+        downloadImgs(book, curChapURL, pageCnt, ext, cnt + 1);
+    }
 }, 200);
 ```
 

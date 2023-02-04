@@ -48,6 +48,10 @@
     font-size: 36px;
 }
 
+.post-content pre code, code {
+    font-family: consolas, Menlo, pingfang sc, microsoft yahei, sans-serif;
+}
+
 .post-content del {
     background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1.5px repeat-x;
 }
