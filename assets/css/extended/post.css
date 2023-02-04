@@ -73,5 +73,9 @@ div.highlight .lntable:hover .copy-code:hover {
 }
 
 :root {
-    --hljs-bg: rgb(45, 45, 55);
+    --hljs-bg: #fefbf1;
+}
+
+.dark {
+    --hljs-bg: #272d35;
 }
