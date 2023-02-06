@@ -1,15 +1,15 @@
 ---
 author: SunnyCloudYang
 date: "2023-02-01T13:51:39+08:00"
-lastmod: "2023-02-06T12:34:41+08:00"
+lastmod: "2023-02-06T12:58:36+08:00"
 description: "23.01.30 ~ 23.02.05"
-title: "第一周"
+title: "开天辟地第一周"
 summary: "23.01.30 ~ 23.01.05"
 tags: ["diary"]
 categories: "diary"
 # cover: 
 #    image: "images/.jpg"
-draft: true
+draft: false
 comments: true
 hideMeta: false
 searchHidden: false
@@ -85,3 +85,8 @@ ShowReadingTime: false
 - 再说循环，今天终于算是学习了，也及时写了日记。晚上回来之后看了一会Andrew Ng的DL，看了一点Pytorch，也看了一点点OpenCV。都是入门的Tutorials，不过我才知道什么Gradient Descend、Backprop都在框架里封装好了，根本不用自己去码，<del>幸亏之前没有试着自己写</del>。我知道这点三脚猫功夫连皮毛都算不上，更别提和大佬们比了，但是还得学，算是减小一点差距的第n阶导数吧。
 - 最后是个好玩的事。说好玩，其实应该不好玩，因为这要么是我的bug，要么是md的bug。之前的星期几，我都是用的缩写（比如`## Wed`），没有什么异常，可是当我写下今天的“day”的时候，也就是在文件的末尾打下`## Sun`准备回忆我这一天的时候，我发现它居然不见了！打开控制台看了看发现Hugo生成的并没有问题，ToC里也有Sun，可是正文中就是没有这个标题！改成Sunday就可以正常显示，Sund也可以，唯独Sun和sun不行。真是奇怪。我试着加上单引号，双引号，反斜杠，都不行。只能等明天再看看了，难道是因为现在没有太阳所以无法显示？怪啊，很怪啊。
 - 睡觉了，还有5天就回学校了。没有吵架，很难得；也有点不想回，很奇怪。
+
+## Extra
+
+- 深色模式下删除线失效的问题确实是因为强制深色时一视同仁了，但是这个是内置于App里的，暂时也没想出来什么好办法，<del>那就建议大家早点睡觉尽量在白天看吧</del>。
+- 二级标题为Sun无法显示的问题还真是因为`现在没有太阳所以无法显示`，不过这个太阳是切换浅色模式的太阳，今天看到css里面样式如下![body:not(.dark) #sun{display:none;}](/images/sun.jpg#center)原来是Sun作为标题时的id和用来切换模式的小太阳图标的id都是`sun`，所以在浅色模式下就被隐藏了，最后我把图标的id改成了`sun_mode`，希望不会有其他的冲突。
