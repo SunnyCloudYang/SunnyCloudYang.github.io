@@ -1,9 +1,9 @@
 ---
 author: SunnyCloudYang
 date: "2023-02-01T13:51:39+08:00"
-lastmod: "2023-02-06T19:16:24+08:00"
+lastmod: "2023-02-07T01:02:36+08:00"
 description: "23.01.30 ~ 23.02.05"
-title: "开天辟地第一周"
+title: "开天辟地"
 summary: "23.01.30 ~ 23.01.05"
 tags: ["diary"]
 categories: "diary"
