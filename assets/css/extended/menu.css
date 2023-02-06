@@ -63,3 +63,11 @@
 #menu li a span:hover::before {
     transform: scale(1);
 }
+
+body:not(.dark) #sun_mode {
+    display: none;
+}
+
+body:not(.dark) #sun {
+    display: block;
+}
