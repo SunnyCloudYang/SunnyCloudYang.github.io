@@ -1,19 +1,19 @@
 @font-face {
-    font-family: "仓耳今楷";
-    src: url("/fonts/仓耳今楷2.eot"); /* IE9 */
-    src: url("/fonts/仓耳今楷2.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    font-family: "仓耳今楷3";
+    src: url("/fonts/仓耳今楷03-W03.eot"); /* IE9 */
+    src: url("/fonts/仓耳今楷03-W03.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
     
-    url("/fonts/仓耳今楷2.woff") format("woff"), /* chrome、firefox */
-    url("/fonts/仓耳今楷2.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("/fonts/仓耳今楷03-W03.woff") format("woff"), /* chrome、firefox */
+    url("/fonts/仓耳今楷03-W03.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
     
-    url("/fonts/仓耳今楷2.svg#仓耳今楷2") format("svg"); /* iOS 4.1- */
+    url("/fonts/仓耳今楷03-W03.svg#仓耳今楷2") format("svg"); /* iOS 4.1- */
     font-style: normal;
     font-weight: normal;
     font-display: swap;
 }
 
 .post-content {
-    font-family: "仓耳今楷";
+    font-family: "仓耳今楷3";
     text-align: justify;
 }
 
@@ -24,4 +24,11 @@
     border-radius: 0px 8px 8px 0px;
     border-inline-start: 3px solid var(--primary);
     box-shadow: 3px 2px 13px -3px rgb(69, 70, 72);
+}
+
+.post-content span.punc-compress {
+    font-family: "仓耳今楷3";
+    -moz-font-feature-settings: "halt";
+    -webkit-font-feature-settings: "halt";
+    font-feature-settings: "halt";
 }
