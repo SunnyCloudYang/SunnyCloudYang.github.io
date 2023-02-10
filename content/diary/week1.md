@@ -4,7 +4,7 @@ date: "2023-02-01T13:51:39+08:00"
 lastmod: "2023-02-08T00:19:45+08:00"
 description: "23.01.30 ~ 23.02.05"
 title: "开天辟地"
-summary: "23.01.30 ~ 23.01.05"
+summary: "23.01.30 ~ 23.02.05"
 tags: ["diary"]
 categories: "diary"
 # cover: 
