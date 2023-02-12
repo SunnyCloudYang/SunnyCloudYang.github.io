@@ -1,5 +1,5 @@
 
 .hugo_build.lock
 *.bat
-.vscode/settings.json
+.vscode/
 /fonts/
