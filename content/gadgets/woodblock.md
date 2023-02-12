@@ -1,8 +1,8 @@
 ---
 title: "电子木鱼儿"
-author: "SunnyCloudYang"
+author: "Yang"
 date: "2023-01-28T21:28:01+08:00"
-lastmod: "2023-01-28T22:04:14+08:00"
+lastmod: "2023-02-13T01:21:01+08:00"
 draft: false
 summary: "敲电子木鱼，攒赛博功德"
 description: "哒~ 哒~ 哒~"

@@ -1,6 +1,6 @@
 ---
 title: "胡言乱语的ChatGPT和胡写八写的我"
-author: "SunnyCloudYang"
+author: "Yang"
 date: "2023-01-27T15:00:23+08:00"
 lastmod: "2023-02-04T23:24:50+08:00"
 draft: false
