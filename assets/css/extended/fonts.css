@@ -26,16 +26,16 @@
     box-shadow: 3px 2px 13px -3px rgb(69, 70, 72);
 }
 
-.post-content span.punc-compress-r {
+/* .post-content span.punc-compress-r {
     letter-spacing: -0.5em;
-    /* -moz-font-feature-settings: "halt";
+    -moz-font-feature-settings: "halt";
     -webkit-font-feature-settings: "halt";
-    font-feature-settings: "halt"; */
-}
+    font-feature-settings: "halt";
+} */
 
-.post-content span.punc-compress-l {
+/* .post-content span.punc-compress-l {
     margin-left: -0.5em;
-    /* -moz-font-feature-settings: "halt";
+    -moz-font-feature-settings: "halt";
     -webkit-font-feature-settings: "halt";
-    font-feature-settings: "halt"; */
-}
+    font-feature-settings: "halt";
+} */
