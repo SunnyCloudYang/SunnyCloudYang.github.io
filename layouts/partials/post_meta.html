@@ -7,7 +7,7 @@
 {{- end }}
 
 {{- if (.Param "ShowLastMod") -}}
-{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-pencil-square-o\"></span>&nbsp;%s</div>" (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
+{{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-pencil-square-o\"></span>&nbsp;<span title='%s'>%s</span></div>" (.Lastmod) (.Lastmod.Format (.Site.Params.dateFormat | default "2006-01-02")))) }}
 {{- end }}
 
 {{- if (.Param "ShowWordCount") -}}
