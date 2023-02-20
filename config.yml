@@ -86,7 +86,6 @@ languages:
           category: categories
           tag: tags
           series: series
-        Create: "Created at"
         profileMode:
             enabled: true
             title: Fanta Mud Pee
