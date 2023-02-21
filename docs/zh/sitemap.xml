@@ -210,6 +210,18 @@
                 href="https://sunnycloudyang.github.io/posts/post1/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/archives/"
+                />
+  </url><url>
     <loc>https://sunnycloudyang.github.io/categories/function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -220,18 +232,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://sunnycloudyang.github.io/categories/function/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/series/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/series/"
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/archives/</loc>
