@@ -99,8 +99,8 @@
   "keywords": [
     "gadgets", "woodblock"
   ],
-  "articleBody": " 把之前写的电子木鱼单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。\n-\u003e 在这里对佛祖发起DDoS攻击(x) -\u003e 在这里下载电子木鱼(for Android) 彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了orz。\n怎么说呢，这个马上到来的四级考试，我看是刎了。\n",
-  "wordCount" : "211",
+  "articleBody": " 把之前写的电子木鱼单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。\n无广无收费无弹窗，甚至没有设置（逃）。\n-\u003e 在这里对佛祖发起DDoS攻击(x) -\u003e 在这里下载电子木鱼(for Android) 彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了，找了两天才找到问题orz。\n怎么说呢，这个马上到来的四级考试，我看是刎了。\n",
+  "wordCount" : "240",
   "inLanguage": "zh",
   "image":"https://sunnycloudyang.github.io/images/wb.jpg","datePublished": "2023-01-28T21:28:01+08:00",
   "dateModified": "2023-02-13T01:21:01+08:00",
@@ -211,92 +211,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><div class="meta-tag"><span class="fa fa-calendar-plus-o"></span>&nbsp;<span title='2023-01-28 21:28:01 +0800 CST'>2023-01-28</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-pencil-square-o"></span>&nbsp;<span title='2023-02-13 01:21:01 +0800 CST'>2023-02-13</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-user-circle-o"></span>&nbsp;<span>Yang</span></div>
 
 </div>
-    </header> <aside id="toc-container" class="toc-container wide">
-        <div class="toc">
-            <details  open>
-                <summary accesskey="c" title="(Alt + C)">
-                    <span class="details">目录</span>
-                </summary>
-
-                <div class="inner"><ul>
-                        <li>
-                            <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e5%af%b9%e4%bd%9b%e7%a5%96%e5%8f%91%e8%b5%b7ddos%e6%94%bb%e5%87%bboldsitewoodblockwoodblockhtmlx" aria-label="-&amp;gt; 在这里对佛祖发起DDoS攻击(x)">-&gt; 在这里<a href="/oldsite/WoodBlock/WoodBlock.html">对佛祖发起DDoS攻击</a>(x)</a></li>
-                        <li>
-                            <a href="#--%e5%9c%a8%e8%bf%99%e9%87%8c%e4%b8%8b%e8%bd%bd%e7%94%b5%e5%ad%90%e6%9c%a8%e9%b1%bcfor-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk" aria-label="-&amp;gt; 在这里下载电子木鱼(for Android)">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk">下载电子木鱼(for Android)</a></a>
-                        </li>
-                    </ul>
-                </div>
-            </details>
-        </div>
-    </aside>
-    <script>
-        let activeElement;
-        let elements;
-        window.addEventListener('DOMContentLoaded', function (event) {
-            checkTocPosition();
-
-            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-            
-            activeElement = elements[0];
-            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-        }, false);
-
-        window.addEventListener('resize', function (event) {
-            checkTocPosition();
-        }, false);
-
-        window.addEventListener('scroll', () => {
-            
-            activeElement = Array.from(elements).find((element) => {
-                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
-                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
-                    return element;
-                }
-            }) || activeElement
-
-            elements.forEach(element => {
-                const id = encodeURI(element.getAttribute('id')).toLowerCase();
-                if (element === activeElement) {
-                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-                } else {
-                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-                }
-            })
-        }, false);
-
-        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-        function checkTocPosition() {
-            const width = document.body.scrollWidth;
-
-            if (width - main - (toc * 2) - (gap * 4) > 0) {
-                document.getElementById("toc-container").classList.add("wide");
-            } else {
-                document.getElementById("toc-container").classList.remove("wide");
-            }
-        }
-
-        function getOffsetTop(element) {
-            if (!element.getClientRects().length) {
-                return 0;
-            }
-            let rect = element.getBoundingClientRect();
-            let win = element.ownerDocument.defaultView;
-            return rect.top + win.pageYOffset;
-        }
-    </script>
+    </header> 
     <div class="post-content"><blockquote>
 <p><img loading="lazy" src="/images/wb.jpg#center" alt="woodblock"  />
 </p>
 </blockquote>
-<p>把之前写的<a href="/oldsite/WoodBlock/WoodBlock.html">电子木鱼</a>单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。</p>
+<p>把之前写的<a href="/oldsite/WoodBlock/WoodBlock.html">电子木鱼</a>单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。<br>
+无广无收费无弹窗，甚至没有设置（逃）。</p>
 <h4 id="--在这里对佛祖发起ddos攻击oldsitewoodblockwoodblockhtmlx">-&gt; 在这里<a href="/oldsite/WoodBlock/WoodBlock.html">对佛祖发起DDoS攻击</a>(x)<a hidden class="anchor" aria-hidden="true" href="#--在这里对佛祖发起ddos攻击oldsitewoodblockwoodblockhtmlx">#</a></h4>
 <h4 id="--在这里下载电子木鱼for-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk">-&gt; 在这里<a href="https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/raw/gh-pages/WoodBlock/%E6%9C%A8%E9%B1%BC_1.0.0.apk">下载电子木鱼(for Android)</a><a hidden class="anchor" aria-hidden="true" href="#--在这里下载电子木鱼for-androidhttpsgithubcomsunnycloudyangsunnycloudyanggithubiorawgh-pageswoodblocke69ca8e9b1bc_100apk">#</a></h4>
 <br>
-<p>彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了orz。</p>
+<p>彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了，找了两天才找到问题orz。</p>
 <p><img loading="lazy" src="/images/woodblock.jpg#center" alt="怎么会有人拼错这个"  />
 </p>
 <p>怎么说呢，这个马上到来的四级考试，我看是刎了。</p>

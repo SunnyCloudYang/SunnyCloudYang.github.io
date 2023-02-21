@@ -13,6 +13,7 @@ cover:
 comments: true
 hideMeta: false
 searchHidden: false
+ShowToc: false
 ShowBreadCrumbs: true
 ShowWordCount: false
 ShowReadingTime: false
@@ -20,7 +21,8 @@ ShowReadingTime: false
 
 >![woodblock](/images/wb.jpg#center)
 
-把之前写的[电子木鱼](/oldsite/WoodBlock/WoodBlock.html)单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。
+把之前写的[电子木鱼](/oldsite/WoodBlock/WoodBlock.html)单独拎出来放到这里了，希望大家都能功德圆满，问心无愧。  
+无广无收费无弹窗，甚至没有设置（逃）。
 
 #### -> 在这里[对佛祖发起DDoS攻击](/oldsite/WoodBlock/WoodBlock.html)(x)
 
@@ -28,7 +30,7 @@ ShowReadingTime: false
 
 <br>
 
-彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了orz。
+彩蛋：也不算彩蛋吧，就是犯了个傻。本来在修改了目录结构之后为了兼容旧的app，我在原路径（就是app里写死的路径）下复制了一个WoodBlock.html，然鹅我把WoodBlock写成了BlockWood（甚至连文件夹也命名错了，找了两天才找到问题orz。
 
 ![怎么会有人拼错这个](/images/woodblock.jpg#center)
 
