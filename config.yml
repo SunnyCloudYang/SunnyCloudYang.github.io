@@ -160,8 +160,8 @@ params:
     # images: ["papermod-cover.png"]
     disableBusuanzi: false
 
-    # ShowAllPagesInArchive: true
-    mainSections: ["posts", "diary"]
+    ShowAllPagesInArchive: true
+    # mainSections: ["posts", "diary"]
 
     profileMode:
         enabled: false
