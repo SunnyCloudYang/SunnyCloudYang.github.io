@@ -5,7 +5,7 @@ date: "2023-01-17T17:00:00+08:00"
 lastmod: "2023-01-28T21:58:24+08:00"
 summary: "一个过去写的小玩意儿，随便玩，不怕坏"
 description: "以前的Bounce Balls，放到这了。玩得尽兴"
-tags: ["gadgets"]
+tags: ["gadgets", "bounce balls"]
 categories: "gadgets"
 comments: true
 hideMeta: false
