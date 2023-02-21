@@ -1,7 +1,6 @@
 ---
 title: "小卖部"
 date: "2023-01-20T14:06:53+08:00"
-lastmod: "2023-01-28T22:02:45+08:00"
 description: "一些零零碎碎的小东小西，随意挑选，看上就玩儿"
 ShowBreadCrumbs: true
 ---
