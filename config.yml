@@ -1,5 +1,4 @@
 baseURL: "https://sunnycloudyang.github.io/"
-languageCode: "zh-cn"
 paginate: 7
 theme: PaperMod
 
@@ -24,6 +23,7 @@ minify:
 languages:
     zh:
         languageName: "简体中文"
+        languageCode: "zh-CN"
         weight: 1
         title: 抽象艺术大巴扎
         description: "这里是我兜售心里的抽象艺术的地方，也就是大家俗称的博客儿，进来看看呗，不收钱！"
@@ -80,6 +80,7 @@ languages:
 
     en:
         languageName: "English"
+        languageCode: "en"
         title: Fanta Mud Pee
         description: "This is where I go insane, but don't be afraid, I won't hurt you as you are the few people who found this place. What about take a walk with me?"
         weight: 2
