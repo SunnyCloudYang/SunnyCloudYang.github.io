@@ -344,7 +344,6 @@
         }
     });
     function updateGiscusTheme() {
-        const giscusTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
         function sendMessage(message) {
             const iframe = document.querySelector('iframe.giscus-frame');
             if (!iframe) return;
@@ -352,7 +351,7 @@
         }
         sendMessage({
             setConfig: {
-                theme: giscusTheme,
+                theme: localStorage.getItem('pref-theme'),
             }
         });
     }
@@ -361,7 +360,7 @@
 
     if (typeof themeToggle !== "undefined") {
         themeToggle.addEventListener('click', ()=>
-            setTimeout(updateGiscusTheme, 100));
+            setTimeout(updateGiscusTheme, 50));
     }
 </script>
 </article>
