@@ -9,7 +9,7 @@ tags: ["diary"]
 categories: "diary"
 # cover: 
 #    image: "images/.jpg"
-draft: true
+draft: false
 comments: true
 hideMeta: false
 searchHidden: false
