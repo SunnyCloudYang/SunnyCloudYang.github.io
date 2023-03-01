@@ -56,6 +56,16 @@
     background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1.5px repeat-x;
 }
 
+.post-content blockquote {
+    font-family: "STKaiti", "KaiTi", "楷体", "SimKai", "DFKai-SB", "NSimSun", "serif";
+    background: var(--quote-bg);
+    margin: 20px 0;
+    padding: 0 14px;
+    border-radius: 0px 8px 8px 0px;
+    border-inline-start: 3px solid var(--content);
+    box-shadow: 1px 1px 7px -3px rgb(69, 70, 72);
+}
+
 .copy-code {
     display: block;
     opacity: 0;
@@ -74,8 +84,10 @@ div.highlight .lntable:hover .copy-code:hover {
 
 :root {
     --hljs-bg: #fefbf1;
+    --quote-bg: #f5f5f5;
 }
 
 .dark {
     --hljs-bg: #272d35;
+    --quote-bg: #2e2e33;
 }
