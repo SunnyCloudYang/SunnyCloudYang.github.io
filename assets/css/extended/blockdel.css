@@ -1,0 +1,11 @@
+.post-content .blockdel {
+    color: transparent;
+    border-radius: 4px;
+    background-color: var(--content);
+    transition: 0.3s;
+}
+
+.post-content .blockdel:hover {
+    color: unset;
+    background-color: transparent;
+}

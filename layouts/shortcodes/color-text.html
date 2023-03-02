@@ -1,0 +1,1 @@
+{{ $color := .Get "color" | safeCSS }}<span class="color-text"style="background-color: {{ $color }};"><text>{{- .Inner | markdownify -}}</text></span>
