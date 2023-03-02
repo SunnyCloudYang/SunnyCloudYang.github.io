@@ -1,0 +1,86 @@
+.color-text {
+    border-radius: 4px;
+}
+
+.dark .color-text text {
+    position: relative;
+    border-radius: 3px;
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.alert {
+    font-family: -apple-system,
+        BlinkMacSystemFont,
+        segoe ui,
+        Roboto,
+        Oxygen,
+        Ubuntu,
+        Cantarell,
+        open sans,
+        helvetica neue,
+        sans-serif;
+    border-radius: var(--radius);
+    border-color: #000;
+    border: solid;
+    margin: 20px 0;
+    padding: 0.8rem 1rem;
+    transition:  0.2s;
+}
+
+.alert:hover {
+    /* shadow's color is the same with border */
+    box-shadow: 0 3px 10px -4px;
+}
+
+.alert p, .alert ul {
+    margin-bottom: calc(var(--content-gap) * 0.6);
+}
+
+.alert-success {
+    border-color: #73cc74;
+    background-color: #ebffe5;
+    color: #488049;
+}
+
+.dark .alert-success {
+    border-color: #73cc74;
+    background-color: #488049;
+    color: #ebffe5;
+}
+
+.alert-warning {
+    border-color: #f0ad4e;
+    background-color: #fcf8e3;
+    color: #8a6d3b;
+}
+
+.dark .alert-warning {
+    border-color: #f0ad4e;
+    background-color: #8a6d3b;
+    color: #fcf8e3;
+}
+
+.alert-danger {
+    border-color: #d9534f;
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.dark .alert-danger {
+    border-color: #d9534f;
+    background-color: #a94442;
+    color: #f2dede;
+}
+
+.alert-info {
+    border-color: #4babdb;
+    background-color: #cdeeff;
+    color: #31708f;
+}
+
+.dark .alert-info {
+    border-color: #4babdb;
+    background-color: #31708f;
+    color: #cdeeff;
+}
