@@ -6,7 +6,16 @@
     <description>Recent content in diary on 抽象艺术大巴扎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Feb 2023 20:26:02 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Mar 2023 17:04:18 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/tags/diary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Shortcodes</title>
+      <link>https://sunnycloudyang.github.io/posts/post4/</link>
+      <pubDate>Thu, 02 Mar 2023 17:04:18 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/posts/post4/</guid>
+      <description>一些Hugo shortcodes模板和效果测试</description>
+    </item>
+    
     <item>
       <title>课程作业提醒</title>
       <link>https://sunnycloudyang.github.io/diary/week5/</link>
