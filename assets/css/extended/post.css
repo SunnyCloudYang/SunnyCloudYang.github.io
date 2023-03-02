@@ -72,7 +72,9 @@
 }
 
 .post-content del {
-    background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1.5px repeat-x;
+    text-decoration: line-through 1.5px;
+    /* background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0 50%/1px 1.5px repeat-x; */
+    background: none;
 }
 
 .post-content blockquote {
