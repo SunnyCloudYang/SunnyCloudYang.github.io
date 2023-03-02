@@ -1,0 +1,9 @@
+.color-text {
+    border-radius: 4px;
+}
+
+.dark .color-text text {
+    border-radius: 4px;
+    background-color: #000;
+    opacity: 0.5;
+}
