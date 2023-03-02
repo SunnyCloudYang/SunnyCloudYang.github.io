@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-02T17:04:18+08:00"
-lastmod: "2023-03-03T00:36:10+08:00"
+lastmod: "2023-03-03T00:54:35+08:00"
 description: "一些Hugo shortcodes模板和效果测试"
 title: "Hugo Shortcodes"
 summary: "为什么大家都不愿意把shortcode的style sheet写出来呢（恼"
@@ -17,7 +17,7 @@ ShowBreadCrumbs: true
 ShowReadingTime: false
 ---
 
-很久之前就像找一些有用的Hugo shortcodes模板，但是Google半天也只有官方提供的那几个示例，虽说授人以渔无可非议，但是全是渔网{{< blockdel >}}袜🤤{{< /blockdel >}}没有鱼也不行啊，这样我怎么知道你到底能不能钓上来🐟呢？所以我打算在这里尽力收集一些有用的shortcodes，都是可以<del>拎包入住顺手牵羊</del>直接copy去用的现成轮子。
+很久之前就想找一些有用的Hugo shortcodes模板，但是Google半天也只有官方提供的那几个示例，虽说授人以渔无可非议，但是全是渔网{{< blockdel >}}袜🤤{{< /blockdel >}}没有鱼也不行啊，这样我怎么知道你到底能不能钓上来🐟呢？所以我打算在这里尽力收集一些有用的shortcodes，都是可以<del>拎包入住顺手牵羊</del>直接copy去用的现成轮子。
 
 ## 一. Tips
 
@@ -109,7 +109,7 @@ ShowReadingTime: false
     {{</ alert >}}
 
     {{< alert class="info" >}}
-**Info!**
+**Info!**  
 这里写一些提示信息。
     {{</ alert >}}
 
