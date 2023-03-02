@@ -3,8 +3,7 @@
 }
 
 .dark .color-text text {
-    position: relative;
-    border-radius: 3px;
+    border-radius: 4px;
     background-color: #000;
     opacity: 0.5;
 }
@@ -20,6 +19,7 @@
         open sans,
         helvetica neue,
         sans-serif;
+    font-size: 1rem;
     border-radius: var(--radius);
     border-color: #000;
     border: solid;
@@ -29,7 +29,6 @@
 }
 
 .alert:hover {
-    /* shadow's color is the same with border */
     box-shadow: 0 3px 10px -4px;
 }
 
