@@ -65,10 +65,15 @@
 .post-content pre code, .post-content code {
     font-family: consolas, Menlo, pingfang sc, microsoft yahei, sans-serif;
 }
+
 .post-content code {
     border-radius: 4px;
     padding-bottom: 2px;
     font-size: 0.8em;
+}
+
+.post-content pre code {
+    padding-right: 4px;
 }
 
 .post-content del {
@@ -78,7 +83,16 @@
 }
 
 .post-content blockquote {
-    font-family: "STKaiti", "KaiTi", "楷体", "SimKai", "DFKai-SB", "NSimSun", "serif";
+    font-family: palatino linotype,
+        book antiqua,
+        Palatino,
+        STKaiti,
+        KaiTi,
+        楷体,
+        SimKai,
+        DFKai-SB,
+        NSimSun,
+        serif;
     background: var(--quote-bg);
     margin: 20px 0;
     padding: 0 14px;

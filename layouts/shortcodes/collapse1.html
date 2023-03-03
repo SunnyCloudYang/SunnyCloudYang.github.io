@@ -1,0 +1,15 @@
+<div class="collapse">
+    <div class="collapse-title" onclick="onCollapseTitleClick(event)">
+        {{- .Get "summary" | markdownify -}}
+    </div>
+    <div class="collapse-content">
+        {{- .Inner | markdownify -}}
+    </div>
+</div>
+<script type="text/javascript">
+    function onCollapseTitleClick(e) {
+        let thisContent = e.target.nextElementSibling;
+        thisContent.classList.toggle("show");
+        e.target.classList.toggle("opened");
+    }
+</script>

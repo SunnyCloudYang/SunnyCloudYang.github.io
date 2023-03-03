@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-02T17:04:18+08:00"
-lastmod: "2023-03-03T00:54:35+08:00"
+lastmod: "2023-03-04T03:07:54+08:00"
 description: "一些Hugo shortcodes模板和效果测试"
 title: "Hugo Shortcodes"
 summary: "为什么大家都不愿意把shortcode的style sheet写出来呢（恼"
@@ -173,8 +173,11 @@ ShowReadingTime: false
 1. 在`layouts/shortcodes`下新建`color-text.html`文件，内容如下：
 
     ```go
-    <span class="color-text" style="color: {{ with .Get "color" }}{{.}}{{end}}">
-        {{ .Inner | markdownify }}
+    {{ $color := .Get "color" | safeCSS }}
+    <span class="color-text"style="background-color: {{ $color }};">
+        <text>
+            {{- .Inner | markdownify -}}
+        </text>
     </span>
     ```
 
@@ -206,4 +209,75 @@ ShowReadingTime: false
 绿色荧光笔，深色模式有蒙版效果。
     {{</ color-text >}}
 
-当然还没写完，但是为了不熬夜的flag，剩下的等明天再说吧。这些shortcodes写起来其实并不难（如果除去css上的微调的话），但是为什么就是找不到合我心意的模板呢？
+## 四. 展开块
+
+展开块，默认样式的效果如👇：
+
+{{< collapse summary="默认样式" >}}
+这里是隐藏内容
+{{</collapse>}}
+
+自定义的效果如👇：
+
+{{< collapse1 summary="自定义样式" >}}
+这里是隐藏内容
+{{</collapse1>}}
+
+可以看到，自定义的效果并不尽如人意，height的变化总有个延迟，并不平滑，等我明天再研究一下。先给出默认样式的代码：
+
+**使用方法：**
+
+1. 在`layouts/shortcodes`下新建`collapse.html`文件，内容如下：
+
+    ```go
+    <p><details {{ if (eq (.Get "openByDefault") true) }} open=true {{ end }}>
+    <summary markdown="span">
+        {{- .Get "summary" | markdownify -}}
+    </summary>
+    {{- .Inner | markdownify -}}
+    </details></p>
+    ```
+
+2. 在`assets/css`下新建`collapse.css`文件，内容如下：
+
+    ```css
+    .post-content details {
+        font-size: 1rem;
+        background-color: var(--code-bg);
+        border-radius: var(--radius);
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+    }
+
+    .post-content summary {
+        cursor: pointer;
+        font-weight: bold;
+        user-select: none;
+    }
+
+    details[open] > summary {
+        margin-bottom: 0.5em;
+    }
+    ```
+
+3. 在markdown文件中如下使用：
+
+    ```go
+    {{</* collapse summary="默认样式标题" */>}}
+    默认样式内容
+    {{</* /collapse */>}}
+    ```
+
+    输出效果如下：
+
+    {{< collapse summary="默认样式标题" >}}
+默认样式内容
+    {{</ collapse >}}
+
+## TODO
+
+- [ ] 自定义样式的展开块
+- [ ] Gallery
+- [ ] 个性化blockquote
+
+太难了，css实在是太难了，web前端实在是太难了。

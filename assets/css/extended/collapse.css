@@ -1,0 +1,48 @@
+.post-content details {
+    font-size: 1rem;
+    background-color: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.post-content summary {
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+}
+
+details[open] > summary {
+    margin-bottom: 0.5em;
+}
+
+.post-content .collapse {
+    background-color: var(--code-bg);
+    border-radius: var(--radius);
+    margin: 0.5em 0;
+    padding: 0.5em;
+}
+
+.post-content .collapse-title {
+    font-weight: bold;
+    user-select: none;
+}
+
+.post-content .collapse-title::before {
+    content: "👉";
+}
+
+.post-content .collapse-title.opened::before {
+    content: "👇";
+}
+
+.post-content .collapse-content:not(.show) {
+    max-height: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.post-content .collapse-content.show {
+    max-height: 1000px;
+    transition: .5s;
+}
