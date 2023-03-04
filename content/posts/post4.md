@@ -306,7 +306,7 @@ ShowReadingTime: false
 
 ## TODO
 
-这里我想完成的shortcodes主要来自
+这里我想完成的shortcodes主要来自[消夏绿的博客](https://tin6.com/post/several-hugo-shortcoeds-samples/)，奈何没有源码，只能自己一点点扒了。
 
 - [x] 自定义样式的展开块
 - [ ] Gallery
