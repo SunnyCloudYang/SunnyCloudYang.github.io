@@ -1,7 +1,8 @@
 .post-content .blockdel {
     color: transparent;
     border-radius: 4px;
-    background-color: var(--content);
+    /* background-color: var(--content); */
+    background-color: var(--code-bg);
     transition: 0.3s;
 }
 
