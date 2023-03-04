@@ -73,7 +73,20 @@
 }
 
 .post-content pre code {
-    padding-right: 4px;
+    padding-right: 5px;
+}
+
+/* .post-content:first-of-type pre.chroma {
+    border-left: 0;
+} */
+
+/* 
+.post-content pre code .lnt {
+    border-right: #CCC 1px solid;
+} */
+
+.post-content pre code .lnt {
+    padding-right: 0;
 }
 
 .post-content del {
