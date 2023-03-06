@@ -1,15 +1,15 @@
 ---
 author: Yang
 date: "2023-02-27T20:26:02+08:00"
-lastmod: "2023-03-06T12:47:13+08:00"
+lastmod: "2023-03-06T13:05:19+08:00"
 description: "23.02.27 ~ 23.03.02"
 title: "课程作业提醒"
 summary: "23.02.27 ~ 23.03.02"
 tags: ["diary"]
 categories: "diary"
-# cover: 
-#    image: "images/.jpg"
-draft: true
+cover: 
+   image: "images/EMOPOWER.jpg"
+draft: false
 comments: true
 hideMeta: false
 searchHidden: false
