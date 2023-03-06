@@ -114,6 +114,10 @@
     box-shadow: 1px 1px 7px -3px rgb(69, 70, 72);
 }
 
+.post-content figure>figcaption>p {
+    text-align: center;
+}
+
 .copy-code {
     display: block;
     opacity: 0;
