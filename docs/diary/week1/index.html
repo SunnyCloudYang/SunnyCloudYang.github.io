@@ -283,10 +283,13 @@
             const width = document.body.scrollWidth;
 
             if (width - main - (toc * 2) - (gap * 5.5) > 0) {
-                document.getElementById("toc-container").classList.add("wide");
                 
-                document.getElementById("toc-details").setAttribute("open", "");
-            } else {
+                if (!document.getElementById("toc-container").classList.contains("wide")) {
+                    document.getElementById("toc-container").classList.add("wide");
+                    
+                    document.getElementById("toc-details").setAttribute("open", "");
+                }
+            } else if (document.getElementById("toc-container").classList.contains("wide")) {
                 document.getElementById("toc-container").classList.remove("wide");
                 
                 document.getElementById("toc-details").removeAttribute("open");
