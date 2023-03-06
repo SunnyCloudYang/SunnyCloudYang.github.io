@@ -3,7 +3,7 @@
     {{- if $has_headers -}}
     <aside id="toc-container" class="toc-container wide">
         <div class="toc">
-            <details {{if (.Param "TocOpen" ) }} open{{ end }}>
+            <details id="toc-details" {{if (.Param "TocOpen" ) }} open{{ end }}>
                 <summary accesskey="c" title="(Alt + C)">
                     <span class="details">{{- i18n "toc" | default "Table of Contents" }}</span>
                 </summary>
@@ -138,10 +138,14 @@
         function checkTocPosition() {
             const width = document.body.scrollWidth;
 
-            if (width - main - (toc * 2) - (gap * 4) > 0) {
+            if (width - main - (toc * 2) - (gap * 5.5) > 0) {
                 document.getElementById("toc-container").classList.add("wide");
+                // open the toc
+                document.getElementById("toc-details").setAttribute("open", "");
             } else {
                 document.getElementById("toc-container").classList.remove("wide");
+                // close the toc
+                document.getElementById("toc-details").removeAttribute("open");
             }
         }
 

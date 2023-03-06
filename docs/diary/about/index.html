@@ -206,7 +206,7 @@
         </div>
     </header> <aside id="toc-container" class="toc-container wide">
         <div class="toc">
-            <details  open>
+            <details id="toc-details"  open>
                 <summary accesskey="c" title="(Alt + C)">
                     <span class="details">目录</span>
                 </summary>
@@ -269,10 +269,14 @@
         function checkTocPosition() {
             const width = document.body.scrollWidth;
 
-            if (width - main - (toc * 2) - (gap * 4) > 0) {
+            if (width - main - (toc * 2) - (gap * 5.5) > 0) {
                 document.getElementById("toc-container").classList.add("wide");
+                
+                document.getElementById("toc-details").setAttribute("open", "");
             } else {
                 document.getElementById("toc-container").classList.remove("wide");
+                
+                document.getElementById("toc-details").removeAttribute("open");
             }
         }
 
@@ -310,10 +314,10 @@
             <li><a href="https://sunnycloudyang.github.io/tags/about/">about</a></li>
         </ul>
 <nav class="paginav">
-  <a class="next" href="https://sunnycloudyang.github.io/diary/week5/">
+  <a class="next" href="https://sunnycloudyang.github.io/diary/week6/">
     <span class="title">下一页 »</span>
     <br>
-    <span>课程作业提醒</span>
+    <span>作业，作孽</span>
   </a>
 </nav>
 
