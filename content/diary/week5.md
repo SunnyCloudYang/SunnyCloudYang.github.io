@@ -2,9 +2,9 @@
 author: Yang
 date: "2023-02-27T20:26:02+08:00"
 lastmod: "2023-03-06T13:05:19+08:00"
-description: "23.02.27 ~ 23.03.02"
+description: "23.02.27 ~ 23.03.05"
 title: "课程作业提醒"
-summary: "23.02.27 ~ 23.03.02"
+summary: "23.02.27 ~ 23.03.05"
 tags: ["diary"]
 categories: "diary"
 cover: 
