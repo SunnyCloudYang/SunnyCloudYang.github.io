@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-06T13:10:04+08:00"
-lastmod: "2023-03-11T17:07:04+08:00"
+lastmod: "2023-03-12T01:24:17+08:00"
 description: "23.03.06 ~ 23.03.12"
 title: "作业，作孽"
 summary: "23.03.06 ~ 23.03.12"
@@ -56,3 +56,12 @@ ShowReadingTime: false
 - 先这么过着吧，毕竟也没别的办法了不是。
 - 晚上一时兴起搭了个本地的Stable Diffusion WebUI，调了下启动参数居然还真的在我的2G显存的卡上跑起来了，但是结果只能算差强人意，而且生成一张图需要1分钟左右，看来只能休闲的时候随便玩玩了。
 - 😋😋AI绘画，我来了，嘿嘿，嘿嘿🤤。
+
+## Sat
+
+- 今天自然是玩了一天的Stable Diffusion了，不过没几张能看的，挑两张还行的出来溜溜吧~
+  {{< gallery >}}
+  {{< figure src="/images/boywithdragon.jpg" align="center" >}}
+  {{< figure src="/images/girlatwindow.png" align="center" >}}
+  {{< /gallery >}}
+  调参尚未精通，同志仍需努力😋
