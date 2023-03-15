@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-06T13:10:04+08:00"
-lastmod: "2023-03-12T01:24:17+08:00"
+lastmod: "2023-03-16T00:30:16+08:00"
 description: "23.03.06 ~ 23.03.12"
 title: "作业，作孽"
 summary: "23.03.06 ~ 23.03.12"
@@ -9,7 +9,7 @@ tags: ["diary"]
 categories: "diary"
 # cover: 
 #    image: "images/.jpg"
-draft: true
+draft: false
 comments: true
 hideMeta: false
 searchHidden: false
@@ -65,3 +65,8 @@ ShowReadingTime: false
   {{< figure src="/images/girlatwindow.png" align="center" >}}
   {{< /gallery >}}
   调参尚未精通，同志仍需努力😋
+
+## Sun
+
+- 调了一天的prompts，写了一天的作业，摆了一天的烂。
+- 无所谓了，大抵是天天如此的。
