@@ -5,3 +5,27 @@
 .post-tags a {
     box-shadow: 0 2px 5px rgba(120, 120, 120, 0.5);
 }
+
+.pagination a {
+    font-size: 14px;
+    padding: 0px 20px;
+    line-height: 40px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgb(5 10 15 / 5%), 0 7px 13px -3px rgb(5 10 15 / 30%);
+    transition: 0.2s;
+}
+
+.dark .pagination a {
+    background-color: var(--secondary);
+}
+
+.pagination a:hover {
+    box-shadow: 0 2px 4px rgb(5 10 15 / 15%), 0 7px 13px -3px rgb(5 10 15 / 50%);
+    transform: translateY(-2px);
+}
+
+.pagination a:active {
+    box-shadow: 0 2px 4px rgb(5 10 15 / 10%), 0 7px 13px -3px rgb(5 10 15 / 40%);
+    transform: translateY(0px);
+    transform: scale(0.98);
+}
