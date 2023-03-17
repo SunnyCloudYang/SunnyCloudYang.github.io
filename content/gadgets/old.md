@@ -2,9 +2,9 @@
 author: "Yang"
 title: "弹弹球儿"
 date: "2023-01-17T17:00:00+08:00"
-lastmod: "2023-01-28T21:58:24+08:00"
+lastmod: "2023-03-17T18:36:04+08:00"
 summary: "一个过去写的小玩意儿，随便玩，不怕坏"
-description: "以前的Bounce Balls，放到这了。玩得尽兴"
+description: "以前的Bounce Balls，放到这了，玩得尽兴。"
 tags: ["gadgets", "bounce balls"]
 categories: "gadgets"
 comments: true
@@ -14,15 +14,15 @@ ShowWordCount: false
 ShowReadingTime: false
 ---
 
-## Bounce Balls - 帮宝逝海洋球
+## 曾用名：帮宝逝海洋球
 
 ---
 
 ### 介绍
 
-#### 欢迎来到第一平行宇宙——球宇宙
+**欢迎来到第一平行宇宙——球宇宙**
 
-#### 全新界面，全新体验
+全新界面，全新体验
 
 简单来说就是一个只有球的宇宙，可以制造混乱也可以守序善良(反正崩的是你的电脑hiahia(╯`□′)╯炸弹! •••*～●)
 
@@ -65,7 +65,7 @@ ShowReadingTime: false
 9. PC端可以容纳的小球数量较多，上限为700，并可以用鼠标移动小球；手机端可以体验体感模式，摇晃或者旋转，简称一起摇摆；
 10. 画布右上角的🔒可以锁定屏幕禁止滚动，不知道有什么用，但还是加上吧
 11. 超高校级隐藏操作：
-    * 打开控制台，`balls[i]`对应的就是每一个小球，有`mess`/`radius`/`x`/`y`/`vx`/`vy`等属性，直接赋值即可突破限制（eg. `balls[0].mess = 114514;`）<del>一般人我都不告诉的</del>
+    * 打开控制台，`balls[i]`对应的就是每一个小球，有`mess` / `radius` / `x` / `y` / `vx` / `vy`等属性，直接赋值即可突破限制（eg. `balls[0].mess = 114514;`）<del>一般人我都不告诉的</del>
 
 #### Ⅱ. 全新小球宇宙
 
@@ -103,8 +103,8 @@ ShowReadingTime: false
 
 本程序不采集任何用户个人数据，也不会将任何数据上传至云端，所有数据处理均在本地进行。所有必需设备参数如下：
 
-* 屏幕宽与高（window.innerWidth，window.innerHeight），用于确定显示大小，默认小球数量等
-* 设备加速度传感器数据（DeviceMotionEvent.acceleration, \*.accelerationIncludingGravity），用于在Ground Pointing模式和Shake模式中确定小球加速度
+* 屏幕宽与高，用于确定显示大小，默认小球数量等；
+* 设备加速度传感器数据，用于在Ground Pointing模式和Shake模式中确定小球加速度。
 
 ---
 
@@ -120,8 +120,8 @@ ShowReadingTime: false
 
 ### 最后
 
-还在看？那[点个Star](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io)吧~
+还在看？那[点个Star⭐](https://github.com/SunnyCloudYang/BounceBalls)吧~
 
-**[Raise Your Issues and Report Bugs Here!](https://github.com/SunnyCloudYang/SunnyCloudYang.github.io/issues)**
+**[找茬找BUG请反馈到这里！](https://github.com/SunnyCloudYang/BounceBalls/issues)**
 
 ---
