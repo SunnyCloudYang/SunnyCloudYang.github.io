@@ -6,7 +6,7 @@
     <description>Recent content on 抽象艺术大巴扎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Mar 2023 01:36:54 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 00:05:45 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于ᵀᴼᴾ</title>
       <link>https://sunnycloudyang.github.io/diary/about/</link>
@@ -23,6 +23,15 @@
       
       <guid>https://sunnycloudyang.github.io/posts/post/</guid>
       <description>哟，来了，里面请</description>
+    </item>
+    
+    <item>
+      <title>随便问，随缘答</title>
+      <link>https://sunnycloudyang.github.io/xjbchat/quesbox/</link>
+      <pubDate>Fri, 24 Mar 2023 00:05:45 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/xjbchat/quesbox/</guid>
+      <description>自由选择，随心发问。类GPT，主打一个瞎jb聊。</description>
     </item>
     
     <item>

@@ -47,6 +47,8 @@ languages:
                   url: gadgets/
                 - name: 记账本
                   url: diary/
+                # - name: 提问箱
+                #   url: xjbchat/
         menu:
             main:
                 - name: 时间线

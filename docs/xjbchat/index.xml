@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>提问箱 on 抽象艺术大巴扎</title>
+    <link>https://sunnycloudyang.github.io/xjbchat/</link>
+    <description>Recent content in 提问箱 on 抽象艺术大巴扎</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 24 Mar 2023 00:05:45 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/xjbchat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>随便问，随缘答</title>
+      <link>https://sunnycloudyang.github.io/xjbchat/quesbox/</link>
+      <pubDate>Fri, 24 Mar 2023 00:05:45 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/xjbchat/quesbox/</guid>
+      <description>自由选择，随心发问。类GPT，主打一个瞎jb聊。</description>
+    </item>
+    
+  </channel>
+</rss>
