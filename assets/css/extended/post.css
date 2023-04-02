@@ -147,3 +147,7 @@ div.highlight .lntable:hover .copy-code:hover {
 .page-header .post-description {
     font-size: 16px;
 }
+
+.page-header h1 {
+    font-size: 32px;
+}
