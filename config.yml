@@ -1,5 +1,5 @@
 baseURL: "https://sunnycloudyang.github.io/"
-paginate: 7
+paginate: 9
 theme: PaperMod
 
 enableInlineShortcodes: true
