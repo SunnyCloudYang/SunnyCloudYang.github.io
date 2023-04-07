@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-29T00:14:18+08:00"
-lastmod: "2023-04-07T14:20:49+08:00"
+lastmod: "2023-04-07T14:30:39+08:00"
 description: "23.03.27 ~ 23.04.02"
 title: "嗯哼，啊哈"
 summary: "23.03.27 ~ 23.04.02"
@@ -9,7 +9,7 @@ tags: ["diary"]
 categories: "diary"
 # cover: 
 #    image: "images/.jpg"
-draft: true
+draft: false
 comments: true
 hideMeta: false
 searchHidden: false
