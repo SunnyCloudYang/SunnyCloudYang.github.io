@@ -14,6 +14,8 @@
       {{ .Get "summary" | markdownify }}
     </span>
   </summary>
-  {{- .Inner | markdownify -}}
+  <span class="collapse-content">
+    {{- .Inner | markdownify -}}
+  </span>
 </details>
 </p>
