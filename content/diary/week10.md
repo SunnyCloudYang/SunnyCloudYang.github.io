@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-04-10T14:36:14+08:00"
-lastmod: "2023-04-16T22:44:12+08:00"
+lastmod: "2023-04-17T12:45:36+08:00"
 description: "23.04.10 ~ 23.04.16"
 title: "期中要来力"
 summary: "23.04.10 ~ 23.04.16"
@@ -17,4 +17,4 @@ ShowBreadCrumbs: true
 ShowReadingTime: false
 ---
 
-![复习不完力](./images/review.jpg)
+![复习不完力](/images/review.jpg#center)
