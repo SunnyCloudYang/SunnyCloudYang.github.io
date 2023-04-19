@@ -150,3 +150,8 @@ div.highlight .lntable:hover .copy-code:hover {
 .page-header h1 {
     font-size: 32px;
 }
+
+::selection {
+    background: var(--primary);
+    color: var(--theme);
+}
