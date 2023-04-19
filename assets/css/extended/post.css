@@ -117,6 +117,10 @@
     text-align: center;
 }
 
+.post-content ul {
+    padding-inline-start: 14px;
+}
+
 .copy-code {
     display: block;
     opacity: 0;
@@ -159,4 +163,9 @@ div.highlight .lntable:hover .copy-code:hover {
 ::-moz-selection {
     background: var(--primary);
     color: var(--theme);
+}
+
+.main {
+    padding-right: 18px;
+    padding-left: 18px;
 }
