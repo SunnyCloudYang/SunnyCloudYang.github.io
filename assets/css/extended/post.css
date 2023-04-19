@@ -155,3 +155,8 @@ div.highlight .lntable:hover .copy-code:hover {
     background: var(--primary);
     color: var(--theme);
 }
+
+::-moz-selection {
+    background: var(--primary);
+    color: var(--theme);
+}
