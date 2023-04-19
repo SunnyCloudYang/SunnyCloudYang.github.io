@@ -121,6 +121,10 @@
     padding-inline-start: 14px;
 }
 
+.post-content ol {
+    padding-inline-start: 16px;
+}
+
 .copy-code {
     display: block;
     opacity: 0;
