@@ -1,10 +1,10 @@
 ---
 author: Yang
 date: "2023-05-08T19:45:03+08:00"
-lastmod: "2023-05-08T20:00:16+08:00"
-description: "23.5.8 ~ 23.5.14"
+lastmod: "2023-05-08T20:08:53+08:00"
+description: "23.05.08 ~ 23.05.14"
 title: "非物质五一遗产周"
-summary: "23.5.8 ~ 23.5.14"
+summary: "23.05.08 ~ 23.05.14"
 tags: ["diary"]
 categories: "diary"
 # cover: 
