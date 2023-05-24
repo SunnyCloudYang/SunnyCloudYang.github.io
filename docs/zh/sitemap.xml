@@ -18,17 +18,33 @@
                 href="https://sunnycloudyang.github.io/posts/post/"
                 />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
-    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/tags/fable/</loc>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
-    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/categories/fable/</loc>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/post/</loc>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/categories/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/categories/post/"
+                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/story/</loc>
-    <lastmod>2023-05-24T01:57:45+08:00</lastmod>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/story/</loc>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/</loc>
-    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -41,7 +57,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/</loc>
-    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -54,7 +70,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/categories/</loc>
-    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -67,7 +83,13 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/posts/forest-museum-1/</loc>
-    <lastmod>2023-05-24T01:57:45+08:00</lastmod>
+    <lastmod>2023-05-24T12:48:49+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
+    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
+    <lastmod>2023-05-24T02:24:27+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/diary/week14/</loc>
     <lastmod>2023-05-24T02:24:27+08:00</lastmod>
@@ -119,19 +141,6 @@
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/post/</loc>
     <lastmod>2023-03-04T18:12:45+08:00</lastmod>
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/post/</loc>
-    <lastmod>2023-03-04T18:12:45+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/categories/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/categories/post/"
-                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/shortcodes/</loc>
     <lastmod>2023-03-04T18:12:45+08:00</lastmod>
