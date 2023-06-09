@@ -1,0 +1,8 @@
+#quesdiv-out {
+    position: absolute;
+}
+
+#quesdiv {
+    position: relative;
+    margin-top: -330px;
+}

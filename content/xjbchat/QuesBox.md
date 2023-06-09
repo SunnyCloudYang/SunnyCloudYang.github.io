@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-24T00:05:45+08:00"
-lastmod: "2023-05-28T14:43:40+08:00"
+lastmod: "2023-05-28T20:07:52+08:00"
 description: ""
 title: "随便问，随缘答"
 summary: ""
@@ -19,15 +19,19 @@ ShowReadingTime: false
 
 <!-- ![无意义100问](/images/100questions.jpg) -->
 
-<div id="quesdiv">
-    <iframe id="quesbox"
-        src="https://closed.social/askMe/candonothing/emzzthalacpwnuow/"
-        frameborder="0"
-        width="100%"
-        scrolling="auto"
-        object-fit="cover"
-        sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
-    </iframe>
+<div id="quesdiv-out">
+    <div id="quesdiv">
+        <iframe id="quesbox"
+            src="https://closed.social/askMe/candonothing/emzzthalacpwnuow/"
+            frameborder="0"
+            width="100%"
+            height="800px"
+            scrolling="no"
+            object-fit="cover"
+            object-position="top left"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+        </iframe>
+    </div>
 </div>
 
 <script>
