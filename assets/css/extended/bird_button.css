@@ -4,6 +4,7 @@
 
 .button--bird {
     --main_color: #ffd84d88;
+    --bird_color: #ffe224;
     --sub_color1: #f7d538ed;
     --sub_color2: #ff8108;
     --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
@@ -12,7 +13,8 @@
 }
 
 .dark .button--bird {
-    --main_color: #3e3e3ced;
+    --main_color: #484847ed;
+    --bird_color: #393a39;
     --sub_color1: #4b5846e8;
     --sub_color2: #875d35;
     --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
@@ -127,7 +129,7 @@
     height: 28px;
     box-sizing: border-box;
     border: solid 3px var(--primary);
-    background: var(--main_color);
+    background: var(--bird_color);
     border-radius: var(--border_radius1);
     animation: sleep 1s ease infinite alternate;
     display: flex;
