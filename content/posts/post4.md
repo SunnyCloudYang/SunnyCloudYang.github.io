@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-02T17:04:18+08:00"
-lastmod: "2023-03-04T18:12:45+08:00"
+lastmod: "2023-07-04T15:37:14+08:00"
 description: "一些Hugo shortcodes模板和效果测试"
 title: "Hugo Shortcodes"
 summary: "为什么大家都不愿意把shortcode的style sheet写出来呢（恼"
@@ -303,6 +303,32 @@ ShowReadingTime: false
     {{< collapse summary="默认样式标题" >}}
 默认样式内容
     {{</ collapse >}}
+
+## 五. 网易云音乐
+
+插入网易云音乐的iframe，效果如👇：
+
+{{< netease "1903991886" "0" >}}
+
+**使用方法：**
+
+1. 在layouts/shortcodes下新建netease.html文件，内容如下：
+
+    ```go
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id={{ .Get 0 }}&auto={{ .Get 1 }}&height=66"></iframe>
+    ```
+
+2. 在markdown文件中如下使用：
+
+    ```go
+    {{</* netease "1903991886" "0" */>}}
+    ```
+
+    其中第一个参数是歌曲id，第二个参数是是否自动播放，0为否，1为是。由于浏览器的安全策略，自动播放可能会失效。当然也可以直接将音乐软件中生成的iframe代码复制到markdown文件中，效果是一样的。
+
+    另外也可以用[MetingJS](https://github.com/metowolf/MetingJS)，支持网易云和QQ音乐，使用方法可以参照官方给出的示例，很简单。
+
+后期考虑做成侧边栏或者底部的播放器，这样可以更方便地控制音乐的播放。
 
 ## TODO
 
