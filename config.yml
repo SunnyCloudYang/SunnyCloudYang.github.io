@@ -31,6 +31,7 @@ languages:
           # archive: archives
           category: categories
           tag: tags
+          friends: friends
           # series: series
         profileMode:
             enabled: true
@@ -66,6 +67,10 @@ languages:
                 - name: 搜索
                   url: search/
                   weight: 15
+                - identifier: friends
+                  name: 友链
+                  url: friends/
+                  weight: 20
         socialIcons:
             - name: github
               url: "https://github.com/SunnyCloudYang"

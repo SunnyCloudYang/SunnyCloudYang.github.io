@@ -28,6 +28,11 @@
     margin-bottom: 0;
 }
 
+/* .entry-cover img {
+    max-height: 128px;
+    width: auto;
+} */
+
 .post-info {
     display: flex;
     margin-left: 8px;
