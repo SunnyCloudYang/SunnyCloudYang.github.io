@@ -36,55 +36,58 @@
 </div>
 {{- end }}
 
-{{- $pages := union .RegularPages .Sections }}
-
-{{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
-{{- end }}
-
-{{- $paginator := .Paginate $pages }}
-
-{{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-{{- partial "home_info.html" . }}
-{{- end }}
-
-{{- $term := .Data.Term }}
-{{- range $index, $page := $paginator.Pages }}
-
-{{- $class := "post-entry" }}
-
-{{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
-{{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
-{{- $class = "first-entry" }}
-{{- else if $term }}
-{{- $class = "post-entry tag-entry" }}
-{{- end }}
-
-{{/*  <article class="{{ $class }}">
-    <div class="post-info"> <!--custom-->
-        <header class="entry-header">
-            <h2>
-                {{- .Title }}
-            </h2>
-        </header>
-        {{- if (ne (.Param "hideSummary") true) }}
-        <section class="entry-content">
-            <p>{{ .Summary | markdownify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-        </section>
-        {{- end }}
-    </div> <!--custom-->
-    {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-    {{- partial "cover1.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-    <a class="entry-link" aria-label="friend ship to {{ .Title | plainify }}" href="{{ .Page.Params.Permalink }}" target="_blank"></a>
-</article>  */}}
-
-{{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
 <div class="friends">
+    {{- $pages := union .RegularPages .Sections }}
+
+    {{- if .IsHome }}
+    {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+    {{- end }}
+
+    {{- $paginator := .Paginate $pages }}
+
+    {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
+    {{- partial "home_info.html" . }}
+    {{- end }}
+
+    {{- $term := .Data.Term }}
+    {{- range $index, $page := $paginator.Pages }}
+
+    {{- $class := "post-entry" }}
+
+    {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
+    {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred)) }}
+    {{- $class = "first-entry" }}
+    {{- else if $term }}
+    {{- $class = "post-entry tag-entry" }}
+    {{- end }}
+
+    {{/* <article class="{{ $class }}">
+        <div class="post-info"> <!--custom-->
+            <header class="entry-header">
+                <h2>
+                    {{- .Title }}
+                </h2>
+            </header>
+            {{- if (ne (.Param "hideSummary") true) }}
+            <section class="entry-content">
+                <p>{{ .Summary | markdownify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+            </section>
+            {{- end }}
+        </div> <!--custom-->
+        {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
+        {{- partial "cover1.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+        <a class="entry-link" aria-label="friend ship to {{ .Title | plainify }}" href="{{ .Page.Params.Permalink }}"
+            target="_blank"></a>
+    </article> */}}
+
+    {{- $alt := (.Params.cover.alt | default .Params.cover.caption | plainify) }}
     <div class="friend-skeleton">
         <a href="{{ .Page.Params.Permalink }}" target="_blank">
             <div class="friend">
-                <img class="friend-avatar" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}"/>
+                <div class="friend-avatar-wrapper">
+                    <img class="friend-avatar" src="{{ (.Params.cover.image) | absURL }}" alt="{{ $alt }}" />
+                </div>
                 <div class="friend-content">
                     <div class="friend-name">{{ .Title }}</div>
                     <div class="friend-description">{{ .Summary }}</div>
@@ -92,10 +95,10 @@
             </div>
         </a>
     </div>
+
+    {{- end }}
+
 </div>
-
-{{- end }}
-
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
     <nav class="pagination">

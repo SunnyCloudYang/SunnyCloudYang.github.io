@@ -20,7 +20,6 @@
     grid-gap: 16px;
 }
 
-/* 空间占位 */
 .friend-skeleton {
     height: 280px;
     display: inline-block;
@@ -34,9 +33,8 @@
     top: 0;
     left: 0;
     border-radius: var(--radius);
-    transition: box-shadow .4s ease, transform .4s ease;
+    transition: box-shadow .25s ease, transform .25s ease;
     box-shadow: 0 2px 4px rgb(5 10 15 / 5%), 0 7px 13px -3px rgb(5 10 15 / 30%);
-    /* transition: 0.25s; */
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -55,9 +53,21 @@
     transform: scale(0.98);
 }
 
-.friend-avatar {
+.friend-avatar-wrapper {
     width: 100%;
     height: 180px;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: var(--code-bg);
+    display: flex;
+    justify-content: center;
+}
+
+.friend-avatar {
+    /* width: 100%; */
+    height: 100%;
+    object-fit: contain;
+    fill-opacity: var(--code-bg);
     background: var(--code-bg);
     margin: 0 !important;
     border-radius: 0 !important;
