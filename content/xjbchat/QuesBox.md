@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-24T00:05:45+08:00"
-lastmod: "2023-05-28T20:07:52+08:00"
+lastmod: "2023-07-10T14:07:12+08:00"
 description: ""
 title: "随便问，随缘答"
 summary: ""
@@ -17,9 +17,9 @@ ShowReadingTime: false
 
 自由选择，随心发问。类GPT，主打一个瞎jb聊。
 
-<!-- ![无意义100问](/images/100questions.jpg) -->
+![无意义100问](/images/100questions.jpg)
 
-<div id="quesdiv-out">
+<!-- <div id="quesdiv-out">
     <div id="quesdiv">
         <iframe id="quesbox"
             src="https://closed.social/askMe/candonothing/emzzthalacpwnuow/"
@@ -50,4 +50,4 @@ ShowReadingTime: false
             height: quesbox.clientHeight
         }, "https://closed.social");
     };
-</script>
+</script> -->
