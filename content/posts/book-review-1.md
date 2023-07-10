@@ -1,12 +1,12 @@
 ---
 author: Yang
 date: "2023-06-09T20:43:44+08:00"
-lastmod: "2023-06-12T02:11:44+08:00"
+lastmod: "2023-07-10T14:02:10+08:00"
 description: "理想与物质的倒挂，选择与未来的矛盾，让每个醒来的人在这里挣扎"
 title: "精英路径与个人满足"
 summary: "读《金榜题名之后》的思考与感悟"
-tags: ["diary"]
-categories: "diary"
+tags: ["post", "book review", "thoughts"]
+categories: "post"
 # cover: 
 #    image: "images/.jpg"
 draft: true
