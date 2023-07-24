@@ -1,6 +1,7 @@
 {{- $scratch := newScratch }}
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css">
 
 {{- if not .Date.IsZero -}}
 {{- $scratch.Add "meta" (slice (printf "<div class=\"meta-tag\"><span class=\"fa fa-calendar-plus-o\"></span>&nbsp;<span title='%s'>%s</span></div>" (.Date) (.Date.Format (default "2006-01-02" .Site.Params.DateFormat)))) }}

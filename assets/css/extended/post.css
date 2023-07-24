@@ -178,3 +178,11 @@ div.highlight .lntable:hover .copy-code:hover {
     padding-right: 18px;
     padding-left: 18px;
 }
+
+.fas.fa-thumbtack {
+    color: var(--secondary);
+    transform: rotate(45deg);
+    float: right;
+    margin: 0px 6px 0 4px;
+    font-size: small;
+}
