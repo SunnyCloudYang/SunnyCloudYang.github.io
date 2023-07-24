@@ -1,14 +1,15 @@
 ---
 author: Yang
 date: "2023-01-30T19:43:13+08:00"
-lastmod: "2023-02-01T13:45:35+08:00"
+lastmod: "2023-07-24T22:54:25+08:00"
 description: "一些说法"
-title: "关于ᵀᴼᴾ"
+title: "关于"
 summary: "哈玩意儿？记账本？记的啥啊？"
 tags: ["about"]
 categories: "diary"
 weight: 1
 draft: false
+# istop: true
 comments: true
 hideMeta: true
 searchHidden: true

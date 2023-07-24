@@ -1,9 +1,9 @@
 ---
 author: "Yang"
-title: "一些说明ᵀᴼᴾ"
+title: "一些说明"
 draft: false
 date: "2023-01-16T19:30:00+08:00"
-lastmod: "2023-01-18T17:00:00+08:00"
+lastmod: "2023-07-24T22:58:55+08:00"
 summary: "哟，来了，里面请"
 tags: ["about"]
 categories: "post"
