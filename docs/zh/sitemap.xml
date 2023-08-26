@@ -27,11 +27,27 @@
     <loc>https://sunnycloudyang.github.io/friends/chiyuru/</loc>
     <lastmod>2023-07-23T21:10:55+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/friends/</loc>
-    <lastmod>2023-07-23T21:10:55+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/</loc>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/tags/"
+                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/</loc>
-    <lastmod>2023-07-24T22:58:55+08:00</lastmod>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -43,11 +59,24 @@
                 href="https://sunnycloudyang.github.io/"
                 />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
-    <lastmod>2023-07-23T21:43:44+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/categories/</loc>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/categories/"
+                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
-    <lastmod>2023-07-24T22:54:25+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/diary/whatever1/</loc>
+    <lastmod>2023-08-27T00:29:25+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/friends/</loc>
+    <lastmod>2023-07-23T21:10:55+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/record/</loc>
     <lastmod>2023-07-23T21:43:44+08:00</lastmod>
@@ -60,32 +89,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://sunnycloudyang.github.io/tags/record/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/</loc>
-    <lastmod>2023-07-24T22:58:55+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/tags/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/</loc>
-    <lastmod>2023-07-24T22:58:55+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/categories/"
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/diary/children_camp/</loc>
