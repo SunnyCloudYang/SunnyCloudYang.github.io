@@ -68,7 +68,7 @@
 {{- $stylesheet := (slice $license_css $core $extended) | resources.Concat "assets/css/stylesheet.css"  }}
 
 {{- if not site.Params.assets.disableFingerprinting }}
-{{- $stylesheet := $stylesheet | resources.Fingerprint "sha512" }}
+{{- $stylesheet := $stylesheet | resources.Fingerprint "sha256" }}
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" rel="preload stylesheet" as="style">
 {{- else }}
 <link crossorigin="anonymous" href="{{ $stylesheet.RelPermalink }}" rel="preload stylesheet" as="style">
@@ -81,7 +81,7 @@
 {{- $fusejs := resources.Get "js/fuse.basic.min.js" }}
 {{- $license_js := resources.Get "js/license.js" }}
 {{- if not site.Params.assets.disableFingerprinting }}
-{{- $search := (slice $fusejs $license_js $fastsearch ) | resources.Concat "assets/js/search.js" | resources.Fingerprint "sha512" }}
+{{- $search := (slice $fusejs $license_js $fastsearch ) | resources.Concat "assets/js/search.js" | resources.Fingerprint "sha256" }}
 <script defer crossorigin="anonymous" src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
 {{- else }}
 {{- $search := (slice $fusejs $fastsearch ) | resources.Concat "assets/js/search.js" }}
