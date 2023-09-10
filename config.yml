@@ -20,6 +20,7 @@ minify:
     disableXML: true
     # minifyOutput: true
 
+
 languages:
     zh:
         languageName: "简体中文"
@@ -216,6 +217,7 @@ params:
 
     assets:
         disableHLJS: true
+        disableFingerprinting: true
         favicon: "/favicon/favicon.ico"
         favicon16x16: "/favicon/favicon-16x16.png"
         favicon32x32: "/favicon/favicon-32x32.png"
