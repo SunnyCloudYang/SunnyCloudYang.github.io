@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-03-02T17:04:18+08:00"
-lastmod: "2023-07-04T15:37:14+08:00"
+lastmod: "2023-09-11T17:04:52+08:00"
 description: "一些Hugo shortcodes模板和效果测试"
 title: "Hugo Shortcodes"
 summary: "为什么大家都不愿意把shortcode的style sheet写出来呢（恼"
@@ -330,6 +330,72 @@ ShowReadingTime: false
 
 后期考虑做成侧边栏或者底部的播放器，这样可以更方便地控制音乐的播放。
 
+## 六. 流程图
+
+流程图，效果如👇：
+
+{{< mermaid >}}
+graph TD
+    A[起床] -.->|起得早| B(吃饭)
+    A -->|通常| C([摆烂])
+    B --> D((睡觉))
+    C --> D
+{{< /mermaid >}}
+
+**使用方法：**
+
+1. 在`layouts/shortcodes`下新建`mermaid.html`文件，内容如下：
+
+    ```go
+    {{ .Page.Store.Set "needMermaid" true }}
+    <div class="mermaid" align="center">
+        {{ safeHTML .Inner }}
+    </div>
+    ```
+
+2. 在`layout/partials/extend_head.html`中添加如下代码：
+
+    ```go
+    {{ if .Page.Store.Get "needMermaid" -}}
+    <script type="module">
+        var theme = 'neutral';
+        if (localStorage.getItem("pref-theme") == "dark") {
+            theme = 'dark'
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark'
+        }
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            'theme': theme,
+        });
+    </script>
+    ```
+
+3. 在markdown文件中如下使用：
+
+    ```md
+    {{</* mermaid */>}}
+    graph TD
+        A[起床] -.->|起得早| B(吃饭)
+        A -->|通常| C([摆烂])
+        B --> D((睡觉))
+        C --> D
+    {{</* /mermaid */>}}
+    ```
+
+    输出效果如下：
+
+    {{< mermaid >}}
+    graph TD
+        A[起床] -.->|起得早| B(吃饭)
+        A -->|通常| C([摆烂])
+        B --> D((睡觉))
+        C --> D
+    {{< /mermaid >}}
+
+这里使用的是[mermaid](http://mermaid.js.org/#/)，支持多种图表，更多使用方法可以参考[官方文档](http://mermaid.js.org/intro/n00b-gettingStarted.html)。
+
 ## TODO
 
 这里我想完成的shortcodes主要来自[消夏绿的博客](https://tin6.com/post/several-hugo-shortcoeds-samples/)，奈何没有源码，只能自己一点点扒了。
@@ -338,4 +404,4 @@ ShowReadingTime: false
 - [ ] Gallery
 - [ ] 个性化blockquote
 
-太难了，css实在是太难了，web前端实在是太难了。
+太难了，前端实在是太难了。
