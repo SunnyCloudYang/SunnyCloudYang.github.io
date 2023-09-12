@@ -1,0 +1,6 @@
+#dinosaurdiv {
+    /* center aligned */
+    text-align: center;
+    background-color: rgba(240, 240, 240, 0.3);
+    border-radius: var(--radius);
+}
