@@ -1,5 +1,8 @@
 'use strict';
 
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
 let width,
     height;
 
@@ -9,7 +12,7 @@ let scene,
     effect,
     geometry,
     material,
-    world,
+    controls,
     night = false;
 
 let dinosaur,
@@ -24,11 +27,11 @@ function randInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const dinosaurdiv = document.getElementById('dinosaurdiv');
 function init() {
-    const dinosaurdiv = document.getElementById('dinosaurdiv');
     width = dinosaurdiv.clientWidth;
     height = dinosaurdiv.clientHeight;
-    console.log(width, height);
+    // console.log(width, height);
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -42,6 +45,20 @@ function init() {
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.15;
+    controls.enableZoom = true;
+    controls.zoomToCursor = true;
+    controls.minDistance = 3;
+    controls.maxDistance = 40;
+    controls.maxPolarAngle = deg2rad(90);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.5;
+    controls.enablePan = false;
+    // controls.enableKeys = true;
+    controls.update();
+
     // effect = new THREE.OutlineEffect(renderer);
 
     addLights();
@@ -53,16 +70,16 @@ function init() {
 
     dinosaurdiv.appendChild(renderer.domElement);
 
-    dinosaurdiv.addEventListener('mousemove', onMouseMove, false);
+    // dinosaurdiv.addEventListener('mousemove', onMouseMove, false);
 
     window.addEventListener('resize', onWindowResize, false);
 }
 
 function addLights() {
-    const light = new THREE.AmbientLight(0xffffff, 0.5);
+    const light = new THREE.AmbientLight(0xf0f0f0, 0.5);
     scene.add(light);
 
-    const directionalLight = new THREE.DirectionalLight(0xffeedd, 0.5);
+    const directionalLight = new THREE.DirectionalLight(0xffeedd, 0.6);
     directionalLight.position.set(5, 20, 8);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
@@ -160,6 +177,7 @@ function animate() {
     ground.update();
     sky.update();
 
+    controls.update();
     renderer.render(scene, camera);
 }
 
@@ -171,12 +189,12 @@ class Dinosaur {
             color: 0x79bd69,
             roughness: 1,
             // wireframe: true,
-            flatShading: true
+            // flatShading: true
         });
         this.bellyMaterial = new THREE.MeshLambertMaterial({
             color: 0xEFEFEF,
             roughness: 1,
-            flatShading: true
+            // flatShading: true
         });
         this.hornMaterial = new THREE.MeshLambertMaterial({
             color: 0xFFC0CB,
@@ -186,17 +204,17 @@ class Dinosaur {
         this.eyeMaterial = new THREE.MeshLambertMaterial({
             color: 0x8B4513,
             shininess: 1,
-            flatShading: true
+            // flatShading: true
         });
         this.mouthMaterial = new THREE.MeshLambertMaterial({
             color: 0x8B4513,
             shininess: 1,
-            flatShading: true
+            // flatShading: true
         });
         this.cheekMaterial = new THREE.MeshLambertMaterial({
             color: 0xeffc2c6,
             shininess: 1,
-            flatShading: true
+            // flatShading: true
         });
 
         this.drawBody();
@@ -208,12 +226,12 @@ class Dinosaur {
         this.drawTail();
     }
     drawBody() {
-        this.body = new THREE.Mesh(new THREE.SphereGeometry(1.1, 24, 24), this.skinMaterial);
+        this.body = new THREE.Mesh(new THREE.SphereGeometry(1.1, 16, 16), this.skinMaterial);
         this.body.castShadow = true;
         this.body.receiveShadow = true;
         this.group.add(this.body);
 
-        this.belly = new THREE.Mesh(new THREE.SphereGeometry(1, 20, 20), this.bellyMaterial);
+        this.belly = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 16), this.bellyMaterial);
         this.belly.position.set(0, -0.08, 0.16);
         this.belly.scale.set(0.96, 1.02, 1.04);
         this.belly.castShadow = true;
@@ -250,7 +268,7 @@ class Dinosaur {
             this.head.add(mouthLine);
         });
 
-        const leftCheek = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.22, 12), this.cheekMaterial);
+        const leftCheek = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.22, 16), this.cheekMaterial);
         leftCheek.position.set(-0.66, 0.18, 0.55);
         leftCheek.rotation.x = deg2rad(90);
         leftCheek.rotation.y = deg2rad(-15);
@@ -266,7 +284,7 @@ class Dinosaur {
         this.head.add(rightCheek);
     }
     drawNeck() {
-        this.neck = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.9, 1.2, 24), this.skinMaterial);
+        this.neck = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.9, 1.2, 12), this.skinMaterial);
         this.neck.position.set(0, 0.86, -0.08);
         this.neck.rotation.x = deg2rad(3);
         this.neck.castShadow = true;
@@ -274,7 +292,7 @@ class Dinosaur {
         this.group.add(this.neck);
     }
     drawHorn() {
-        this.horn = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.3), this.hornMaterial);
+        this.horn = new THREE.Mesh(new THREE.ConeGeometry(0.4, 0.3, 9), this.hornMaterial);
         this.horn.position.set(0, 2.43, 0.3);
         this.horn.scale.set(0.5, 1, 1);
         this.horn.castShadow = true;
@@ -334,7 +352,8 @@ class Dinosaur {
         this.group.add(this.rightLeg);
     }
     drawArm() {
-        this.leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.15, 0.5, 12), this.skinMaterial);
+        // this.leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.15, 0.5, 12), this.skinMaterial);
+        this.leftArm = new THREE.Mesh(new THREE.CapsuleGeometry(0.2, 0.5, 4, 12), this.skinMaterial);
         this.leftArm.position.set(0.72, 0.35, 0.65);
         this.leftArm.rotation.x = deg2rad(-110);
         this.leftArm.rotation.z = deg2rad(20);
@@ -342,20 +361,20 @@ class Dinosaur {
         this.leftArm.receiveShadow = true;
         this.group.add(this.leftArm);
 
-        this.leftHand = new THREE.Mesh(new THREE.SphereGeometry(0.156), this.skinMaterial);
-        this.leftHand.position.set(0.796, 0.4236, 0.847);
-        this.leftHand.castShadow = true;
-        this.leftHand.receiveShadow = true;
-        this.group.add(this.leftHand);
+        // this.leftHand = new THREE.Mesh(new THREE.SphereGeometry(0.156), this.skinMaterial);
+        // this.leftHand.position.set(0.796, 0.4236, 0.847);
+        // this.leftHand.castShadow = true;
+        // this.leftHand.receiveShadow = true;
+        // this.group.add(this.leftHand);
 
         this.rightArm = this.leftArm.clone();
         this.rightArm.position.x = -this.leftArm.position.x;
         this.rightArm.rotation.z = -this.leftArm.rotation.z;
         this.group.add(this.rightArm);
 
-        this.rightHand = this.leftHand.clone();
-        this.rightHand.position.x = -this.leftHand.position.x;
-        this.group.add(this.rightHand);
+        // this.rightHand = this.leftHand.clone();
+        // this.rightHand.position.x = -this.leftHand.position.x;
+        // this.group.add(this.rightHand);
     }
     drawTail() {
         this.tail = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.86, 1.25, 20), this.skinMaterial);
@@ -515,8 +534,9 @@ class Ground {
         this.group = new THREE.Group();
         this.groundMaterial = new THREE.MeshLambertMaterial({
             color: 0xddc178,
+            // side: THREE.DoubleSide,
             shininess: 0,
-            flatShading: true
+            // flatShading: true
         });
 
         this.drawGround();
