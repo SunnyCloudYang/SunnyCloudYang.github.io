@@ -1,9 +1,7 @@
 'use strict';
 
 let width,
-    height,
-    marginWidth = 80,
-    marginHeight = 400;
+    height;
 
 let scene,
     camera,
@@ -16,17 +14,26 @@ let scene,
 
 let dinosaur,
     cloud,
+    clouds = [],
     sky,
+    ground,
+    trees = [],
     tree;
 
+function randInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function init() {
-    width = window.innerWidth - marginWidth;
-    height = window.innerHeight - marginHeight;
+    const dinosaurdiv = document.getElementById('dinosaurdiv');
+    width = dinosaurdiv.clientWidth;
+    height = dinosaurdiv.clientHeight;
+    console.log(width, height);
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.y = 1;
-    camera.position.z = -5;
+    camera.position.z = 5;
     camera.lookAt(scene.position);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -40,13 +47,13 @@ function init() {
     addLights();
     addSky();
     addDinosaur();
-    // addCloud();
-    addTree();
+    addClouds(randInt(5, 7));
+    addTrees(randInt(6, 10));
+    addGround();
 
-    let dinosaurcanvas = document.getElementById('dinosaurdiv');
-    dinosaurcanvas.appendChild(renderer.domElement);
+    dinosaurdiv.appendChild(renderer.domElement);
 
-    dinosaurcanvas.addEventListener('mousemove', onMouseMove, false);
+    dinosaurdiv.addEventListener('mousemove', onMouseMove, false);
 
     window.addEventListener('resize', onWindowResize, false);
 }
@@ -55,8 +62,8 @@ function addLights() {
     const light = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(light);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(3, 10, 3);
+    const directionalLight = new THREE.DirectionalLight(0xffeedd, 0.5);
+    directionalLight.position.set(5, 20, 8);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 }
@@ -66,14 +73,28 @@ function addDinosaur() {
     scene.add(dinosaur.group);
 }
 
+function addClouds(number) {
+    for (let i = 0; i < number; i++) {
+        clouds.push(addCloud());
+    }
+}
+
 function addCloud() {
     cloud = new Cloud();
     scene.add(cloud.group);
+    return cloud;
+}
+
+function addTrees(number) {
+    for (let i = 0; i < number; i++) {
+        trees.push(addTree());
+    }
 }
 
 function addTree() {
     tree = new Tree();
     scene.add(tree.group);
+    return tree;
 }
 
 function addSky() {
@@ -82,26 +103,39 @@ function addSky() {
     scene.add(sky.group);
 }
 
+function addGround() {
+    ground = new Ground();
+    scene.add(ground.group);
+}
+
 function onMouseMove(event) {
     event.preventDefault();
 
     const x = event.clientX;
     const y = event.clientY;
-    // rotate the scene if mouse is pressed
+    // rotate the scene if left mouse is pressed
     if (event.buttons === 1) {
-        scene.rotation.y = (x - width / 2) / width * 6;
-        scene.rotation.x = (y - height / 2) / height * 6;
+        scene.rotation.y = (x - width / 2) / width * 4;
+        scene.rotation.x = (y - height / 2) / height * 1;
+        let minRotationX = deg2rad(-10);
+        let maxRotationX = deg2rad(95);
+        if (scene.rotation.x < minRotationX) {
+            scene.rotation.x = minRotationX;
+        }
+        if (scene.rotation.x > maxRotationX) {
+            scene.rotation.x = maxRotationX;
+        }
     }
-    // translate the scene if mouse is pressed
+    // translate the scene if right mouse is pressed
     if (event.buttons === 2) {
-        scene.position.x = (x - width / 2) / width * 6;
-        scene.position.y = -(y - height / 2) / height * 6;
+        scene.position.x = (x - width / 2) / width * 4;
+        scene.position.y = -(y - height / 2) / height * 4;
     }
 }
 
 function onWindowResize() {
-    width = window.innerWidth - marginWidth;
-    height = window.innerHeight - marginHeight;
+    width = dinosaurdiv.clientWidth;
+    height = dinosaurdiv.clientHeight;
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -117,8 +151,13 @@ function animate() {
     requestAnimationFrame(animate);
 
     dinosaur.update();
-    // cloud.update();
-    tree.update();
+    clouds.forEach((cloud) => {
+        cloud.update();
+    });
+    trees.forEach((tree) => {
+        tree.update();
+    });
+    ground.update();
     sky.update();
 
     renderer.render(scene, camera);
@@ -203,8 +242,8 @@ class Dinosaur {
         for (let i = 0; i < 10; i++) {
             const mouthLine = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.08, 1.84), this.mouthMaterial);
             mouthLine.position.set(0, 0, 0.1);
-            mouthLine.rotation.y = deg2rad(-4.5*8 + i * 8);
-            mouthLine.rotation.z = deg2rad(-45)+(i%2)*deg2rad(90);
+            mouthLine.rotation.y = deg2rad(-4.5 * 8 + i * 8);
+            mouthLine.rotation.z = deg2rad(-45) + (i % 2) * deg2rad(90);
             mouth.push(mouthLine);
         }
         mouth.forEach((mouthLine) => {
@@ -244,7 +283,7 @@ class Dinosaur {
 
         this.horn2 = this.horn.clone();
         this.horn2.position.y = this.horn.position.y - 0.14;
-        this.horn2.position.z = this.horn.position.z-0.6;
+        this.horn2.position.z = this.horn.position.z - 0.6;
         this.horn2.rotation.x = deg2rad(-32);
         this.group.add(this.horn2);
 
@@ -334,7 +373,7 @@ class Dinosaur {
         this.group.add(this.tail2);
     }
     update() {
-        this.group.rotation.y += 0.01;
+        // this.group.rotation.y += 0.01;
     }
 }
 
@@ -365,18 +404,37 @@ class Cloud {
         this.cloud3.scale.set(0.75, 0.5, 1);
         this.cloud3.position.set(-5.5, -2, -1);
         this.group.add(this.cloud3);
+
+        this.group.position.x += randInt(-50, 50);
+        this.group.position.y += 2 * Math.random() + 5;
+        this.group.position.z += randInt(-50, 50);
+        this.group.scale.set(0.15 + Math.random() * 0.1, 0.15 + Math.random() * 0.05, 0.15 + Math.random() * 0.1);
     }
     update() {
-        this.group.rotation.y += 0.001;
+        this.group.position.x += 0.01;
+        if (this.group.position.x > 50 || this.group.position.x < -50) {
+            this.group.position.x = -this.group.position.x;
+            this.group.position.y = 2 * Math.random() + 5;
+            this.group.position.z = randInt(-50, 50);
+        }
+        this.group.position.z += 0.005;
+        if (this.group.position.z > 50 || this.group.position.z < -50) {
+            this.group.position.z = -this.group.position.z;
+            this.group.position.y = 2 * Math.random() + 5;
+            this.group.position.x = randInt(-50, 50);
+        }
     }
 }
 
 class Sky {
     constructor() {
+        this.dayColor = 0x8acef2;
+        this.nightColor = 0x32506e;
         this.group = new THREE.Group();
 
-        this.skyMaterial = new THREE.MeshPhongMaterial({
-            color: 0x00ffff,
+        this.skyMaterial = new THREE.MeshBasicMaterial({
+            color: this.dayColor,
+            side: THREE.BackSide,
             shininess: 0,
             flatShading: true
         });
@@ -384,20 +442,21 @@ class Sky {
         this.drawSky();
     }
     drawSky() {
-        this.sky = new THREE.Mesh(new THREE.SphereGeometry(100, 32, 32), this.skyMaterial);
-        this.sky.castShadow = false;
-        this.sky.receiveShadow = false;
+        this.sky = new THREE.Mesh(new THREE.SphereGeometry(50, 20, 20), this.skyMaterial);
+        this.sky.castShadow = true;
+        this.sky.receiveShadow = true;
         this.group.add(this.sky);
     }
     showNight(night) {
         if (night) {
-            this.skyMaterial.color.setHex(0x000000);
+            this.skyMaterial.color.setHex(this.nightColor);
         } else {
-            this.skyMaterial.color.setHex(0x00ffff);
+            this.skyMaterial.color.setHex(this.dayColor);
         }
     }
     update() {
-        this.group.rotation.y += 0.001;
+        // this.group.rotation.y += 0.001;
+        this.showNight(night);
     }
 }
 
@@ -420,30 +479,58 @@ class Tree {
     }
     drawTree() {
         this.tree = new THREE.Mesh(new THREE.ConeGeometry(0.75, 0.6), this.treeMaterial);
-        this.tree.position.set(1.85, 0.25, 0.8);
+        this.tree.position.set(0, 0.25, 0);
         this.tree.castShadow = true;
         this.tree.receiveShadow = true;
         this.group.add(this.tree);
 
         this.tree2 = this.tree.clone();
         this.tree2.scale.set(0.7, 1.1, 0.8);
-        this.tree2.position.set(1.85, 0.75, 0.8);
+        this.tree2.position.set(0, 0.75, 0);
         this.tree2.rotation.y = deg2rad(35);
         this.group.add(this.tree2);
 
         this.tree3 = this.tree.clone();
         this.tree3.scale.set(0.5, 1.2, 0.6);
-        this.tree3.position.set(1.85, 1.25, 0.8);
+        this.tree3.position.set(0, 1.25, 0);
         this.group.add(this.tree3);
 
         this.trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.08, 1.6, 12), this.trunkMaterial);
-        this.trunk.position.set(1.85, -0.4, 0.8);
+        this.trunk.position.set(0, -0.4, 0);
         this.trunk.castShadow = true;
         this.trunk.receiveShadow = true;
         this.group.add(this.trunk);
+
+        this.group.scale.set(0.9 + Math.random() * 0.2, 0.8 + Math.random() * 0.4, 0.9 + Math.random() * 0.2);
+        this.group.position.x = (randInt(0, 1) * 2 - 1) * randInt(2, 15);
+        this.group.position.z = (randInt(0, 1) * 2 - 1) * randInt(2, 15);
     }
     update() {
-        this.group.rotation.y += 0.01;
+        // this.group.rotation.y += 0.01;
+    }
+}
+
+class Ground {
+    constructor() {
+        this.group = new THREE.Group();
+        this.groundMaterial = new THREE.MeshLambertMaterial({
+            color: 0xddc178,
+            shininess: 0,
+            flatShading: true
+        });
+
+        this.drawGround();
+    }
+    drawGround() {
+        this.ground = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), this.groundMaterial);
+        this.ground.position.set(0, -1.2, 0);
+        this.ground.rotation.x = deg2rad(-90);
+        this.ground.castShadow = true;
+        this.ground.receiveShadow = true;
+        this.group.add(this.ground);
+    }
+    update() {
+        // this.group.rotation.y += 0.01;
     }
 }
 
