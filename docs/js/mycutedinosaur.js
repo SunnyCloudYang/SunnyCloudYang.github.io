@@ -35,8 +35,9 @@ function init() {
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera.position.x = -5;
     camera.position.y = 1;
-    camera.position.z = 5;
+    camera.position.z = 8;
     camera.lookAt(scene.position);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -194,6 +195,7 @@ class Dinosaur {
         this.bellyMaterial = new THREE.MeshLambertMaterial({
             color: 0xEFEFEF,
             roughness: 1,
+            // wireframe: true,
             // flatShading: true
         });
         this.hornMaterial = new THREE.MeshLambertMaterial({
@@ -216,6 +218,8 @@ class Dinosaur {
             shininess: 1,
             // flatShading: true
         });
+
+        this.stepLength = 0.03;
 
         this.drawBody();
         this.drawHead();
@@ -339,17 +343,33 @@ class Dinosaur {
     }
     drawLeg() {
         this.leftLeg = new THREE.Mesh(new THREE.CylinderGeometry(0.56, 0.3, 1.0, 16), this.skinMaterial);
-        this.leftLeg.position.set(-0.5, -0.7, 0.5);
-        this.leftLeg.rotation.x = deg2rad(-15);
-        this.leftLeg.rotation.z = deg2rad(-10);
+        // this.leftLeg.position.set(-0.5, -0.7, 0.5);
         this.leftLeg.castShadow = true;
         this.leftLeg.receiveShadow = true;
-        this.group.add(this.leftLeg);
+        
+        let x = 0, y = 0.5, z = 0;
+        let offsetX = -0.2, offsetY = -0.4, offsetZ = 0.1;
+        this.leftLegWrapper = new THREE.Object3D();
+        this.leftLegWrapper.position.set(x+offsetX, y+offsetY, z+offsetZ);
+        this.leftLeg.position.set(-x+offsetX, -y+offsetY, -z+offsetZ);
+        this.leftLegWrapper.rotation.x = deg2rad(-15);
+        this.leftLegWrapper.rotation.z = deg2rad(-10);
+        this.leftLegWrapper.add(this.leftLeg);
+
+        this.group.add(this.leftLegWrapper);
 
         this.rightLeg = this.leftLeg.clone();
         this.rightLeg.position.x = -this.leftLeg.position.x;
         this.rightLeg.rotation.z = -this.leftLeg.rotation.z;
-        this.group.add(this.rightLeg);
+
+        this.rightLegWrapper = new THREE.Object3D();
+        this.rightLegWrapper.position.set(-x-offsetX, y+offsetY, z+offsetZ);
+        this.rightLeg.position.set(x-offsetX, -y+offsetY, -z+offsetZ);
+        this.rightLegWrapper.rotation.x = deg2rad(-15);
+        this.rightLegWrapper.rotation.z = deg2rad(10);
+        this.rightLegWrapper.add(this.rightLeg);
+
+        this.group.add(this.rightLegWrapper);
     }
     drawArm() {
         // this.leftArm = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.15, 0.5, 12), this.skinMaterial);
@@ -391,8 +411,31 @@ class Dinosaur {
         this.tail2.receiveShadow = true;
         this.group.add(this.tail2);
     }
+    moveForward() {
+        this.group.position.z += this.stepLength;
+        this.walkAnimation();
+    }
+    walkAnimation() {
+        this.leftLegWrapper.rotation.x = deg2rad(-12 + Math.sin(Date.now() * 0.005) * 15);
+        this.rightLegWrapper.rotation.x = deg2rad(-12 + Math.sin(Date.now() * 0.005 + Math.PI) * 15);
+        this.leftArm.rotation.x = deg2rad(-110 + Math.sin(Date.now() * 0.005) * 8);
+        this.rightArm.rotation.x = deg2rad(-110 + Math.sin(Date.now() * 0.005 + Math.PI) * 8);
+        this.tail.rotation.z = deg2rad(Math.sin(Date.now() * 0.005) * 2);
+        this.tail2.rotation.z = deg2rad(Math.sin(Date.now() * 0.005) * 2);
+        this.head.rotation.y = deg2rad(Math.sin(Date.now() * 0.005) * 2);
+    }
+    wander() {
+        this.moveForward();
+        if (this.group.position.z > 8 || this.group.position.z < -8) {
+            this.uturn();
+        }
+    }
+    uturn() {
+        this.group.rotation.y += deg2rad(180);
+        this.stepLength = -this.stepLength;
+    }
     update() {
-        // this.group.rotation.y += 0.01;
+        this.wander();
     }
 }
 
