@@ -178,6 +178,7 @@ function animate() {
     ground.update();
     sky.update();
 
+    controls.target.copy(dinosaur.group.position);
     controls.update();
     renderer.render(scene, camera);
 }
@@ -412,6 +413,7 @@ class Dinosaur {
         this.group.add(this.tail2);
     }
     moveForward() {
+        // this.group.translateZ(this.stepLength);
         this.group.position.z += this.stepLength;
         this.walkAnimation();
     }
