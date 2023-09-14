@@ -1,10 +1,12 @@
 #dinosaurdiv {
-    text-align: center;
+    position: relative;
     height: 400px;
-    background-color: rgba(210, 210, 210, 0.3);
     border-radius: var(--radius);
 }
 
 canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     border-radius: var(--radius);
 }
