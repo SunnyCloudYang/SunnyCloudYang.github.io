@@ -51,8 +51,10 @@ export class Tree {
         this.group.scale.set(...this.scale);
 
         this.volumeBox = new THREE.BoxHelper(this.group, 0x00ff00);
-        this.group.add(this.volumeBox);
-        this.volumeBox.visible = true;
+        this.volumeBox.visible = false;
+        if (this.volumeBox.visible) {
+            this.group.add(this.volumeBox);
+        }
 
         // this.upperBound = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.55, 1.4, 12));
         // this.upperBound.position.set(0, 0.6, 0);

@@ -6,7 +6,9 @@ export class Ground {
     constructor() {
         this.group = new THREE.Group();
         this.entity = new CANNON.Body({
-            type: CANNON.Body.STATIC
+            type: CANNON.Body.STATIC,
+            mass: 0,
+            restitution: 0.8
         });
         this.groundMaterial = new THREE.MeshLambertMaterial({
             color: 0xddc178,

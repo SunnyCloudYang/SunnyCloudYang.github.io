@@ -9,6 +9,8 @@ import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
 import * as CANNON from 'cannon-es';
 
+import { Ball } from './ball.js';
+
 import { Dinosaur } from './dinosaur.js';
 import { Cloud } from './cloud.js';
 import { Sky } from './sky.js';
@@ -47,6 +49,8 @@ let dinosaur,
     trees = [],
     tree;
 
+let ball;
+
 let showHelper = false;
 const dinosaurdiv = document.getElementById('dinosaurdiv');
 
@@ -61,6 +65,8 @@ function init() {
     addClouds(randInt(5, 7));
     addTrees(randInt(6, 10));
     addGround();
+
+    // addBall();
 }
 
 function threeInit() {
@@ -187,6 +193,12 @@ function addGround() {
     world.addBody(ground.entity);
 }
 
+function addBall() {
+    ball = new Ball();
+    scene.add(ball.group);
+    world.addBody(ball.entity);
+}
+
 function isNight() {
     night = (localStorage.getItem('pref-theme') === 'dark');
     return night;
@@ -247,6 +259,7 @@ function animate() {
     requestAnimationFrame(animate);
 
     world.fixedStep();
+    dinosaur.circle();
     dinosaur.update();
     clouds.forEach((cloud) => {
         cloud.update();
@@ -256,6 +269,8 @@ function animate() {
     });
     ground.update();
     sky.update();
+
+    // ball.update();
 
     controls.target.copy(dinosaur.group.position);
     controls.update();

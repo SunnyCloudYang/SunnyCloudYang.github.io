@@ -5,7 +5,17 @@ import { deg2rad } from './utils.js';
 export class Dinosaur {
     constructor() {
         this.group = new THREE.Group();
-        this.entity = new CANNON.Body();
+        this.entity = new CANNON.Body(
+            {
+                type: CANNON.Body.DYNAMIC,
+                mass: 20,
+                material: new CANNON.Material(
+                    {
+                        friction: 0.3,
+                        restitution: 0.1
+                    }),
+                position: new CANNON.Vec3(0, 0, 0),
+            });
 
         this.stepLength = 0.02;
         this.walkSpeed = 0.02;
@@ -15,9 +25,9 @@ export class Dinosaur {
         this.orientation = new THREE.Vector3(0, 0, 1);
         this.orientationArrow = new THREE.ArrowHelper(this.orientation, this.group.position, 10, 0xff0000);
 
-        this.showVolumeBox = true;
-        this.showHeadBox = true;
-        this.showBodyBox = true;
+        this.showVolumeBox = false;
+        this.showHeadBox = false;
+        this.showBodyBox = false;
         this.showOrientationArrow = false;
 
         this.skinMaterial = new THREE.MeshLambertMaterial({
@@ -249,14 +259,20 @@ export class Dinosaur {
         this.group.add(this.tail2);
     }
     setEntityBox(visible) {
-        let boxParams = [1.2, 1.3, 1.8, 12]
-        this.volumeBox = new THREE.Mesh(new THREE.CylinderGeometry(...boxParams), this.bellyMaterial);
+        let boxParams = [1.0, 1.25, 3.2, 9];
+        this.boxOffset = [0, -0.36, -0.1];
+        this.group.position.set(...this.boxOffset);
+
+        this.volumeBox = new THREE.Mesh(new THREE.CylinderGeometry(...boxParams), new THREE.MeshBasicMaterial({ color: 0x0ff000, wireframe: true }));
+        this.volumeBox.position.set(0, 0.36, 0.1);
+        this.volumeBox.rotation.y = deg2rad(180);
         if (visible) {
             this.group.add(this.volumeBox);
         }
-        this.entity.volumeBox = new CANNON.Cylinder(...boxParams);
-        this.entity.volumeBox.position = new CANNON.Vec3(0, 0, 0);
-        this.entity.addShape(this.entity.volumeBox);
+        
+        this.entityBox = new CANNON.Cylinder(...boxParams);
+        this.entity.addShape(this.entityBox);
+        this.entity.quaternion.setFromEuler(0, deg2rad(180), 0);
     }
     updateOrientation() {
         const oneVector = new THREE.Vector3(0, 0, 1);
@@ -273,16 +289,19 @@ export class Dinosaur {
     }
     setPositon(x, y, z) {
         this.entity.position.set(x, y, z);
-        this.group.position.copy(this.entity.position);
+        this.group.position.copy(this.entity.position.sub(new THREE.Vector3(...this.boxOffset)));
     }
     setRotation(x, y, z) { // can't use this method to rotate the dinosaur
         this.entity.quaternion.setFromEuler(x, y, z);
         this.group.quaternion.copy(this.entity.quaternion);
         this.updateOrientation();
     }
-    moveForward() {
-        this.group.position.addScaledVector(this.orientation, this.walkSpeed);
-        this.entity.position.copy(this.group.position);
+    walkForward() {
+        this.entity.position.x += this.orientation.x * this.stepLength;
+        this.entity.position.y += this.orientation.y * this.stepLength;
+        this.entity.position.z += this.orientation.z * this.stepLength;
+        this.group.position.copy(this.entity.position);
+        // console.log(this.entity.position);
         this.walkAnimation();
     }
     walkAnimation() {
@@ -296,15 +315,16 @@ export class Dinosaur {
     }
     circle() {
         this.turn(0.1);
-        this.moveForward();
+        this.walkForward();
     }
     turn(degree) {
-        this.group.rotation.y += deg2rad(degree);
+        this.group.rotateY(deg2rad(degree));
         this.updateOrientation();
     }
     update() {
-        this.circle();
-        // this.walkAnimation();
-        // this.wander();
+        this.group.position.x = this.entity.position.x + this.boxOffset[0];
+        this.group.position.y = this.entity.position.y + this.boxOffset[1];
+        this.group.position.z = this.entity.position.z + this.boxOffset[2];
+        this.group.quaternion.copy(this.entity.quaternion);
     }
 }
