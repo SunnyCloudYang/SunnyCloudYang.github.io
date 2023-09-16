@@ -17,6 +17,7 @@ import { Sky } from './sky.js';
 import { Ground } from './ground.js';
 import { Tree } from './tree.js';
 import { randInt, deg2rad } from './utils.js';
+import { PerlinNoise } from './perlinNoise.js';
 
 let width,
     height;
@@ -128,6 +129,7 @@ function threeInit() {
 function cannonInit() {
     world = new CANNON.World();
     world.gravity.set(0, -9.82, 0);
+    world.solver.iterations = 5;
 }
 
 function addLights(night) {
@@ -188,7 +190,7 @@ function addSky() {
 }
 
 function addGround() {
-    ground = new Ground();
+    ground = new PerlinNoise();
     scene.add(ground.group);
     world.addBody(ground.entity);
 }
