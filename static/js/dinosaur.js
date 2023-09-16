@@ -1,13 +1,24 @@
 import * as THREE from 'three';
+import * as CANNON from 'cannon-es';
 import { deg2rad } from './utils.js';
 
 export class Dinosaur {
     constructor() {
         this.group = new THREE.Group();
+        this.entity = new CANNON.Body();
 
         this.stepLength = 0.02;
+        this.walkSpeed = 0.02;
+        this.runSpeed = 0.05;
+        this.turnSpeed = 0.02;
+
         this.orientation = new THREE.Vector3(0, 0, 1);
         this.orientationArrow = new THREE.ArrowHelper(this.orientation, this.group.position, 10, 0xff0000);
+
+        this.showVolumeBox = true;
+        this.showHeadBox = true;
+        this.showBodyBox = true;
+        this.showOrientationArrow = false;
 
         this.skinMaterial = new THREE.MeshLambertMaterial({
             color: 0x79bd69,
@@ -49,6 +60,15 @@ export class Dinosaur {
         this.drawLeg();
         this.drawArm();
         this.drawTail();
+
+        this.setEntityBox(this.showVolumeBox);
+
+        // this.volumeBox = new THREE.BoxHelper(this.group, 0xff0000);
+        // this.group.add(this.volumeBox);
+        // this.volumeBox.visible = this.showVolumeBox;
+
+        // add shape from mesh's box helper
+        // this.entity.addShape(new CANNON.Box(CANNON.copyBox(this.volumeBox.geometry.boundingBox)));
     }
     drawBody() {
         this.body = new THREE.Mesh(new THREE.SphereGeometry(1.1, 16, 16), this.skinMaterial);
@@ -62,6 +82,10 @@ export class Dinosaur {
         this.belly.castShadow = true;
         this.belly.receiveShadow = true;
         this.group.add(this.belly);
+
+        // this.bodyBox = new THREE.BoxHelper(this.body, 0x00ff00);
+        // this.group.add(this.bodyBox);
+        // this.bodyBox.visible = this.showBodyBox;
     }
     drawHead() {
         this.head = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 12), this.skinMaterial);
@@ -178,6 +202,8 @@ export class Dinosaur {
         this.leftLegWrapper.add(this.leftLeg);
 
         this.group.add(this.leftLegWrapper);
+        // this.leftLegBox = new THREE.BoxHelper(this.leftLegWrapper, 0x00ff00);
+        // this.group.add(this.leftLegBox);
 
         this.rightLeg = this.leftLeg.clone();
         this.rightLeg.position.x = -this.leftLeg.position.x;
@@ -222,12 +248,22 @@ export class Dinosaur {
         this.tail2.receiveShadow = true;
         this.group.add(this.tail2);
     }
-
+    setEntityBox(visible) {
+        let boxParams = [1.2, 1.3, 1.8, 12]
+        this.volumeBox = new THREE.Mesh(new THREE.CylinderGeometry(...boxParams), this.bellyMaterial);
+        if (visible) {
+            this.group.add(this.volumeBox);
+        }
+        this.entity.volumeBox = new CANNON.Cylinder(...boxParams);
+        this.entity.volumeBox.position = new CANNON.Vec3(0, 0, 0);
+        this.entity.addShape(this.entity.volumeBox);
+    }
     updateOrientation() {
         const oneVector = new THREE.Vector3(0, 0, 1);
         this.orientation = oneVector.applyQuaternion(this.group.quaternion);
+        this.entity.quaternion.copy(this.group.quaternion);
         // console.log(this.initOrientation);
-        if (this.showHelper) {
+        if (this.showOrientationArrow) {
             this.orientationArrow.setDirection(this.orientation);
             this.orientationArrow.position.copy(this.group.position);
             this.group.add(this.orientationArrow);
@@ -235,8 +271,18 @@ export class Dinosaur {
         // console.log(this.group.rotation);
         // console.log(this.orientation);
     }
+    setPositon(x, y, z) {
+        this.entity.position.set(x, y, z);
+        this.group.position.copy(this.entity.position);
+    }
+    setRotation(x, y, z) { // can't use this method to rotate the dinosaur
+        this.entity.quaternion.setFromEuler(x, y, z);
+        this.group.quaternion.copy(this.entity.quaternion);
+        this.updateOrientation();
+    }
     moveForward() {
-        this.group.position.addScaledVector(this.orientation, this.stepLength);
+        this.group.position.addScaledVector(this.orientation, this.walkSpeed);
+        this.entity.position.copy(this.group.position);
         this.walkAnimation();
     }
     walkAnimation() {
@@ -249,9 +295,8 @@ export class Dinosaur {
         this.head.rotation.y = deg2rad(Math.sin(Date.now() * 0.005) * 2);
     }
     circle() {
+        this.turn(0.1);
         this.moveForward();
-        this.group.rotation.y += deg2rad(0.2);
-        this.updateOrientation();
     }
     turn(degree) {
         this.group.rotation.y += deg2rad(degree);
@@ -259,6 +304,7 @@ export class Dinosaur {
     }
     update() {
         this.circle();
+        // this.walkAnimation();
         // this.wander();
     }
 }

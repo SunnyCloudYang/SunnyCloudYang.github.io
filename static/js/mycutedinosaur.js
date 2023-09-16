@@ -7,6 +7,8 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
+import * as CANNON from 'cannon-es';
+
 import { Dinosaur } from './dinosaur.js';
 import { Cloud } from './cloud.js';
 import { Sky } from './sky.js';
@@ -28,7 +30,14 @@ let scene,
     toggle = false,
     night = false;
 
-let key
+let world;
+
+let keydownW,
+    keydownA,
+    keydownS,
+    keydownD,
+    keydownSpace,
+    keydownShift;
 
 let dinosaur,
     cloud,
@@ -42,6 +51,19 @@ let showHelper = false;
 const dinosaurdiv = document.getElementById('dinosaurdiv');
 
 function init() {
+    threeInit();
+    cannonInit();
+
+    themeToggle();
+
+    addSky();
+    addDinosaur();
+    addClouds(randInt(5, 7));
+    addTrees(randInt(6, 10));
+    addGround();
+}
+
+function threeInit() {
     width = dinosaurdiv.clientWidth;
     height = dinosaurdiv.clientHeight;
     // console.log(width, height);
@@ -67,10 +89,10 @@ function init() {
     controls.minDistance = 3;
     controls.maxDistance = 30;
     controls.minPolarAngle = deg2rad(10);
-    controls.maxPolarAngle = deg2rad(90);
+    controls.maxPolarAngle = deg2rad(100);
     controls.autoRotate = false;
     controls.autoRotateSpeed = 0.5;
-    controls.enablePan = false;
+    controls.enablePan = true;
     // controls.enableKeys = true;
     controls.update();
 
@@ -80,13 +102,6 @@ function init() {
     stats.domElement.style.top = '0px';
     stats.domElement.style.left = '0px';
 
-    themeToggle();
-
-    addSky();
-    addDinosaur();
-    addClouds(randInt(5, 7));
-    addTrees(randInt(6, 10));
-    addGround();
 
     const canvas = dinosaurdiv.appendChild(renderer.domElement);
     window.addEventListener('resize', onWindowResize, false);
@@ -98,10 +113,15 @@ function init() {
     outlinePass.pulsePeriod = 0;
     outlinePass.visibleEdgeColor.set('#79bd69');
     outlinePass.hiddenEdgeColor.set('#190a05');
-    outlinePass.selectedObjects = [dinosaur.group];
+    // outlinePass.selectedObjects = [dinosaur.group];
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
     composer.addPass(outlinePass);
+}
+
+function cannonInit() {
+    world = new CANNON.World();
+    world.gravity.set(0, -9.82, 0);
 }
 
 function addLights(night) {
@@ -125,6 +145,7 @@ function addLights(night) {
 function addDinosaur() {
     dinosaur = new Dinosaur();
     scene.add(dinosaur.group);
+    world.addBody(dinosaur.entity);
 }
 
 function addClouds(number) {
@@ -147,7 +168,9 @@ function addTrees(number) {
 
 function addTree() {
     tree = new Tree();
+    tree.setPosition(randInt(-20, 20), 0, randInt(-20, 20));
     scene.add(tree.group);
+    world.addBody(tree.entity);
     return tree;
 }
 
@@ -161,6 +184,7 @@ function addSky() {
 function addGround() {
     ground = new Ground();
     scene.add(ground.group);
+    world.addBody(ground.entity);
 }
 
 function isNight() {
@@ -222,6 +246,7 @@ function themeToggle() {
 function animate() {
     requestAnimationFrame(animate);
 
+    world.fixedStep();
     dinosaur.update();
     clouds.forEach((cloud) => {
         cloud.update();
