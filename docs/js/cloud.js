@@ -30,7 +30,7 @@ export class Cloud {
         this.group.add(this.cloud3);
 
         this.group.position.x += randInt(-50, 50);
-        this.group.position.y += 2 * Math.random() + 5;
+        this.group.position.y += 2 * Math.random() + 7;
         this.group.position.z += randInt(-50, 50);
         this.group.scale.set(0.15 + Math.random() * 0.1, 0.15 + Math.random() * 0.05, 0.15 + Math.random() * 0.1);
     }

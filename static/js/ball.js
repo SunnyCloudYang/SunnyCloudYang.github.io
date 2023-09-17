@@ -12,6 +12,8 @@ export class Ball {
             material: new CANNON.Material()
         });
 
+        this.radius = 0.2;
+
         this.ballMaterial = new THREE.MeshLambertMaterial({
             color: 0x00aaaa,
             // shininess: 0.5,
@@ -21,12 +23,12 @@ export class Ball {
         this.drawBall();
     }
     drawBall() {
-        this.ball = new THREE.Mesh(new THREE.SphereGeometry(0.5, 12, 12), this.ballMaterial);
+        this.ball = new THREE.Mesh(new THREE.SphereGeometry(this.radius, 12, 12), this.ballMaterial);
         this.ball.castShadow = true;
         this.ball.receiveShadow = true;
         this.group.add(this.ball);
 
-        this.entity.addShape(new CANNON.Sphere(0.5));
+        this.entity.addShape(new CANNON.Sphere(this.radius));
         this.entity.position.set(0, 5, 0);
     }
     setPosition(x, y, z) {

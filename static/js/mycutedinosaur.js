@@ -79,7 +79,7 @@ function threeInit() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     camera.position.x = -5;
-    camera.position.y = 1;
+    camera.position.y = 3;
     camera.position.z = 8;
     camera.lookAt(scene.position);
 
@@ -97,7 +97,7 @@ function threeInit() {
     controls.minDistance = 3;
     controls.maxDistance = 30;
     controls.minPolarAngle = deg2rad(10);
-    controls.maxPolarAngle = deg2rad(100);
+    controls.maxPolarAngle = deg2rad(90);
     controls.autoRotate = false;
     controls.autoRotateSpeed = 0.5;
     controls.enablePan = true;

@@ -5,17 +5,18 @@ import { randInt, deg2rad } from './utils.js';
 
 export class PerlinNoise {
     constructor() {
-        this.width = 50;
-        this.height = 50;
-        this.widthSegments = 50;
-        this.heightSegments = 50;
-        this.noiseScale = 6;
-        this.noiseStrength = 1.5;
+        this.width = 100;
+        this.height = 100;
+        this.widthSegments = 100;
+        this.heightSegments = 100;
+        this.noiseScale = 10;
+        this.noiseStrength = 2;
         this.group = new THREE.Group();
         this.entity = new CANNON.Body({
             type: CANNON.Body.STATIC,
             mass: 0,
-            restitution: 0.8
+            friction: 0.8,
+            restitution: 0.4
         });
         this.groundMaterial = new THREE.MeshLambertMaterial({
             color: 0xddc178,
@@ -67,7 +68,7 @@ export class PerlinNoise {
 
         this.entity.position.copy(this.groundPosition.sub(new THREE.Vector3(this.width/2, 0, -this.height/2)));
         this.entity.quaternion.copy(this.ground.quaternion);
-        console.log(this.entity);
+        // console.log(this.entity);
     }
     update() {
         // this.group.rotation.y += 0.01;

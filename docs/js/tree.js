@@ -6,7 +6,8 @@ export class Tree {
     constructor() {
         this.group = new THREE.Group();
         this.entity = new CANNON.Body({
-            type: CANNON.Body.STATIC
+            // type: CANNON.Body.STATIC,
+            mass: 10,
         });
 
         this.treeMaterial = new THREE.MeshPhongMaterial({
