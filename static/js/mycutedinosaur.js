@@ -64,11 +64,11 @@ function init() {
 
     addSky();
     addDinosaur();
-    addClouds(randInt(5, 7));
-    addTrees(randInt(6, 10));
+    addClouds(randInt(6, 12));
+    addTrees(randInt(12, 20));
     addGround();
 
-    addBalls(10);
+    addBalls(randInt(10, 20));
 }
 
 function threeInit() {
