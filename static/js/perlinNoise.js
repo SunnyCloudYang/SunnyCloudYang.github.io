@@ -9,8 +9,8 @@ export class PerlinNoise {
         this.height = 50;
         this.widthSegments = 50;
         this.heightSegments = 50;
-        this.noiseScale = 10;
-        this.noiseStrength = 3;
+        this.noiseScale = 6;
+        this.noiseStrength = 1.5;
         this.group = new THREE.Group();
         this.entity = new CANNON.Body({
             type: CANNON.Body.STATIC,
@@ -29,20 +29,24 @@ export class PerlinNoise {
     drawPerlinGround() {
         this.offset = [0, -1.24, 0];
         this.vertices = [];
+        this.heightValues = [];
         this.groundGeometry = new THREE.PlaneGeometry(this.width, this.height, this.widthSegments, this.heightSegments);
 
         this.seed = Math.random();
         this.noise = new noise.Noise(this.seed);
         let count = 0;
         for (let i = 0; i <= this.widthSegments; i++) {
+            this.heightValues[i] = [];
             for (let j = 0; j <= this.heightSegments; j++) {
                 let x = i / this.widthSegments;
                 let y = j / this.heightSegments;
                 let z = this.noise.perlin2(x * this.noiseScale, y * this.noiseScale) * this.noiseStrength;
                 this.vertices.push((x - 0.5) * this.width, (y - 0.5) * this.height, z);
+                this.heightValues[i][j] = z;
                 count++;
             }
         }
+        // console.log(count);
         this.groundGeometry.setAttribute('position', new THREE.Float32BufferAttribute(this.vertices, 3));
         // console.log(this.groundGeometry.getAttribute('position'));
         this.groundGeometry.attributes.position.needsUpdate = true;
@@ -54,16 +58,16 @@ export class PerlinNoise {
         this.ground.receiveShadow = true;
         this.group.add(this.ground);
 
-        this.heightValues = [];
-        for (let i = 1; i <= (this.widthSegments + 1) * (this.heightSegments + 1); i += 3) {
-            this.heightValues.push(this.vertices[i]);
-        }
         // console.log(this.heightValues);
+        // this.entity.addShape(new CANNON.Plane());
         this.entity.addShape(new CANNON.Heightfield(this.heightValues, {
             elementSize: this.width / this.widthSegments
         }));
-        this.entity.position.copy(this.ground.position);
+        this.groundPosition = new THREE.Vector3().copy(this.ground.position);
+
+        this.entity.position.copy(this.groundPosition.sub(new THREE.Vector3(this.width/2, 0, -this.height/2)));
         this.entity.quaternion.copy(this.ground.quaternion);
+        console.log(this.entity);
     }
     update() {
         // this.group.rotation.y += 0.01;

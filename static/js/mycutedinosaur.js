@@ -50,7 +50,8 @@ let dinosaur,
     trees = [],
     tree;
 
-let ball;
+let balls = [],
+    ball;
 
 let showHelper = false;
 const dinosaurdiv = document.getElementById('dinosaurdiv');
@@ -67,7 +68,7 @@ function init() {
     addTrees(randInt(6, 10));
     addGround();
 
-    // addBall();
+    addBalls(10);
 }
 
 function threeInit() {
@@ -195,10 +196,18 @@ function addGround() {
     world.addBody(ground.entity);
 }
 
+function addBalls(number) {
+    for (let i = 0; i < number; i++) {
+        balls.push(addBall());
+    }
+}
+
 function addBall() {
     ball = new Ball();
+    ball.setPosition(randInt(-20, 20), 0, randInt(-20, 20));
     scene.add(ball.group);
     world.addBody(ball.entity);
+    return ball;
 }
 
 function isNight() {
@@ -272,7 +281,9 @@ function animate() {
     ground.update();
     sky.update();
 
-    // ball.update();
+    balls.forEach((ball) => {
+        ball.update();
+    });
 
     controls.target.copy(dinosaur.group.position);
     controls.update();

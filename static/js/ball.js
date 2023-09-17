@@ -29,6 +29,9 @@ export class Ball {
         this.entity.addShape(new CANNON.Sphere(0.5));
         this.entity.position.set(0, 5, 0);
     }
+    setPosition(x, y, z) {
+        this.entity.position.set(x, y, z);
+    }
     update() {
         this.group.position.copy(this.entity.position);
         this.group.quaternion.copy(this.entity.quaternion);
