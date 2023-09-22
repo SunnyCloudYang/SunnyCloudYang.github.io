@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-09-12T18:15:33+08:00"
-lastmod: "2023-09-17T00:39:22+08:00"
+lastmod: "2023-09-22T21:51:20+08:00"
 description: "小绿只是不爱说话，他是个很聪明的孩子"
 title: "社恐龙小绿"
 summary: "这里面是我的爱龙小绿，除了妈妈，他很少和人说话"
@@ -31,7 +31,8 @@ ShowReadingTime: false
       "three": "https://unpkg.com/three@0.149.0/build/three.module.js",
       "three/addons/": "https://unpkg.com/three@0.149.0/examples/jsm/",
       "cannon-es": "https://cdn.skypack.dev/cannon-es",
-      "noisejs": "https://cdn.skypack.dev/noisejs"
+      "noisejs": "https://cdn.skypack.dev/noisejs",
+      "cannon-es-debugger": "/js/cannon-es-debugger.js"
     }
   }
 </script>

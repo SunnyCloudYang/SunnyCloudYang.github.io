@@ -15,17 +15,18 @@ export class Cloud {
     }
     drawCloud() {
         this.cloud = new THREE.Mesh(new THREE.SphereGeometry(5, 6, 6), this.cloudMaterial);
+        this.cloud.scale.set(1, 0.8, 1);
         this.cloud.castShadow = true;
         this.cloud.receiveShadow = true;
         this.group.add(this.cloud);
 
         this.cloud2 = this.cloud.clone();
-        this.cloud2.scale.set(0.55, 0.35, 1);
+        this.cloud2.scale.set(0.55, 0.35, 0.7);
         this.cloud2.position.set(5, -1.5, 2);
         this.group.add(this.cloud2);
 
         this.cloud3 = this.cloud.clone();
-        this.cloud3.scale.set(0.75, 0.5, 1);
+        this.cloud3.scale.set(0.75, 0.5, 0.9);
         this.cloud3.position.set(-5.5, -2, -1);
         this.group.add(this.cloud3);
 

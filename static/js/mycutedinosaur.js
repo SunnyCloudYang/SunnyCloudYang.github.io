@@ -8,6 +8,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
 import * as CANNON from 'cannon-es';
+import CannonDebugger from 'cannon-es-debugger';
 
 import { Ball } from './ball.js';
 
@@ -22,6 +23,8 @@ import { PerlinNoise } from './perlinNoise.js';
 let width,
     height;
 
+let debug = false;
+
 let scene,
     camera,
     directionalLight,
@@ -34,6 +37,7 @@ let scene,
     night = false;
 
 let world;
+let cannonDebugger;
 
 let keydownW,
     keydownA,
@@ -67,6 +71,8 @@ function init() {
     addClouds(randInt(6, 12));
     addTrees(randInt(12, 20));
     addGround();
+
+    addContactMaterial();
 
     addBalls(randInt(10, 20));
 }
@@ -131,6 +137,10 @@ function cannonInit() {
     world = new CANNON.World();
     world.gravity.set(0, -9.82, 0);
     world.solver.iterations = 5;
+
+    if (debug) {
+        cannonDebugger = new CannonDebugger(scene, world);
+    }
 }
 
 function addLights(night) {
@@ -192,6 +202,7 @@ function addSky() {
 
 function addGround() {
     ground = new PerlinNoise();
+    // ground = new Ground();
     scene.add(ground.group);
     world.addBody(ground.entity);
 }
@@ -208,6 +219,16 @@ function addBall() {
     scene.add(ball.group);
     world.addBody(ball.entity);
     return ball;
+}
+
+function addContactMaterial() {
+    const dinosaurMaterial = dinosaur.entity.material;
+    const groundMaterial = ground.entity.material;
+    const dinosaurGroundContactMaterial = new CANNON.ContactMaterial(dinosaurMaterial, groundMaterial, {
+        friction: 0,
+        restitution: 0
+    });
+    world.addContactMaterial(dinosaurGroundContactMaterial);
 }
 
 function isNight() {
@@ -269,8 +290,10 @@ function themeToggle() {
 function animate() {
     requestAnimationFrame(animate);
 
-    world.fixedStep();
     dinosaur.circle();
+
+    world.fixedStep();
+
     dinosaur.update();
     clouds.forEach((cloud) => {
         cloud.update();
@@ -288,6 +311,10 @@ function animate() {
     controls.target.copy(dinosaur.group.position);
     controls.update();
     stats.update();
+
+    if (debug) {
+        cannonDebugger.update();
+    }
 
     composer.render(scene, camera);
 }

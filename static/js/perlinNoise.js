@@ -15,6 +15,9 @@ export class PerlinNoise {
         this.entity = new CANNON.Body({
             type: CANNON.Body.STATIC,
             mass: 0,
+            material: new CANNON.Material({
+                id: 'ground'
+            }),
             friction: 0.8,
             restitution: 0.4
         });

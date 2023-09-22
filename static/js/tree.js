@@ -66,9 +66,9 @@ export class Tree {
 
         this.entity.upper = new CANNON.Cylinder(0.25, 0.55, 1.4);
         this.entity.upper.position = new CANNON.Vec3(0, 0.6, 0);
+        this.entity.addShape(this.entity.upper);
         this.entity.lower = new CANNON.Cylinder(0.1, 0.1, 1.6);
         this.entity.lower.position = new CANNON.Vec3(0, -0.4, 0);
-        this.entity.addShape(this.entity.upper);
         this.entity.addShape(this.entity.lower);
 
         this.entity.position.copy(this.group.position);

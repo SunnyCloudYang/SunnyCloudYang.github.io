@@ -11,19 +11,22 @@ export class Dinosaur {
                 mass: 20,
                 material: new CANNON.Material(
                     {
-                        friction: 0.3,
+                        id: 'dinosaur',
+                        friction: 0.1,
                         restitution: 0.1
                     }),
-                position: new CANNON.Vec3(0, 0, 0),
             });
 
         this.stepLength = 0.02;
-        this.walkSpeed = 0.02;
+        this.walkSpeed = 1.2;
         this.runSpeed = 0.05;
         this.turnSpeed = 0.02;
 
         this.orientation = new THREE.Vector3(0, 0, 1);
         this.orientationArrow = new THREE.ArrowHelper(this.orientation, this.group.position, 10, 0xff0000);
+
+        this.initBoxOffset = [0, -0.42, -0.1];
+        this.boxOffset = [...this.initBoxOffset];
 
         this.showVolumeBox = false;
         this.showHeadBox = false;
@@ -260,25 +263,31 @@ export class Dinosaur {
     }
     setEntityBox(visible) {
         let boxParams = [1.0, 1.25, 3.2, 9];
-        this.boxOffset = [0, -0.36, -0.1];
         this.group.position.set(...this.boxOffset);
 
-        this.volumeBox = new THREE.Mesh(new THREE.CylinderGeometry(...boxParams), new THREE.MeshBasicMaterial({ color: 0x0ff000, wireframe: true }));
-        this.volumeBox.position.set(0, 0.36, 0.1);
-        this.volumeBox.rotation.y = deg2rad(180);
-        if (visible) {
-            this.group.add(this.volumeBox);
-        }
+        // this.volumeBox = new THREE.Mesh(new THREE.CylinderGeometry(...boxParams), new THREE.MeshBasicMaterial({ color: 0x0ff000, wireframe: true }));
+        // this.volumeBox.position.set(0, 0.36, 0.1);
+        // this.volumeBox.rotation.y = deg2rad(180);
+        // if (visible) {
+        //     this.group.add(this.volumeBox);
+        // }
         
         this.entityBox = new CANNON.Cylinder(...boxParams);
+        // this.entityBox = new CANNON.Sphere(1.2);
         this.entity.addShape(this.entityBox);
-        this.entity.quaternion.setFromEuler(0, deg2rad(180), 0);
+        // this.entity.quaternion.setFromEuler(0, deg2rad(180), 0);
     }
     updateOrientation() {
-        const oneVector = new THREE.Vector3(0, 0, 1);
-        this.orientation = oneVector.applyQuaternion(this.group.quaternion);
-        this.entity.quaternion.copy(this.group.quaternion);
+        // const oneVector = new THREE.Vector3(0, 0, 1);
+        // this.orientation = oneVector.applyQuaternion(this.group.quaternion);
+        // this.entity.quaternion.copy(this.group.quaternion);
         // console.log(this.initOrientation);
+
+        this.group.quaternion.copy(this.entity.quaternion);
+        this.orientation = new THREE.Vector3(0, 0, 1).applyQuaternion(this.group.quaternion);
+        this.boxOffset = [...new THREE.Vector3(...this.initBoxOffset).applyQuaternion(this.group.quaternion)];
+        // console.log(this.boxOffset);
+        // console.log(this.orientation);
         if (this.showOrientationArrow) {
             this.orientationArrow.setDirection(this.orientation);
             this.orientationArrow.position.copy(this.group.position);
@@ -297,10 +306,13 @@ export class Dinosaur {
         this.updateOrientation();
     }
     walkForward() {
-        this.entity.position.x += this.orientation.x * this.stepLength;
-        this.entity.position.y += this.orientation.y * this.stepLength;
-        this.entity.position.z += this.orientation.z * this.stepLength;
-        this.group.position.copy(this.entity.position);
+        this.entity.velocity.set(this.orientation.x * this.walkSpeed, this.orientation.y * this.walkSpeed, this.orientation.z * this.walkSpeed);
+        // this.entity.velocity.x += this.orientation.x * this.walkSpeed;
+        // this.entity.velocity.y += this.orientation.y * this.walkSpeed;
+        // this.entity.velocity.z += this.orientation.z * this.walkSpeed;
+
+        // console.log(this.entity.velocity);
+        // this.group.position.copy(this.entity.position);
         // console.log(this.entity.position);
         this.walkAnimation();
     }
@@ -314,17 +326,18 @@ export class Dinosaur {
         this.head.rotation.y = deg2rad(Math.sin(Date.now() * 0.005) * 2);
     }
     circle() {
-        this.turn(0.1);
         this.walkForward();
+        this.turn(5);
     }
     turn(degree) {
-        this.group.rotateY(deg2rad(degree));
-        this.updateOrientation();
+        // this.entity.angularVelocity.set(this.entity.angularVelocity.x, this.entity.angularVelocity.y + deg2rad(degree), this.entity.angularVelocity.z);
+        this.entity.angularVelocity.set(0, deg2rad(degree), 0);
+        // this.updateOrientation();
     }
     update() {
         this.group.position.x = this.entity.position.x + this.boxOffset[0];
         this.group.position.y = this.entity.position.y + this.boxOffset[1];
         this.group.position.z = this.entity.position.z + this.boxOffset[2];
-        this.group.quaternion.copy(this.entity.quaternion);
+        this.updateOrientation();
     }
 }
