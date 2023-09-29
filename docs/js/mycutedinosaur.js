@@ -11,7 +11,6 @@ import * as CANNON from 'cannon-es';
 import CannonDebugger from 'cannon-es-debugger';
 
 import { Ball } from './ball.js';
-
 import { Dinosaur } from './dinosaur.js';
 import { Cloud } from './cloud.js';
 import { Sky } from './sky.js';
