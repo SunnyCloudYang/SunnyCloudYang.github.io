@@ -155,9 +155,10 @@ function addLights(night) {
     directionalLight.shadow.camera.right = 30;
     directionalLight.shadow.camera.top = 30;
     directionalLight.shadow.camera.bottom = -30;
-    if (!night) {
-        scene.add(directionalLight);
+    if (night) {
+        directionalLight.intensity = 0.2;
     }
+    scene.add(directionalLight);
 }
 
 function addDinosaur() {
@@ -275,12 +276,12 @@ function themeToggle() {
     theme.addEventListener('click', () => {
         if (isNight()) {
             night = true;
-            scene.remove(directionalLight);
+            directionalLight.intensity = 0.2;
             console.log('night');
         }
         else {
             night = false;
-            scene.add(directionalLight);
+            directionalLight.intensity = 0.6;
         }
         sky.setNight(night);
     });
