@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-09-12T18:15:33+08:00"
-lastmod: "2023-09-22T21:51:20+08:00"
+lastmod: "2023-09-30T15:19:58+08:00"
 description: "小绿只是不爱说话，他是个很聪明的孩子"
 title: "社恐龙小绿"
 summary: "这里面是我的爱龙小绿，除了妈妈，他很少和人说话"
@@ -21,6 +21,22 @@ ShowReadingTime: false
 这是我的爱龙小绿，他刚刚来到这个世界，你愿意和他一起探索一下吗？
 
 <div id="dinosaurdiv">
+  <div class="loader" id="ld">
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+  </div>
 </div>
 
 <link rel="stylesheet" href="/css/mycutedinosaur.css">
