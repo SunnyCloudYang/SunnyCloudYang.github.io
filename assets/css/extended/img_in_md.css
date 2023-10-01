@@ -6,7 +6,7 @@
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
     max-width: 75%;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
 .post-entry img[src$='#left'] {
@@ -33,20 +33,18 @@
     display: block;
     float: none !important;
     margin: 0.7rem auto;
-    /* keep the horizontal 'auto' for this to work */
     box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
     max-width: 75%;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 
 }
 
 .post-entry img[alt$="<"] {
     float: left;
     margin: 0.7rem;
-    /* this margin is totally up to you */
     box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
