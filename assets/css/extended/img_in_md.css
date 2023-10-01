@@ -1,64 +1,102 @@
-.post-entry img[src$='#center'] {
+.post-content div.figure-wrap {
+    display: flex;
+}
+
+.post-content div.figure-wrap.center {
+    justify-content: center;
+}
+
+.post-content div.figure-wrap.right {
+    justify-content: flex-end;
+}
+
+.post-content div.figure-wrap.left {
+    justify-content: flex-start;
+}
+
+.post-content div.figure-wrap figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.post-content div.figure-wrap figure img {
+    display: block;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    -webkit-box-shadow: 0 0 0px #ece7e7;
+    -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 2px #555;
+    max-width: 100%;
+}
+
+.post-content div.figure-wrap figcaption {
+    display: flex;
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0.2rem;
+}
+
+.post-content img[src$='#center'] {
     display: block;
     margin: 0.7rem auto;
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 2px #555;
     max-width: 75%;
-    /* vertical-align: middle; */
 }
 
-.post-entry img[src$='#left'] {
+.post-content img[src$='#left'] {
     float: left;
     margin: 0.7rem;
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 10px #555;
     max-width: 45%;
 }
 
-.post-entry img[src$='#right'] {
+.post-content img[src$='#right'] {
+    display: block;
     float: right;
     margin: 0.7rem;
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 10px #555;
     max-width: 45%;
 }
 
-.post-entry img[alt$="><"] {
+.post-content img[alt$="><"] {
     display: block;
     float: none !important;
     margin: 0.7rem auto;
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 10px #555;
     max-width: 75%;
-    /* vertical-align: middle; */
 
 }
 
-.post-entry img[alt$="<"] {
+.post-content img[alt$="<"] {
     float: left;
     margin: 0.7rem;
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 10px #555;
     max-width: 45%;
 }
 
-.post-entry img[alt$=">"] {
+.post-content img[alt$=">"] {
     float: right;
     margin: 0.7rem;
-    /* this margin is totally up to you */
-    box-shadow: 0 0 10px #555;
     border-radius: 6px;
     -webkit-box-shadow: 0 0 0px #ece7e7;
     -moz-box-shadow: 0 0 0px #ece7e7;
+    box-shadow: 0 0 10px #555;
     max-width: 45%;
 }
