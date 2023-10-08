@@ -2,7 +2,7 @@
 title: "电子木鱼儿"
 author: "Yang"
 date: "2023-01-28T21:28:01+08:00"
-lastmod: "2023-10-08T14:12:40+08:00"
+lastmod: "2023-10-08T14:44:45+08:00"
 draft: false
 summary: "敲电子木鱼，攒赛博功德"
 description: "哒~ 哒~ 哒~"
@@ -22,7 +22,7 @@ ShowReadingTime: false
 {{< rawhtml >}}
 <a href="/oldsite/WoodBlock/WoodBlock.html" title="进入全屏"><i class="fa fa-expand" style="position: absolute;margin:10px;color:rgba(240,240,240,0.8);z-index:999;"></i></a>
 <div style="position:relative">
-<iframe src="/oldsite/WoodBlock/WoodBlock.html" title="WoodBlock" width="800" height="600" style="border-radius: var(--radius)"></iframe>
+<iframe src="/oldsite/WoodBlock/WoodBlock.html" title="WoodBlock" width="800" height="600" style="border-radius: var(--radius);border:0;"></iframe>
 </div>
 {{< /rawhtml >}}
 
