@@ -23,6 +23,10 @@
     transform: scale(1);
 }
 
+.logo {
+    margin-right: 8px;
+}
+
 .logo a:hover {
     filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
     transform: translateY(-1px) scale(1.05);
@@ -38,13 +42,25 @@
     transform: translateY(-2px);
 }
 
+#menu .active {
+    background-color: var(--tertiary);
+    border-bottom: 2px solid var(--tertiary);
+}
+
+#menu li+li {
+    margin-inline-start: 2px;
+}
+
 #menu li a span {
     position: relative;
+    padding: 3px 8px;
+    border-radius: var(--radius);
     transition: 0.25s;
 }
 
-#menu li a span:hover {
-    filter: drop-shadow(0 0 0.03rem var(--primary));
+#menu li a span:hover:not(.active) {
+    /* filter: drop-shadow(0 0 0.03rem var(--primary)); */
+    background-color: var(--border);
     /* transform: scale(1.2); */
 }
 
@@ -52,8 +68,8 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px;
-    height: 1px;
+    bottom: 2px;
+    height: 1.5px;
     width: 100%;
     background: var(--primary);
     transform: scale(0);
