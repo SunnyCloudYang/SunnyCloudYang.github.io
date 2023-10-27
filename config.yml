@@ -168,6 +168,7 @@ params:
     comments: true
     # images: ["papermod-cover.png"]
     disableBusuanzi: false
+    enableGtag: true
 
     ShowAllPagesInArchive: true
     # mainSections: ["posts", "diary"]
