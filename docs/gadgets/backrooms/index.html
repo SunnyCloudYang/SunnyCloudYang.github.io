@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>随便问，随缘答 | 抽象艺术大巴扎</title>
-<meta name="keywords" content="">
-<meta name="description" content="自由选择，随心发问。类GPT，主打一个瞎jb聊。">
+<title>后室·Demo | 抽象艺术大巴扎</title>
+<meta name="keywords" content="gadgets">
+<meta name="description" content="小心哦，不要卡进去了">
 <meta name="author" content="Yang">
-<link rel="canonical" href="https://sunnycloudyang.github.io/xjbchat/quesbox/">
+<link rel="canonical" href="https://sunnycloudyang.github.io/gadgets/backrooms/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://sunnycloudyang.github.io/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/xjbchat/quesbox/">
+<link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/gadgets/backrooms/">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,20 +59,43 @@
 
 
 
+<script src="/js/maze.js" type="module"></script>
+
+<script src="/js/solidMaze.js" type="module"></script>
 
 
 
 
-<meta property="og:title" content="随便问，随缘答" />
-<meta property="og:description" content="自由选择，随心发问。类GPT，主打一个瞎jb聊。" />
+
+<link rel="stylesheet" href="/css/maze.css">
+
+
+
+
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.149.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.149.0/examples/jsm/",
+      "cannon-es": "https://cdn.skypack.dev/cannon-es",
+      "noisejs": "https://cdn.skypack.dev/noisejs",
+      "cannon-es-debugger": "/js/cannon-es-debugger.js"
+    }
+  }
+</script>
+
+
+<meta property="og:title" content="后室·Demo" />
+<meta property="og:description" content="小心哦，不要卡进去了" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sunnycloudyang.github.io/xjbchat/quesbox/" /><meta property="article:section" content="xjbchat" />
-<meta property="article:published_time" content="2023-03-24T00:05:45+08:00" />
-<meta property="article:modified_time" content="2023-07-10T14:07:12+08:00" /><meta property="og:site_name" content="抽象艺术大巴扎" />
+<meta property="og:url" content="https://sunnycloudyang.github.io/gadgets/backrooms/" /><meta property="article:section" content="gadgets" />
+<meta property="article:published_time" content="2023-11-15T14:38:58+08:00" />
+<meta property="article:modified_time" content="2023-11-16T19:50:50+08:00" /><meta property="og:site_name" content="抽象艺术大巴扎" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="随便问，随缘答"/>
-<meta name="twitter:description" content="自由选择，随心发问。类GPT，主打一个瞎jb聊。"/>
+<meta name="twitter:title" content="后室·Demo"/>
+<meta name="twitter:description" content="小心哦，不要卡进去了"/>
 
 
 <script type="application/ld+json">
@@ -83,14 +106,14 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "提问箱",
-      "item": "https://sunnycloudyang.github.io/xjbchat/"
+      "name": "小卖部",
+      "item": "https://sunnycloudyang.github.io/gadgets/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "随便问，随缘答",
-      "item": "https://sunnycloudyang.github.io/xjbchat/quesbox/"
+      "name": "后室·Demo",
+      "item": "https://sunnycloudyang.github.io/gadgets/backrooms/"
     }
   ]
 }
@@ -99,24 +122,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "随便问，随缘答",
-  "name": "随便问，随缘答",
-  "description": "自由选择，随心发问。类GPT，主打一个瞎jb聊。",
+  "headline": "后室·Demo",
+  "name": "后室·Demo",
+  "description": "小心哦，不要卡进去了",
   "keywords": [
-    
+    "gadgets"
   ],
-  "articleBody": "自由选择，随心发问。类GPT，主打一个瞎jb聊。\n",
-  "wordCount" : "24",
+  "articleBody": "后室·Demo 这是一个模仿后室的迷宫类游戏，你需要找到出口，但同时更需要小心这里面的神秘生物。\n基本规则 玩家的基本任务是在地图中找到终点处门的钥匙，以逃出这个危险的迷宫。 在迷宫中随机分布着危险的“实体”，第一关中实体不会移动；从第二关开始，“实体”会在一定范围内追击玩家，他们攻击玩家时会让玩家的“理智值”下降，当降为0时任务失败。从入口到出口可能有多条可行路径，同时在场景中分布着可以增加“理智值”的清醒药水，开门所需的钥匙等道具，玩家必须拿到钥匙，同时也需要选择是否拿取药水使得“理智值”剩余最多，并尽量以最短路径到达终点。 开始游戏\r游戏帮助\r难度\r40\r尺寸\r20\rHelp\rUse arrow keys to move the player.\nCollect props and avoid monsters.\nProps can help you recover.\nMonsters will bite you.\nGood luck!\nClose\r",
+  "wordCount" : "302",
   "inLanguage": "zh",
-  "datePublished": "2023-03-24T00:05:45+08:00",
-  "dateModified": "2023-07-10T14:07:12+08:00",
+  "datePublished": "2023-11-15T14:38:58+08:00",
+  "dateModified": "2023-11-16T19:50:50+08:00",
   "author":{
     "@type": "Person",
     "name": "Yang"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://sunnycloudyang.github.io/xjbchat/quesbox/"
+    "@id": "https://sunnycloudyang.github.io/gadgets/backrooms/"
   },
   "publisher": {
     "@type": "Organization",
@@ -221,58 +244,156 @@
 
 <article class="post-single">
     <header class="post-header">
-        <div class="breadcrumbs"><a href="https://sunnycloudyang.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://sunnycloudyang.github.io/xjbchat/">提问箱</a></div>
+        <div class="breadcrumbs"><a href="https://sunnycloudyang.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://sunnycloudyang.github.io/gadgets/">小卖部</a></div>
         <h1 class="post-title">
-            随便问，随缘答
+            后室·Demo<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
         </h1>
+        <div class="post-description">
+            小心哦，不要卡进去了
+        </div>
         <div class="post-meta">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css"><div class="meta-tag"><span class="fa fa-calendar-plus-o"></span>&nbsp;<span title='2023-03-24 00:05:45 +0800 CST'>2023-03-24</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-pencil-square-o"></span>&nbsp;<span title='2023-07-10 14:07:12 +0800 CST'>2023-07-10</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-file-word-o"></span>&nbsp;<span>共24字</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-user-circle-o"></span>&nbsp;<span>Yang</span></div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css"><div class="meta-tag"><span class="fa fa-calendar-plus-o"></span>&nbsp;<span title='2023-11-15 14:38:58 +0800 CST'>2023-11-15</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-pencil-square-o"></span>&nbsp;<span title='2023-11-16 19:50:50 +0800 CST'>2023-11-16</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-file-word-o"></span>&nbsp;<span>共302字</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-user-circle-o"></span>&nbsp;<span>Yang</span></div>
 
 </div>
-    </header> 
-    <div class="post-content"><p>自由选择，随心发问。类GPT，主打一个瞎jb聊。</p>
-<p><img loading="lazy" src="/images/100questions.jpg" alt="无意义100问"  />
-</p>
-<!-- <div id="quesdiv-out">
-    <div id="quesdiv">
-        <iframe id="quesbox"
-            src="https://closed.social/askMe/candonothing/emzzthalacpwnuow/"
-            frameborder="0"
-            width="100%"
-            height="800px"
-            scrolling="no"
-            object-fit="cover"
-            object-position="top left"
-            sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
-        </iframe>
-    </div>
-</div>
+    </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details id="toc-details"  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
 
-<script>
-    const quesbox = document.getElementById("quesbox");
-    window.addEventListener("message", function(event) {
-        if (event.origin !== "https://closed.social")
-            return;
-        if (event.data.type === "resize" && event.data.height) {
-            quesbox.style.height = event.data.height + "px";
+                <div class="inner"><ul><ul>
+                        <li>
+                            <a href="#%e5%90%8e%e5%ae%a4demo" aria-label="后室·Demo">后室·Demo</a><ul>
+                                    
+                        <li>
+                            <a href="#%e5%9f%ba%e6%9c%ac%e8%a7%84%e5%88%99" aria-label="基本规则">基本规则</a></li></ul>
+                        </li></ul>
+                                
+                        <li>
+                            <a href="#" aria-label="Help">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 5.5) > 0) {
+                
+                if (!document.getElementById("toc-container").classList.contains("wide")) {
+                    document.getElementById("toc-container").classList.add("wide");
+                    
+                    document.getElementById("toc-details").setAttribute("open", "");
+                }
+            } else if (document.getElementById("toc-container").classList.contains("wide")) {
+                document.getElementById("toc-container").classList.remove("wide");
+                
+                document.getElementById("toc-details").removeAttribute("open");
+            }
         }
-    }, false);
 
-    quesbox.onload = function() {
-        quesbox.contentWindow.postMessage({
-            type: "init",
-            height: quesbox.clientHeight
-        }, "https://closed.social");
-    };
-</script> -->
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+    <div class="post-content"><h2 id="后室demo">后室·Demo<a hidden class="anchor" aria-hidden="true" href="#后室demo">#</a></h2>
+<p>这是一个模仿后室的迷宫类游戏，你需要找到出口，但同时更需要小心这里面的神秘生物。</p>
+<hr>
+<h3 id="基本规则">基本规则<a hidden class="anchor" aria-hidden="true" href="#基本规则">#</a></h3>
+<ol>
+<li>玩家的基本任务是在地图中找到终点处门的钥匙，以逃出这个危险的迷宫。</li>
+<li>在迷宫中随机分布着危险的“实体”，第一关中实体不会移动；从第二关开始，“实体”会在一定范围内追击玩家，他们攻击玩家时会让玩家的“理智值”下降，当降为0时任务失败。从入口到出口可能有多条可行路径，同时在场景中分布着可以增加“理智值”的清醒药水，开门所需的钥匙等道具，玩家必须拿到钥匙，同时也需要选择是否拿取药水使得“理智值”剩余最多，并尽量以最短路径到达终点。</li>
+</ol>
+
+<div class="stage">
+    <div class="menu">
+        <div class="menu-item">
+            <button type="button" id="startGame">开始游戏</button>
+            <button type="button" id="showHelp">游戏帮助</button>
+            <div class="slider">
+            <label for="easyBar">难度</label>
+            <input type="range" id="easyBar" value="40" min="10" max="100" step="5">
+            <label for="easyBar" id="easyLabel">40</label>
+            </div>
+            <div class="slider">
+            <label for="sizeBar">尺寸</label>
+            <input type="range" id="sizeBar" value="20" min="10" max="40" step="2">
+            <label for="sizeBar" id="sizeLabel">20</label>
+            </div>
+        </div>
+    </div>
+        <div id="maze-container"></div>
+    <div class="mask" id="mask" style="display:none;">
+    <div id="help" style="display:none;">
+        <h1>Help</h1>
+        <p>Use arrow keys to move the player.</p>
+        <p>Collect props and avoid monsters.</p>
+        <p>Props can help you recover.</p>
+        <p>Monsters will bite you.</p>
+        <p>Good luck!</p>
+        <button class="closeBtn" id="closeBtn">Close</button>
+    </div>
+    </div>
+    <div id="solidMaze"></div>
+</div>
+
 
 
     </div>
 
     <footer class="post-footer">
         <ul class="post-tags">
+            <li><a href="https://sunnycloudyang.github.io/tags/gadgets/">gadgets</a></li>
         </ul>
 
     </footer>

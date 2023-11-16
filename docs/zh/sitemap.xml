@@ -30,24 +30,8 @@
     <loc>https://sunnycloudyang.github.io/friends/revolver/</loc>
     <lastmod>2023-10-08T17:21:40+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/friends/</loc>
-    <lastmod>2023-10-08T17:21:40+08:00</lastmod>
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/</loc>
-    <lastmod>2023-10-08T17:21:40+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sunnycloudyang.github.io/"
-                />
-  </url><url>
     <loc>https://sunnycloudyang.github.io/tags/gadgets/</loc>
-    <lastmod>2023-10-08T14:44:45+08:00</lastmod>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -60,7 +44,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/categories/gadgets/</loc>
-    <lastmod>2023-10-08T14:44:45+08:00</lastmod>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -73,7 +57,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/</loc>
-    <lastmod>2023-10-08T14:44:45+08:00</lastmod>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -85,8 +69,21 @@
                 href="https://sunnycloudyang.github.io/tags/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/</loc>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sunnycloudyang.github.io/"
+                />
+  </url><url>
     <loc>https://sunnycloudyang.github.io/categories/</loc>
-    <lastmod>2023-10-08T14:44:45+08:00</lastmod>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -97,6 +94,12 @@
                 hreflang="zh"
                 href="https://sunnycloudyang.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/gadgets/backrooms/</loc>
+    <lastmod>2023-11-16T19:50:50+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/friends/</loc>
+    <lastmod>2023-10-08T17:21:40+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/gadgets/mycutedinosaur/</loc>
     <lastmod>2023-09-30T15:19:58+08:00</lastmod>
