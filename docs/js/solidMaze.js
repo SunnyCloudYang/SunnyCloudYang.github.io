@@ -96,7 +96,7 @@ function init() {
 function addObjs(size, easy) {
     addLights();
     addFloor(size);
-    addCeil(size);
+    // addCeil(size);
     maze = generateMap(size, easy);
     addMaze(maze);
     addPath(maze);
@@ -149,10 +149,12 @@ function addMaze(maze) {
     const materialPath = new THREE.MeshLambertMaterial({ color: 0xffffff });
     const materialProp = new THREE.MeshLambertMaterial({ color: 0x22ee22 });
     const materialMonster = new THREE.MeshLambertMaterial({ color: 0xdd2222 });
+    const materialKey = new THREE.MeshLambertMaterial({ color: 0xaa66aa });
 
     const mazeGroup = new THREE.Group();
     const monsterGroup = new THREE.Group();
     const propGroup = new THREE.Group();
+    const keyGroup = new THREE.Group();
     
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
@@ -197,6 +199,23 @@ function addMaze(maze) {
 
                 monsterGroup.add(monster);
                 mazeGroup.add(cube);
+            } else if (maze[i][j] === 5) {
+                const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
+                cube.position.x = j - maze.length / 2;
+                cube.position.y = 1.39;
+                cube.position.z = -(i - maze.length / 2);
+                cube.receiveShadow = true;
+                cube.castShadow = true;
+
+                const cone = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.5, 12), new THREE.MeshLambertMaterial({ color: 0xaa66aa }));
+                cone.position.x = j - maze.length / 2;
+                cone.position.y = 0.6;
+                cone.position.z = -(i - maze.length / 2);
+                cone.receiveShadow = true;
+                cone.castShadow = true;
+                
+                mazeGroup.add(cube);
+                keyGroup.add(cone);
             } else if (maze[i][j] === -1) {
                 const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2.8, 32), new THREE.MeshLambertMaterial({ color: 0xdd9933 }));
                 cylinder.position.x = j - maze.length / 2;
@@ -217,19 +236,32 @@ function addMaze(maze) {
     scene.add(propGroup);
     scene.add(monsterGroup);
     scene.add(mazeGroup);
+    scene.add(keyGroup);
 
     function getMaterial(value) {
         switch (value) {
             case 1: return materialWall;
             case 3: return materialProp;
             case 4: return materialMonster;
+            case 5: return materialKey;
             default: return materialPath;
         }
     }
 }
 
 function addPath(maze) {
-    const path = findPath([1, 1], [size - 1, size - 1], maze).path;
+    let keys = findKeys(maze);
+    
+    const path1 = findPath([1, 1], keys[0], maze);
+    const path2 = findPath([1, 1], keys[1], maze);
+    const path3 = findPath(keys[0], keys[1], maze);
+    const path4 = findPath(keys[0], [size - 1, size - 1], maze);
+    const path5 = findPath(keys[1], [size - 1, size - 1], maze);
+    
+    const stage1 = (path1.path.length + 8 * path1.monsters - 5 * path1.collected) + (path5.path.length + 8 * path5.monsters - 5 * path5.collected) < (path2.path.length + 8 * path2.monsters - 5 * path2.collected) + (path4.path.length + 8 * path4.monsters - 5 * path4.collected) ? path1.path.concat(path5.path) : path2.path.concat(path4.path);
+    const stage2 = path3.path;
+
+    const path = stage1.concat(stage2);
     const geometry = new THREE.BoxGeometry(1, 0.01, 1);
     const material = new THREE.MeshLambertMaterial({ color: 0xaaaaaa });
 
@@ -244,6 +276,18 @@ function addPath(maze) {
         pathGroup.add(cube);
     }
     scene.add(pathGroup);
+}
+
+function findKeys(maze) {
+    let keys = [];
+    for (let i = 0; i < maze.length; i++) {
+        for (let j = 0; j < maze[i].length; j++) {
+            if (maze[i][j] === 5) {
+                keys.push([i, j]);
+            }
+        }
+    }
+    return keys;
 }
 
 function onWindowResize() {

@@ -10,6 +10,7 @@ const type = {
     obstacle: 2,
     prop: 3,
     monster: 4,
+    key: 5,
     path: 114514,
 };
 const typeColor = {
@@ -20,6 +21,7 @@ const typeColor = {
     [type.obstacle]: 'orange',
     [type.prop]: 'green',
     [type.monster]: 'red',
+    [type.key]: 'purple',
     [type.path]: 'grey',
 };
 
@@ -126,7 +128,7 @@ function startGame() {
         }
     });
     // drawMaze(map);
-    console.log(collected, monsters, cost);
+    // console.log(collected, monsters, cost);
     return map;
 }
 
@@ -135,10 +137,12 @@ function generateMap(size, easy) {
     const monsters = Math.ceil((size * size / 2000) * easy);
     const props = Math.ceil((size * size / 1800) * easy);
     const breaks = Math.ceil(size * size / (1.6 * easy));
+    const keys = 2;
     // console.log(props, monsters, breaks);
     generateObjs(maze, monsters, type.monster);
     generateObjs(maze, props, type.prop);
     generateObjs(maze, breaks, type.cell);
+    generateObjs(maze, keys, type.key);
     start = false;
     return maze;
 }

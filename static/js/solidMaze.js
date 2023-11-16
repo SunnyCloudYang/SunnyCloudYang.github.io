@@ -96,7 +96,7 @@ function init() {
 function addObjs(size, easy) {
     addLights();
     addFloor(size);
-    addCeil(size);
+    // addCeil(size);
     maze = generateMap(size, easy);
     addMaze(maze);
     addPath(maze);
