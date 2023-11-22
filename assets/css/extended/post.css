@@ -92,6 +92,15 @@
     padding-right: 5px;
 }
 
+.post-content .highlight .code-titlebar {
+    border-radius: var(--radius) var(--radius) 0 0;
+    background-color: var(--border);
+    padding: 4px var(--gap);
+    color: var(--secondary);
+    font-size: .75em;
+    font-family: consolas, Menlo, pingfang sc, microsoft yahei, sans-serif;
+}
+
 /* .post-content:first-of-type pre.chroma {
     border-left: 0;
 } */
@@ -150,11 +159,11 @@
     background: rgb(78, 78, 78);
 }
 
-div.highlight .lntable:hover .copy-code {
+div.highlight > div:hover .copy-code {
     opacity: 0.6;
 }
 
-div.highlight .lntable:hover .copy-code:hover {
+div.highlight > div:hover .copy-code:hover {
     opacity: 1;
 }
 
