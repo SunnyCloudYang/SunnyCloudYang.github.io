@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>STM32H745ZI-Q开发记录</title>
+      <link>https://sunnycloudyang.github.io/posts/stm32h745record/</link>
+      <pubDate>Sat, 03 Feb 2024 19:08:35 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/posts/stm32h745record/</guid>
+      <description>最近有一个小项目用到了STM32H745这个有两个核的芯片，手字笔录，以作前车之鉴</description>
+    </item>
+    
+    <item>
       <title>曼昆《微观经济学》笔记</title>
       <link>https://sunnycloudyang.github.io/posts/microeconomics/</link>
       <pubDate>Sun, 10 Sep 2023 00:20:11 +0800</pubDate>
