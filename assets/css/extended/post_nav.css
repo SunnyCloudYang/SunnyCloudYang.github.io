@@ -3,7 +3,13 @@
 }
 
 .post-tags a {
-    box-shadow: 0 2px 5px rgba(120, 120, 120, 0.5);
+    line-height: 32px;
+    border-radius: 16px;
+    transition: all 0.3s;
+}
+
+.post-tags a:hover {
+    transform: translateY(-2px);
 }
 
 .pagination a {
