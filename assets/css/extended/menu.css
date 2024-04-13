@@ -1,22 +1,38 @@
-#theme-toggle svg, .logo a, #menu li {
-    transition: all 0.15s ease-in-out;
+#theme-toggle svg {
+    width: 18px;
+    border-radius: 20px;
+    transition: all .3s;
 }
 
 #theme-toggle svg:hover {
-    filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
-    transform: translateY(-1px) scale(1.1);
+    background: var(--primary);
+    color: var(--theme);
+}
+
+.lang-switch a {
+    position: relative;
+    border-radius: 20px;
+    padding: 4px 10px;
+    margin: 0;
+    line-height: normal;
+    transition: .3s;
+}
+
+.lang-switch a:hover {
+    background-color: var(--border);
 }
 
 .lang-switch a::before {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: calc(var(--header-height)/4);
-    height: 1px;
-    width: 100%;
+    left: 10%;
+    /* bottom: calc(var(--header-height)/4); */
+    bottom: 0;
+    height: 1.5px;
+    width: 80%;
     background: var(--primary);
     transform: scale(0);
-    transition: all .25s;
+    transition: all .3s;
 }
 
 .lang-switch a:hover::before {
@@ -27,10 +43,10 @@
     margin-right: 8px;
 }
 
-.logo a:hover {
+/* .logo > a:hover {
     filter: drop-shadow(0 0 2px rgba(150, 150, 150, 0.6));
     transform: translateY(-1px) scale(1.05);
-}
+} */
 
 .main .terms-tags li a {
     box-shadow: 0 0.1rem 0.2rem 0.1rem rgba(120, 120, 120, 0.5);
@@ -43,6 +59,8 @@
 }
 
 #menu .active {
+    font-size: unset;
+    font-weight: 600;
     background-color: var(--tertiary);
     border-bottom: 2px solid var(--tertiary);
 }
@@ -54,8 +72,8 @@
 #menu li a span {
     position: relative;
     padding: 3px 8px;
-    border-radius: var(--radius);
-    transition: 0.25s;
+    border-radius: 20px;
+    transition: .3s;
 }
 
 #menu li a span:hover:not(.active) {
@@ -67,10 +85,10 @@
 #menu li a span::before {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 2px;
+    left: 15%;
+    bottom: 0;
     height: 1.5px;
-    width: 100%;
+    width: 70%;
     background: var(--primary);
     transform: scale(0);
     transition: all .25s;

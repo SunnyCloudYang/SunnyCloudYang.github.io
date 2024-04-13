@@ -1,0 +1,8 @@
+#searchbox input {
+    transition: all .3s;
+}
+
+#searchbox input:focus {
+    /* transition: all .3s; */
+    box-shadow: 0 0 0 0.2rem var(--tertiary);
+}

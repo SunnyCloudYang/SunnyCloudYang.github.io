@@ -1,0 +1,9 @@
+.main .terms-tags li a {
+    background: var(--tertiary);
+    border: 2px solid var(--secondary);
+    box-shadow: none;
+    padding-left: 16px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    border-radius: 24px;
+}
