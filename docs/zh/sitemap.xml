@@ -17,7 +17,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/posts/post/"
                 />
   </url><url>
@@ -45,7 +45,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/tags/"
                 />
   </url><url>
@@ -58,7 +58,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/"
                 />
   </url><url>
@@ -71,7 +71,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/categories/"
                 />
   </url><url>
@@ -87,7 +87,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/categories/post/"
                 />
   </url><url>
@@ -100,7 +100,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/tags/record/"
                 />
   </url><url>
@@ -119,7 +119,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/tags/gadgets/"
                 />
   </url><url>
@@ -132,7 +132,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/categories/gadgets/"
                 />
   </url><url>
@@ -277,7 +277,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/gadgets/"
                 />
   </url><url>
@@ -290,7 +290,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/posts/"
                 />
   </url><url>
@@ -306,7 +306,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/tags/milestone/"
                 />
   </url><url>
@@ -319,7 +319,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/gadgets/old/"
                 />
   </url><url>
@@ -332,9 +332,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/posts/post1/"
                 />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/woodblock/woodblock/</loc>
   </url><url>
     <loc>https://sunnycloudyang.github.io/categories/function/</loc>
     <xhtml:link
@@ -344,9 +346,11 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/categories/function/"
                 />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/woodblock/</loc>
   </url><url>
     <loc>https://sunnycloudyang.github.io/archives/</loc>
     <xhtml:link
@@ -356,7 +360,7 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/archives/"
                 />
   </url><url>
@@ -368,10 +372,8 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh"
+                hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/search/"
                 />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/friends/</loc>
   </url>
 </urlset>
