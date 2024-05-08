@@ -1,12 +1,12 @@
 ---
 author: Yang
 date: "2023-05-24T00:29:21+08:00"
-lastmod: "2023-05-24T12:48:49+08:00"
+lastmod: "2024-05-08T13:56:03+08:00"
 description: "每个人都穿着自己的鞋，走着自己的路来，怎么可能会有一样的感受呢？"
 title: "森林博物馆——开篇"
 summary: "别误会，不是欧蒂利斯庄园"
 tags: ["story", "fable"]
-categories: ["post", "story", "fable"]
+categories: ["story"]
 # cover: 
 #    image: "images/.jpg"
 draft: true
