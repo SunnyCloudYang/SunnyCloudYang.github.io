@@ -1,0 +1,28 @@
+.top-link::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 19.5px;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 14px;
+    border-radius: 4px;
+    background: var(--secondary);
+    transform: scaleY(0.2);
+    transform-origin: top;
+    color: var(--secondary);
+    transition: transform 0.3s;
+}
+
+.top-link:hover::before {
+    transform: scaleY(1);
+    background: var(--primary);
+}
+
+.top-link:hover svg {
+    transform: translateY(-2px);
+}
+
+.top-link svg {
+    transition: transform 0.3s;
+}
