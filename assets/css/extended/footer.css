@@ -1,15 +1,15 @@
 .top-link::before {
     content: "";
     position: absolute;
-    top: 16px;
-    left: 19.5px;
+    top: 15px;
+    left: 20px;
     transform: translate(-50%, -50%);
     width: 3px;
     height: 14px;
     border-radius: 4px;
     background: var(--secondary);
-    transform: scaleY(0.2);
-    transform-origin: top;
+    transform: scaleY(0.1);
+    transform-origin: 50% 10%;
     color: var(--secondary);
     transition: transform 0.3s;
 }
@@ -20,7 +20,7 @@
 }
 
 .top-link:hover svg {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .top-link svg {

@@ -333,10 +333,11 @@
         | 一共有<span id="busuanzi_value_page_pv"></span>人来过这里
     </span>
 </footer>
-<a href="#top" aria-label="go to top" title="回到梦开始的地方" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 160 110" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
-        <polyline points="20 145 80 90 140 145" stroke="currentColor" stroke-width="25" stroke-linecap="round" fill="none"
-            stroke-linejoin="round" />
+<a href="#top" aria-label="go to top" title="" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 65 170 115" fill="currentColor" stroke="currentColor"
+        stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <polyline points="20 145 85 90 150 145" stroke="currentColor" stroke-width="25" stroke-linecap="round"
+            fill="none" stroke-linejoin="round" />
     </svg>
 </a>
 
@@ -404,52 +405,51 @@
         codediv.prepend(titlebar);
     });
 
-        document.querySelectorAll('pre > code').forEach((codeblock) => {
-            const container = codeblock.parentNode.parentNode;
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
-            const copybutton = document.createElement('button');
-            copybutton.classList.add('copy-code');
-            copybutton.innerHTML = '借我抄抄';
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '借我抄抄';
 
-            function copyingDone() {
-                copybutton.innerHTML = '给你了';
-                setTimeout(() => {
-                    copybutton.innerHTML = '借我抄抄';
-                }, 2000);
+        function copyingDone() {
+            copybutton.innerHTML = '给你了';
+            setTimeout(() => {
+                copybutton.innerHTML = '借我抄抄';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
             }
 
-            copybutton.addEventListener('click', (cb) => {
-                if ('clipboard' in navigator) {
-                    navigator.clipboard.writeText(codeblock.textContent);
-                    copyingDone();
-                    return;
-                }
-
-                const range = document.createRange();
-                range.selectNodeContents(codeblock);
-                const selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
-                try {
-                    document.execCommand('copy');
-                    copyingDone();
-                } catch (e) { };
-                selection.removeRange(range);
-            });
-
-            if (container.classList.contains("highlight")) {
-                container.appendChild(copybutton);
-            } else if (container.parentNode.firstChild == container) {
-                
-            } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-                
-                codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-            } else {
-                
-                codeblock.parentNode.appendChild(copybutton);
-            }
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
         });
-</script>
-</body>
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
 
 </html>
