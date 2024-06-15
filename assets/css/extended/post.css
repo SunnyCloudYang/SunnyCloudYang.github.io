@@ -5,7 +5,7 @@
     border-radius: calc(var(--radius) + var(--gap) - 2px);
     /* align-items: center; */
     transition: box-shadow .4s ease, transform .4s ease;
-    box-shadow: 0 2px 4px rgb(5 10 15 / 5%), 0 7px 13px -1px rgb(5 10 15 / 30%);
+    box-shadow: 0 2px 4px rgb(5 10 15 / 5%), 0 7px 11px -1px rgb(5 10 15 / 20%);
     transition: 0.25s;
 }
 
