@@ -76,7 +76,16 @@
         {{- end }}
         {{- if not (.Param "hideMeta") }}
         <footer class="entry-footer">
+          <span class="post-meta">
             {{- partial "post_meta.html" . -}}
+          </span>
+        {{- if (ne (.Param "hideTag") true) }}
+        <span class="entry-tags">
+          {{- range .Params.tags -}}
+            <span>{{ . }}</span>
+          {{- end -}}
+          </span>
+        {{- end }}
         </footer>
         {{- end }}
     </div> <!--custom-->
