@@ -7,6 +7,11 @@
 <meta name="robots" content="noindex, nofollow">
 {{- end }}
 
+{{- /* Content Secure Policy */}}
+{{- if site.Params.csp }}
+<meta http-equiv="Content-Security-Policy" content="{{ site.Params.csp }}">
+{{- end }}
+
 {{- /* Title */}}
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
 
