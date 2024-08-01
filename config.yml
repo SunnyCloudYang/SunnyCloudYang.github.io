@@ -171,7 +171,7 @@ params:
     # images: ["papermod-cover.png"]
     disableBusuanzi: false
     enableGtag: true
-    csp: "default-src https: 'unsafe-inline' 'unsafe-eval';"
+    csp: "default-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com;"
 
     ShowAllPagesInArchive: true
     # mainSections: ["posts", "diary"]
