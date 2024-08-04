@@ -171,7 +171,7 @@ params:
     # images: ["papermod-cover.png"]
     disableBusuanzi: false
     enableGtag: true
-    csp: "default-src 'self' 'unsafe-inline' 'unsafe-eval' www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com sunnycloudyang.github.io origakid.top;"
+    csp: "default-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com sunnycloudyang.github.io origakid.top;"
 
     ShowAllPagesInArchive: true
     # mainSections: ["posts", "diary"]

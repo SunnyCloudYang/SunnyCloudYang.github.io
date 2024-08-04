@@ -1,0 +1,21 @@
+{{- define "main" }}
+<div class="not-found">
+    <p>404</p>
+    <p style="font-size: small;" id="homo_number"><span id="typed">&nbsp;</span></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+<script>
+    let homo_str1 = " = -11-4+5+14+((-11-4+5+14)*(-11/4+51/4)^(-11+4-5+14))";
+    let homo_str2 = " = (114-51)*4+(-11-4+5+14)+1+1+(4+5)*14+11-4-5+14-11-4+5+14";
+    let homo_str = Math.round(Math.random()) ? homo_str1 : homo_str2;
+    let typed = new Typed('#typed', {
+        strings: [homo_str, " = "+{{- i18n "Page_Not_Found" -}}],
+        startDelay: 100,
+        onComplete: (self) => {
+            setTimeout(() => {
+                self.cursor.innerHTML = '&nbsp;';
+            }, 2000);
+        }
+    });
+</script>
+{{- end }}{{/* end main */ -}}

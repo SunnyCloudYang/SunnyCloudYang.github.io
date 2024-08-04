@@ -1,0 +1,4 @@
+.not-found {
+    flex-direction: column;
+    padding: 0 var(--gap);
+}
