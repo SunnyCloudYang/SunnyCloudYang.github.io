@@ -172,8 +172,10 @@
     let homo_str2 = " = (114-51)*4+(-11-4+5+14)+1+1+(4+5)*14+11-4-5+14-11-4+5+14";
     let homo_str = Math.round(Math.random()) ? homo_str1 : homo_str2;
     let typed = new Typed('#typed', {
-        strings: [homo_str, " = "+"Seems nobody alive, but you and me"],
-        startDelay: 100,
+        strings: [" ", homo_str, " = "+"Seems nobody alive, but you and me"],
+        startDelay: 1000,
+        typeSpeed: 40,
+        backDelay: 2000,
         onComplete: (self) => {
             setTimeout(() => {
                 self.cursor.innerHTML = '&nbsp;';
