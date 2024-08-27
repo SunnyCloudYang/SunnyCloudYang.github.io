@@ -30,14 +30,40 @@
     <loc>https://sunnycloudyang.github.io/friends/revolver/</loc>
     <lastmod>2023-10-08T17:21:40+08:00</lastmod>
   </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
-    <lastmod>2024-03-05T00:10:05+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/tags/gadgets/</loc>
+    <lastmod>2024-08-27T23:39:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/tags/gadgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/tags/gadgets/"
+                />
   </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
-    <lastmod>2024-03-05T00:10:05+08:00</lastmod>
+    <loc>https://sunnycloudyang.github.io/categories/gadgets/</loc>
+    <lastmod>2024-08-27T23:39:50+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/categories/gadgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/categories/gadgets/"
+                />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/lipsum/</loc>
+    <lastmod>2024-08-27T23:39:50+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/tools/</loc>
+    <lastmod>2024-08-27T23:39:50+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/</loc>
-    <lastmod>2024-05-08T13:56:03+08:00</lastmod>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,7 +76,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/</loc>
-    <lastmod>2024-05-08T13:56:03+08:00</lastmod>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -63,7 +89,7 @@
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/categories/</loc>
-    <lastmod>2024-05-08T13:56:03+08:00</lastmod>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -74,6 +100,24 @@
                 hreflang="zh-CN"
                 href="https://sunnycloudyang.github.io/categories/"
                 />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/gadgets/chinese-lorem-ipsum/</loc>
+    <lastmod>2024-08-27T23:39:50+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/categories/diary/</loc>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/flask/</loc>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/vercel/</loc>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/posts/vercel-with-flask/</loc>
+    <lastmod>2024-08-28T01:34:35+08:00</lastmod>
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
+    <lastmod>2024-03-05T00:10:05+08:00</lastmod>
   </url><url>
     <loc>https://sunnycloudyang.github.io/diary/comeback_week1/</loc>
     <lastmod>2024-03-05T00:10:05+08:00</lastmod>
@@ -109,32 +153,6 @@
   </url><url>
     <loc>https://sunnycloudyang.github.io/posts/stm32h745record/</loc>
     <lastmod>2024-02-03T22:29:50+08:00</lastmod>
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/tags/gadgets/</loc>
-    <lastmod>2023-11-16T22:13:28+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/tags/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/tags/gadgets/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/categories/gadgets/</loc>
-    <lastmod>2023-11-16T22:13:28+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/categories/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/categories/gadgets/"
-                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/gadgets/backrooms/</loc>
     <lastmod>2023-11-16T22:13:28+08:00</lastmod>

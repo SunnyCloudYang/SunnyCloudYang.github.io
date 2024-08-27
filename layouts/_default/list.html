@@ -91,7 +91,11 @@
     </div> <!--custom-->
     {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+    {{- if .Page.Params.Permalink }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Page.Params.Permalink }}"></a>
+    {{- else }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}"></a>
+    {{- end }}
 </article>
 {{- end }}
 
