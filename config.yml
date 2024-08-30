@@ -171,7 +171,8 @@ params:
     # images: ["papermod-cover.png"]
     disableBusuanzi: false
     enableGtag: true
-    csp: "default-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com sunnycloudyang.github.io origakid.top use.fontawesome.com unpkg.com;"
+    csp: "default-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com sunnycloudyang.github.io origakid.top use.fontawesome.com unpkg.com giscus.app cdn.skypack.dev;report-uri /csp-report;"
+    cspReportOnly: true
 
     ShowAllPagesInArchive: true
     # mainSections: ["posts", "diary"]

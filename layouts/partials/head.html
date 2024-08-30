@@ -9,7 +9,11 @@
 
 {{- /* Content Secure Policy */}}
 {{- if site.Params.csp }}
+{{ if site.Params.cspReportOnly -}}
+<meta http-equiv="Content-Security-Policy-Report-Only" content="{{ site.Params.csp }}">
+{{- else -}}
 <meta http-equiv="Content-Security-Policy" content="{{ site.Params.csp }}">
+{{- end }}
 {{- end }}
 
 {{- /* Title */}}
