@@ -2,7 +2,6 @@
 {{ else }}
 {{ warnf "missing value for param 'summary': %s" .Position }}
 {{ end }}
-<p>
 <details {{ if (eq (.Get "openByDefault" ) true) }} open=true {{ end }}>
   <summary class="custom-collapse">
     <div class="collapse-arrow">
@@ -18,4 +17,3 @@
     {{- .Inner | markdownify -}}
   </span>
 </details>
-</p>

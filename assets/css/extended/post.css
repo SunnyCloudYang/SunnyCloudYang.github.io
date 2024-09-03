@@ -132,7 +132,7 @@
 .post-content .highlight .code-titlebar {
     border-radius: var(--radius) var(--radius) 0 0;
     background-color: var(--border);
-    padding: 4px var(--gap);
+    padding: 4px 16px;
     color: var(--secondary);
     font-size: .75em;
     font-family: consolas, Menlo, pingfang sc, microsoft yahei, sans-serif;
@@ -194,6 +194,8 @@
     transition: 0.15s;
     color: rgb(255, 255, 255);
     background: rgb(78, 78, 78);
+    border-radius: 4px;
+    line-height: 22px;
 }
 
 div.highlight > div:hover .copy-code {

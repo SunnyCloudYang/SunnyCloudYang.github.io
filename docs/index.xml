@@ -71,12 +71,12 @@
     </item>
     
     <item>
-      <title>在vercel上免费部署一个flask后端</title>
+      <title>在 Vercel 上免费部署一个 flask 后端</title>
       <link>https://sunnycloudyang.github.io/posts/vercel-with-flask/</link>
       <pubDate>Tue, 27 Aug 2024 00:56:30 +0800</pubDate>
       
       <guid>https://sunnycloudyang.github.io/posts/vercel-with-flask/</guid>
-      <description>当你需要一个不用数据库的后端和一个已经完成的前端时，可以使用vercel很方便地一站式部署这两个项目，免去买服务器的麻烦</description>
+      <description>当你需要一个不用数据库的后端和一个已经完成的前端时，可以使用 Vercel 很方便地一站式部署这两个项目，免去买服务器的麻烦</description>
     </item>
     
     <item>
