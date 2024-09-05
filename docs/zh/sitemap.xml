@@ -109,12 +109,42 @@
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/flask/</loc>
     <lastmod>2024-09-03T23:29:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/tags/flask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/tags/flask/"
+                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/vercel/</loc>
     <lastmod>2024-09-03T23:29:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/tags/vercel/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/tags/vercel/"
+                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/posts/vercel-with-flask/</loc>
     <lastmod>2024-09-03T23:29:36+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/posts/vercel-with-flask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/posts/vercel-with-flask/"
+                />
   </url><url>
     <loc>https://sunnycloudyang.github.io/tags/diary/</loc>
     <lastmod>2024-03-05T00:10:05+08:00</lastmod>
