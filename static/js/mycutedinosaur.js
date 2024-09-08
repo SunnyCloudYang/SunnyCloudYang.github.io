@@ -58,6 +58,7 @@ let balls = [],
 
 let showHelper = false;
 const dinosaurdiv = document.getElementById('dinosaurdiv');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
 
 function init() {
     threeInit();
@@ -74,6 +75,17 @@ function init() {
     addContactMaterial();
 
     addBalls(randInt(10, 20));
+
+    fullscreenBtn.addEventListener('click', () => {
+        if (!toggle) {
+            dinosaurdiv.requestFullscreen();
+            toggle = true;
+        }
+        else {
+            document.exitFullscreen();
+            toggle = false;
+        }
+    });
 }
 
 function threeInit() {
