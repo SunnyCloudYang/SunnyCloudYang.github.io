@@ -77,13 +77,21 @@ function init() {
     addBalls(randInt(10, 20));
 
     fullscreenBtn.addEventListener('click', () => {
-        if (!toggle) {
-            dinosaurdiv.requestFullscreen();
-            toggle = true;
+        if (!document.fullscreenElement) {
+            dinosaurdiv.requestFullscreen().then(() => {
+                console.log('Entered full-screen mode');
+                onWindowResize();
+            }).catch((err) => {
+                console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            });
         }
         else {
-            document.exitFullscreen();
-            toggle = false;
+            document.exitFullscreen().then(() => {
+                console.log('Exited full-screen mode');
+                onWindowResize();
+            }).catch((err) => {
+                console.log(`Error attempting to exit full-screen mode: ${err.message} (${err.name})`);
+            });
         }
     });
 }
@@ -131,17 +139,8 @@ function threeInit() {
     const canvas = dinosaurdiv.appendChild(renderer.domElement);
     window.addEventListener('resize', onWindowResize, false);
 
-    outlinePass = new OutlinePass(new THREE.Vector2(width, height), scene, camera);
-    outlinePass.edgeStrength = 1.0;
-    outlinePass.edgeGlow = 1.0;
-    outlinePass.edgeThickness = 1.0;
-    outlinePass.pulsePeriod = 0;
-    outlinePass.visibleEdgeColor.set('#79bd69');
-    outlinePass.hiddenEdgeColor.set('#190a05');
-    // outlinePass.selectedObjects = [dinosaur.group];
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-    composer.addPass(outlinePass);
 }
 
 function cannonInit() {
@@ -277,10 +276,11 @@ function onWindowResize() {
     width = dinosaurdiv.clientWidth;
     height = dinosaurdiv.clientHeight;
 
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-
-    renderer.setSize(width, height);
 }
 
 function themeToggle() {

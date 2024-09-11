@@ -73,19 +73,18 @@ function init() {
 
 
     const canvas = mazeCanvas.appendChild(renderer.domElement);
+    document.getElementById('fullscreenBtn').addEventListener('click', () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            mazeCanvas.requestFullscreen();
+        }
+        onWindowResize();
+    });
     window.addEventListener('resize', onWindowResize, false);
 
-    outlinePass = new OutlinePass(new THREE.Vector2(width, height), scene, camera);
-    outlinePass.edgeStrength = 1.0;
-    outlinePass.edgeGlow = 1.0;
-    outlinePass.edgeThickness = 1.0;
-    outlinePass.pulsePeriod = 0;
-    outlinePass.visibleEdgeColor.set('#79bd69');
-    outlinePass.hiddenEdgeColor.set('#190a05');
-    // outlinePass.selectedObjects = [dinosaur.group];
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-    composer.addPass(outlinePass);
 
     size = Number(document.getElementById('sizeBar').value);
     easy = Number(document.getElementById('easyBar').value);
@@ -305,14 +304,24 @@ function addListeners() {
         size = Number(document.getElementById('sizeBar').value);
         document.getElementById('sizeLabel').innerHTML = size;
     });
+    
+    document.getElementById('sizeBar').addEventListener('mouseup', regenerateMaze);
+    document.getElementById('sizeBar').addEventListener('touchend', regenerateMaze);
+    
     document.getElementById('easyBar').addEventListener('input', () => {
         easy = Number(document.getElementById('easyBar').value);
         document.getElementById('easyLabel').innerHTML = easy;
     });
-    document.getElementById('startGame').addEventListener('click', () => {
-        scene.children = [];
-        addObjs(size, easy);
-    });
+    
+    document.getElementById('easyBar').addEventListener('mouseup', regenerateMaze);
+    document.getElementById('easyBar').addEventListener('touchend', regenerateMaze);
+    
+    document.getElementById('startGame').addEventListener('click', regenerateMaze);
+}
+
+function regenerateMaze() {
+    scene.children = [];
+    addObjs(size, easy);
 }
 
 function animate() {

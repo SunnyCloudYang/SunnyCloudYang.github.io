@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-11-15T14:38:58+08:00"
-lastmod: "2023-11-16T22:13:28+08:00"
+lastmod: "2024-09-08T19:33:48+08:00"
 description: "小心哦，不要卡进去了"
 title: "后室·Demo"
 summary: "如果你卡进来了，请不要惊慌"
@@ -50,7 +50,8 @@ three: true
             </div>
         </div>
     </div>
-        <div id="maze-container"></div>
+        <div id="maze-container">
+        </div>
     <div class="mask" id="mask" style="display:none;">
     <div id="help" style="display:none;">
         <h1>Help</h1>
@@ -62,6 +63,8 @@ three: true
         <button class="closeBtn" id="closeBtn">Close</button>
     </div>
     </div>
-    <div id="solidMaze"></div>
+    <div id="solidMaze">
+        <i id="fullscreenBtn" class="fa fa-expand" style="position: absolute;margin:10px;right:0;color:rgba(240,240,240,0.8);z-index:999;"></i>
+    </div>
 </div>
 {{< /rawhtml >}}
