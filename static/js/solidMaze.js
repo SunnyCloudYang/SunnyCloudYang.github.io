@@ -5,7 +5,6 @@ import Stats from 'three/addons/libs/stats.module.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 
 import * as CANNON from 'cannon-es';
 import CannonDebugger from 'cannon-es-debugger';
@@ -22,11 +21,11 @@ let scene,
     directionalLight,
     renderer,
     composer,
-    outlinePass,
     controls,
     stats,
     toggle = false,
-    night = false;
+    night = false,
+    displayAnimation;
 
 let maze,
     size,
@@ -59,8 +58,8 @@ function init() {
     controls.maxDistance = 30;
     controls.minPolarAngle = deg2rad(10);
     controls.maxPolarAngle = deg2rad(90);
-    controls.autoRotate = false;
-    controls.autoRotateSpeed = 0.5;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -0.5;
     controls.enablePan = true;
     controls.enableKeys = true;
     controls.update();
@@ -89,7 +88,7 @@ function init() {
     size = Number(document.getElementById('sizeBar').value);
     easy = Number(document.getElementById('easyBar').value);
 
-    addObjs(size, easy);
+    regenerateMaze();
 }
 
 function addObjs(size, easy) {
@@ -136,7 +135,7 @@ function addCeil(size) {
     ceil.rotation.x = -Math.PI / 2;
     ceil.position.x = -0.5;
     ceil.position.y = 1.37;
-    ceil.position.z = 0.5;
+    ceil.position.z = -0.5;
     ceil.receiveShadow = true;
     ceil.castShadow = false;
     scene.add(ceil);
@@ -154,13 +153,13 @@ function addMaze(maze) {
     const monsterGroup = new THREE.Group();
     const propGroup = new THREE.Group();
     const keyGroup = new THREE.Group();
-    
+
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
             if (maze[i][j] === 1) {
                 const cube = new THREE.Mesh(geometry, getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
-                cube.position.z = -(i - maze.length / 2);
+                cube.position.z = (i - maze.length / 2);
                 cube.receiveShadow = true;
                 cube.castShadow = true;
                 mazeGroup.add(cube);
@@ -168,14 +167,14 @@ function addMaze(maze) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
-                cube.position.z = -(i - maze.length / 2);
+                cube.position.z = (i - maze.length / 2);
                 cube.receiveShadow = true;
                 cube.castShadow = true;
 
                 const prop = new THREE.Mesh(new THREE.SphereGeometry(0.2), new THREE.MeshLambertMaterial({ color: 0x22ee22 }));
                 prop.position.x = j - maze.length / 2;
                 prop.position.y = 0.6;
-                prop.position.z = -(i - maze.length / 2);
+                prop.position.z = (i - maze.length / 2);
                 prop.receiveShadow = true;
                 prop.castShadow = true;
 
@@ -185,14 +184,14 @@ function addMaze(maze) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
-                cube.position.z = -(i - maze.length / 2);
+                cube.position.z = (i - maze.length / 2);
                 cube.receiveShadow = true;
                 cube.castShadow = true;
 
                 const monster = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), new THREE.MeshLambertMaterial({ color: 0xdd2222 }));
                 monster.position.x = j - maze.length / 2;
                 monster.position.y = 0.4;
-                monster.position.z = -(i - maze.length / 2);
+                monster.position.z = (i - maze.length / 2);
                 monster.receiveShadow = true;
                 monster.castShadow = true;
 
@@ -202,14 +201,14 @@ function addMaze(maze) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
-                cube.position.z = -(i - maze.length / 2);
+                cube.position.z = (i - maze.length / 2);
                 cube.receiveShadow = true;
                 cube.castShadow = true;
 
                 const cone = new THREE.Mesh(new THREE.ConeGeometry(0.2, 0.5, 12), new THREE.MeshLambertMaterial({ color: 0xaa66aa }));
                 cone.position.x = j - maze.length / 2;
                 cone.position.y = 0.6;
-                cone.position.z = -(i - maze.length / 2);
+                cone.position.z = (i - maze.length / 2);
                 cone.receiveShadow = true;
                 cone.castShadow = true;
                 
@@ -218,14 +217,14 @@ function addMaze(maze) {
             } else if (maze[i][j] === -1) {
                 const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2.8, 32), new THREE.MeshLambertMaterial({ color: 0xdd9933 }));
                 cylinder.position.x = j - maze.length / 2;
-                cylinder.position.z = -(i - maze.length / 2);
+                cylinder.position.z = (i - maze.length / 2);
                 cylinder.receiveShadow = true;
                 cylinder.castShadow = true;
                 mazeGroup.add(cylinder);
             } else if (maze[i][j] === -2) {
                 const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2.8, 32), new THREE.MeshLambertMaterial({ color: 0x3388cc }));
                 cylinder.position.x = j - maze.length / 2;
-                cylinder.position.z = -(i - maze.length / 2);
+                cylinder.position.z = (i - maze.length / 2);
                 cylinder.receiveShadow = true;
                 cylinder.castShadow = true;
                 mazeGroup.add(cylinder);
@@ -269,7 +268,7 @@ function addPath(maze) {
         const cube = new THREE.Mesh(geometry, material);
         cube.position.x = path[i][1] - maze.length / 2;
         cube.position.y = 1.38;
-        cube.position.z = -(path[i][0] - maze.length / 2);
+        cube.position.z = (path[i][0] - maze.length / 2);
         cube.receiveShadow = true;
         cube.castShadow = true;
         pathGroup.add(cube);
@@ -315,17 +314,16 @@ function addListeners() {
     
     document.getElementById('easyBar').addEventListener('mouseup', regenerateMaze);
     document.getElementById('easyBar').addEventListener('touchend', regenerateMaze);
-    
-    document.getElementById('startGame').addEventListener('click', regenerateMaze);
 }
 
 function regenerateMaze() {
     scene.children = [];
     addObjs(size, easy);
+    composer.render(scene, camera);
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+    displayAnimation = requestAnimationFrame(animate);
 
     controls.update();
     stats.update();
@@ -333,6 +331,15 @@ function animate() {
     composer.render(scene, camera);
 }
 
+function stopDisplay() {
+    cancelAnimationFrame(displayAnimation);
+}
+
+function beginDisplay() {
+    animate();
+}
+
 init();
-animate();
 addListeners();
+
+export { scene, camera, renderer, controls, stats, maze, size, stopDisplay, beginDisplay };

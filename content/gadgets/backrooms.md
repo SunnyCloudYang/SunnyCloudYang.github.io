@@ -15,7 +15,7 @@ hideMeta: false
 searchHidden: false
 ShowBreadCrumbs: true
 ShowReadingTime: false
-js: ["/js/maze.js", "/js/solidMaze.js"]
+js: ["/js/maze.js", "/js/solidMaze.js", "/js/mazeGame.js"]
 css: ["/css/maze.css"]
 three: true
 ---
