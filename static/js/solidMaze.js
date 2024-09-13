@@ -16,6 +16,16 @@ const mazeCanvas = document.getElementById('solidMaze');
 let width = mazeCanvas.clientWidth;
 let height = mazeCanvas.clientHeight;
 
+const MazeObject = {
+    Wall: 1,
+    Path: 0,
+    Prop: 3,
+    Monster: 4,
+    Key: 5,
+    Start: -1,
+    End: -2
+}
+
 let scene,
     camera,
     directionalLight,
@@ -37,7 +47,7 @@ function init() {
     // console.log(width, height);
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
     camera.position.x = -5;
     camera.position.y = 3;
     camera.position.z = 8;
@@ -92,38 +102,60 @@ function init() {
 }
 
 function addObjs(size, easy) {
+    maze = generateMap(size, easy);
     addLights();
     addFloor(size);
     addCeil(size);
-    maze = generateMap(size, easy);
     addMaze(maze);
     addPath(maze);
 }
 
 function addLights() {
-    directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(-10, 10, 10);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.camera.top = 20;
-    directionalLight.shadow.camera.bottom = -20;
-    directionalLight.shadow.camera.left = -20;
-    directionalLight.shadow.camera.right = 20;
-    directionalLight.shadow.camera.near = 0.1;
-    directionalLight.shadow.camera.far = 100;
-    directionalLight.shadow.mapSize.width = 1024;
-    directionalLight.shadow.mapSize.height = 1024;
-    scene.add(directionalLight);
+    // directionalLight = new THREE.SpotLight(0xffffff, 0.5);
+    // directionalLight.position.set(0, 10, 0);
+    // directionalLight.angle = 0.5;
+    // directionalLight.castShadow = false;
+    // directionalLight.intensity = 0.5;
+    // directionalLight.penumbra = 1;
+    // scene.add(directionalLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    for (let i = 1; i < maze.length; i+=5) {
+        for (let j = 1; j < maze[i].length; j+=5) {
+            if (maze[i][j] === 0) {
+                const bubble = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI), new THREE.MeshLambertMaterial({ color: 0xffff99 }));
+                bubble.position.x = j - maze.length / 2;
+                bubble.position.y = 1.35;
+                bubble.position.z = (i - maze.length / 2);
+                bubble.receiveShadow = false;
+                bubble.castShadow = false;
+                scene.add(bubble);
+
+                const bubbleLight = new THREE.SpotLight(0xfffffc);
+                bubbleLight.position.set(bubble.position.x, bubble.position.y+0.05, bubble.position.z);
+                bubbleLight.castShadow = false;
+                bubbleLight.intensity = 0.25;
+                bubbleLight.penumbra = 1;
+                bubbleLight.target = bubble;
+                // bubbleLight.shadow.mapSize.width = 1024;
+                // bubbleLight.shadow.mapSize.height = 1024;
+                // bubbleLight.shadow.camera.near = 0.1;
+                // bubbleLight.shadow.camera.far = 10;
+                // bubbleLight.shadow.camera.fov = 30;
+                scene.add(bubbleLight);
+            }
+        }
+    }
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
     scene.add(ambientLight);
 }
 
 function addFloor(size) {
     const floorGeometry = new THREE.PlaneGeometry(size, size);
-    const floorMaterial = new THREE.MeshLambertMaterial({ color: 0xccbb22 });
+    const floorMaterial = new THREE.MeshPhongMaterial({ color: 0xccbb22, side: THREE.DoubleSide });
     const floor = new THREE.Mesh(floorGeometry, floorMaterial);
     floor.rotation.x = -Math.PI / 2;
-    floor.position.y = -1.4;
+    floor.position.y = -1.39;
     floor.receiveShadow = true;
     scene.add(floor);
 }
@@ -143,11 +175,11 @@ function addCeil(size) {
 
 function addMaze(maze) {
     const geometry = new THREE.BoxGeometry(1, 2.8, 1);
-    const materialWall = new THREE.MeshLambertMaterial({ color: 0xaaaa66 });
+    const materialWall = new THREE.MeshPhongMaterial({ color: 0xaaaa66, side: THREE.DoubleSide });
     const materialPath = new THREE.MeshLambertMaterial({ color: 0xffffff });
-    const materialProp = new THREE.MeshLambertMaterial({ color: 0x22ee22 });
-    const materialMonster = new THREE.MeshLambertMaterial({ color: 0xdd2222 });
-    const materialKey = new THREE.MeshLambertMaterial({ color: 0xaa66aa });
+    const materialProp = new THREE.MeshLambertMaterial({ color: 0x22ee22, side: THREE.DoubleSide });
+    const materialMonster = new THREE.MeshLambertMaterial({ color: 0xdd2222, side: THREE.DoubleSide });
+    const materialKey = new THREE.MeshLambertMaterial({ color: 0xaa66aa, side: THREE.DoubleSide });
 
     const mazeGroup = new THREE.Group();
     const monsterGroup = new THREE.Group();
@@ -156,14 +188,14 @@ function addMaze(maze) {
 
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
-            if (maze[i][j] === 1) {
+            if (maze[i][j] === MazeObject.Wall) {
                 const cube = new THREE.Mesh(geometry, getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.z = (i - maze.length / 2);
                 cube.receiveShadow = true;
                 cube.castShadow = true;
                 mazeGroup.add(cube);
-            } else if (maze[i][j] === 3) {
+            } else if (maze[i][j] === MazeObject.Prop) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
@@ -180,7 +212,7 @@ function addMaze(maze) {
 
                 propGroup.add(prop);
                 propGroup.add(cube);
-            } else if (maze[i][j] === 4) {
+            } else if (maze[i][j] === MazeObject.Monster) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
@@ -197,7 +229,7 @@ function addMaze(maze) {
 
                 monsterGroup.add(monster);
                 mazeGroup.add(cube);
-            } else if (maze[i][j] === 5) {
+            } else if (maze[i][j] === MazeObject.Key) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
                 cube.position.y = 1.39;
@@ -214,19 +246,19 @@ function addMaze(maze) {
                 
                 mazeGroup.add(cube);
                 keyGroup.add(cone);
-            } else if (maze[i][j] === -1) {
+            } else if (maze[i][j] === MazeObject.Start) {
                 const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2.8, 32), new THREE.MeshLambertMaterial({ color: 0xdd9933 }));
                 cylinder.position.x = j - maze.length / 2;
                 cylinder.position.z = (i - maze.length / 2);
                 cylinder.receiveShadow = true;
-                cylinder.castShadow = true;
+                cylinder.castShadow = false;
                 mazeGroup.add(cylinder);
-            } else if (maze[i][j] === -2) {
+            } else if (maze[i][j] === MazeObject.End) {
                 const cylinder = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 2.8, 32), new THREE.MeshLambertMaterial({ color: 0x3388cc }));
                 cylinder.position.x = j - maze.length / 2;
                 cylinder.position.z = (i - maze.length / 2);
                 cylinder.receiveShadow = true;
-                cylinder.castShadow = true;
+                cylinder.castShadow = false;
                 mazeGroup.add(cylinder);
             }
         }
@@ -238,10 +270,10 @@ function addMaze(maze) {
 
     function getMaterial(value) {
         switch (value) {
-            case 1: return materialWall;
-            case 3: return materialProp;
-            case 4: return materialMonster;
-            case 5: return materialKey;
+            case MazeObject.Wall: return materialWall;
+            case MazeObject.Prop: return materialProp;
+            case MazeObject.Monster: return materialMonster;
+            case MazeObject.Key: return materialKey;
             default: return materialPath;
         }
     }

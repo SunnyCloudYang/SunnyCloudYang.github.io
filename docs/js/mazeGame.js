@@ -1,16 +1,17 @@
 import { scene, renderer, camera, controls, stats, maze, size, stopDisplay, beginDisplay } from './solidMaze.js';
 import * as THREE from 'three';
 
-let player, raycaster, cameraContainer;
+let player, flashLight, cameraContainer;
 let gameAnimation;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let basicSpeed = 2;
 let speed = basicSpeed;
 let prevTime = performance.now();
-let gap = 0.1;
+let gap = 0.2,
+    sensitivity = 0.002;
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
-const gameCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+const gameCamera = new THREE.PerspectiveCamera();
 
 function init() {
     // Disable OrbitControls
@@ -20,7 +21,7 @@ function init() {
     scene.remove(player);
 
     // Set up player
-    let playerGeometry = new THREE.SphereGeometry(gap, 32, 32);
+    let playerGeometry = new THREE.SphereGeometry(gap, 32, 32, 0, Math.PI*2, 0, Math.PI/2);
     player = new THREE.Mesh(
         playerGeometry,
         new THREE.MeshBasicMaterial({ color: 0x00ff00 })
@@ -33,14 +34,25 @@ function init() {
     cameraContainer = new THREE.Object3D();
     cameraContainer.position.set(0, 0, 0);
     cameraContainer.rotation.set(0, -Math.PI/2, 0);
+    gameCamera.far = 100;
+    gameCamera.aspect = screen.width / screen.height;
+    gameCamera.position.set(0, -0.8, 0);
+    gameCamera.rotation.set(0, 0, 0);
+    gameCamera.updateProjectionMatrix();
     player.add(cameraContainer);
     cameraContainer.add(gameCamera);
-    gameCamera.position.set(0, -0.8, 0); // Adjust camera height
-    gameCamera.rotation.set(0, 0, 0);
-    // gameCamera.lookAt(player.position);
 
-    // Set up raycaster for collision detection
-    raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, -1, 0), 0, 10);
+    flashLight = new THREE.SpotLight(0xffffff, 0.5);
+    flashLight.position.set(-0.1, -0.8, 0);
+    flashLight.target = gameCamera;
+    flashLight.angle = Math.PI / 6;
+    flashLight.castShadow = true;
+    flashLight.intensity = 0.4;
+    flashLight.penumbra = 1;
+    player.add(flashLight);
+
+    // const directionalLightHelper = new THREE.SpotLightHelper(flashLight);
+    // scene.add(directionalLightHelper);
     
     // Add event listeners
     document.addEventListener('keydown', onKeyDown);
@@ -113,8 +125,9 @@ function onKeyUp(event) {
 
 function onMouseMove(event) {
     if (document.pointerLockElement === document.body) {
-        player.rotation.y -= event.movementX * 0.002;
-        gameCamera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, gameCamera.rotation.x - event.movementY * 0.002));
+        player.rotation.y -= event.movementX * sensitivity;
+        gameCamera.rotation.x = Math.max(-5 * Math.PI / 12, Math.min(5 * Math.PI / 12, gameCamera.rotation.x - event.movementY * sensitivity));
+        flashLight.position.y = -0.8 - 0.1 * Math.tan(gameCamera.rotation.x);
     }
 }
 
@@ -160,7 +173,6 @@ function update() {
 
     player.translateX(velocity.x * delta);
     player.translateZ(velocity.z * delta);
-        
     prevTime = time;
 }
 
