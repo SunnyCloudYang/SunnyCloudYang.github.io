@@ -1,7 +1,7 @@
-import { scene, camera, renderer, controls, stats, maze, size, stopDisplay, beginDisplay } from './solidMaze.js';
+import { scene, renderer, camera, controls, stats, maze, size, stopDisplay, beginDisplay } from './solidMaze.js';
 import * as THREE from 'three';
 
-let player, raycaster;
+let player, raycaster, cameraContainer;
 let gameAnimation;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let basicSpeed = 2;
@@ -10,9 +10,7 @@ let prevTime = performance.now();
 let gap = 0.1;
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
-
-const originCameraPosition = camera.position.clone();
-const originCameraRotation = camera.rotation.clone();
+const gameCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 function init() {
     // Disable OrbitControls
@@ -32,10 +30,14 @@ function init() {
     scene.add(player);
 
     // Attach camera to player
-    player.add(camera);
-    camera.position.set(0, -0.8, 0); // Adjust camera height
-    camera.rotation.set(0, -Math.PI/2, 0);
-    // camera.lookAt(player.position);
+    cameraContainer = new THREE.Object3D();
+    cameraContainer.position.set(0, 0, 0);
+    cameraContainer.rotation.set(0, -Math.PI/2, 0);
+    player.add(cameraContainer);
+    cameraContainer.add(gameCamera);
+    gameCamera.position.set(0, -0.8, 0); // Adjust camera height
+    gameCamera.rotation.set(0, 0, 0);
+    // gameCamera.lookAt(player.position);
 
     // Set up raycaster for collision detection
     raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, -1, 0), 0, 10);
@@ -112,7 +114,7 @@ function onKeyUp(event) {
 function onMouseMove(event) {
     if (document.pointerLockElement === document.body) {
         player.rotation.y -= event.movementX * 0.002;
-        // camera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, camera.rotation.x - event.movementY * 0.002));
+        gameCamera.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, gameCamera.rotation.x - event.movementY * 0.002));
     }
 }
 
@@ -173,13 +175,11 @@ function animate() {
     gameAnimation = requestAnimationFrame(animate);
     update();
     stats.update();
-    renderer.render(scene, camera);
+    renderer.render(scene, gameCamera);
 }
 
 function deinit() {
     cancelAnimationFrame(gameAnimation);
-    camera.position.copy(originCameraPosition);
-    camera.rotation.copy(originCameraRotation);
     document.removeEventListener('keydown', onKeyDown);
     document.removeEventListener('keyup', onKeyUp);
     document.removeEventListener('mousemove', onMouseMove);
