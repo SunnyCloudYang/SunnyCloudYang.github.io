@@ -6,7 +6,7 @@
     <description>Recent content on Fanta Mud Pee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Sep 2024 14:59:18 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Oct 2024 14:50:14 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Some Explanationsᵀᴼᴾ</title>
       <link>https://sunnycloudyang.github.io/en/posts/post/</link>
@@ -15,6 +15,8 @@
       <guid>https://sunnycloudyang.github.io/en/posts/post/</guid>
       <description>Happy to see you here.</description>
     </item>
+    
+    
     
     <item>
       <title>Deploy flask api with Vercel</title>
@@ -42,8 +44,6 @@
       <guid>https://sunnycloudyang.github.io/en/posts/post1/</guid>
       <description>It&amp;#39;s my first post, machine-translated, ugly, and meaningless.</description>
     </item>
-    
-    
     
   </channel>
 </rss>

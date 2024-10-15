@@ -10,18 +10,42 @@
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
         <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
     </span>
+    <br>
     {{- if (not site.Params.disableBusuanzi) }}
     <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
     </script>
     {{- if not .IsPage }}
     <span id="busuanzi_container_site_pv" style='display:none'>
-        | {{ i18n "total_visit" }}<span id="busuanzi_value_site_pv"></span> {{- i18n "times" }}
+        {{ i18n "total_visit" }}<span id="busuanzi_value_site_pv"></span> {{- i18n "times" }}
     </span>
     {{- else }}
     <span id="busuanzi_container_page_pv" style='display:none'>
-        | {{ i18n "total_visit" }}<span id="busuanzi_value_page_pv"></span>{{- i18n "times" }}
+        {{ i18n "total_visit" }}<span id="busuanzi_value_page_pv"></span>{{- i18n "times" }}
     </span>
     {{- end }}
+    {{- end }}
+    {{- if not .IsPage }}
+        {{- if .IsHome }}
+        | <span id="last_change">
+        {{ i18n "last_change" }}{{ .Site.Lastmod | time.Format ":date_long" }}
+        </span>
+        {{- end }}
+
+        {{- if .IsSection }}
+        {{ with (index (.Pages.ByLastmod.Reverse | first 1) 0) }}
+            {{ if .Lastmod }}
+                | <span id="last_change">
+                    {{ .CurrentSection.Title }}
+                    {{ i18n "last_change" }}
+                    {{ .Lastmod | time.Format ":date_long" }}
+                </span>
+            {{ end }}
+        {{ end }}
+        {{ end }}
+    {{- else }}
+    | <span id="last_change">
+        {{ i18n "last_change" }}{{ .Lastmod | time.Format ":date_long" }}
+    </span>
     {{- end }}
 </footer>
 {{- end }}

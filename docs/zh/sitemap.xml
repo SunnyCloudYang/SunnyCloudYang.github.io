@@ -152,6 +152,32 @@
                 href="https://sunnycloudyang.github.io/posts/vercel-with-flask/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/archives/</loc>
+    <lastmod>2024-05-08T06:01:44+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/archives/"
+                />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/search/</loc>
+    <lastmod>2024-05-08T06:01:44+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/search/"
+                />
+  </url><url>
     <loc>https://sunnycloudyang.github.io/diary/comeback_week1/</loc>
     <lastmod>2024-03-05T00:10:05+08:00</lastmod>
   </url><url>
@@ -387,29 +413,5 @@
     <loc>https://sunnycloudyang.github.io/woodblock/woodblock/</loc>
   </url><url>
     <loc>https://sunnycloudyang.github.io/woodblock/</loc>
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/archives/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/archives/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/search/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/search/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/search/"
-                />
   </url>
 </urlset>

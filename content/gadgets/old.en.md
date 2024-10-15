@@ -2,6 +2,7 @@
 author: "Yang"
 title: "Bounce Balls"
 date: "2023-01-17T17:00:00+08:00"
+lastmod: "2023-01-17T17:00:00+08:00"
 summary: "Some toys I made before, take a look?"
 description: "Generate your own universe in this simulator"
 tags: ["gadgets"]

@@ -13,7 +13,41 @@
       <pubDate>Fri, 24 Mar 2023 00:05:45 +0800</pubDate>
       
       <guid>https://sunnycloudyang.github.io/xjbchat/quesbox/</guid>
-      <description>自由选择，随心发问。类GPT，主打一个瞎jb聊。</description>
+      <description>&lt;p&gt;自由选择，随心发问。类GPT，主打一个瞎jb聊。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://sunnycloudyang.github.io/images/100questions.jpg&#34; alt=&#34;无意义100问&#34;  /&gt;
+&lt;/p&gt;
+&lt;!-- &lt;div id=&#34;quesdiv-out&#34;&gt;
+    &lt;div id=&#34;quesdiv&#34;&gt;
+        &lt;iframe id=&#34;quesbox&#34;
+            src=&#34;https://closed.social/askMe/candonothing/emzzthalacpwnuow/&#34;
+            frameborder=&#34;0&#34;
+            width=&#34;100%&#34;
+            height=&#34;800px&#34;
+            scrolling=&#34;no&#34;
+            object-fit=&#34;cover&#34;
+            object-position=&#34;top left&#34;
+            sandbox=&#34;allow-scripts allow-same-origin allow-popups allow-forms&#34;&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const quesbox = document.getElementById(&#34;quesbox&#34;);
+    window.addEventListener(&#34;message&#34;, function(event) {
+        if (event.origin !== &#34;https://closed.social&#34;)
+            return;
+        if (event.data.type === &#34;resize&#34; &amp;&amp; event.data.height) {
+            quesbox.style.height = event.data.height + &#34;px&#34;;
+        }
+    }, false);
+
+    quesbox.onload = function() {
+        quesbox.contentWindow.postMessage({
+            type: &#34;init&#34;,
+            height: quesbox.clientHeight
+        }, &#34;https://closed.social&#34;);
+    };
+&lt;/script&gt; --&gt;</description>
     </item>
     
   </channel>

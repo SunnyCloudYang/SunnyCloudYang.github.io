@@ -88,6 +88,8 @@
       <description>当你需要一个不用数据库的后端和一个已经完成的前端时，可以使用 Vercel 很方便地一站式部署这两个项目，免去买服务器的麻烦</description>
     </item>
     
+    
+    
     <item>
       <title>弱势回归，偶尔探头</title>
       <link>https://sunnycloudyang.github.io/diary/comeback_week1/</link>
@@ -238,7 +240,41 @@
       <pubDate>Fri, 24 Mar 2023 00:05:45 +0800</pubDate>
       
       <guid>https://sunnycloudyang.github.io/xjbchat/quesbox/</guid>
-      <description>自由选择，随心发问。类GPT，主打一个瞎jb聊。</description>
+      <description>&lt;p&gt;自由选择，随心发问。类GPT，主打一个瞎jb聊。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://sunnycloudyang.github.io/images/100questions.jpg&#34; alt=&#34;无意义100问&#34;  /&gt;
+&lt;/p&gt;
+&lt;!-- &lt;div id=&#34;quesdiv-out&#34;&gt;
+    &lt;div id=&#34;quesdiv&#34;&gt;
+        &lt;iframe id=&#34;quesbox&#34;
+            src=&#34;https://closed.social/askMe/candonothing/emzzthalacpwnuow/&#34;
+            frameborder=&#34;0&#34;
+            width=&#34;100%&#34;
+            height=&#34;800px&#34;
+            scrolling=&#34;no&#34;
+            object-fit=&#34;cover&#34;
+            object-position=&#34;top left&#34;
+            sandbox=&#34;allow-scripts allow-same-origin allow-popups allow-forms&#34;&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const quesbox = document.getElementById(&#34;quesbox&#34;);
+    window.addEventListener(&#34;message&#34;, function(event) {
+        if (event.origin !== &#34;https://closed.social&#34;)
+            return;
+        if (event.data.type === &#34;resize&#34; &amp;&amp; event.data.height) {
+            quesbox.style.height = event.data.height + &#34;px&#34;;
+        }
+    }, false);
+
+    quesbox.onload = function() {
+        quesbox.contentWindow.postMessage({
+            type: &#34;init&#34;,
+            height: quesbox.clientHeight
+        }, &#34;https://closed.social&#34;);
+    };
+&lt;/script&gt; --&gt;</description>
     </item>
     
     <item>
@@ -364,10 +400,33 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunnycloudyang.github.io/woodblock/woodblock/</guid>
-      <description>&lt;!DOCTYPE html&gt; WoodBlock 功德：0</description>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html manifest=&#34;woodblock.appcache&#34;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&#34;utf-8&#34;&gt;
+    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+    &lt;link rel=&#34;shortcut icon&#34; href=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/icon.png&#34;&gt;
+    &lt;title&gt;WoodBlock&lt;/title&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/WoodBlock.css&#34;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&#34;main&#34;&gt;
+        &lt;p id=&#34;cnt&#34;&gt;功德：0&lt;/p&gt;
+        &lt;img src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.jpg&#34; alt=&#34;WoodBlock&#34; id=&#34;WoodBlock&#34; draggable=&#34;false&#34;&gt;
+        &lt;audio src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.wav&#34; id=&#34;audio&#34;&gt;&lt;/audio&gt;
+        &lt;audio src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.mp3&#34; id=&#34;alt_audio&#34;&gt;&lt;/audio&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;settings&#34;&gt;
+        &lt;img src=&#34;https://sunnycloudyang.github.io/oldsite/img/setting-icon.png&#34; alt=&#34;setting&#34; id=&#34;setting&#34; draggable=&#34;false&#34;&gt;
+    &lt;/div&gt;
+    &lt;script src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/WoodBlock.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</description>
     </item>
-    
-    
     
   </channel>
 </rss>

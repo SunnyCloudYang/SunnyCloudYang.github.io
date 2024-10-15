@@ -15,6 +15,45 @@
                 href="https://sunnycloudyang.github.io/en/posts/post/"
                 />
   </url><url>
+    <loc>https://sunnycloudyang.github.io/en/archives/</loc>
+    <lastmod>2024-10-15T14:50:14+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/archives/"
+                />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/en/</loc>
+    <lastmod>2024-10-15T14:50:14+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/"
+                />
+  </url><url>
+    <loc>https://sunnycloudyang.github.io/en/search/</loc>
+    <lastmod>2024-10-15T14:50:08+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://sunnycloudyang.github.io/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sunnycloudyang.github.io/en/search/"
+                />
+  </url><url>
     <loc>https://sunnycloudyang.github.io/en/categories/</loc>
     <lastmod>2024-09-05T15:04:39+08:00</lastmod>
     <xhtml:link
@@ -39,19 +78,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sunnycloudyang.github.io/en/posts/vercel-with-flask/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/en/</loc>
-    <lastmod>2024-09-05T15:04:39+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/"
                 />
   </url><url>
     <loc>https://sunnycloudyang.github.io/en/tags/flask/</loc>
@@ -212,29 +238,5 @@
   </url><url>
     <loc>https://sunnycloudyang.github.io/en/tags/intro/</loc>
     <lastmod>2023-01-30T22:30:41+08:00</lastmod>
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/en/archives/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/archives/"
-                />
-  </url><url>
-    <loc>https://sunnycloudyang.github.io/en/search/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://sunnycloudyang.github.io/search/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sunnycloudyang.github.io/en/search/"
-                />
   </url>
 </urlset>

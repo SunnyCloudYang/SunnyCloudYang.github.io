@@ -49,3 +49,6 @@
 
 - id: go_to_top
   translation: "回到梦开始的地方"
+
+- id: last_change
+  translation: "最后更新于"

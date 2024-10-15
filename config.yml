@@ -10,11 +10,22 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 
+cleanDestinationDir: true
 publishDir: docs
 defaultContentLanguage: "zh"
 hasCJKLanguage: true
 hrefTargetBlank: true
 # googleAnalytics: UA-123-45
+
+frontmatter:
+  lastmod:
+    - lastmod
+    - :git
+    - modified
+    - date
+    - publishdate
+    - pubdate
+    - published
 
 minify:
     disableXML: true
@@ -175,7 +186,7 @@ params:
     cspReportOnly: false
 
     ShowAllPagesInArchive: true
-    # mainSections: ["posts", "diary"]
+    mainSections: ["posts", "diary"]
 
     profileMode:
         enabled: false
