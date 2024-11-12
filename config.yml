@@ -102,7 +102,7 @@ languages:
     en:
       languageName: "English"
       languageCode: "en"
-      title: Fanta Mud Pee
+      title: Fanta Mud Pea
       menu:
           main:
               - name: Archive
