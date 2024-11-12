@@ -130,7 +130,7 @@ languages:
           # series: series
         profileMode:
             enabled: true
-            title: Fanta Mud Pee
+            title: Fanta Mud Pea
             imageUrl: "/images/profile.svg"
             imageTitle: A Simple Pic
             # imageWidth: 120
