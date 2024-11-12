@@ -26,3 +26,7 @@
 .top-link svg {
     transition: transform 0.3s;
 }
+
+footer.footer {
+    padding: calc((var(--footer-height) - 48px) / 2) var(--gap);
+}

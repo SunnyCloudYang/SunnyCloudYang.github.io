@@ -1,7 +1,7 @@
 :root {
-    --quartus: rgb(242, 242, 242)
+    --quartus: rgb(242, 242, 242);
 }
 
 .dark {
-    --quartus: rgb(70, 70, 75)
+    --quartus: rgb(70, 70, 75);
 }
