@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; cdn.jsdelivr.net www.google-analytics.com busuanzi.ibruce.info www.googletagmanager.com sunnycloudyang.github.io origakid.top use.fontawesome.com unpkg.com giscus.app cdn.skypack.dev blob: ;">
+<title>什么是环境变量 | 抽象艺术大巴扎</title>
+<meta name="keywords" content="ELI5, computer">
+<meta name="description" content="我明明已经安装了Git，为什么还是显示“无法识别的命令”？">
+<meta name="author" content="Yang">
+<link rel="canonical" href="https://sunnycloudyang.github.io/posts/what-is-envs/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://sunnycloudyang.github.io/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/posts/what-is-envs/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+
+
+
+
+
+
+<meta property="og:title" content="什么是环境变量" />
+<meta property="og:description" content="我明明已经安装了Git，为什么还是显示“无法识别的命令”？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sunnycloudyang.github.io/posts/what-is-envs/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-12-09T22:26:55+08:00" />
+<meta property="article:modified_time" content="2024-12-10T00:07:32+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="什么是环境变量"/>
+<meta name="twitter:description" content="我明明已经安装了Git，为什么还是显示“无法识别的命令”？"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "龙门阵",
+      "item": "https://sunnycloudyang.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "什么是环境变量",
+      "item": "https://sunnycloudyang.github.io/posts/what-is-envs/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "什么是环境变量",
+  "name": "什么是环境变量",
+  "description": "我明明已经安装了Git，为什么还是显示“无法识别的命令”？",
+  "keywords": [
+    "ELI5", "computer"
+  ],
+  "articleBody": "1. 环境变量是什么 环境变量是操作系统用来存储有关系统环境和用户信息的变量，这些信息通常包含系统配置、程序执行路径等内容。环境变量会影响操作系统及程序的行为。例如，它可以决定程序的执行路径、日志文件的存放位置等。环境变量的值通常由一组键值对组成，系统和应用程序可以通过读取这些变量来获取所需的配置信息。\n2. 系统环境变量与用户环境变量 系统环境变量 (System Environment Variables):\n适用于所有用户，是在操作系统层级上配置的变量。 只有管理员（或具有管理员权限的用户）可以修改。 设置后，系统中的所有用户都可以访问这些变量。 例如，Windows中的TEMP、PATH、COMPUTERNAME等。 用户环境变量 (User Environment Variables):\n仅适用于当前用户，即该变量仅对当前登录的用户有效。 任何登录的用户可以修改自己的用户环境变量。 例如，Windows中的USERPROFILE、APPDATA等。 3. 环境变量的作用 配置程序运行环境：一些程序需要特定的环境配置才能正常运行。例如，设置Java的JAVA_HOME变量指向JDK的安装目录，使得程序能够找到Java编译器。 改变程序行为：通过设置环境变量，用户可以控制程序的执行方式。比如，配置数据库的连接信息，控制程序的日志文件输出路径等。 提供系统信息：一些环境变量会提供系统的一些基本信息，比如操作系统的版本、计算机的名称等。 4. PATH 变量详解 PATH 是最常见的环境变量之一，它决定了操作系统在执行命令时，搜索可执行文件的位置。每次在命令行中输入一个命令时，操作系统会按照 PATH 变量中列出的路径顺序，查找对应的可执行文件。这个变量在开发和运维中非常重要。\n在CMD中输入命令后，Windows如何查找可执行文件？\n首先会在CMD当前目录下搜索该程序，如果找到了该程序，便会启动。 如果CMD目录下没有这个程序，则系统会进入到path环境变量保存的目录下去搜索，如果找到了则启动程序 如果path中没有添加此程序的目录，那么此次的搜索结果就是没有找到此程序，便会报错：“‘xxx’ 不是内部或外部命令，也不是可运行的程序或批处理文件。”。 作用 PATH 变量中的路径列表决定了操作系统在查找可执行程序时的搜索顺序。操作系统会依次在 PATH 中列出的目录中查找该命令对应的可执行文件。 通过修改 PATH 变量，用户可以方便地管理和使用不同目录下的程序，而无需在命令行中输入完整的路径。 例子 Windows 中的 PATH 变量\n假设 PATH 变量中包含以下路径：\n1 C:\\Windows\\System32;C:\\Program Files\\Java\\jdk1.8.0_221\\bin;C:\\Users\\YourUsername\\Scripts 当你在命令行中输入 java 命令时，Windows 会首先在 C:\\Windows\\System32 目录下查找是否有 java.exe 文件，如果没有，就继续查找 C:\\Program Files\\Java\\jdk1.8.0_221\\bin 和 C:\\Users\\YourUsername\\Scripts 等目录，直到找到匹配的可执行文件。\nLinux / macOS 中的 PATH 变量\n假设 PATH 变量中包含以下路径：\n1 /usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:/home/user/.local/bin 当你在终端中输入命令时，Linux 或 macOS 会按顺序查找这些路径，直到找到与输入命令对应的可执行文件。\n如何设置和修改 PATH 变量 Windows:\n打开“系统属性”（右键点击“我的电脑”或“此电脑”，选择“属性”）。 进入“高级系统设置”。 点击“环境变量”。 在“系统变量”或“用户变量”中，找到 PATH 变量，并进行修改。 将新路径追加到 PATH 变量中，每个路径用分号 ; 分隔。 Linux/macOS:\n打开终端。\n编辑 .bashrc 或 .zshrc 文件（根据所使用的 Shell 不同）。例如：\n1 nano ~/.bashrc 在文件末尾添加路径：\n1 export PATH=$PATH:/your/custom/path 保存文件并执行 source ~/.bashrc 或 source ~/.zshrc 来使修改生效。\n举例说明 假设你安装了 Python 和 Git，并且它们的安装路径分别是：\nPython：C:\\Python39\\ Git：C:\\Program Files\\Git\\cmd\\ 你希望能够在命令行中直接输入 python 和 git 来执行它们，而不必输入完整路径。你可以将以下路径添加到 PATH 环境变量中：\n1 C:\\Python39\\;C:\\Program Files\\Git\\cmd\\ 修改后，你可以在命令行中直接输入 python 或 git，系统会根据 PATH 变量自动找到对应的可执行文件并运行。\n5. 总结 环境变量是操作系统和应用程序用来存储信息的一种方式，影响程序的行为和系统的运行。 系统环境变量对所有用户有效，而 用户环境变量仅对当前用户有效。 PATH 变量非常重要，它帮助操作系统确定命令的执行路径，通过修改它可以方便地管理和使用不同路径下的程序。 ",
+  "wordCount" : "1592",
+  "inLanguage": "zh",
+  "datePublished": "2024-12-09T22:26:55+08:00",
+  "dateModified": "2024-12-10T00:07:32+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Yang"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sunnycloudyang.github.io/posts/what-is-envs/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "抽象艺术大巴扎",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sunnycloudyang.github.io/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15TVPTQ9VM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-15TVPTQ9VM');
+</script>
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://sunnycloudyang.github.io/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://sunnycloudyang.github.io/icon.png" alt="" aria-label="logo"
+                    height="30">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun_mode" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://sunnycloudyang.github.io/en/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://sunnycloudyang.github.io/archives/" title="时间线">
+                    <span>时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/categories" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/search/" title="搜索">
+                    <span>搜索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sunnycloudyang.github.io/friends/" title="友链">
+                    <span>友链</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+    <header class="post-header">
+        <div class="breadcrumbs"><a href="https://sunnycloudyang.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://sunnycloudyang.github.io/posts/">龙门阵</a></div>
+        <h1 class="post-title">
+            什么是环境变量
+        </h1>
+        <div class="post-description">
+            我明明已经安装了Git，为什么还是显示“无法识别的命令”？
+        </div>
+        <div class="post-meta">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css"><div class="meta-tag"><span class="fa fa-calendar-plus-o"></span>&nbsp;<span title='2024-12-09 22:26:55 +0800 CST'>2024-12-09</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-pencil-square-o"></span>&nbsp;<span title='2024-12-10 00:07:32 +0800 CST'>2024-12-10</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-file-word-o"></span>&nbsp;<span>共1592字</span></div>&nbsp;|&nbsp;<div class="meta-tag"><span class="fa fa-user-circle-o"></span>&nbsp;<span>Yang</span></div>
+
+</div>
+    </header> <aside id="toc-container" class="toc-container wide">
+        <div class="toc">
+            <details id="toc-details"  open>
+                <summary accesskey="c" title="(Alt + C)">
+                    <span class="details">目录</span>
+                </summary>
+
+                <div class="inner"><ul>
+                        <li>
+                            <a href="#1-%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e6%98%af%e4%bb%80%e4%b9%88" aria-label="1. 环境变量是什么">1. 环境变量是什么</a></li>
+                        <li>
+                            <a href="#2-%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e4%b8%8e%e7%94%a8%e6%88%b7%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" aria-label="2. 系统环境变量与用户环境变量">2. 系统环境变量与用户环境变量</a></li>
+                        <li>
+                            <a href="#3-%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e7%9a%84%e4%bd%9c%e7%94%a8" aria-label="3. 环境变量的作用">3. 环境变量的作用</a></li>
+                        <li>
+                            <a href="#4-path-%e5%8f%98%e9%87%8f%e8%af%a6%e8%a7%a3" aria-label="4. PATH 变量详解">4. <code>PATH</code> 变量详解</a><ul>
+                                    
+                        <li>
+                            <a href="#%e4%bd%9c%e7%94%a8" aria-label="作用">作用</a></li>
+                        <li>
+                            <a href="#%e4%be%8b%e5%ad%90" aria-label="例子">例子</a></li>
+                        <li>
+                            <a href="#%e5%a6%82%e4%bd%95%e8%ae%be%e7%bd%ae%e5%92%8c%e4%bf%ae%e6%94%b9-path-%e5%8f%98%e9%87%8f" aria-label="如何设置和修改 PATH 变量">如何设置和修改 PATH 变量</a></li>
+                        <li>
+                            <a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e" aria-label="举例说明">举例说明</a></li></ul>
+                        </li>
+                        <li>
+                            <a href="#5-%e6%80%bb%e7%bb%93" aria-label="5. 总结">5. 总结</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </aside>
+    <script>
+        let activeElement;
+        let elements;
+        window.addEventListener('DOMContentLoaded', function (event) {
+            checkTocPosition();
+
+            elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+            
+            activeElement = elements[0];
+            const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+            document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+        }, false);
+
+        window.addEventListener('resize', function (event) {
+            checkTocPosition();
+        }, false);
+
+        window.addEventListener('scroll', () => {
+            
+            activeElement = Array.from(elements).find((element) => {
+                if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                    (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
+                    return element;
+                }
+            }) || activeElement
+
+            elements.forEach(element => {
+                const id = encodeURI(element.getAttribute('id')).toLowerCase();
+                if (element === activeElement) {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+                } else {
+                    document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+                }
+            })
+        }, false);
+
+        const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+        const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+        const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+        function checkTocPosition() {
+            const width = document.body.scrollWidth;
+
+            if (width - main - (toc * 2) - (gap * 5.5) > 0) {
+                
+                if (!document.getElementById("toc-container").classList.contains("wide")) {
+                    document.getElementById("toc-container").classList.add("wide");
+                    
+                    document.getElementById("toc-details").setAttribute("open", "");
+                }
+            } else if (document.getElementById("toc-container").classList.contains("wide")) {
+                document.getElementById("toc-container").classList.remove("wide");
+                
+                document.getElementById("toc-details").removeAttribute("open");
+            }
+        }
+
+        function getOffsetTop(element) {
+            if (!element.getClientRects().length) {
+                return 0;
+            }
+            let rect = element.getBoundingClientRect();
+            let win = element.ownerDocument.defaultView;
+            return rect.top + win.pageYOffset;
+        }
+    </script>
+    <div class="post-content"><h2 id="1-环境变量是什么">1. 环境变量是什么<a hidden class="anchor" aria-hidden="true" href="#1-环境变量是什么">#</a></h2>
+<p>环境变量是操作系统用来存储有关系统环境和用户信息的变量，这些信息通常包含系统配置、程序执行路径等内容。环境变量会影响操作系统及程序的行为。例如，它可以决定程序的执行路径、日志文件的存放位置等。环境变量的值通常由一组键值对组成，系统和应用程序可以通过读取这些变量来获取所需的配置信息。</p>
+<h2 id="2-系统环境变量与用户环境变量">2. 系统环境变量与用户环境变量<a hidden class="anchor" aria-hidden="true" href="#2-系统环境变量与用户环境变量">#</a></h2>
+<ul>
+<li>
+<p><strong>系统环境变量 (System Environment Variables)</strong>:</p>
+<ul>
+<li>适用于所有用户，是在操作系统层级上配置的变量。</li>
+<li>只有管理员（或具有管理员权限的用户）可以修改。</li>
+<li>设置后，系统中的所有用户都可以访问这些变量。</li>
+<li>例如，Windows中的<code>TEMP</code>、<code>PATH</code>、<code>COMPUTERNAME</code>等。</li>
+</ul>
+</li>
+<li>
+<p><strong>用户环境变量 (User Environment Variables)</strong>:</p>
+<ul>
+<li>仅适用于当前用户，即该变量仅对当前登录的用户有效。</li>
+<li>任何登录的用户可以修改自己的用户环境变量。</li>
+<li>例如，Windows中的<code>USERPROFILE</code>、<code>APPDATA</code>等。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-环境变量的作用">3. 环境变量的作用<a hidden class="anchor" aria-hidden="true" href="#3-环境变量的作用">#</a></h2>
+<ul>
+<li><strong>配置程序运行环境</strong>：一些程序需要特定的环境配置才能正常运行。例如，设置Java的<code>JAVA_HOME</code>变量指向JDK的安装目录，使得程序能够找到Java编译器。</li>
+<li><strong>改变程序行为</strong>：通过设置环境变量，用户可以控制程序的执行方式。比如，配置数据库的连接信息，控制程序的日志文件输出路径等。</li>
+<li><strong>提供系统信息</strong>：一些环境变量会提供系统的一些基本信息，比如操作系统的版本、计算机的名称等。</li>
+</ul>
+<h2 id="4-path-变量详解">4. <code>PATH</code> 变量详解<a hidden class="anchor" aria-hidden="true" href="#4-path-变量详解">#</a></h2>
+<p><code>PATH</code> 是最常见的环境变量之一，它决定了操作系统在执行命令时，搜索可执行文件的位置。每次在命令行中输入一个命令时，操作系统会按照 <code>PATH</code> 变量中列出的路径顺序，查找对应的可执行文件。这个变量在开发和运维中非常重要。</p>
+<div
+    class="alert alert-info"    role="alert"><text><p><strong>在CMD中输入命令后，Windows如何查找可执行文件？</strong></p>
+<ol>
+<li>首先会在CMD当前目录下搜索该程序，如果找到了该程序，便会启动。</li>
+<li>如果CMD目录下没有这个程序，则系统会进入到path环境变量保存的目录下去搜索，如果找到了则启动程序</li>
+<li>如果path中没有添加此程序的目录，那么此次的搜索结果就是没有找到此程序，便会报错：“&lsquo;xxx&rsquo; 不是内部或外部命令，也不是可运行的程序或批处理文件。”。</li>
+</ol></text></div>
+
+<h3 id="作用">作用<a hidden class="anchor" aria-hidden="true" href="#作用">#</a></h3>
+<ul>
+<li><code>PATH</code> 变量中的路径列表决定了操作系统在查找可执行程序时的搜索顺序。操作系统会依次在 <code>PATH</code> 中列出的目录中查找该命令对应的可执行文件。</li>
+<li>通过修改 <code>PATH</code> 变量，用户可以方便地管理和使用不同目录下的程序，而无需在命令行中输入完整的路径。</li>
+</ul>
+<h3 id="例子">例子<a hidden class="anchor" aria-hidden="true" href="#例子">#</a></h3>
+<ol>
+<li>
+<p><strong>Windows 中的 PATH 变量</strong></p>
+<p>假设 <code>PATH</code> 变量中包含以下路径：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Windows\System32;C:\Program Files\Java\jdk1.8.0_221\bin;C:\Users\YourUsername\Scripts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当你在命令行中输入 <code>java</code> 命令时，Windows 会首先在 <code>C:\Windows\System32</code> 目录下查找是否有 <code>java.exe</code> 文件，如果没有，就继续查找 <code>C:\Program Files\Java\jdk1.8.0_221\bin</code> 和 <code>C:\Users\YourUsername\Scripts</code> 等目录，直到找到匹配的可执行文件。</p>
+</li>
+<li>
+<p><strong>Linux / macOS 中的 PATH 变量</strong></p>
+<p>假设 <code>PATH</code> 变量中包含以下路径：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin:/home/user/.local/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当你在终端中输入命令时，Linux 或 macOS 会按顺序查找这些路径，直到找到与输入命令对应的可执行文件。</p>
+</li>
+</ol>
+<h3 id="如何设置和修改-path-变量">如何设置和修改 PATH 变量<a hidden class="anchor" aria-hidden="true" href="#如何设置和修改-path-变量">#</a></h3>
+<ul>
+<li>
+<p><strong>Windows</strong>:</p>
+<ol>
+<li>打开“系统属性”（右键点击“我的电脑”或“此电脑”，选择“属性”）。</li>
+<li>进入“高级系统设置”。</li>
+<li>点击“环境变量”。</li>
+<li>在“系统变量”或“用户变量”中，找到 <code>PATH</code> 变量，并进行修改。</li>
+<li>将新路径追加到 <code>PATH</code> 变量中，每个路径用分号 <code>;</code> 分隔。</li>
+</ol>
+</li>
+<li>
+<p><strong>Linux/macOS</strong>:</p>
+<ol>
+<li>
+<p>打开终端。</p>
+</li>
+<li>
+<p>编辑 <code>.bashrc</code> 或 <code>.zshrc</code> 文件（根据所使用的 Shell 不同）。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano ~/.bashrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在文件末尾添加路径：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/your/custom/path
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>保存文件并执行 <code>source ~/.bashrc</code> 或 <code>source ~/.zshrc</code> 来使修改生效。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="举例说明">举例说明<a hidden class="anchor" aria-hidden="true" href="#举例说明">#</a></h3>
+<p>假设你安装了 Python 和 Git，并且它们的安装路径分别是：</p>
+<ul>
+<li>Python：<code>C:\Python39\</code></li>
+<li>Git：<code>C:\Program Files\Git\cmd\</code></li>
+</ul>
+<p>你希望能够在命令行中直接输入 <code>python</code> 和 <code>git</code> 来执行它们，而不必输入完整路径。你可以将以下路径添加到 <code>PATH</code> 环境变量中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Python39\;C:\Program Files\Git\cmd\
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改后，你可以在命令行中直接输入 <code>python</code> 或 <code>git</code>，系统会根据 <code>PATH</code> 变量自动找到对应的可执行文件并运行。</p>
+<h2 id="5-总结">5. 总结<a hidden class="anchor" aria-hidden="true" href="#5-总结">#</a></h2>
+<ul>
+<li><strong>环境变量</strong>是操作系统和应用程序用来存储信息的一种方式，影响程序的行为和系统的运行。</li>
+<li><strong>系统环境变量</strong>对所有用户有效，而 <strong>用户环境变量</strong>仅对当前用户有效。</li>
+<li><code>PATH</code> 变量非常重要，它帮助操作系统确定命令的执行路径，通过修改它可以方便地管理和使用不同路径下的程序。</li>
+</ul>
+
+
+    </div>
+
+    <footer class="post-footer">
+        <ul class="post-tags">
+            <li><a href="https://sunnycloudyang.github.io/tags/eli5/">ELI5</a></li>
+            <li><a href="https://sunnycloudyang.github.io/tags/computer/">Computer</a></li>
+        </ul>
+<nav class="paginav">
+  <a class="prev" href="https://sunnycloudyang.github.io/posts/post/">
+    <span class="title">«上一页</span>
+    <br>
+    <span>一些说明</span>
+  </a>
+  <a class="next" href="https://sunnycloudyang.github.io/diary/24oct2/">
+    <span class="title">下一页»</span>
+    <br>
+    <span>瞎捣鼓，狠摆烂</span>
+  </a>
+</nav>
+
+    </footer>
+
+<script src="https://giscus.app/client.js"
+        data-repo="SunnyCloudYang/SunnyCloudYang.github.io"
+        data-repo-id="R_kgDOH1xBTw"
+        data-category="Comments"
+        data-category-id="DIC_kwDOH1xBT84CUhb2"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang=zh-CN
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    
+    window.addEventListener('message', function (event) {
+        if (event.origin !== 'https://giscus.app') return;
+        if (event.data.giscus) {
+            updateGiscusTheme();
+        }
+    });
+    function updateGiscusTheme() {
+        function sendMessage(message) {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (!iframe) return;
+            iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+            setConfig: {
+                theme: localStorage.getItem('pref-theme'),
+            }
+        });
+    }
+
+    const themeToggle = document.getElementById("theme-toggle");
+
+    if (typeof themeToggle !== "undefined") {
+        themeToggle.addEventListener('click', ()=>
+            setTimeout(updateGiscusTheme, 50));
+    }
+</script>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
+    <span>
+        | Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+    <br>
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <span id="busuanzi_container_page_pv" style='display:none'>
+        一共有<span id="busuanzi_value_page_pv"></span>人来过这里
+    </span>
+    | <span id="last_change">
+        最后更新于2024年12月10日
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 65 170 115" fill="currentColor" stroke="currentColor"
+        stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <polyline points="20 145 85 90 150 145" stroke="currentColor" stroke-width="25" stroke-linecap="round"
+            fill="none" stroke-linejoin="round" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "0.9";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('.highlight > div').forEach((codediv) => {
+        const titlebar = document.createElement('div');
+        titlebar.classList.add('code-titlebar');
+        let language = codediv.querySelector('td:last-child code').getAttribute('class').replace('language-', '');
+        language = language === 'fallback' ? 'text' : language;
+        titlebar.innerHTML = '<span class="code-title">' + language + '</span>';
+        codediv.prepend(titlebar);
+    });
+
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '借我抄抄';
+
+        function copyingDone() {
+            copybutton.innerHTML = '给你了';
+            setTimeout(() => {
+                copybutton.innerHTML = '借我抄抄';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

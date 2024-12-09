@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>什么是环境变量</title>
+      <link>https://sunnycloudyang.github.io/posts/what-is-envs/</link>
+      <pubDate>Mon, 09 Dec 2024 22:26:55 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/posts/what-is-envs/</guid>
+      <description>我明明已经安装了Git，为什么还是显示“无法识别的命令”？</description>
+    </item>
+    
+    <item>
       <title>在 Vercel 上免费部署一个 flask 后端</title>
       <link>https://sunnycloudyang.github.io/posts/vercel-with-flask/</link>
       <pubDate>Tue, 27 Aug 2024 00:56:30 +0800</pubDate>
