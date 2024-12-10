@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>如何搭建并部署自己的个人网站</title>
+      <link>https://sunnycloudyang.github.io/posts/build-your-blog/</link>
+      <pubDate>Tue, 10 Dec 2024 16:50:49 +0800</pubDate>
+      
+      <guid>https://sunnycloudyang.github.io/posts/build-your-blog/</guid>
+      <description>感谢ChatGPT、豆包、通义千问、Kimi对本文的大力贡献（以上排名不分先后）</description>
+    </item>
+    
+    <item>
       <title>什么是环境变量</title>
       <link>https://sunnycloudyang.github.io/posts/what-is-envs/</link>
       <pubDate>Mon, 09 Dec 2024 22:26:55 +0800</pubDate>
