@@ -641,16 +641,11 @@
 </details>
 <p>自定义的效果如👇：</p>
 <div class="collapse">
-    <div class="collapse-title1" onclick="onCollapseTitleClick(event)">自定义样式</div>
-    <div class="collapse-content">这里是隐藏内容</div>
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">自定义样式</div>
+    <div class="collapse-content ">
+        <div>这里是隐藏内容</div>
+    </div>
 </div>
-<script type="text/javascript">
-    function onCollapseTitleClick(e) {
-        let thisContent = e.target.nextElementSibling;
-        thisContent.classList.toggle("show");
-        e.target.classList.toggle("opened");
-    }
-</script>
 <p>可以看到，自定义的效果并不尽如人意，height的变化总有个延迟，大概是没办法确定height的具体数值，所以transition的动画效果会卡顿。这里先给出默认样式的代码：</p>
 <p><strong>使用方法：</strong></p>
 <ol>
@@ -1023,7 +1018,7 @@ graph TD
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
+    <span>&copy; 2025 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
     <span>
         | Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

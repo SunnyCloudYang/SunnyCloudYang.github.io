@@ -22,8 +22,13 @@ details[open] > summary {
     font-size: 1rem;
     background-color: var(--code-bg);
     border-radius: var(--radius);
-    margin: 0.5em 0;
-    padding: 0.5em;
+    padding: 16px;
+    padding-bottom: 12px;
+    margin: var(--content-gap) 0;
+}
+
+.collapse-content *:last-child {
+    margin-bottom: 0px;
 }
 
 .post-content .collapse-arrow {
@@ -42,21 +47,50 @@ details[open] > summary > .collapse-arrow {
     margin-left: 0.2em;
 }
 
+.post-content .collapse-title1 {
+    font-weight: bold;
+    user-select: none;
+    margin-left: -2px;
+    cursor: zoom-in;
+    margin-bottom: 4px;
+}
+
+.post-content .collapse-title1.opened {
+    cursor: zoom-out;
+}
+
 .post-content .collapse-title1::before {
     content: "👉";
+    display: inline-block;
+    margin-right: 4px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
 }
 
 .post-content .collapse-title1.opened::before {
-    content: "👇";
+    transform: rotate(90deg);
 }
 
-.post-content .collapse-content:not(.show) {
-    max-height: 0;
+.collapse-content {
+    display: grid;
     overflow: hidden;
-    transition: .3s;
+    grid-template-rows: 0fr;
+    transition: all .3s;
 }
 
-.post-content .collapse-content.show {
-    max-height: 1000px;
-    transition: .3s;
+.collapse-content > * {
+    min-height: 0;
+    transition: visibility .3s;
+    visibility: hidden;
+    border-top: 1px dashed var(--secondary);
+}
+
+.collapse-content.show {
+    grid-template-rows: 1fr;
+    transition: all .3s;
+}
+
+.collapse-content.show > * {
+    visibility: visible;
+    transition: visibility .3s;
 }

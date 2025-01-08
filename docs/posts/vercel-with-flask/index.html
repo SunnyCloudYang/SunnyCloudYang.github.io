@@ -365,44 +365,26 @@
 </div>
 </div><p>我起初以为重定向后的路径是相对于<code>api</code>文件夹的，所以在<code>app.py</code>中的路由也是以<code>/</code>开头的，但实际上路径依然是相对于项目根目录的，所以<code>app.py</code>中的路由应该是以<code>/api/</code>开头的，和正常的 flask 项目一样。另外我最初使用的是<code>route</code>规则，结果只有访问<code>/api/app/</code>的时候能拿到响应，而且返回的是<code>app.py</code>这个文本文件！着实让我费了一番周折，最后才发现使用<code>rewrites</code>方法就可以正常访问了。至于这两个规则之间的区别，我还没有深入研究，暂时先知其然吧，待有时间了再细究。</p>
 <p>这时候你的 flask 项目应该已经可以正常运行了，但是要注意的是 Serverless Function 会在每次调用的时候重新启动，创建运行时并安装依赖，除非调用的间隔很短，所以第一次访问的时候可能会有一些延迟。如果是对响应时间有要求的项目，可以考虑提前发起一次预请求，让 Functions 提前启动。</p>
-
-
-<details >
-  <summary class="custom-collapse">
-    <div class="collapse-arrow">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1rem" height="1rem">
-        <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6l1.41-1.42Z" />
-      </svg>
-    </div>
-    <span class="collapse-title">
-      Cold and Hot Boots
-    </span>
-  </summary>
-  <span class="collapse-content"><p>When a Serverless Function boots up from scratch, that is known as a cold boot. When it is re-used, we can say the function was warm.</p>
+<div class="collapse">
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">Cold and Hot Boots</div>
+    <div class="collapse-content ">
+        <div><p>When a Serverless Function boots up from scratch, that is known as a cold boot. When it is re-used, we can say the function was warm.</p>
 <p>Re-using a function means the underlying container that hosts it does not get discarded. State, such as temporary files, memory caches, sub-processes, is preserved. This empowers the developer not just to minimize the time spent in the booting process, but to also take advantage of caching data (in memory or filesystem) and memoizing expensive computations.</p>
 <p>It is important to note that Serverless Functions, even while the underlying container is hot, cannot leave tasks running. If a sub-process is running by the time the response is returned, the entire container is frozen. When a new invocation happens, if the container is re-used, it is unfrozen, which allows sub-processes to continue running. (<a href="https://vercel.com/docs/infrastructure/compute#serverless-functions">Vercel Documentation</a>)</p>
-</span>
-</details>
-<p>当然 Vercel 中还为一些简单的函数提供了 Edge Functions，这些函数会在 CDN 边缘节点上运行，可以更快地响应请求，具体说明如下：</p>
-
-
-<details >
-  <summary class="custom-collapse">
-    <div class="collapse-arrow">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1rem" height="1rem">
-        <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6l1.41-1.42Z" />
-      </svg>
+</div>
     </div>
-    <span class="collapse-title">
-      Edge Functions
-    </span>
-  </summary>
-  <span class="collapse-content"><p>Edge Functions work in a very similar way to Serverless Functions, but instead of running on a single region, they are copied across the <a href="https://vercel.com/docs/edge-network/overview">Edge Network</a> and so every time the function is invoked, the region closest to the request will run the function. This results in a much lower latency, and combined with zero cold-start time, allows you to provide personalization at speed.</p>
+</div>
+<p>当然 Vercel 中还为一些简单的函数提供了 Edge Functions，这些函数会在 CDN 边缘节点上运行，可以更快地响应请求，具体说明如下：</p>
+<div class="collapse">
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">Edge Functions</div>
+    <div class="collapse-content ">
+        <div><p>Edge Functions work in a very similar way to Serverless Functions, but instead of running on a single region, they are copied across the <a href="https://vercel.com/docs/edge-network/overview">Edge Network</a> and so every time the function is invoked, the region closest to the request will run the function. This results in a much lower latency, and combined with zero cold-start time, allows you to provide personalization at speed.</p>
 <p>Edge Functions run after the cache and so are ideal to be used on specific, dynamic parts of your site once the page is loaded, such a date-picker with availability or a weather component on your site. This response can be cached on the <a href="https://vercel.com/docs/edge-network/overview">Edge Network</a> making future invocations even faster.</p>
 <p>It is important to note that <a href="https://vercel.com/docs/functions/edge-functions">Edge Functions</a> are just one solution and not a &ldquo;one size fits all&rdquo; solution. It is possible that the database for your site sits far from the Edge server. That means that even though the edge function can be invoked quickly, it might take twice as long to get the data than if the function was located closer to the data. In this scenario, you may want to use a Serverless Function.</p>
 <p>See the <a href="https://vercel.com/docs/functions/edge-functions#regional-edge-function-invocation">regional Edge Functions invocation</a> documentation to learn more. (<a href="https://vercel.com/docs/infrastructure/compute#edge-functions">Vercel Documentation</a>)</p>
-</span>
-</details>
+</div>
+    </div>
+</div>
 <h2 id="成果">成果<a hidden class="anchor" aria-hidden="true" href="#成果">#</a></h2>
 <p>最终的效果大概长这样：<span class="color-text"style="background-color: #ddffdd;"><text><a href="https://chinese-lorem-ipsum.vercel.app/">Chinese Lorem Ipsum</a></text></span></p>
 <h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
@@ -480,7 +462,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
+    <span>&copy; 2025 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
     <span>
         | Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -46,17 +46,17 @@ At first, I thought the redirected path was relative to the `api` folder, so I s
 
 At this point, your Flask project should be running correctly. However, it’s important to note that a Serverless Function restarts each time it’s called, recreates its runtime, and reinstalls dependencies, unless the interval between calls is very short. Therefore, the first request may experience a delay. If your project has strict response time requirements, you might want to consider making a pre-request to "warm up" the function.
 
-{{< collapse summary="Cold and Hot Boots" >}}
+{{< collapse1 summary="Cold and Hot Boots" >}}
 When a Serverless Function boots up from scratch, that is known as a cold boot. When it is re-used, we can say the function was warm.
 
 Re-using a function means the underlying container that hosts it does not get discarded. State, such as temporary files, memory caches, sub-processes, is preserved. This empowers the developer not just to minimize the time spent in the booting process, but to also take advantage of caching data (in memory or filesystem) and memoizing expensive computations.
 
 It is important to note that Serverless Functions, even while the underlying container is hot, cannot leave tasks running. If a sub-process is running by the time the response is returned, the entire container is frozen. When a new invocation happens, if the container is re-used, it is unfrozen, which allows sub-processes to continue running. ([Vercel Documentation](https://vercel.com/docs/infrastructure/compute#serverless-functions))
-{{< /collapse >}}
+{{< /collapse1 >}}
 
 Of course, Vercel also provides Edge Functions for simple tasks. These functions run on CDN edge nodes, allowing them to respond to requests more quickly. The details are as follows:
 
-{{< collapse summary="Edge Functions" >}}
+{{< collapse1 summary="Edge Functions" >}}
 Edge Functions work in a very similar way to Serverless Functions, but instead of running on a single region, they are copied across the [Edge Network](https://vercel.com/docs/edge-network/overview) and so every time the function is invoked, the region closest to the request will run the function. This results in a much lower latency, and combined with zero cold-start time, allows you to provide personalization at speed.
 
 Edge Functions run after the cache and so are ideal to be used on specific, dynamic parts of your site once the page is loaded, such a date-picker with availability or a weather component on your site. This response can be cached on the [Edge Network](https://vercel.com/docs/edge-network/overview) making future invocations even faster.
@@ -64,7 +64,7 @@ Edge Functions run after the cache and so are ideal to be used on specific, dyna
 It is important to note that [Edge Functions](https://vercel.com/docs/functions/edge-functions) are just one solution and not a "one size fits all" solution. It is possible that the database for your site sits far from the Edge server. That means that even though the edge function can be invoked quickly, it might take twice as long to get the data than if the function was located closer to the data. In this scenario, you may want to use a Serverless Function.
 
 See the [regional Edge Functions invocation](https://vercel.com/docs/functions/edge-functions#regional-edge-function-invocation) documentation to learn more. ([Vercel Documentation](https://vercel.com/docs/infrastructure/compute#edge-functions))
-{{< /collapse >}}
+{{< /collapse1 >}}
 
 ## Results
 

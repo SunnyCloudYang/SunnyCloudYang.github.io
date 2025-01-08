@@ -96,6 +96,6 @@ STM32H745ZI-Q是一款非常强大的芯片，拥有两个核心，丰富的外�
 4. [STM32H7 System Hardware Semaphore HSEM](https://www.st.com/content/ccc/resource/training/technical/product_training/group0/2a/6a/df/e1/3b/52/48/b7/STM32H7-System-Hardware_Semaphore_HSEM/files/STM32H7-System-Hardware_Semaphore_HSEM.pdf/_jcr_content/translations/en.STM32H7-System-Hardware_Semaphore_HSEM.pdf)
 5. [STM32H7x5 and STM32H7x7 Dual-core microcontroller debugging AN5286](https://www.st.com/resource/en/application_note/an5286-stm32h7x5x7-dualcore-microcontroller-debugging-stmicroelectronics.pdf)
 
-{{< collapse summary="最后的最后">}}
+{{< collapse1 summary="最后的最后">}}
 ST的文档算是非常详实且全面的了，所以如果还有悬而未决的问题，就去**看文档！！！**
-{{< /collapse >}}
+{{< /collapse1 >}}

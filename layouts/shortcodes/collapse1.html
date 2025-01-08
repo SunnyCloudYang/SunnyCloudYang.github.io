@@ -1,15 +1,10 @@
 <div class="collapse">
-    <div class="collapse-title1" onclick="onCollapseTitleClick(event)">
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">
         {{- .Get "summary" | markdownify -}}
     </div>
-    <div class="collapse-content">
-        {{- .Inner | markdownify -}}
+    <div class="collapse-content {{ if (eq (.Get "openByDefault" ) true) }} show {{ end }}">
+        <div>
+            {{- .Inner | markdownify -}}
+        </div>
     </div>
 </div>
-<script type="text/javascript">
-    function onCollapseTitleClick(e) {
-        let thisContent = e.target.nextElementSibling;
-        thisContent.classList.toggle("show");
-        e.target.classList.toggle("opened");
-    }
-</script>

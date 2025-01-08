@@ -43,7 +43,7 @@ ShowReadingTime: false
 
 因此部署就是指将网站从本地环境发布到互联网上，或者更具体地讲，发布到某个提供网站访问服务的服务器上，使全世界都能访问到你的网站。
 
-{{< collapse summary="从输入网址到看见网页的大致过程">}}
+{{< collapse1 summary="从输入网址到看见网页的大致过程">}}
 从你在浏览器的地址栏中输入一个网址并按下回车键开始，到最终看到网页内容，整个过程中会发生一系列复杂的操作。这些操作可以大致分为以下几个步骤：
 
 1. DNS解析（Domain Name System）
@@ -90,7 +90,7 @@ ShowReadingTime: false
    - **关闭连接**：当不再需要保持连接时，双方可以协商断开TCP连接，释放网络资源。
 
 随着技术的发展，诸如HTTP/2、HTTP/3等新协议的应用也在不断优化这一过程，使之更加高效、安全。
-{{< /collapse >}}
+{{< /collapse1 >}}
 {{< /alert >}}
 
 ## 二、选择框架
@@ -251,7 +251,7 @@ my-hugo-site/
 
 无论是Hugo还是Hexo，都主要使用Markdown编写文章。你可以通过各自的命令行工具轻松创建新文章，例如`hugo new posts/my-first-post.md`或`hexo new "My First Post"`。通过命令行创建的新文章会自动使用`archetypes`中的模板填充Front Matter中的相关信息，当然你也可以直接在`content`（Hugo）或`source`（Hexo）文件夹中新建md文件/文件夹，但此时需要记得手动添加Front Matter。正文自然就是使用markdown格式编写，并且可以在刚刚打开的预览页面实时查看效果。编辑完后，记得保存文章才能应用修改并查看效果。
 
-{{< collapse summary="什么是 Front Matter？" >}}
+{{< collapse1 summary="什么是 Front Matter？" >}}
 Front Matter是位于Markdown文件开头的一段元数据，通常用于指定文章的标题、日期、标签、分类等信息。它以三个短横线`---`开始和结束，中间是一系列键值对，如下所示：
 
 ```yaml
@@ -273,7 +273,7 @@ ShowReadingTime: false
 ```
 
 Front Matter中的内容会被静态网站生成器解析并应用到生成的网页中，因此它对于文章的元信息和展示效果非常重要。对于不同的框架和主题，Front Matter的字段可能会有所不同，具体可以参考主题的文档或示例文章。
-{{< /collapse >}}
+{{< /collapse1 >}}
 
 ## 八、部署到GitHub Pages
 

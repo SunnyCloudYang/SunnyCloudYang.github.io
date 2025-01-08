@@ -372,18 +372,10 @@
     class="alert alert-info"    role="alert"><text><p><strong>为什么需要部署？不部署不行吗？</strong></p>
 <p>小学二年级就学过的计网知识告诉我们，在访问一个网站时，浏览器会先向DNS服务器查询域名对应的IP地址，然后再向该IP地址发送请求。服务器收到请求后，会返回网页内容给浏览器，并完成之后的渲染等工作。换句话说，只有将网站部署到开放公网IP的服务器上，才能让其他人通过互联网访问到你的网站。否则即使你的网站已经搭建好了，也只有你自己能在本地访问到（本地部署+内网穿透？也不是不行，但你不会想自己的网站在熄灯后便挂掉吧：）。</p>
 <p>因此部署就是指将网站从本地环境发布到互联网上，或者更具体地讲，发布到某个提供网站访问服务的服务器上，使全世界都能访问到你的网站。</p>
-<details >
-  <summary class="custom-collapse">
-    <div class="collapse-arrow">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1rem" height="1rem">
-        <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6l1.41-1.42Z" />
-      </svg>
-    </div>
-    <span class="collapse-title">
-      从输入网址到看见网页的大致过程
-    </span>
-  </summary>
-  <span class="collapse-content"><p>从你在浏览器的地址栏中输入一个网址并按下回车键开始，到最终看到网页内容，整个过程中会发生一系列复杂的操作。这些操作可以大致分为以下几个步骤：</p>
+<div class="collapse">
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">从输入网址到看见网页的大致过程</div>
+    <div class="collapse-content ">
+        <div><p>从你在浏览器的地址栏中输入一个网址并按下回车键开始，到最终看到网页内容，整个过程中会发生一系列复杂的操作。这些操作可以大致分为以下几个步骤：</p>
 <ol>
 <li>
 <p>DNS解析（Domain Name System）</p>
@@ -446,8 +438,9 @@
 </li>
 </ol>
 <p>随着技术的发展，诸如HTTP/2、HTTP/3等新协议的应用也在不断优化这一过程，使之更加高效、安全。</p>
-</span>
-</details>
+</div>
+    </div>
+</div>
 </text></div>
 
 <h2 id="二选择框架">二、选择框架<a hidden class="anchor" aria-hidden="true" href="#二选择框架">#</a></h2>
@@ -656,20 +649,10 @@
 
 <h2 id="七添加内容">七、添加内容<a hidden class="anchor" aria-hidden="true" href="#七添加内容">#</a></h2>
 <p>无论是Hugo还是Hexo，都主要使用Markdown编写文章。你可以通过各自的命令行工具轻松创建新文章，例如<code>hugo new posts/my-first-post.md</code>或<code>hexo new &quot;My First Post&quot;</code>。通过命令行创建的新文章会自动使用<code>archetypes</code>中的模板填充Front Matter中的相关信息，当然你也可以直接在<code>content</code>（Hugo）或<code>source</code>（Hexo）文件夹中新建md文件/文件夹，但此时需要记得手动添加Front Matter。正文自然就是使用markdown格式编写，并且可以在刚刚打开的预览页面实时查看效果。编辑完后，记得保存文章才能应用修改并查看效果。</p>
-
-
-<details >
-  <summary class="custom-collapse">
-    <div class="collapse-arrow">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1rem" height="1rem">
-        <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6l1.41-1.42Z" />
-      </svg>
-    </div>
-    <span class="collapse-title">
-      什么是 Front Matter？
-    </span>
-  </summary>
-  <span class="collapse-content"><p>Front Matter是位于Markdown文件开头的一段元数据，通常用于指定文章的标题、日期、标签、分类等信息。它以三个短横线<code>---</code>开始和结束，中间是一系列键值对，如下所示：</p>
+<div class="collapse">
+    <div class="collapse-title1" onclick="this.classList.toggle('opened');this.nextElementSibling.classList.toggle('show')">什么是 Front Matter？</div>
+    <div class="collapse-content ">
+        <div><p>Front Matter是位于Markdown文件开头的一段元数据，通常用于指定文章的标题、日期、标签、分类等信息。它以三个短横线<code>---</code>开始和结束，中间是一系列键值对，如下所示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -707,8 +690,9 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>Front Matter中的内容会被静态网站生成器解析并应用到生成的网页中，因此它对于文章的元信息和展示效果非常重要。对于不同的框架和主题，Front Matter的字段可能会有所不同，具体可以参考主题的文档或示例文章。</p>
-</span>
-</details>
+</div>
+    </div>
+</div>
 <h2 id="八部署到github-pages">八、部署到GitHub Pages<a hidden class="anchor" aria-hidden="true" href="#八部署到github-pages">#</a></h2>
 <p>为了让你的网站能够被全世界看到，我们需要将其推送到GitHub Pages。以下是具体步骤：</p>
 <ol>
@@ -852,7 +836,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
+    <span>&copy; 2025 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
     <span>
         | Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
