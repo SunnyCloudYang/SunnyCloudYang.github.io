@@ -28,6 +28,11 @@ frontmatter:
     - pubdate
     - published
 
+sitemap:
+  changefreq: "weekly"
+  priority: 0.5
+  filename: "sitemap.xml"
+
 minify:
     disableXML: true
     # minifyOutput: true
