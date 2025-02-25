@@ -2,107 +2,107 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>抽象艺术大巴扎</title>
-    <link>https://sunnycloudyang.github.io/</link>
+    <link>https://origakid.top/</link>
     <description>Recent content on 抽象艺术大巴扎</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Dec 2024 16:50:49 +0800</lastBuildDate><atom:link href="https://sunnycloudyang.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Dec 2024 16:50:49 +0800</lastBuildDate><atom:link href="https://origakid.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AliceZ</title>
-      <link>https://sunnycloudyang.github.io/friends/alicez/</link>
+      <link>https://origakid.top/friends/alicez/</link>
       <pubDate>Wed, 28 Jun 2023 23:07:35 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/friends/alicez/</guid>
+      <guid>https://origakid.top/friends/alicez/</guid>
       <description>Alice&amp;rsquo;s scribbles</description>
     </item>
     
     <item>
       <title>关于</title>
-      <link>https://sunnycloudyang.github.io/diary/about/</link>
+      <link>https://origakid.top/diary/about/</link>
       <pubDate>Mon, 30 Jan 2023 19:43:13 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/about/</guid>
+      <guid>https://origakid.top/diary/about/</guid>
       <description>一些说法</description>
     </item>
     
     <item>
       <title>一些说明</title>
-      <link>https://sunnycloudyang.github.io/posts/post/</link>
+      <link>https://origakid.top/posts/post/</link>
       <pubDate>Mon, 16 Jan 2023 19:30:00 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/post/</guid>
+      <guid>https://origakid.top/posts/post/</guid>
       <description>哟，来了，里面请</description>
     </item>
     
     <item>
       <title>Ayu</title>
-      <link>https://sunnycloudyang.github.io/friends/ayu/</link>
+      <link>https://origakid.top/friends/ayu/</link>
       <pubDate>Wed, 28 Jun 2023 23:07:35 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/friends/ayu/</guid>
+      <guid>https://origakid.top/friends/ayu/</guid>
       <description>~ — Ayu</description>
     </item>
     
     <item>
       <title>Chiyuru</title>
-      <link>https://sunnycloudyang.github.io/friends/chiyuru/</link>
+      <link>https://origakid.top/friends/chiyuru/</link>
       <pubDate>Sun, 23 Jul 2023 20:48:19 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/friends/chiyuru/</guid>
+      <guid>https://origakid.top/friends/chiyuru/</guid>
       <description>『姑妄言之姑妄听之』</description>
     </item>
     
     <item>
       <title>Revolver</title>
-      <link>https://sunnycloudyang.github.io/friends/revolver/</link>
+      <link>https://origakid.top/friends/revolver/</link>
       <pubDate>Sun, 08 Oct 2023 16:59:53 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/friends/revolver/</guid>
+      <guid>https://origakid.top/friends/revolver/</guid>
       <description>Green Dolphin Dance</description>
     </item>
     
     <item>
       <title>如何搭建并部署自己的个人网站</title>
-      <link>https://sunnycloudyang.github.io/posts/build-your-blog/</link>
+      <link>https://origakid.top/posts/build-your-blog/</link>
       <pubDate>Tue, 10 Dec 2024 16:50:49 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/build-your-blog/</guid>
+      <guid>https://origakid.top/posts/build-your-blog/</guid>
       <description>感谢ChatGPT、豆包、通义千问、Kimi对本文的大力贡献（以上排名不分先后）</description>
     </item>
     
     <item>
       <title>什么是环境变量</title>
-      <link>https://sunnycloudyang.github.io/posts/what-is-envs/</link>
+      <link>https://origakid.top/posts/what-is-envs/</link>
       <pubDate>Mon, 09 Dec 2024 22:26:55 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/what-is-envs/</guid>
+      <guid>https://origakid.top/posts/what-is-envs/</guid>
       <description>我明明已经安装了Git，为什么还是显示“无法识别的命令”？</description>
     </item>
     
     <item>
       <title>瞎捣鼓，狠摆烂</title>
-      <link>https://sunnycloudyang.github.io/diary/24oct2/</link>
+      <link>https://origakid.top/diary/24oct2/</link>
       <pubDate>Wed, 02 Oct 2024 03:02:43 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/24oct2/</guid>
+      <guid>https://origakid.top/diary/24oct2/</guid>
       <description>世界上只有一种长期主义，就是长期不改变，改变不长期</description>
     </item>
     
     <item>
       <title>中文假字生成器</title>
-      <link>https://sunnycloudyang.github.io/gadgets/chinese-lorem-ipsum/</link>
+      <link>https://origakid.top/gadgets/chinese-lorem-ipsum/</link>
       <pubDate>Tue, 27 Aug 2024 23:00:18 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/gadgets/chinese-lorem-ipsum/</guid>
+      <guid>https://origakid.top/gadgets/chinese-lorem-ipsum/</guid>
       <description>生成更接近日常中文词频的假字文本</description>
     </item>
     
     <item>
       <title>在 Vercel 上免费部署一个 flask 后端</title>
-      <link>https://sunnycloudyang.github.io/posts/vercel-with-flask/</link>
+      <link>https://origakid.top/posts/vercel-with-flask/</link>
       <pubDate>Tue, 27 Aug 2024 00:56:30 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/vercel-with-flask/</guid>
+      <guid>https://origakid.top/posts/vercel-with-flask/</guid>
       <description>当你需要一个不用数据库的后端和一个已经完成的前端时，可以使用 Vercel 很方便地一站式部署这两个项目，免去买服务器的麻烦</description>
     </item>
     
@@ -110,156 +110,156 @@
     
     <item>
       <title>弱势回归，偶尔探头</title>
-      <link>https://sunnycloudyang.github.io/diary/comeback_week1/</link>
+      <link>https://origakid.top/diary/comeback_week1/</link>
       <pubDate>Mon, 04 Mar 2024 23:17:20 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/comeback_week1/</guid>
+      <guid>https://origakid.top/diary/comeback_week1/</guid>
       <description>由量子涨落导致的日记涌现</description>
     </item>
     
     <item>
       <title>STM32H745ZI-Q开发记录</title>
-      <link>https://sunnycloudyang.github.io/posts/stm32h745record/</link>
+      <link>https://origakid.top/posts/stm32h745record/</link>
       <pubDate>Sat, 03 Feb 2024 19:08:35 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/stm32h745record/</guid>
+      <guid>https://origakid.top/posts/stm32h745record/</guid>
       <description>最近有一个小项目用到了STM32H745这个有两个核的芯片，手字笔录，以作前车之鉴</description>
     </item>
     
     <item>
       <title>后室·Demo</title>
-      <link>https://sunnycloudyang.github.io/gadgets/backrooms/</link>
+      <link>https://origakid.top/gadgets/backrooms/</link>
       <pubDate>Wed, 15 Nov 2023 14:38:58 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/gadgets/backrooms/</guid>
+      <guid>https://origakid.top/gadgets/backrooms/</guid>
       <description>小心哦，不要卡进去了</description>
     </item>
     
     <item>
       <title>社恐龙小绿</title>
-      <link>https://sunnycloudyang.github.io/gadgets/mycutedinosaur/</link>
+      <link>https://origakid.top/gadgets/mycutedinosaur/</link>
       <pubDate>Tue, 12 Sep 2023 18:15:33 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/gadgets/mycutedinosaur/</guid>
+      <guid>https://origakid.top/gadgets/mycutedinosaur/</guid>
       <description>小绿只是不爱说话，他是个很聪明的孩子</description>
     </item>
     
     <item>
       <title>曼昆《微观经济学》笔记</title>
-      <link>https://sunnycloudyang.github.io/posts/microeconomics/</link>
+      <link>https://origakid.top/posts/microeconomics/</link>
       <pubDate>Sun, 10 Sep 2023 00:20:11 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/microeconomics/</guid>
+      <guid>https://origakid.top/posts/microeconomics/</guid>
       <description>日拱一卒，功不唐捐</description>
     </item>
     
     <item>
       <title>闲散杂记其一</title>
-      <link>https://sunnycloudyang.github.io/diary/whatever1/</link>
+      <link>https://origakid.top/diary/whatever1/</link>
       <pubDate>Sat, 26 Aug 2023 23:53:20 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/whatever1/</guid>
+      <guid>https://origakid.top/diary/whatever1/</guid>
       <description>也许是我走得太慢，总是看到过去的我在眼前催促，要不要回去呢...</description>
     </item>
     
     <item>
       <title>研学营体验纪实</title>
-      <link>https://sunnycloudyang.github.io/diary/children_camp/</link>
+      <link>https://origakid.top/diary/children_camp/</link>
       <pubDate>Mon, 10 Jul 2023 14:09:40 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/children_camp/</guid>
+      <guid>https://origakid.top/diary/children_camp/</guid>
       <description>哪里有利可图，哪里就会有人蜂拥而至</description>
     </item>
     
     <item>
       <title>精英路径与个人满足</title>
-      <link>https://sunnycloudyang.github.io/posts/book-review-1/</link>
+      <link>https://origakid.top/posts/book-review-1/</link>
       <pubDate>Fri, 09 Jun 2023 20:43:44 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/book-review-1/</guid>
+      <guid>https://origakid.top/posts/book-review-1/</guid>
       <description>理想与物质的倒挂，选择与未来的矛盾，让每个醒来的人在这里挣扎</description>
     </item>
     
     <item>
       <title>森林博物馆——开篇</title>
-      <link>https://sunnycloudyang.github.io/posts/forest-museum-1/</link>
+      <link>https://origakid.top/posts/forest-museum-1/</link>
       <pubDate>Wed, 24 May 2023 00:29:21 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/forest-museum-1/</guid>
+      <guid>https://origakid.top/posts/forest-museum-1/</guid>
       <description>每个人都穿着自己的鞋，走着自己的路来，怎么可能会有一样的感受呢？</description>
     </item>
     
     <item>
       <title>脖子扭扭，屁股歪歪</title>
-      <link>https://sunnycloudyang.github.io/diary/week14/</link>
+      <link>https://origakid.top/diary/week14/</link>
       <pubDate>Wed, 17 May 2023 01:25:38 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week14/</guid>
+      <guid>https://origakid.top/diary/week14/</guid>
       <description>23.05.15 ~ 23.05.21</description>
     </item>
     
     <item>
       <title>非物质五一遗产周</title>
-      <link>https://sunnycloudyang.github.io/diary/week13/</link>
+      <link>https://origakid.top/diary/week13/</link>
       <pubDate>Mon, 08 May 2023 19:45:03 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week13/</guid>
+      <guid>https://origakid.top/diary/week13/</guid>
       <description>23.05.08 ~ 23.05.14</description>
     </item>
     
     <item>
       <title>非物质考试遗产周</title>
-      <link>https://sunnycloudyang.github.io/diary/week12/</link>
+      <link>https://origakid.top/diary/week12/</link>
       <pubDate>Mon, 24 Apr 2023 23:46:18 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week12/</guid>
+      <guid>https://origakid.top/diary/week12/</guid>
       <description>23.04.24 ~ 23.04.30</description>
     </item>
     
     <item>
       <title>菜菜，捞捞</title>
-      <link>https://sunnycloudyang.github.io/diary/week11/</link>
+      <link>https://origakid.top/diary/week11/</link>
       <pubDate>Sun, 23 Apr 2023 02:01:56 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week11/</guid>
+      <guid>https://origakid.top/diary/week11/</guid>
       <description>23.04.17 ~ 23.04.23</description>
     </item>
     
     <item>
       <title>期中要来力</title>
-      <link>https://sunnycloudyang.github.io/diary/week10/</link>
+      <link>https://origakid.top/diary/week10/</link>
       <pubDate>Wed, 12 Apr 2023 14:36:14 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week10/</guid>
+      <guid>https://origakid.top/diary/week10/</guid>
       <description>23.04.10 ~ 23.04.16</description>
     </item>
     
     <item>
       <title>周常出逃记</title>
-      <link>https://sunnycloudyang.github.io/diary/chaoyang/</link>
+      <link>https://origakid.top/diary/chaoyang/</link>
       <pubDate>Mon, 10 Apr 2023 12:12:12 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/chaoyang/</guid>
+      <guid>https://origakid.top/diary/chaoyang/</guid>
       <description>走走~ 走走走~ 我们一起去郊游~</description>
     </item>
     
     <item>
       <title>嗯哼，啊哈</title>
-      <link>https://sunnycloudyang.github.io/diary/week9/</link>
+      <link>https://origakid.top/diary/week9/</link>
       <pubDate>Wed, 29 Mar 2023 00:14:18 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week9/</guid>
+      <guid>https://origakid.top/diary/week9/</guid>
       <description>23.03.27 ~ 23.04.02</description>
     </item>
     
     <item>
       <title>随便问，随缘答</title>
-      <link>https://sunnycloudyang.github.io/xjbchat/quesbox/</link>
+      <link>https://origakid.top/xjbchat/quesbox/</link>
       <pubDate>Fri, 24 Mar 2023 00:05:45 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/xjbchat/quesbox/</guid>
+      <guid>https://origakid.top/xjbchat/quesbox/</guid>
       <description>&lt;p&gt;自由选择，随心发问。类GPT，主打一个瞎jb聊。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://sunnycloudyang.github.io/images/100questions.jpg&#34; alt=&#34;无意义100问&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://origakid.top/images/100questions.jpg&#34; alt=&#34;无意义100问&#34;  /&gt;
 &lt;/p&gt;
 &lt;!-- &lt;div id=&#34;quesdiv-out&#34;&gt;
     &lt;div id=&#34;quesdiv&#34;&gt;
@@ -297,127 +297,127 @@
     
     <item>
       <title>等待戈多</title>
-      <link>https://sunnycloudyang.github.io/diary/week8/</link>
+      <link>https://origakid.top/diary/week8/</link>
       <pubDate>Tue, 21 Mar 2023 01:36:54 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week8/</guid>
+      <guid>https://origakid.top/diary/week8/</guid>
       <description>23.03.20 ~ 23.03.26</description>
     </item>
     
     <item>
       <title>赶，赶。</title>
-      <link>https://sunnycloudyang.github.io/diary/week7/</link>
+      <link>https://origakid.top/diary/week7/</link>
       <pubDate>Thu, 16 Mar 2023 00:32:19 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week7/</guid>
+      <guid>https://origakid.top/diary/week7/</guid>
       <description>本来想拖一天就开始写的日记，在接连不断作业的威压下终于拖到了三天后。</description>
     </item>
     
     <item>
       <title>作业，作孽</title>
-      <link>https://sunnycloudyang.github.io/diary/week6/</link>
+      <link>https://origakid.top/diary/week6/</link>
       <pubDate>Mon, 06 Mar 2023 13:10:04 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week6/</guid>
+      <guid>https://origakid.top/diary/week6/</guid>
       <description>23.03.06 ~ 23.03.12</description>
     </item>
     
     <item>
       <title>Hugo Shortcodes</title>
-      <link>https://sunnycloudyang.github.io/posts/post4/</link>
+      <link>https://origakid.top/posts/post4/</link>
       <pubDate>Thu, 02 Mar 2023 17:04:18 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/post4/</guid>
+      <guid>https://origakid.top/posts/post4/</guid>
       <description>一些Hugo shortcodes模板和效果测试</description>
     </item>
     
     <item>
       <title>课程作业提醒</title>
-      <link>https://sunnycloudyang.github.io/diary/week5/</link>
+      <link>https://origakid.top/diary/week5/</link>
       <pubDate>Mon, 27 Feb 2023 20:26:02 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week5/</guid>
+      <guid>https://origakid.top/diary/week5/</guid>
       <description>23.02.27 ~ 23.03.05</description>
     </item>
     
     <item>
       <title>抖擞精神</title>
-      <link>https://sunnycloudyang.github.io/diary/week4/</link>
+      <link>https://origakid.top/diary/week4/</link>
       <pubDate>Tue, 21 Feb 2023 23:44:42 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week4/</guid>
+      <guid>https://origakid.top/diary/week4/</guid>
       <description>23.02.20 ~ 23.02.26</description>
     </item>
     
     <item>
       <title>准备开学(bǎi)</title>
-      <link>https://sunnycloudyang.github.io/diary/week3/</link>
+      <link>https://origakid.top/diary/week3/</link>
       <pubDate>Mon, 13 Feb 2023 01:27:33 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week3/</guid>
+      <guid>https://origakid.top/diary/week3/</guid>
       <description>23.02.13 ~ 23.02.19</description>
     </item>
     
     <item>
       <title>即将返校</title>
-      <link>https://sunnycloudyang.github.io/diary/week2/</link>
+      <link>https://origakid.top/diary/week2/</link>
       <pubDate>Mon, 06 Feb 2023 23:40:47 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week2/</guid>
+      <guid>https://origakid.top/diary/week2/</guid>
       <description>23.02.06 ~ 23.02.12</description>
     </item>
     
     <item>
       <title>开天辟地</title>
-      <link>https://sunnycloudyang.github.io/diary/week1/</link>
+      <link>https://origakid.top/diary/week1/</link>
       <pubDate>Wed, 01 Feb 2023 13:51:39 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/diary/week1/</guid>
+      <guid>https://origakid.top/diary/week1/</guid>
       <description>23.01.30 ~ 23.02.05</description>
     </item>
     
     <item>
       <title>电子木鱼儿</title>
-      <link>https://sunnycloudyang.github.io/gadgets/woodblock/</link>
+      <link>https://origakid.top/gadgets/woodblock/</link>
       <pubDate>Sat, 28 Jan 2023 21:28:01 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/gadgets/woodblock/</guid>
+      <guid>https://origakid.top/gadgets/woodblock/</guid>
       <description>哒~ 哒~ 哒~</description>
     </item>
     
     <item>
       <title>胡言乱语的ChatGPT和胡写八写的我</title>
-      <link>https://sunnycloudyang.github.io/posts/post3/</link>
+      <link>https://origakid.top/posts/post3/</link>
       <pubDate>Fri, 27 Jan 2023 15:00:23 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/post3/</guid>
+      <guid>https://origakid.top/posts/post3/</guid>
       <description>插件只写了一半，心态倒是完全崩了</description>
     </item>
     
     <item>
       <title>弹弹球儿</title>
-      <link>https://sunnycloudyang.github.io/gadgets/old/</link>
+      <link>https://origakid.top/gadgets/old/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/gadgets/old/</guid>
+      <guid>https://origakid.top/gadgets/old/</guid>
       <description>以前的Bounce Balls，放到这了，玩得尽兴。</description>
     </item>
     
     <item>
       <title>开博第一弹</title>
-      <link>https://sunnycloudyang.github.io/posts/post1/</link>
+      <link>https://origakid.top/posts/post1/</link>
       <pubDate>Tue, 17 Jan 2023 17:00:00 +0800</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/posts/post1/</guid>
+      <guid>https://origakid.top/posts/post1/</guid>
       <description>这是咱第一次开博儿，新鲜，难搞，并且扯淡儿</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://sunnycloudyang.github.io/woodblock/woodblock/</link>
+      <link>https://origakid.top/woodblock/woodblock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sunnycloudyang.github.io/woodblock/woodblock/</guid>
+      <guid>https://origakid.top/woodblock/woodblock/</guid>
       <description>&lt;!DOCTYPE html&gt;
 &lt;html manifest=&#34;woodblock.appcache&#34;&gt;
 
@@ -425,22 +425,22 @@
     &lt;meta charset=&#34;utf-8&#34;&gt;
     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge&#34;&gt;
     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
-    &lt;link rel=&#34;shortcut icon&#34; href=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/icon.png&#34;&gt;
+    &lt;link rel=&#34;shortcut icon&#34; href=&#34;https://origakid.top/oldsite/WoodBlock/res/icon.png&#34;&gt;
     &lt;title&gt;WoodBlock&lt;/title&gt;
-    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/WoodBlock.css&#34;&gt;
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://origakid.top/oldsite/WoodBlock/WoodBlock.css&#34;&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
     &lt;div id=&#34;main&#34;&gt;
         &lt;p id=&#34;cnt&#34;&gt;功德：0&lt;/p&gt;
-        &lt;img src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.jpg&#34; alt=&#34;WoodBlock&#34; id=&#34;WoodBlock&#34; draggable=&#34;false&#34;&gt;
-        &lt;audio src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.wav&#34; id=&#34;audio&#34;&gt;&lt;/audio&gt;
-        &lt;audio src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/res/WoodBlock.mp3&#34; id=&#34;alt_audio&#34;&gt;&lt;/audio&gt;
+        &lt;img src=&#34;https://origakid.top/oldsite/WoodBlock/res/WoodBlock.jpg&#34; alt=&#34;WoodBlock&#34; id=&#34;WoodBlock&#34; draggable=&#34;false&#34;&gt;
+        &lt;audio src=&#34;https://origakid.top/oldsite/WoodBlock/res/WoodBlock.wav&#34; id=&#34;audio&#34;&gt;&lt;/audio&gt;
+        &lt;audio src=&#34;https://origakid.top/oldsite/WoodBlock/res/WoodBlock.mp3&#34; id=&#34;alt_audio&#34;&gt;&lt;/audio&gt;
     &lt;/div&gt;
     &lt;div id=&#34;settings&#34;&gt;
-        &lt;img src=&#34;https://sunnycloudyang.github.io/oldsite/img/setting-icon.png&#34; alt=&#34;setting&#34; id=&#34;setting&#34; draggable=&#34;false&#34;&gt;
+        &lt;img src=&#34;https://origakid.top/oldsite/img/setting-icon.png&#34; alt=&#34;setting&#34; id=&#34;setting&#34; draggable=&#34;false&#34;&gt;
     &lt;/div&gt;
-    &lt;script src=&#34;https://sunnycloudyang.github.io/oldsite/WoodBlock/WoodBlock.js&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://origakid.top/oldsite/WoodBlock/WoodBlock.js&#34;&gt;&lt;/script&gt;
 &lt;/body&gt;
 
 &lt;/html&gt;</description>

@@ -10,16 +10,16 @@
 <meta name="keywords" content="record">
 <meta name="description" content="插件只写了一半，心态倒是完全崩了">
 <meta name="author" content="Yang">
-<link rel="canonical" href="https://sunnycloudyang.github.io/posts/post3/">
+<link rel="canonical" href="https://origakid.top/posts/post3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://sunnycloudyang.github.io/favicon/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://sunnycloudyang.github.io/favicon/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://sunnycloudyang.github.io/favicon/apple-touch-icon.png">
-<link rel="mask-icon" href="https://sunnycloudyang.github.io/favicon/favicon-16x16.png">
+<link rel="icon" href="https://origakid.top/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://origakid.top/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://origakid.top/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://origakid.top/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://origakid.top/favicon/favicon-16x16.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://sunnycloudyang.github.io/posts/post3/">
+<link rel="alternate" hreflang="zh" href="https://origakid.top/posts/post3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -67,13 +67,13 @@
 <meta property="og:title" content="胡言乱语的ChatGPT和胡写八写的我" />
 <meta property="og:description" content="插件只写了一半，心态倒是完全崩了" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sunnycloudyang.github.io/posts/post3/" />
-<meta property="og:image" content="https://sunnycloudyang.github.io/images/code1.jpg" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://origakid.top/posts/post3/" />
+<meta property="og:image" content="https://origakid.top/images/code1.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-01-27T15:00:23+08:00" />
 <meta property="article:modified_time" content="2023-02-04T23:24:50+08:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://sunnycloudyang.github.io/images/code1.jpg" />
+<meta name="twitter:image" content="https://origakid.top/images/code1.jpg" />
 <meta name="twitter:title" content="胡言乱语的ChatGPT和胡写八写的我"/>
 <meta name="twitter:description" content="插件只写了一半，心态倒是完全崩了"/>
 
@@ -87,13 +87,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "龙门阵",
-      "item": "https://sunnycloudyang.github.io/posts/"
+      "item": "https://origakid.top/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "胡言乱语的ChatGPT和胡写八写的我",
-      "item": "https://sunnycloudyang.github.io/posts/post3/"
+      "item": "https://origakid.top/posts/post3/"
     }
   ]
 }
@@ -111,7 +111,7 @@
   "articleBody": "这篇文章本来打算昨晚写的，因为凭借着我对于自己出乎意料并且不知天高地厚的自信，预计昨晚就能写完这个小小的node.js脚本（并不知天高地厚地传授一波经验），没想到node和JS一起给了我两个大大的比兜，并且让我成为了经验。\n但这么说也不公平，因为比兜们主要还是我的左手和右手给的。\n先说说这个脚本到底是啥，不然大家得和我昨晚一样萌币。昨天早上（大概指马尔代夫时间的早上），我梦到佛祖或者什么东西（无不敬）在我手心写了个字，醒来却死活看不见字。这让睡了半个假期的我心里发慌，思来想去，大抵是个“卷”字。西天极乐世界经卷浩如烟海，佛祖们的头发也大多是“卷”的，写个卷也情有可原。于是打开网络血糖准备充充饥。看了看教材，家里果然没有，遂至教参平台欲爬之。可是前人的Python爬虫下载速度差强人意（可能是我开了代理？），再加上自己前几次在控制台里爬的成功经历（不是真的在控制台里爬！），忍不住想写一个node的版本，毕竟JS的异步比Python的好写多了，这也就是这趟噩梦旅行的开始。简而言之，就是一个教参爬虫的node.js版本。\n第一个比兜出现在异步。当我还沾沾自喜于异步的下载是多么方便不用纠结于多线程之类时，这个比兜就已经在路上了。\n为了获取当前章节的页数，我借鉴了前人的代码。先获取这章的config.js，再match到里面的bookConfig.totalPageCnt=xx并将其赋值给我的pageCnt并返回。可是我使用了http.get()这个异步函数来获取config.js，这就导致这个函数还没来得及获取到config.js并赋值给pageCnt就已经返回了！不巧的是下一个函数里终止下载的条件正是cnt \u003e pageCnt，因此我的程序始终得不到终止下载的命令，只好孜孜不倦地让教参平台的服务器“多来点”，服务器也是好心没有ban掉我也只好一边劝脚本珍注意身体一边不停地返回404。就这样，等我有所察觉时，我的文件夹里已经存了无数张无法打开的jpg（我就说怎么下载得这么快）。终于，在编号马上突破3000时，我按下了Ctrl+C，终止了脚本和服务器密切友好的交流也终止了我“写完了”的幻想。\n最终我把下载移动到了res.on('end', ()=\u003e{ })里，虽然不太美观，但也算是解决了问题。\n在我解决完pageCnt的问题后，脚本可以正常下载单个章节了，但也只正常了一次。第二个大比兜又上路了，但这次纯粹是我自己给的。\n鉴于这个脚本还没完成，出于我的习惯（和懒惰），并没有使用Git，而是纯靠“记it”来跟踪变化和修改（俗称随机应变死记硬背），于是在深夜（这回是东八区的深夜）十二点，我给下载单个图片的函数加了个参数如下：\n1 2 3 4 // curChap 就是我新加的参数 function downloadImg(book, curChap, curChapURL, pageCnt, ext, cnt) { // 阿巴阿巴 } 我知道这样直接修改很危险，说不定哪里没改到就GG了。但我更相信我的严谨（🤮yue）和细心（🤮yue）。于是我的脚本停止了运行。它说：\nThe “listener” argument must be of type function. Received an instance of Object\n报错指向的行数是http.get()所在的那一行，我是这么写的：\n1 2 3 4 5 6 7 8 9 10 11 setTimeout(() =\u003e { http.get(imgURL, options, (res) =\u003e { // 这里报错 // 阿巴阿巴 }); if () { //阿巴阿巴 } else { downloadImgs(book, curChapURL, pageCnt, ext, cnt + 1); } }, 200); 我思来想去也找不到问题，途中胡乱改了几个地方也没解决（说不定下一个bug就是这些胡乱改的地方），没办法，没了Copilot的我只能阿巴阿巴。我只好打开全局，祈祷此时此刻和ChapGPT聊天的人不多。\n我把单个儿的函数发给了CGPT，CGPT看了看，说我应该去掉http.get()里的options。窝铐，这可是我放UA的地方，去掉了服务器根本不认我好吧！但是人可是AI，学过的代码比我冲过的浪儿都多，我只好试着照做，果然无果。我又问，那我想设置UA怎么办呢？CGPT说：那好办，你只需要在刚刚去掉options的地方加上一个options，就可以设置UA啦。我可q**d我心平气和，认真思考了一会，又把相关函数和完整的报错信息复制给了GPT，这回GPT虽然还是建议我去掉options再加上options（服了，真的），但是在最后终于给出了一条有用的建议。它说，你这个函数的参数好像不对：\n我一看，好家伙，还得是GPT。我看了一晚上，把自己都快看生气了都没发现少了个参数，这GPT看来有点东西还有这VSCode居然不提醒我。至此，这个脚本终于可以正常下载单个章节的所有图片了，但是多个章节之间怎么安排我还没想好，希望今天能写出来吧，也希望哪位大佬有思路可以不吝赐教。\n最后，第一次写nodejs，也是第一次哗啦啦写这么长的文，谁也没理，谁也不爱。主要还是心中悲愤难平，气急败坏，难以抒发，于是记之。估计脚本剩下的部分也会有无数的问题，希望我和我的电脑能相安无事，锕焖。\n对了，写完了大概会放在 写完的事等写完再说吧\n",
   "wordCount" : "1952",
   "inLanguage": "zh",
-  "image":"https://sunnycloudyang.github.io/images/code1.jpg","datePublished": "2023-01-27T15:00:23+08:00",
+  "image":"https://origakid.top/images/code1.jpg","datePublished": "2023-01-27T15:00:23+08:00",
   "dateModified": "2023-02-04T23:24:50+08:00",
   "author":{
     "@type": "Person",
@@ -119,14 +119,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://sunnycloudyang.github.io/posts/post3/"
+    "@id": "https://origakid.top/posts/post3/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "抽象艺术大巴扎",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sunnycloudyang.github.io/favicon/favicon.ico"
+      "url": "https://origakid.top/favicon/favicon.ico"
     }
   }
 }
@@ -159,8 +159,8 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://sunnycloudyang.github.io/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://sunnycloudyang.github.io/icon.png" alt="" aria-label="logo"
+            <a href="https://origakid.top/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://origakid.top/icon.png" alt="" aria-label="logo"
                     height="30">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -185,7 +185,7 @@
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="https://sunnycloudyang.github.io/en/" title="English"
+                        <a href="https://origakid.top/en/" title="English"
                             aria-label="English">English</a>
                     </li>
                 </ul>
@@ -193,27 +193,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://sunnycloudyang.github.io/archives/" title="时间线">
+                <a href="https://origakid.top/archives/" title="时间线">
                     <span>时间线</span>
                 </a>
             </li>
             <li>
-                <a href="https://sunnycloudyang.github.io/categories" title="分类">
+                <a href="https://origakid.top/categories" title="分类">
                     <span>分类</span>
                 </a>
             </li>
             <li>
-                <a href="https://sunnycloudyang.github.io/tags/" title="标签">
+                <a href="https://origakid.top/tags/" title="标签">
                     <span>标签</span>
                 </a>
             </li>
             <li>
-                <a href="https://sunnycloudyang.github.io/search/" title="搜索">
+                <a href="https://origakid.top/search/" title="搜索">
                     <span>搜索</span>
                 </a>
             </li>
             <li>
-                <a href="https://sunnycloudyang.github.io/friends/" title="友链">
+                <a href="https://origakid.top/friends/" title="友链">
                     <span>友链</span>
                 </a>
             </li>
@@ -224,7 +224,7 @@
 
 <article class="post-single">
     <header class="post-header">
-        <div class="breadcrumbs"><a href="https://sunnycloudyang.github.io/">主页</a>&nbsp;»&nbsp;<a href="https://sunnycloudyang.github.io/posts/">龙门阵</a></div>
+        <div class="breadcrumbs"><a href="https://origakid.top/">主页</a>&nbsp;»&nbsp;<a href="https://origakid.top/posts/">龙门阵</a></div>
         <h1 class="post-title">
             胡言乱语的ChatGPT和胡写八写的我
         </h1>
@@ -306,15 +306,15 @@
 
     <footer class="post-footer">
         <ul class="post-tags">
-            <li><a href="https://sunnycloudyang.github.io/tags/record/">Record</a></li>
+            <li><a href="https://origakid.top/tags/record/">Record</a></li>
         </ul>
 <nav class="paginav">
-  <a class="prev" href="https://sunnycloudyang.github.io/diary/week1/">
+  <a class="prev" href="https://origakid.top/diary/week1/">
     <span class="title">«上一页</span>
     <br>
     <span>开天辟地</span>
   </a>
-  <a class="next" href="https://sunnycloudyang.github.io/posts/post1/">
+  <a class="next" href="https://origakid.top/posts/post1/">
     <span class="title">下一页»</span>
     <br>
     <span>开博第一弹</span>
@@ -371,7 +371,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2025 <a href="https://sunnycloudyang.github.io/">抽象艺术大巴扎</a></span>
+    <span>&copy; 2025 <a href="https://origakid.top/">抽象艺术大巴扎</a></span>
     <span>
         | Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
