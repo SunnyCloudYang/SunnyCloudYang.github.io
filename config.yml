@@ -1,4 +1,4 @@
-baseURL: "https://sunnycloudyang.github.io/"
+baseURL: "https://origakid.top/"
 pagination:
   pagerSize: 9
 theme: PaperMod
@@ -76,7 +76,7 @@ languages:
         profileMode:
             enabled: true
             title: 抽象艺术大巴扎
-            imageUrl: "/images/profile.svg"
+            imageUrl: "/images/profile.png"
             imageTitle: 一个图儿
             # imageWidth: 120
             # imageHeight: 120
