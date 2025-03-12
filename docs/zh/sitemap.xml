@@ -122,12 +122,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/tags/computer/</loc>
+    <loc>https://origakid.top/categories/computer/</loc>
     <lastmod>2024-12-10T00:09:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/categories/computer/</loc>
+    <loc>https://origakid.top/tags/computer/</loc>
     <lastmod>2024-12-10T00:09:36+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -137,12 +137,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/tags/diary/</loc>
+    <loc>https://origakid.top/categories/diary/</loc>
     <lastmod>2024-10-02T04:46:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/categories/diary/</loc>
+    <loc>https://origakid.top/tags/diary/</loc>
     <lastmod>2024-10-02T04:46:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -151,21 +151,6 @@
     <lastmod>2024-10-02T04:46:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-  </url><url>
-    <loc>https://origakid.top/tags/gadgets/</loc>
-    <lastmod>2024-09-08T19:33:48+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://origakid.top/en/tags/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://origakid.top/tags/gadgets/"
-                />
   </url><url>
     <loc>https://origakid.top/categories/gadgets/</loc>
     <lastmod>2024-09-08T19:33:48+08:00</lastmod>
@@ -180,6 +165,21 @@
                 rel="alternate"
                 hreflang="zh-CN"
                 href="https://origakid.top/categories/gadgets/"
+                />
+  </url><url>
+    <loc>https://origakid.top/tags/gadgets/</loc>
+    <lastmod>2024-09-08T19:33:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://origakid.top/en/tags/gadgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://origakid.top/tags/gadgets/"
                 />
   </url><url>
     <loc>https://origakid.top/tags/lipsum/</loc>
@@ -332,12 +332,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/tags/notes/</loc>
+    <loc>https://origakid.top/categories/notes/</loc>
     <lastmod>2023-09-11T16:42:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/categories/notes/</loc>
+    <loc>https://origakid.top/tags/notes/</loc>
     <lastmod>2023-09-11T16:42:53+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -382,12 +382,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/tags/story/</loc>
+    <loc>https://origakid.top/categories/story/</loc>
     <lastmod>2024-05-08T13:56:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://origakid.top/categories/story/</loc>
+    <loc>https://origakid.top/tags/story/</loc>
     <lastmod>2024-05-08T13:56:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

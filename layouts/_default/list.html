@@ -66,7 +66,9 @@
         <header class="entry-header">
             <h2>
                 {{- .Title }}
-                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}{{- if .Params.weight }}<span class="fas fa-thumbtack"></span>{{- end }}
+                {{- if .Draft }}<sup>&nbsp;<span class="entry-isdraft">[draft]</span></sup>{{- end }}
+                {{- if .Params.Permalink }}<sup>&nbsp;<span class="fas fa-external-link-alt" style="font-size: small; color: var(--secondary);"></span></sup>{{- end }}
+                {{- if .Params.weight }}<span class="fas fa-thumbtack"></span>{{- end }}
             </h2>
         </header>
         {{- if (ne (.Param "hideSummary") true) }}

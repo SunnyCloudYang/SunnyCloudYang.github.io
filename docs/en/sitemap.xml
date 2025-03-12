@@ -212,21 +212,6 @@
                 href="https://origakid.top/en/posts/post1/"
                 />
   </url><url>
-    <loc>https://origakid.top/en/tags/gadgets/</loc>
-    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-CN"
-                href="https://origakid.top/tags/gadgets/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://origakid.top/en/tags/gadgets/"
-                />
-  </url><url>
     <loc>https://origakid.top/en/categories/gadgets/</loc>
     <lastmod>2023-01-17T17:00:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -240,6 +225,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://origakid.top/en/categories/gadgets/"
+                />
+  </url><url>
+    <loc>https://origakid.top/en/tags/gadgets/</loc>
+    <lastmod>2023-01-17T17:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-CN"
+                href="https://origakid.top/tags/gadgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://origakid.top/en/tags/gadgets/"
                 />
   </url><url>
     <loc>https://origakid.top/en/tags/milestone/</loc>

@@ -190,7 +190,7 @@
 <article class="post-entry delay-0 fadeIn">
     <div class="post-info"> 
         <header class="entry-header">
-            <h2>中文假字生成器
+            <h2>中文假字生成器<sup>&nbsp;<span class="fas fa-external-link-alt" style="font-size: small; color: var(--secondary);"></span></sup>
             </h2>
         </header>
         <section class="entry-content">
@@ -210,7 +210,7 @@
 <article class="post-entry delay-1 fadeIn">
     <div class="post-info"> 
         <header class="entry-header">
-            <h2>后室·Demo<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+            <h2>后室·Demo<sup>&nbsp;<span class="entry-isdraft">[draft]</span></sup>
             </h2>
         </header>
         <section class="entry-content">
@@ -230,7 +230,7 @@
 <article class="post-entry delay-2 fadeIn">
     <div class="post-info"> 
         <header class="entry-header">
-            <h2>社恐龙小绿<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+            <h2>社恐龙小绿<sup>&nbsp;<span class="entry-isdraft">[draft]</span></sup>
             </h2>
         </header>
         <section class="entry-content">
@@ -357,9 +357,11 @@
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
             mybutton.style.visibility = "visible";
             mybutton.style.opacity = "0.9";
+            mybutton.style.scale = "1";
         } else {
             mybutton.style.visibility = "hidden";
             mybutton.style.opacity = "0";
+            mybutton.style.scale = "0.5";
         }
     };
 

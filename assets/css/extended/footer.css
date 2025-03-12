@@ -1,3 +1,7 @@
+.top-link {
+    transition: visibility 0.5s, opacity 0.3s linear, color 0.3s, scale 0.5s;
+}
+
 .top-link::before {
     content: "";
     position: absolute;

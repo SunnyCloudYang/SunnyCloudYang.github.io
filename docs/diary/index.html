@@ -222,7 +222,7 @@
 <article class="post-entry delay-2 fadeIn">
     <div class="post-info"> 
         <header class="entry-header">
-            <h2>弱势回归，偶尔探头<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+            <h2>弱势回归，偶尔探头<sup>&nbsp;<span class="entry-isdraft">[draft]</span></sup>
             </h2>
         </header>
         <section class="entry-content">
@@ -262,7 +262,7 @@
 <article class="post-entry delay-4 fadeIn">
     <div class="post-info"> 
         <header class="entry-header">
-            <h2>研学营体验纪实<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+            <h2>研学营体验纪实<sup>&nbsp;<span class="entry-isdraft">[draft]</span></sup>
             </h2>
         </header>
         <section class="entry-content">
@@ -433,9 +433,11 @@
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
             mybutton.style.visibility = "visible";
             mybutton.style.opacity = "0.9";
+            mybutton.style.scale = "1";
         } else {
             mybutton.style.visibility = "hidden";
             mybutton.style.opacity = "0";
+            mybutton.style.scale = "0.5";
         }
     };
 
