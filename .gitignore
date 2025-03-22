@@ -2,7 +2,7 @@
 .hugo_build.lock
 *.bat
 .vscode/
-/fonts/
-docs/CNAME
+static/fonts/
+docs/
 
 resources/_gen/

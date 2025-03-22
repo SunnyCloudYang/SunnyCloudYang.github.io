@@ -4,7 +4,6 @@ const util = require('util');
 
 const exec = util.promisify(require('child_process').exec);
 
-// Function to get all HTML files recursively
 async function getHtmlFiles(dir) {
     const files = [];
     const items = await fs.promises.readdir(dir, { withFileTypes: true });
@@ -20,7 +19,6 @@ async function getHtmlFiles(dir) {
     return files;
 }
 
-// Function to extract unique characters from files
 async function extractUniqueChars(files) {
     const chars = new Set();
     // Add ASCII characters (32-126)
@@ -37,16 +35,10 @@ async function extractUniqueChars(files) {
     return Array.from(chars).join('');
 }
 
-// Main function
 async function minifyFont() {
     try {
-        // 1. Get all HTML files from docs folder
         const htmlFiles = await getHtmlFiles('./docs');
-
-        // 2. Extract unique characters and add ASCII chars
         const uniqueChars = await extractUniqueChars(htmlFiles);
-
-        // 3. Create temporary HTML file
         const tempHtml = `
 <!DOCTYPE html>
 <html>
@@ -67,23 +59,12 @@ async function minifyFont() {
 </html>`;
 
         await fs.promises.writeFile('temp.html', tempHtml);
-
-        // 4. Run fontspider
-        await exec('font-spider temp.html');
-
-        // Move generated fonts to static/fonts
-        // await fs.promises.mkdir('./static/fonts', { recursive: true });
-        // Remove 
-        // await fs.promises.rename(
-        //     './static/fonts/camgerjinkai.ttf.tmp', 
-        //     './static/fonts/camgerjinkai.ttf'
-        // );
-
-        // 5. Clean up and run hugo
+        await exec('font-spider --no-backup temp.html');
         await fs.promises.unlink('temp.html');
-        await exec('hugo');
 
         console.log('Font minification completed successfully!');
+        const { stdout } = await exec('ls -l ./static/fonts/');
+        console.log(stdout);
     } catch (error) {
         console.error('Error:', error);
     }
