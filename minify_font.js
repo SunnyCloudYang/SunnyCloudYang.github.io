@@ -45,8 +45,17 @@ async function minifyFont() {
 <head>
     <style>
         @font-face {
-            font-family: '仓耳今楷3';
-            src: url('./static/fonts/仓耳今楷03-W03.ttf') format('truetype');
+            font-family: "仓耳今楷3";
+            src: url("./static/fonts/仓耳今楷03-W03.eot"); /* IE9 */
+            src: url("./static/fonts/仓耳今楷03-W03.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+            
+            url("./static/fonts/仓耳今楷03-W03.woff") format("woff"), /* chrome、firefox */
+            url("./static/fonts/仓耳今楷03-W03.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+            
+            url("./static/fonts/仓耳今楷03-W03.svg#仓耳今楷03-W03") format("svg"); /* iOS 4.1- */
+            font-style: normal;
+            font-weight: normal;
+            font-display: swap;
         }
         body {
             font-family: '仓耳今楷3';
