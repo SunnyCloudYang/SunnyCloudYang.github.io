@@ -1,0 +1,21 @@
+---
+author: "Yang"
+date: "2025-04-13T00:05:34+08:00"
+lastmod: "2025-04-13T00:08:10+08:00"
+description: "Wallpaper from Wallpaper Engine"
+title: "Firewatch 4K [Red Version]"
+summary: "Wallpaper Engine: Firewatch 4K [Red Version] | by: Anonymous"
+tags: ["Wallpaper Engine", "dynamic wallpaper", "wallpaper", "landscape"]
+categories: "wallpaper"
+# cover:
+#    image: images/.jpg
+math: false
+draft: false
+comments: false
+hideMeta: false
+searchHidden: false
+ShowBreadCrumbs: false
+ShowReadingTime: false
+showWordCount: false
+permalink: /wallpaper/firewatch/
+---

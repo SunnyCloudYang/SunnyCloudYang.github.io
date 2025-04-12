@@ -35,7 +35,7 @@
         {{ with (index (.Pages.ByLastmod.Reverse | first 1) 0) }}
             {{ if .Lastmod }}
                 | <span id="last_change">
-                    {{ .CurrentSection.Title }}
+                    {{ .Parent.Title }}
                     {{ i18n "last_change" }}
                     {{ .Lastmod | time.Format ":date_long" }}
                 </span>
