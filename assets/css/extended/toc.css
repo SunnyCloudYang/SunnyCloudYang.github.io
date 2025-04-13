@@ -17,13 +17,13 @@
     height: 100%;
     border-right: 1px solid var(--border);
     left: calc((var(--toc-width) + var(--gap)) * -1);
-    top: calc(var(--gap) * 2);
+    top: calc(var(--gap) * 1.25 + var(--header-height));
     width: var(--toc-width);
 }
 
 .wide .toc {
     position: sticky;
-    top: var(--gap);
+    top: var(--header-height);
     border: unset;
     background: unset;
     border-radius: unset;

@@ -118,19 +118,19 @@ header.header {
     border-bottom: 1px solid var(--border);
 }
 
-header.header::before {
+nav.nav::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--header-height);
+    height: 100%;
     background-color: var(--theme);
     opacity: 0.8;
     z-index: -1;
 }
 
-.list:not(.dark) header.header::before {
+.list:not(.dark) nav.nav::before {
     background-color: var(--code-bg);
 }
 
