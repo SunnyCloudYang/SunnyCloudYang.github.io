@@ -121,6 +121,11 @@
         </div>
         {{- $currentPage := . }}
         <ul id="menu">
+            <label for="menu-toggle" class="menu-toggle" accesskey="m" title="(Alt + M)">
+            </label>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Menu Toggle" accesskey="m"
+                title="(Alt + M)" />
+        <div>
             {{- range site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
@@ -143,7 +148,7 @@
                     {{- end }}
                 </a>
             </li>
-            {{- end }}
+            {{- end }}</div>
         </ul>
     </nav>
 </header>
