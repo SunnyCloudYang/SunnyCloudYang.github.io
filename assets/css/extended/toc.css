@@ -14,7 +14,7 @@
 
 .toc-container.wide {
     position: absolute;
-    height: 100%;
+    height: calc(100% - var(--header-height) + var(--gap));
     border-right: 1px solid var(--border);
     left: calc((var(--toc-width) + var(--gap)) * -1);
     top: calc(var(--gap) * 1.25 + var(--header-height));
