@@ -110,32 +110,32 @@ $(function() {
 		"retina_detect": true
 	});
 
-	var hour;
-	var minutes;
+	// var hour;
+	// var minutes;
 
-	/*setInterval(function() {
-		var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-		var weekdays = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+	// setInterval(function() {
+	// 	var months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+	// 	var weekdays = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 
-		var dt = new Date();
-		var time = dt.getHours() + ":" + dt.getMinutes() + "";
+	// 	var dt = new Date();
+	// 	var time = dt.getHours() + ":" + dt.getMinutes() + "";
 
-		var hours = dt.getHours() < 12 ? dt.getHours() : dt.getHours() - 12;
-		var am = dt.getHours() < 12 ? "AM" : "PM";
+	// 	var hours = dt.getHours() < 12 ? dt.getHours() : dt.getHours() - 12;
+	// 	var am = dt.getHours() < 12 ? "AM" : "PM";
 
-		var minutes = ""+dt.getMinutes()+"";
+	// 	var minutes = ""+dt.getMinutes()+"";
 
-		if (hours == 0) {
-			hours = 12;
-		}
+	// 	if (hours == 0) {
+	// 		hours = 12;
+	// 	}
 
-		if (minutes < 10) {
-			minutes = "0"+minutes+"";
-		}
+	// 	if (minutes < 10) {
+	// 		minutes = "0"+minutes+"";
+	// 	}
 
-		$('.weekday').html(""+weekdays[dt.getDay()]+"");
-		$('.time').html(""+hours+":"+minutes+" "+am+"");
-		$('.seconds').html(""+weekdays[dt.getDay()]+", "+months[dt.getMonth()]+" "+dt.getDate()+", "+dt.getFullYear()+"");
-		//$('.seconds').html("<small>"+da+"</small>")
-	}, 1000);*/
+	// 	$('.weekday').html(""+weekdays[dt.getDay()]+"");
+	// 	$('.time').html(""+hours+":"+minutes+" "+am+"");
+	// 	$('.seconds').html(""+weekdays[dt.getDay()]+", "+months[dt.getMonth()]+" "+dt.getDate()+", "+dt.getFullYear()+"");
+	// 	//$('.seconds').html("<small>"+da+"</small>")
+	// }, 1000);
 });

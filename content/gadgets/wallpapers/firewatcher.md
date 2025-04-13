@@ -1,11 +1,11 @@
 ---
 author: "Yang"
 date: "2025-04-13T00:05:34+08:00"
-lastmod: "2025-04-13T00:11:55+08:00"
+lastmod: "2025-04-13T18:02:30+08:00"
 description: "Wallpaper from Wallpaper Engine"
-title: "Firewatch 4K [Red Version]"
+title: "Firewatch"
 summary: "Wallpaper Engine: Firewatch 4K [Red Version] | by: Anonymous"
-tags: ["Wallpaper Engine", "dynamic wallpaper", "wallpaper", "landscape"]
+tags: ["wallpaper", "dynamic", "landscape"]
 categories: "wallpaper"
 cover:
    image: wallpaper/firewatch/preview.jpg
