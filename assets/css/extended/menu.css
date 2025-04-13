@@ -106,3 +106,35 @@ body:not(.dark) #sun_mode {
 body:not(.dark) #sun {
     display: block;
 }
+
+header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all .3s;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+header.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--theme);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.list:not(.dark) header.header::before {
+    background-color: var(--code-bg);
+}
+
+main.main {
+    padding-top: calc(var(--header-height) + var(--gap));
+    transition: all .3s;
+}
