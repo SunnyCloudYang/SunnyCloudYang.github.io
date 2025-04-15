@@ -56,9 +56,9 @@ const updatePhysics = (currentTime) => {
   requestAnimationFrame(updatePhysics);
 };
 
-let showTime = false;
-let showSeconds = true;
-let is24HourFormat = true;
+let showTime = localStorage.getItem('showTime') === 'true' || false;
+let showSeconds = localStorage.getItem('showSeconds') === 'true' || true;
+let is24HourFormat = localStorage.getItem('is24HourFormat') === 'true' || true;
 let timeoutId;
 $(() => {
   $(".clock").toggle(showTime);
@@ -89,6 +89,7 @@ $(() => {
   $('.bb8').on('dblclick', () => {
     clearTimeout(timeoutId);
     showTime = !showTime;
+    localStorage.setItem('showTime', showTime);
     $('.clock').fadeToggle("fast");
   });
 
@@ -97,6 +98,7 @@ $(() => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
       showTime && (showSeconds = !showSeconds);
+      localStorage.setItem('showSeconds', showSeconds);
     }, 300);
   });
 
@@ -104,6 +106,7 @@ $(() => {
   $(document).on('contextmenu', (event) => {
     event.preventDefault();
     is24HourFormat = !is24HourFormat;
+    localStorage.setItem('is24HourFormat', is24HourFormat);
   });
 });
 
@@ -123,6 +126,7 @@ window.wallpaperPropertyListener = {
   applyUserProperties: function (properties) {
     if (properties.displaytime) {
       showTime = properties.displaytime.value;
+      localStorage.setItem('showTime', showTime);
       showTime ? $('.clock').fadeIn("fast") : $('.clock').fadeOut("fast");
     }
     if (properties.groundcolor) {
@@ -131,6 +135,7 @@ window.wallpaperPropertyListener = {
     }
     if (properties.showseconds) {
       showSeconds = properties.showseconds.value;
+      localStorage.setItem('showSeconds', showSeconds);
     }
     if (properties.springconstant) {
       springConstant = Number(properties.springconstant.value);
@@ -143,6 +148,7 @@ window.wallpaperPropertyListener = {
     }
     if (properties._24hour) {
       is24HourFormat = properties._24hour.value;
+      localStorage.setItem('is24HourFormat', is24HourFormat);
     }
   },
 };
