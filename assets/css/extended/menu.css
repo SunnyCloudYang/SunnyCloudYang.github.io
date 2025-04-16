@@ -134,6 +134,7 @@ header.header::before {
 }
 
 main.main {
+    min-height: calc(100vh - var(--footer-height));
     padding-top: calc(var(--header-height) + var(--gap));
     transition: all .3s;
 }
