@@ -18,6 +18,10 @@
     transition:  0.2s;
 }
 
+.alert *:last-child {
+    margin-bottom: 0;
+}
+
 .alert:hover {
     box-shadow: 0 3px 10px -4px;
 }
