@@ -97,7 +97,7 @@
     </aside>
     <script>
         let activeElement;
-        let elements;
+        let elements = [];
         window.addEventListener('DOMContentLoaded', function (event) {
             checkTocPosition();
 
@@ -119,7 +119,7 @@
                     (getOffsetTop(element) - window.pageYOffset) < window.innerHeight / 2) {
                     return element;
                 }
-            }) || activeElement
+            }) || activeElement;
 
             elements.forEach(element => {
                 const id = encodeURI(element.getAttribute('id')).toLowerCase();
