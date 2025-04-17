@@ -4,17 +4,19 @@
 
 {{ if .Page.Store.Get "needMermaid" -}}
 <script type="module">
-    var theme = 'neutral';
-    if (localStorage.getItem("pref-theme") == "dark") {
-        theme = 'dark'
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        theme = 'dark'
-    }
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  let theme = 'neutral';
+  if (localStorage.getItem("pref-theme") == "dark") {
+      theme = 'dark'
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      theme = 'dark'
+  }
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  window.addEventListener('load',  () => {
     mermaid.initialize({
-        startOnLoad: true,
-        'theme': theme,
+      startOnLoad: true,
+      theme: theme,
     });
+  });
 </script>
 {{ end -}}
 

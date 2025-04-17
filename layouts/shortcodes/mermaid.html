@@ -1,2 +1,10 @@
 {{ .Page.Store.Set "needMermaid" true }}
-<pre class="mermaid" align="center">{{ safeHTML .Inner }}</pre>
+<pre class="mermaid" align="center">
+---
+config:
+  xyChart:
+    width: {{ .Get "width" | default 500 }}
+    height: {{ .Get "height" | default 350 }}
+---
+    {{ safeHTML .Inner }}
+</pre>
