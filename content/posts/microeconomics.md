@@ -1,7 +1,7 @@
 ---
 author: Yang
 date: "2023-09-10T00:20:11+08:00"
-lastmod: "2025-04-18T00:13:54+08:00"
+lastmod: "2025-04-18T15:55:00+08:00"
 description: "董丰《经济学原理》课程笔记，主要依据曼昆《微观经济学》讲授"
 title: "曼昆《微观经济学》笔记"
 summary: "日拱一卒，功不唐捐"
@@ -582,8 +582,8 @@ xychart-beta
 
 $$
 \begin{aligned}
-  \text{总剩余} = &\text{消费者剩余} + \text{生产者剩余} \\
-  =& \text{买家的消费意愿} - \text{卖家的成本} \\
+  \text{总剩余} = &\text{消费者剩余} + \text{生产者剩余} \\\
+  =& \text{买家的消费意愿} - \text{卖家的成本}
 \end{aligned}
 $$
 
