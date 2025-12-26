@@ -1,0 +1,264 @@
+/* Transfer Page Specific Styles */
+
+.transfer-container {
+  max-width: 600px;
+}
+
+/* Preview Card */
+.preview-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.preview-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 400px;
+  background: linear-gradient(145deg, #0f172a 0%, #1a2744 100%);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.preview-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.preview-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.preview-error .error-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+}
+
+/* Model Info Grid */
+.model-info {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-value {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+/* Download Card */
+.download-card {
+  text-align: center;
+}
+
+.btn-large {
+  padding: 1.25rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-icon {
+  font-size: 1.25rem;
+}
+
+.download-hint {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Progress Section */
+.progress-status {
+  margin-bottom: 1rem;
+}
+
+.status-text {
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.progress-bar-wrapper {
+  height: 12px;
+  background: var(--progress-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6366f1 0%, #a855f7 50%, #6366f1 100%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  animation: shimmer 2s linear infinite;
+  box-shadow: 0 0 10px var(--progress-glow);
+}
+
+.progress-details {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* Result Section */
+.result-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+}
+
+.result-success h3 {
+  color: var(--success-color);
+  margin: 0;
+}
+
+.result-filename {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.875rem;
+  word-break: break-all;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  max-width: 100%;
+}
+
+.expiration-notice {
+  color: var(--warning-color);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Error Section */
+.result-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.result-error .error-icon {
+  font-size: 3rem;
+}
+
+.result-error h3 {
+  color: var(--error-color);
+  margin: 0;
+}
+
+.error-message {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Warning Card */
+.warning-card {
+  text-align: center;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.warning-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.warning-icon {
+  font-size: 3rem;
+}
+
+.warning-content h3 {
+  color: var(--warning-color);
+  margin: 0;
+}
+
+.example-url {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.example-url code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-large {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .preview-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+}

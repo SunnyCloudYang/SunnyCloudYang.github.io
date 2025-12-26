@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Model Downloader</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transfer.css" />
+  </head>
+
+  <body>
+    <div class="container transfer-container">
+      <header>
+        <h1>📦 Model Downloader</h1>
+        <p class="subtitle" id="modelNameDisplay">Loading model...</p>
+      </header>
+
+      <main>
+        <!-- Preview Card -->
+        <div class="card preview-card">
+          <div class="preview-wrapper">
+            <div id="previewLoader" class="preview-loader">
+              <div class="loader-spinner"></div>
+              <p>Loading preview...</p>
+            </div>
+            <img
+              id="previewImage"
+              class="preview-image"
+              alt="Model Preview"
+              style="display: none"
+            />
+            <div id="previewError" class="preview-error" style="display: none">
+              <span class="error-icon">🖼️</span>
+              <p>Preview unavailable</p>
+            </div>
+          </div>
+
+          <!-- Model Info -->
+          <div id="modelInfo" class="model-info" style="display: none">
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Model ID</span>
+                <span class="info-value" id="infoModelId">-</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Prompt</span>
+                <span class="info-value" id="infoPrompt">-</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Style</span>
+                <span class="info-value" id="infoStyle">-</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">AI Model</span>
+                <span class="info-value" id="infoAiModel">-</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Triangles</span>
+                <span class="info-value" id="infoTriangles">-</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Author</span>
+                <span class="info-value" id="infoAuthor">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="card download-card">
+          <div id="downloadSection">
+            <button id="downloadBtn" class="btn btn-primary btn-large" disabled>
+              <span class="btn-icon">📥</span>
+              <span class="btn-text">Download GLB Model</span>
+              <span class="spinner" style="display: none"></span>
+            </button>
+            <p class="download-hint">Click to download the 3D model file</p>
+          </div>
+
+          <!-- Progress Section -->
+          <div id="progressSection" style="display: none">
+            <div class="progress-status">
+              <span id="progressStatus" class="status-text"
+                >Preparing download...</span
+              >
+            </div>
+            <div class="progress-bar-wrapper">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <p id="progressDetails" class="progress-details"></p>
+          </div>
+
+          <!-- Result Section -->
+          <div id="resultSection" style="display: none">
+            <div class="result-success">
+              <span class="success-icon">✅</span>
+              <h3>Download Ready!</h3>
+              <p id="resultFilename" class="result-filename"></p>
+              <a
+                href="#"
+                id="resultDownloadLink"
+                class="btn btn-success btn-large"
+                download
+              >
+                <span class="btn-icon">💾</span>
+                <span class="btn-text">Save GLB File</span>
+              </a>
+              <button id="copyLinkBtn" class="btn btn-secondary">
+                🔗 Copy Download Link
+              </button>
+              <p class="expiration-notice">⚠️ Link expires in 1 hour</p>
+            </div>
+          </div>
+
+          <!-- Error Section -->
+          <div id="errorSection" style="display: none">
+            <div class="result-error">
+              <span class="error-icon">❌</span>
+              <h3>Download Failed</h3>
+              <p id="errorMessage" class="error-message"></p>
+              <button id="retryBtn" class="btn btn-primary">
+                🔄 Try Again
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Missing Params Warning -->
+        <div
+          id="missingParamsCard"
+          class="card warning-card"
+          style="display: none"
+        >
+          <div class="warning-content">
+            <span class="warning-icon">⚠️</span>
+            <h3>Missing Parameters</h3>
+            <p>This page requires model name and ID as URL parameters.</p>
+            <p class="example-url">
+              Example: <code>/transfer?name=my-model&id=abc123-...</code>
+            </p>
+            <a href="/" class="btn btn-primary">Go to Main Page</a>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Built by SunnyCloudYang</p>
+      </footer>
+    </div>
+
+    <script src="js/transfer.js"></script>
+  </body>
+</html>
