@@ -41,6 +41,7 @@ const translations = {
     goToMainPage: "Go to Main Page",
     footerText: "Built by SunnyCloudYang",
     pvCountLabel: "Downloads:",
+    pvLoading: "Counting...",
   },
   zh: {
     title: "📦 模型下载器",
@@ -74,6 +75,7 @@ const translations = {
     goToMainPage: "返回主页",
     footerText: "由 SunnyCloudYang 构建",
     pvCountLabel: "下载次数：",
+    pvLoading: "数指头中...",
   },
 };
 
@@ -118,23 +120,18 @@ function applyTranslations() {
 
   // Update footer
   const footerText = document.querySelector(".footer-text");
-  const footerPv = document.querySelector(".footer-pv");
   if (footerText) {
-    footerText.textContent =
-      translations[currentLang].footerText +
-      " ｜ " +
-      translations[currentLang].pvCountLabel;
+    footerText.textContent = translations[currentLang].footerText;
   }
-  if (footerPv) {
-    footerPv.id =
-      currentLang === "en"
-        ? "busuanzi_value_page_pv"
-        : "busuanzi_value_page_pv";
-    // busuzanzi's default Chinese text needs to be overridden
-    if (currentLang === "zh") {
-      footerPv.textContent = "数指头中...";
-    } else {
-      footerPv.textContent = "数指头中...";
+  // Translate busuanzi placeholder only if current value is our predefined placeholder
+  // (don't overwrite actual count once busuanzi has loaded)
+  const pvEl = document.getElementById("busuanzi_value_page_pv");
+  if (pvEl) {
+    const current = pvEl.textContent.trim();
+    const enPlaceholder = translations.en.pvLoading;
+    const zhPlaceholder = translations.zh.pvLoading;
+    if (current === enPlaceholder || current === zhPlaceholder) {
+      pvEl.textContent = translations[currentLang].pvLoading;
     }
   }
 }
