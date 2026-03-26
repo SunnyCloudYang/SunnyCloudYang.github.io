@@ -123,10 +123,16 @@ function applyTranslations() {
   if (footerText) {
     footerText.textContent = translations[currentLang].footerText;
   }
-  // Translate busuanzi placeholder (replaced by busuanzi JS once loaded)
+  // Translate busuanzi placeholder only if current value is our predefined placeholder
+  // (don't overwrite actual count once busuanzi has loaded)
   const pvEl = document.getElementById("busuanzi_value_page_pv");
   if (pvEl) {
-    pvEl.textContent = translations[currentLang].pvLoading;
+    const current = pvEl.textContent.trim();
+    const isEnglishPlaceholder = current === "Counting...";
+    const isChinesePlaceholder = current === "数指头中...";
+    if (isEnglishPlaceholder || isChinesePlaceholder) {
+      pvEl.textContent = translations[currentLang].pvLoading;
+    }
   }
 }
 
