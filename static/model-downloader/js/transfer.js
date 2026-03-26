@@ -6,6 +6,130 @@ const API_BASE_URL = 'https://gar-quality-solely.ngrok-free.app';
 const getApiUrl = (endpoint) =>
   `${API_BASE_URL}/model-downloader/api${endpoint}`;
 
+// i18n - Translations
+const translations = {
+  en: {
+    title: "📦 Model Downloader",
+    loadingModel: "Loading model...",
+    loadingPreview: "Loading preview...",
+    previewUnavailable: "Preview unavailable",
+    modelId: "Model ID",
+    prompt: "Prompt",
+    style: "Style",
+    aiModel: "AI Model",
+    triangles: "Triangles",
+    author: "Author",
+    downloadGlb: "Download GLB Model",
+    downloadHint: "Click to download the 3D model file",
+    preparingDownload: "Preparing download...",
+    startingDownload: "Starting download...",
+    downloading: "Downloading...",
+    downloadComplete: "Download complete!",
+    downloadReady: "Download Ready!",
+    saveGlbFile: "Save GLB File",
+    copyDownloadLink: "Copy Download Link",
+    linkCopied: "Link copied!",
+    expirationNotice: "⚠️ Link expires in 1 hour",
+    downloadFailed: "Download Failed",
+    tryAgain: "Try Again",
+    missingParams: "Missing Parameters",
+    missingParamsDesc: "This page requires model name and ID as URL parameters.",
+    exampleUrl: "Example:",
+    goToMainPage: "Go to Main Page",
+    footerText: "Built by SunnyCloudYang",
+    pvCountLabel: "Downloads:",
+  },
+  zh: {
+    title: "📦 模型下载器",
+    loadingModel: "加载模型中...",
+    loadingPreview: "加载预览中...",
+    previewUnavailable: "预览不可用",
+    modelId: "模型 ID",
+    prompt: "提示词",
+    style: "风格",
+    aiModel: "AI 模型",
+    triangles: "三角面数",
+    author: "作者",
+    downloadGlb: "下载 GLB 模型",
+    downloadHint: "点击下载 3D 模型文件",
+    preparingDownload: "准备下载中...",
+    startingDownload: "开始下载...",
+    downloading: "下载中...",
+    downloadComplete: "下载完成！",
+    downloadReady: "下载就绪！",
+    saveGlbFile: "保存 GLB 文件",
+    copyDownloadLink: "复制下载链接",
+    linkCopied: "链接已复制！",
+    expirationNotice: "⚠️ 链接有效期为 1 小时",
+    downloadFailed: "下载失败",
+    tryAgain: "重试",
+    missingParams: "参数缺失",
+    missingParamsDesc: "此页面需要模型名称和 ID 作为 URL 参数。",
+    exampleUrl: "示例：",
+    goToMainPage: "返回主页",
+    footerText: "由 SunnyCloudYang 构建",
+    pvCountLabel: "下载次数：",
+  }
+};
+
+// Current language
+// Prefer saved preference; otherwise detect from browser
+function getInitialLang() {
+  const saved = localStorage.getItem("modelDL_lang");
+  if (saved === "en" || saved === "zh") return saved;
+  const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+  if (browserLang.startsWith("zh")) return "zh";
+  return "en";
+}
+let currentLang = getInitialLang();
+
+/**
+ * Apply translations to all elements with data-i18n attribute
+ */
+function applyTranslations() {
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[currentLang][key]) {
+      el.textContent = translations[currentLang][key];
+    }
+  });
+
+  // Update HTML lang attribute
+  document.documentElement.lang = currentLang;
+
+  // Update language toggle button
+  const langBtn = document.getElementById("langToggle");
+  if (langBtn) {
+    langBtn.textContent = currentLang === "en" ? "中文" : "EN";
+    langBtn.setAttribute("aria-label", currentLang === "en" ? "Switch to Chinese" : "切换到英文");
+  }
+
+  // Update footer
+  const footerText = document.querySelector(".footer-text");
+  const footerPv = document.querySelector(".footer-pv");
+  if (footerText) {
+    footerText.textContent = translations[currentLang].footerText + " ｜ " + translations[currentLang].pvCountLabel;
+  }
+  if (footerPv) {
+    footerPv.id = currentLang === "en" ? "busuanzi_value_page_pv" : "busuanzi_value_page_pv";
+    // busuzanzi's default Chinese text needs to be overridden
+    if (currentLang === "zh") {
+      footerPv.textContent = "数指头中...";
+    } else {
+      footerPv.textContent = "数指头中...";
+    }
+  }
+}
+
+/**
+ * Toggle language
+ */
+function toggleLanguage() {
+  currentLang = currentLang === "en" ? "zh" : "en";
+  localStorage.setItem("modelDL_lang", currentLang);
+  applyTranslations();
+}
+
 // DOM Elements
 const modelNameDisplay = document.getElementById("modelNameDisplay");
 const previewLoader = document.getElementById("previewLoader");
@@ -39,8 +163,34 @@ function getUrlParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     name: params.get("name"),
-    id: params.get("id"),
   };
+}
+
+/**
+ * Extract UUID from name (name format: "{readable-slug}-{uuid}", UUID is the last segment)
+ */
+function extractUUID(name) {
+  if (!name) return null;
+  const uuidRegex = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const match = decodeURIComponent(name).match(uuidRegex);
+  return match ? match[0] : null;
+}
+
+/**
+ * Get display name without UUID or version suffix (readable slug only)
+ * e.g. "香蕉蛋糕店-v2-019d2a22-..." → "香蕉蛋糕店"
+ */
+function getDisplayName(name) {
+  if (!name) return "";
+  const decoded = decodeURIComponent(name);
+  // Strip UUID
+  const uuidRegex = /-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  let result = decoded.replace(uuidRegex, "");
+  // Strip trailing version suffix like -v2, -v3
+  result = result.replace(/-v\d+$/i, "");
+  // Strip trailing dash
+  result = result.replace(/-$/, "");
+  return result;
 }
 
 /**
@@ -101,6 +251,14 @@ async function loadPreview() {
 }
 
 /**
+ * Update progress status text with translation
+ */
+function updateProgressStatus(textKey, extraText = "") {
+  const t = translations[currentLang];
+  progressStatus.textContent = t[textKey] + extraText;
+}
+
+/**
  * Start model download
  */
 async function startDownload() {
@@ -116,7 +274,7 @@ async function startDownload() {
 
   // Reset progress
   progressBar.style.width = "0%";
-  progressStatus.textContent = "Starting download...";
+  updateProgressStatus("startingDownload");
   progressDetails.textContent = "";
 
   try {
@@ -147,10 +305,10 @@ async function startDownload() {
       if (total) {
         const percent = (loaded / total) * 100;
         progressBar.style.width = `${percent}%`;
-        progressStatus.textContent = `Downloading... ${Math.round(percent)}%`;
+        updateProgressStatus("downloading", ` ${Math.round(percent)}%`);
         progressDetails.textContent = `${formatBytes(loaded)} / ${formatBytes(total)}`;
       } else {
-        progressStatus.textContent = `Downloading... ${formatBytes(loaded)}`;
+        updateProgressStatus("downloading", ` ${formatBytes(loaded)}`);
       }
     }
 
@@ -168,7 +326,7 @@ async function startDownload() {
 
     // Complete progress
     progressBar.style.width = "100%";
-    progressStatus.textContent = "Download complete!";
+    updateProgressStatus("downloadComplete");
     progressDetails.textContent = total ? `${formatBytes(total)} / ${formatBytes(total)}` : formatBytes(loaded);
 
     setTimeout(() => {
@@ -205,7 +363,8 @@ function showMissingParams() {
   document.querySelector(".preview-card").style.display = "none";
   document.querySelector(".download-card").style.display = "none";
   missingParamsCard.style.display = "block";
-  modelNameDisplay.textContent = "Missing Parameters";
+  modelNameDisplay.textContent = translations[currentLang].missingParams;
+  document.title = `${translations[currentLang].missingParams} - ${translations[currentLang].title}`;
 }
 
 /**
@@ -214,23 +373,44 @@ function showMissingParams() {
 function init() {
   const params = getUrlParams();
 
+  // Apply translations on init
+  applyTranslations();
+
   // Validate required parameters
-  if (!params.id || !isValidUUID(params.id)) {
+  const extractedId = extractUUID(params.name);
+  if (!params.name || !extractedId) {
     showMissingParams();
     return;
   }
 
   // Set state
-  modelId = params.id;
+  modelId = extractedId;
   modelName = params.name || "Unknown Model";
 
-  // Update display
-  modelNameDisplay.textContent = decodeURIComponent(modelName);
-  document.title = `${decodeURIComponent(modelName)} - Model Transfer`;
+  // Update display (show readable slug only, not UUID)
+  const displayName = getDisplayName(modelName);
+  modelNameDisplay.textContent = displayName;
+  document.title = `${displayName} - ${translations[currentLang].title}`;
 
   // Enable download button
   downloadBtn.disabled = false;
   downloadBtn.onclick = startDownload;
+
+  // Copy link button handler
+  if (copyLinkBtn) {
+    copyLinkBtn.onclick = () => {
+      const link = resultDownloadLink.href;
+      navigator.clipboard.writeText(link).then(() => {
+        const origText = copyLinkBtn.querySelector("span")?.textContent || copyLinkBtn.childNodes[1]?.textContent;
+        const btnText = copyLinkBtn.querySelector("[data-i18n]") || copyLinkBtn;
+        const t = translations[currentLang];
+        btnText.textContent = "✅ " + t.linkCopied;
+        setTimeout(() => {
+          btnText.textContent = "🔗 " + t.copyDownloadLink;
+        }, 2000);
+      });
+    };
+  }
 
   // Load preview and metadata
   loadPreview();
