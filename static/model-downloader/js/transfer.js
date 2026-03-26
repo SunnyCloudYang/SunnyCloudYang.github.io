@@ -41,6 +41,7 @@ const translations = {
     goToMainPage: "Go to Main Page",
     footerText: "Built by SunnyCloudYang",
     pvCountLabel: "Downloads:",
+    pvLoading: "Counting...",
   },
   zh: {
     title: "📦 模型下载器",
@@ -74,6 +75,7 @@ const translations = {
     goToMainPage: "返回主页",
     footerText: "由 SunnyCloudYang 构建",
     pvCountLabel: "下载次数：",
+    pvLoading: "数指头中...",
   },
 };
 
@@ -120,6 +122,11 @@ function applyTranslations() {
   const footerText = document.querySelector(".footer-text");
   if (footerText) {
     footerText.textContent = translations[currentLang].footerText;
+  }
+  // Translate busuanzi placeholder (replaced by busuanzi JS once loaded)
+  const pvEl = document.getElementById("busuanzi_value_page_pv");
+  if (pvEl) {
+    pvEl.textContent = translations[currentLang].pvLoading;
   }
 }
 
