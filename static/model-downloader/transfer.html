@@ -11,8 +11,11 @@
   <body>
     <div class="container transfer-container">
       <header>
-        <h1>📦 Model Downloader</h1>
-        <p class="subtitle" id="modelNameDisplay">Loading model...</p>
+        <div class="header-row">
+          <h1 data-i18n="title">📦 Model Downloader</h1>
+          <button id="langToggle" class="lang-toggle-btn" onclick="toggleLanguage()" aria-label="Switch to Chinese">中文</button>
+        </div>
+        <p class="subtitle" id="modelNameDisplay" data-i18n="loadingModel">Loading model...</p>
       </header>
 
       <main>
@@ -21,7 +24,7 @@
           <div class="preview-wrapper">
             <div id="previewLoader" class="preview-loader">
               <div class="loader-spinner"></div>
-              <p>Loading preview...</p>
+              <p data-i18n="loadingPreview">Loading preview...</p>
             </div>
             <img
               id="previewImage"
@@ -31,7 +34,7 @@
             />
             <div id="previewError" class="preview-error" style="display: none">
               <span class="error-icon">🖼️</span>
-              <p>Preview unavailable</p>
+              <p data-i18n="previewUnavailable">Preview unavailable</p>
             </div>
           </div>
 
@@ -39,27 +42,27 @@
           <div id="modelInfo" class="model-info" style="display: none">
             <div class="info-grid">
               <div class="info-item">
-                <span class="info-label">Model ID</span>
+                <span class="info-label" data-i18n="modelId">Model ID</span>
                 <span class="info-value" id="infoModelId">-</span>
               </div>
               <div class="info-item">
-                <span class="info-label">Prompt</span>
+                <span class="info-label" data-i18n="prompt">Prompt</span>
                 <span class="info-value" id="infoPrompt">-</span>
               </div>
               <div class="info-item">
-                <span class="info-label">Style</span>
+                <span class="info-label" data-i18n="style">Style</span>
                 <span class="info-value" id="infoStyle">-</span>
               </div>
               <div class="info-item">
-                <span class="info-label">AI Model</span>
+                <span class="info-label" data-i18n="aiModel">AI Model</span>
                 <span class="info-value" id="infoAiModel">-</span>
               </div>
               <div class="info-item">
-                <span class="info-label">Triangles</span>
+                <span class="info-label" data-i18n="triangles">Triangles</span>
                 <span class="info-value" id="infoTriangles">-</span>
               </div>
               <div class="info-item">
-                <span class="info-label">Author</span>
+                <span class="info-label" data-i18n="author">Author</span>
                 <span class="info-value" id="infoAuthor">-</span>
               </div>
             </div>
@@ -71,18 +74,16 @@
           <div id="downloadSection">
             <button id="downloadBtn" class="btn btn-primary btn-large" disabled>
               <span class="btn-icon">📥</span>
-              <span class="btn-text">Download GLB Model</span>
+              <span class="btn-text" data-i18n="downloadGlb">Download GLB Model</span>
               <span class="spinner" style="display: none"></span>
             </button>
-            <p class="download-hint">Click to download the 3D model file</p>
+            <p class="download-hint" data-i18n="downloadHint">Click to download the 3D model file</p>
           </div>
 
           <!-- Progress Section -->
           <div id="progressSection" style="display: none">
             <div class="progress-status">
-              <span id="progressStatus" class="status-text"
-                >Preparing download...</span
-              >
+              <span id="progressStatus" class="status-text" data-i18n="preparingDownload">Preparing download...</span>
             </div>
             <div class="progress-bar-wrapper">
               <div id="progressBar" class="progress-bar"></div>
@@ -94,7 +95,7 @@
           <div id="resultSection" style="display: none">
             <div class="result-success">
               <span class="success-icon">✅</span>
-              <h3>Download Ready!</h3>
+              <h3 data-i18n="downloadReady">Download Ready!</h3>
               <p id="resultFilename" class="result-filename"></p>
               <a
                 href="#"
@@ -103,12 +104,20 @@
                 download
               >
                 <span class="btn-icon">💾</span>
-                <span class="btn-text">Save GLB File</span>
+                <span class="btn-text" data-i18n="saveGlbFile">Save GLB File</span>
               </a>
               <button id="copyLinkBtn" class="btn btn-secondary">
-                🔗 Copy Download Link
+                🔗 <span data-i18n="copyDownloadLink">Copy Download Link</span>
               </button>
-              <p class="expiration-notice">⚠️ Link expires in 1 hour</p>
+              <div class="convert-section">
+                <p class="convert-hint" data-i18n="convertHint">Need another format?</p>
+                <a href="https://www.meshy.ai/3d-tools/file-converter"
+                   target="_blank" rel="noopener"
+                   class="btn btn-convert">
+                  🔄 <span data-i18n="convertOnMeshy">Convert on Meshy</span>
+                </a>
+              </div>
+              <p class="expiration-notice" data-i18n="expirationNotice">⚠️ Link expires in 1 hour</p>
             </div>
           </div>
 
@@ -116,10 +125,10 @@
           <div id="errorSection" style="display: none">
             <div class="result-error">
               <span class="error-icon">❌</span>
-              <h3>Download Failed</h3>
+              <h3 data-i18n="downloadFailed">Download Failed</h3>
               <p id="errorMessage" class="error-message"></p>
               <button id="retryBtn" class="btn btn-primary">
-                🔄 Try Again
+                🔄 <span data-i18n="tryAgain">Try Again</span>
               </button>
             </div>
           </div>
@@ -133,19 +142,19 @@
         >
           <div class="warning-content">
             <span class="warning-icon">⚠️</span>
-            <h3>Missing Parameters</h3>
-            <p>This page requires model name and ID as URL parameters.</p>
+            <h3 data-i18n="missingParams">Missing Parameters</h3>
+            <p data-i18n="missingParamsDesc">This page requires model name and ID as URL parameters.</p>
             <p class="example-url">
-              Example: <code>/transfer?name=my-model&id=abc123-...</code>
+              <span data-i18n="exampleUrl">Example:</span> <code>/transfer?name=my-model-abc123-...</code>
             </p>
-            <a href="/" class="btn btn-primary">Go to Main Page</a>
+            <a href="/" class="btn btn-primary" data-i18n="goToMainPage">Go to Main Page</a>
           </div>
         </div>
       </main>
 
       <footer>
         <p>
-          Built by SunnyCloudYang ｜ 下载次数：<span
+          <span class="footer-text">Built by SunnyCloudYang</span> ｜ <span class="footer-pv" data-i18n="pvCountLabel">下载次数：</span><span
             id="busuanzi_value_page_pv"
           >数指头中...</span>
         </p>
