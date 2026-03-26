@@ -16,6 +16,8 @@ publishDir: docs
 defaultContentLanguage: "zh"
 hasCJKLanguage: true
 hrefTargetBlank: true
+
+author: SunnyCloudYang
 # googleAnalytics: UA-123-45
 
 frontmatter:

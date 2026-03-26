@@ -2,7 +2,7 @@
 // Handles model preview and download functionality
 
 // API Configuration
-const API_BASE_URL = 'https://gar-quality-solely.ngrok-free.app';
+const API_BASE_URL = "https://gar-quality-solely.ngrok-free.app";
 const getApiUrl = (endpoint) =>
   `${API_BASE_URL}/model-downloader/api${endpoint}`;
 
@@ -29,11 +29,14 @@ const translations = {
     saveGlbFile: "Save GLB File",
     copyDownloadLink: "Copy Download Link",
     linkCopied: "Link copied!",
+    convertHint: "Need another format?",
+    convertOnMeshy: "Convert on Meshy",
     expirationNotice: "⚠️ Link expires in 1 hour",
     downloadFailed: "Download Failed",
     tryAgain: "Try Again",
     missingParams: "Missing Parameters",
-    missingParamsDesc: "This page requires model name and ID as URL parameters.",
+    missingParamsDesc:
+      "This page requires model name and ID as URL parameters.",
     exampleUrl: "Example:",
     goToMainPage: "Go to Main Page",
     footerText: "Built by SunnyCloudYang",
@@ -60,6 +63,8 @@ const translations = {
     saveGlbFile: "保存 GLB 文件",
     copyDownloadLink: "复制下载链接",
     linkCopied: "链接已复制！",
+    convertHint: "需要其他格式？",
+    convertOnMeshy: "去 Meshy 转换",
     expirationNotice: "⚠️ 链接有效期为 1 小时",
     downloadFailed: "下载失败",
     tryAgain: "重试",
@@ -69,7 +74,7 @@ const translations = {
     goToMainPage: "返回主页",
     footerText: "由 SunnyCloudYang 构建",
     pvCountLabel: "下载次数：",
-  }
+  },
 };
 
 // Current language
@@ -77,7 +82,11 @@ const translations = {
 function getInitialLang() {
   const saved = localStorage.getItem("modelDL_lang");
   if (saved === "en" || saved === "zh") return saved;
-  const browserLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+  const browserLang = (
+    navigator.language ||
+    navigator.userLanguage ||
+    ""
+  ).toLowerCase();
   if (browserLang.startsWith("zh")) return "zh";
   return "en";
 }
@@ -101,17 +110,26 @@ function applyTranslations() {
   const langBtn = document.getElementById("langToggle");
   if (langBtn) {
     langBtn.textContent = currentLang === "en" ? "中文" : "EN";
-    langBtn.setAttribute("aria-label", currentLang === "en" ? "Switch to Chinese" : "切换到英文");
+    langBtn.setAttribute(
+      "aria-label",
+      currentLang === "en" ? "Switch to Chinese" : "切换到英文",
+    );
   }
 
   // Update footer
   const footerText = document.querySelector(".footer-text");
   const footerPv = document.querySelector(".footer-pv");
   if (footerText) {
-    footerText.textContent = translations[currentLang].footerText + " ｜ " + translations[currentLang].pvCountLabel;
+    footerText.textContent =
+      translations[currentLang].footerText +
+      " ｜ " +
+      translations[currentLang].pvCountLabel;
   }
   if (footerPv) {
-    footerPv.id = currentLang === "en" ? "busuanzi_value_page_pv" : "busuanzi_value_page_pv";
+    footerPv.id =
+      currentLang === "en"
+        ? "busuanzi_value_page_pv"
+        : "busuanzi_value_page_pv";
     // busuzanzi's default Chinese text needs to be overridden
     if (currentLang === "zh") {
       footerPv.textContent = "数指头中...";
@@ -171,7 +189,8 @@ function getUrlParams() {
  */
 function extractUUID(name) {
   if (!name) return null;
-  const uuidRegex = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const uuidRegex =
+    /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
   const match = decodeURIComponent(name).match(uuidRegex);
   return match ? match[0] : null;
 }
@@ -184,7 +203,8 @@ function getDisplayName(name) {
   if (!name) return "";
   const decoded = decodeURIComponent(name);
   // Strip UUID
-  const uuidRegex = /-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const uuidRegex =
+    /-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
   let result = decoded.replace(uuidRegex, "");
   // Strip trailing version suffix like -v2, -v3
   result = result.replace(/-v\d+$/i, "");
@@ -278,17 +298,20 @@ async function startDownload() {
   progressDetails.textContent = "";
 
   try {
-    const response = await fetch(`https://gar-quality-solely.ngrok-free.app/model-downloader/downloads/${modelName}.glb`, {
-      headers: {
-        "ngrok-skip-browser-warning": "114514"
-      }
-    });
+    const response = await fetch(
+      `https://gar-quality-solely.ngrok-free.app/model-downloader/downloads/${modelName}.glb`,
+      {
+        headers: {
+          "ngrok-skip-browser-warning": "114514",
+        },
+      },
+    );
 
     if (!response.ok) {
       throw new Error(`Download failed: ${response.statusText}`);
     }
 
-    const contentLength = response.headers.get('content-length');
+    const contentLength = response.headers.get("content-length");
     const total = contentLength ? parseInt(contentLength, 10) : 0;
     let loaded = 0;
 
@@ -314,9 +337,9 @@ async function startDownload() {
 
     const blob = new Blob(chunks);
     const downloadUrl = window.URL.createObjectURL(blob);
-    
+
     // Trigger download
-    const a = document.createElement('a');
+    const a = document.createElement("a");
     a.href = downloadUrl;
     a.download = `${modelName}.glb`;
     document.body.appendChild(a);
@@ -327,14 +350,15 @@ async function startDownload() {
     // Complete progress
     progressBar.style.width = "100%";
     updateProgressStatus("downloadComplete");
-    progressDetails.textContent = total ? `${formatBytes(total)} / ${formatBytes(total)}` : formatBytes(loaded);
+    progressDetails.textContent = total
+      ? `${formatBytes(total)} / ${formatBytes(total)}`
+      : formatBytes(loaded);
 
     setTimeout(() => {
-        downloadSection.style.display = "block";
-        progressSection.style.display = "none";
-        isDownloading = false;
+      downloadSection.style.display = "block";
+      progressSection.style.display = "none";
+      isDownloading = false;
     }, 2000);
-
   } catch (error) {
     console.error("Download error:", error);
     showError(error.message);
@@ -401,7 +425,9 @@ function init() {
     copyLinkBtn.onclick = () => {
       const link = resultDownloadLink.href;
       navigator.clipboard.writeText(link).then(() => {
-        const origText = copyLinkBtn.querySelector("span")?.textContent || copyLinkBtn.childNodes[1]?.textContent;
+        const origText =
+          copyLinkBtn.querySelector("span")?.textContent ||
+          copyLinkBtn.childNodes[1]?.textContent;
         const btnText = copyLinkBtn.querySelector("[data-i18n]") || copyLinkBtn;
         const t = translations[currentLang];
         btnText.textContent = "✅ " + t.linkCopied;

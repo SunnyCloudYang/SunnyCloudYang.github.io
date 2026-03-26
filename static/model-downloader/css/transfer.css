@@ -38,6 +38,41 @@
   color: var(--primary-color);
 }
 
+/* Convert section */
+.convert-section {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--border-color);
+  text-align: center;
+}
+
+.convert-hint {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.btn-convert {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-convert:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+}
 /* Preview Card */
 .preview-card {
   text-align: center;
