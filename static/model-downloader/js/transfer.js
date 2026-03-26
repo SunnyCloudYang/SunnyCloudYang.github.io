@@ -118,24 +118,8 @@ function applyTranslations() {
 
   // Update footer
   const footerText = document.querySelector(".footer-text");
-  const footerPv = document.querySelector(".footer-pv");
   if (footerText) {
-    footerText.textContent =
-      translations[currentLang].footerText +
-      " ｜ " +
-      translations[currentLang].pvCountLabel;
-  }
-  if (footerPv) {
-    footerPv.id =
-      currentLang === "en"
-        ? "busuanzi_value_page_pv"
-        : "busuanzi_value_page_pv";
-    // busuzanzi's default Chinese text needs to be overridden
-    if (currentLang === "zh") {
-      footerPv.textContent = "数指头中...";
-    } else {
-      footerPv.textContent = "数指头中...";
-    }
+    footerText.textContent = translations[currentLang].footerText;
   }
 }
 
