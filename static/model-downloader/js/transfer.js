@@ -128,9 +128,9 @@ function applyTranslations() {
   const pvEl = document.getElementById("busuanzi_value_page_pv");
   if (pvEl) {
     const current = pvEl.textContent.trim();
-    const isEnglishPlaceholder = current === "Counting...";
-    const isChinesePlaceholder = current === "数指头中...";
-    if (isEnglishPlaceholder || isChinesePlaceholder) {
+    const enPlaceholder = translations.en.pvLoading;
+    const zhPlaceholder = translations.zh.pvLoading;
+    if (current === enPlaceholder || current === zhPlaceholder) {
       pvEl.textContent = translations[currentLang].pvLoading;
     }
   }
