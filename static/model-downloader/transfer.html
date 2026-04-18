@@ -91,6 +91,54 @@
             <p class="download-hint" data-i18n="downloadHint">
               Click to download the 3D model file
             </p>
+            <div class="convert-section">
+              <p class="convert-hint" data-i18n="convertHint">
+                Need another format?
+              </p>
+              <div class="convert-toolbar">
+                <label
+                  class="convert-format-label"
+                  for="convertFormatSelect"
+                  data-i18n="convertFormatLabel"
+                  >Target format</label
+                >
+                <div class="convert-row">
+                  <select id="convertFormatSelect" class="convert-format-select">
+                    <option value="stl">STL</option>
+                    <option value="obj">OBJ</option>
+                    <option value="ply">PLY</option>
+                    <option value="usdz">USDZ</option>
+                    <option value="fbx">FBX</option>
+                    <option value="step">STEP</option>
+                    <option value="stp">STP</option>
+                    <option value="3mf">3MF</option>
+                    <option value="dae">DAE</option>
+                    <option value="3ds">3DS</option>
+                    <option value="skp">SKP</option>
+                    <option value="usd">USD</option>
+                    <option value="off">OFF</option>
+                    <option value="vtk">VTK</option>
+                    <option value="wrl">WRL</option>
+                    <option value="x3d">X3D</option>
+                    <option value="amf">AMF</option>
+                  </select>
+                  <span
+                    id="meshyConvertWrap"
+                    class="meshy-convert-wrap meshy-convert-wrap--disabled"
+                  >
+                    <a
+                      id="meshyConvertLink"
+                      href="#"
+                      class="btn btn-convert btn-convert--disabled"
+                      aria-disabled="true"
+                      tabindex="-1"
+                    >
+                      🔄 <span data-i18n="convertOnMeshy">Convert on Meshy</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Progress Section -->
@@ -107,45 +155,6 @@
               <div id="progressBar" class="progress-bar"></div>
             </div>
             <p id="progressDetails" class="progress-details"></p>
-          </div>
-
-          <!-- Result Section -->
-          <div id="resultSection" style="display: none">
-            <div class="result-success">
-              <span class="success-icon">✅</span>
-              <h3 data-i18n="downloadReady">Download Ready!</h3>
-              <p id="resultFilename" class="result-filename"></p>
-              <a
-                href="#"
-                id="resultDownloadLink"
-                class="btn btn-success btn-large"
-                download
-              >
-                <span class="btn-icon">💾</span>
-                <span class="btn-text" data-i18n="saveGlbFile"
-                  >Save GLB File</span
-                >
-              </a>
-              <button id="copyLinkBtn" class="btn btn-secondary">
-                🔗 <span data-i18n="copyDownloadLink">Copy Download Link</span>
-              </button>
-              <div class="convert-section">
-                <p class="convert-hint" data-i18n="convertHint">
-                  Need another format?
-                </p>
-                <a
-                  href="https://www.meshy.ai/3d-tools/file-converter"
-                  target="_blank"
-                  rel="noopener"
-                  class="btn btn-convert"
-                >
-                  🔄 <span data-i18n="convertOnMeshy">Convert on Meshy</span>
-                </a>
-              </div>
-              <p class="expiration-notice" data-i18n="expirationNotice">
-                ⚠️ Link expires in 1 hour
-              </p>
-            </div>
           </div>
 
           <!-- Error Section -->
