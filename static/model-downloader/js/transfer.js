@@ -25,13 +25,10 @@ const translations = {
     startingDownload: "Starting download...",
     downloading: "Downloading...",
     downloadComplete: "Download complete!",
-    downloadReady: "Download Ready!",
-    saveGlbFile: "Save GLB File",
-    copyDownloadLink: "Copy Download Link",
-    linkCopied: "Link copied!",
     convertHint: "Need another format?",
-    convertOnMeshy: "Convert on Meshy",
-    expirationNotice: "⚠️ Link expires in 1 hour",
+    convertFormatLabel: "Target format",
+    convertOnMeshy: "Convert format",
+    convertDisabledTip: "Please download the model first",
     downloadFailed: "Download Failed",
     tryAgain: "Try Again",
     missingParams: "Missing Parameters",
@@ -60,13 +57,10 @@ const translations = {
     startingDownload: "开始下载...",
     downloading: "下载中...",
     downloadComplete: "下载完成！",
-    downloadReady: "下载就绪！",
-    saveGlbFile: "保存 GLB 文件",
-    copyDownloadLink: "复制下载链接",
-    linkCopied: "链接已复制！",
     convertHint: "需要其他格式？",
-    convertOnMeshy: "去 Meshy 转换",
-    expirationNotice: "⚠️ 链接有效期为 1 小时",
+    convertFormatLabel: "目标格式",
+    convertOnMeshy: "去转换",
+    convertDisabledTip: "请先下载模型",
     downloadFailed: "下载失败",
     tryAgain: "重试",
     missingParams: "参数缺失",
@@ -134,6 +128,11 @@ function applyTranslations() {
       pvEl.textContent = translations[currentLang].pvLoading;
     }
   }
+
+  const meshyWrap = document.getElementById("meshyConvertWrap");
+  if (meshyWrap?.classList.contains("meshy-convert-wrap--disabled")) {
+    meshyWrap.dataset.tip = translations[currentLang].convertDisabledTip;
+  }
 }
 
 /**
@@ -156,15 +155,72 @@ const progressSection = document.getElementById("progressSection");
 const progressBar = document.getElementById("progressBar");
 const progressStatus = document.getElementById("progressStatus");
 const progressDetails = document.getElementById("progressDetails");
-const resultSection = document.getElementById("resultSection");
-const resultDownloadLink = document.getElementById("resultDownloadLink");
-const resultFilename = document.getElementById("resultFilename");
-const copyLinkBtn = document.getElementById("copyLinkBtn");
 const errorSection = document.getElementById("errorSection");
 const errorMessage = document.getElementById("errorMessage");
 const retryBtn = document.getElementById("retryBtn");
 const missingParamsCard = document.getElementById("missingParamsCard");
 const downloadSection = document.getElementById("downloadSection");
+const meshyConvertLink = document.getElementById("meshyConvertLink");
+const meshyConvertWrap = document.getElementById("meshyConvertWrap");
+const convertFormatSelect = document.getElementById("convertFormatSelect");
+
+/** Formats that use Meshy’s GLB converter (zh). */
+const MESHY_GLB_TARGET_EXTS = ["stl", "obj", "ply", "usdz"];
+
+/**
+ * Build converter URL for GLB → ext (Meshy vs ImageToStl).
+ */
+function converterUrlForExt(ext) {
+  const e = String(ext)
+    .toLowerCase()
+    .replace(/^\./, "")
+    .replace(/[^a-z0-9]/g, "");
+  if (!e) return "https://www.meshy.ai/zh/3d-tools/file-converter/glb/to/stl";
+  if (MESHY_GLB_TARGET_EXTS.includes(e)) {
+    return `https://www.meshy.ai/zh/3d-tools/file-converter/glb/to/${e}`;
+  }
+  return `https://imagetostl.com/cn/convert/file/glb/to/${e}`;
+}
+
+/**
+ * Sync link href from the format dropdown when the link is active.
+ */
+function refreshConvertLinkHref() {
+  if (!meshyConvertLink || !convertFormatSelect || !meshyConvertWrap) return;
+  if (meshyConvertWrap.classList.contains("meshy-convert-wrap--disabled")) {
+    return;
+  }
+  meshyConvertLink.href = converterUrlForExt(convertFormatSelect.value);
+}
+
+/**
+ * Enable or disable the Meshy converter link (only after a successful download).
+ */
+function setMeshyConvertEnabled(enabled) {
+  if (!meshyConvertLink) return;
+  if (enabled) {
+    meshyConvertWrap?.classList.remove("meshy-convert-wrap--disabled");
+    meshyConvertWrap?.removeAttribute("data-tip");
+    refreshConvertLinkHref();
+    meshyConvertLink.target = "_blank";
+    meshyConvertLink.rel = "noopener noreferrer";
+    meshyConvertLink.classList.remove("btn-convert--disabled");
+    meshyConvertLink.removeAttribute("aria-disabled");
+    meshyConvertLink.removeAttribute("tabindex");
+  } else {
+    meshyConvertWrap?.classList.add("meshy-convert-wrap--disabled");
+    if (meshyConvertWrap) {
+      meshyConvertWrap.dataset.tip =
+        translations[currentLang].convertDisabledTip;
+    }
+    meshyConvertLink.href = "#";
+    meshyConvertLink.removeAttribute("target");
+    meshyConvertLink.removeAttribute("rel");
+    meshyConvertLink.classList.add("btn-convert--disabled");
+    meshyConvertLink.setAttribute("aria-disabled", "true");
+    meshyConvertLink.setAttribute("tabindex", "-1");
+  }
+}
 
 // State
 let modelId = null;
@@ -282,11 +338,11 @@ async function startDownload() {
   if (isDownloading) return;
 
   isDownloading = true;
+  setMeshyConvertEnabled(false);
 
   // Update UI state
   downloadSection.style.display = "none";
   progressSection.style.display = "block";
-  resultSection.style.display = "none";
   errorSection.style.display = "none";
 
   // Reset progress
@@ -343,6 +399,8 @@ async function startDownload() {
     a.click();
     document.body.removeChild(a);
     window.URL.revokeObjectURL(downloadUrl);
+
+    setMeshyConvertEnabled(true);
 
     // Complete progress
     progressBar.style.width = "100%";
@@ -416,24 +474,15 @@ function init() {
   // Enable download button
   downloadBtn.disabled = false;
   downloadBtn.onclick = startDownload;
+  setMeshyConvertEnabled(false);
 
-  // Copy link button handler
-  if (copyLinkBtn) {
-    copyLinkBtn.onclick = () => {
-      const link = resultDownloadLink.href;
-      navigator.clipboard.writeText(link).then(() => {
-        const origText =
-          copyLinkBtn.querySelector("span")?.textContent ||
-          copyLinkBtn.childNodes[1]?.textContent;
-        const btnText = copyLinkBtn.querySelector("[data-i18n]") || copyLinkBtn;
-        const t = translations[currentLang];
-        btnText.textContent = "✅ " + t.linkCopied;
-        setTimeout(() => {
-          btnText.textContent = "🔗 " + t.copyDownloadLink;
-        }, 2000);
-      });
-    };
-  }
+  meshyConvertLink?.addEventListener("click", (e) => {
+    if (meshyConvertLink.classList.contains("btn-convert--disabled")) {
+      e.preventDefault();
+    }
+  });
+
+  convertFormatSelect?.addEventListener("change", refreshConvertLinkHref);
 
   // Load preview and metadata
   loadPreview();
