@@ -1,0 +1,25 @@
+# Per-photo overrides, keyed by filename (the page-resource .Name, e.g. "01.jpg").
+# Every field is optional. Anything unset is auto-derived:
+#   title   -> EXIF ImageDescription -> filename
+#   caption -> (none)
+#   tags    -> (none)
+#   EXIF (camera/lens/aperture/shutter/iso/focal) + shooting date come from the
+#   image itself, not from here.
+"01.jpg":
+  title: "日出"
+  caption: "凌晨四点爬起来等的光"
+  tags: ["日出", "海"]
+"02.jpg":
+  title: "栈桥"
+  caption: "退潮时分的礁石"
+  tags: ["建筑", "海"]
+"03.jpg":
+  title: "海浪"
+  tags: ["海"]
+"04.jpg":
+  title: "灯塔"
+  caption: "守了一百年的光"
+  tags: ["建筑", "日落"]
+"05.jpg":
+  title: "日落"
+  tags: ["日落", "海"]

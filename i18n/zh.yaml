@@ -1,0 +1,41 @@
+- id: gallery_all_photos
+  translation: "全部图片"
+
+- id: gallery_view
+  translation: "视图"
+
+- id: gallery_view_albums
+  translation: "相册"
+
+- id: gallery_filter
+  translation: "筛选"
+
+- id: gallery_all_tags
+  translation: "全部"
+
+- id: gallery_photos_count
+  translation: "{{ . }} 张"
+
+- id: gallery_album
+  translation: "来自相册"
+
+- id: gallery_exif_camera
+  translation: "相机"
+
+- id: gallery_exif_lens
+  translation: "镜头"
+
+- id: gallery_exif_aperture
+  translation: "光圈"
+
+- id: gallery_exif_shutter
+  translation: "快门"
+
+- id: gallery_exif_iso
+  translation: "ISO"
+
+- id: gallery_exif_focal
+  translation: "焦距"
+
+- id: gallery_empty
+  translation: "还没有照片，敬请期待。"

@@ -1,0 +1,327 @@
+/* ===== Gallery (相册) =====
+   Styles for the gallery section: album-list stacks, photo masonry grid,
+   tag-bar filter, date badges, GLightbox description, and the 3D tilt hover.
+   Uses site CSS variables so light/dark are consistent with the rest of the site. */
+
+/* ---- Album list (stacked cards) ---- */
+.gallery-albums {
+    --album-cols: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--album-cols), 1fr);
+    grid-gap: var(--gap);
+}
+
+@media screen and (min-width: 576px) {
+    .gallery-albums { --album-cols: 2; }
+}
+
+@media screen and (min-width: 992px) {
+    .gallery-albums { --album-cols: 3; }
+}
+
+.gallery-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--gap);
+}
+
+.gallery-toolbar a {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--primary);
+    background: var(--entry);
+    font-size: .9rem;
+    transition: box-shadow .25s ease, transform .25s ease, border-color .2s ease;
+}
+
+.gallery-toolbar a:hover {
+    border-color: var(--primary);
+    box-shadow: 0 2px 4px rgb(5 10 15 / 15%), 0 7px 13px -3px rgb(5 10 15 / 30%);
+    transform: translateY(-2px);
+}
+
+/* ---- View toggle (albums grid <-> all photos), top-right pill ---- */
+.gallery-view-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--gap);
+}
+
+.gallery-view-toggle .view-btn {
+    appearance: none;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    color: var(--secondary);
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: .85rem;
+    font-family: inherit;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.gallery-view-toggle .view-btn:hover { color: var(--primary); }
+
+.gallery-view-toggle .view-btn:first-child { border-radius: 999px 0 0 999px; }
+.gallery-view-toggle .view-btn:last-child { border-radius: 0 999px 999px 0; border-left: none; }
+
+.gallery-view-toggle .view-btn.is-active {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}
+
+.gallery-view { display: none; }
+.gallery-view.is-active { display: block; }
+
+.album-stack {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.album-stack .stack {
+    position: relative;
+    height: 240px;
+    width: 100%;
+}
+
+.stack-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--tertiary);
+    box-shadow: 0 2px 6px rgb(5 10 15 / 25%);
+    transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .25s ease;
+}
+
+/* Default: pile look — back images peek out, rotated/offset */
+.stack-img:nth-child(1) { z-index: 4; }
+.stack-img:nth-child(2) { transform: translate(8px, 8px) rotate(4deg); z-index: 3; }
+.stack-img:nth-child(3) { transform: translate(-8px, 6px) rotate(-5deg); z-index: 2; }
+.stack-img:nth-child(4) { transform: translate(6px, -6px) rotate(3deg); z-index: 1; }
+
+/* Hover: 展开 — fan the back images outward, lift the cover */
+.album-stack:hover .stack-img:nth-child(1) { transform: translateY(-10px); box-shadow: 0 12px 26px rgb(5 10 15 / 45%); }
+.album-stack:hover .stack-img:nth-child(2) { transform: translate(88px, 10px) rotate(13deg); }
+.album-stack:hover .stack-img:nth-child(3) { transform: translate(-88px, 10px) rotate(-13deg); }
+.album-stack:hover .stack-img:nth-child(4) { transform: translate(0, -44px) rotate(4deg); }
+
+.album-meta {
+    margin-top: 14px;
+    text-align: center;
+}
+
+.album-title {
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.album-count {
+    font-size: .85rem;
+    color: var(--secondary);
+    margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .album-stack:hover .stack-img:nth-child(1) { transform: none; }
+    .album-stack:hover .stack-img:nth-child(2),
+    .album-stack:hover .stack-img:nth-child(3),
+    .album-stack:hover .stack-img:nth-child(4) { transform: translate(0, 0) rotate(0); }
+}
+
+/* ---- Tag filter bar ---- */
+.tag-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: var(--gap);
+}
+
+.tag-bar .tag-label {
+    font-size: .9rem;
+    color: var(--secondary);
+    margin-right: 4px;
+}
+
+.tag-bar button {
+    border: 1px solid var(--border);
+    background: var(--entry);
+    color: var(--primary);
+    padding: 4px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: .85rem;
+    line-height: 1.5;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.tag-bar button:hover {
+    border-color: var(--primary);
+}
+
+.tag-bar button.active {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}
+
+/* ---- Photo masonry grid ---- */
+.photo-grid {
+    columns: 3;
+    column-gap: var(--gap);
+}
+
+@media (max-width: 1024px) {
+    .photo-grid { columns: 2; }
+}
+
+@media (max-width: 600px) {
+    .photo-grid { columns: 1; }
+}
+
+.photo {
+    display: block;
+    position: relative;
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: var(--gap);
+    text-decoration: none;
+}
+
+.photo-card {
+    --rx: 0deg;
+    --ry: 0deg;
+    --tz: 0px;
+    --sc: 1;
+    position: relative;
+    display: block;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transform: perspective(700px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(var(--tz)) scale(var(--sc));
+    transform-style: preserve-3d;
+    transition: transform .15s ease-out, box-shadow .2s ease;
+    box-shadow: 0 1px 3px rgb(5 10 15 / 12%);
+    background: var(--entry);
+}
+
+.photo:hover .photo-card {
+    --tz: 28px;
+    --sc: 1.06;
+    box-shadow: 0 20px 38px -12px rgb(5 10 15 / 55%);
+}
+
+/* ---- Progressive image loading (blur-up / LQIP) ----
+   .photo-blur is a tiny placeholder image that loads instantly, blurred +
+   scaled to fill the card; it establishes the card's height (masonry). The
+   main .photo-img overlays it at opacity 0 and crossfades in once loaded. */
+.photo-blur {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: blur(18px) saturate(1.1);
+    transform: scale(1.12);
+    transform-origin: center;
+    transition: opacity .45s ease;
+    border-radius: var(--radius);
+}
+
+.photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius);
+}
+
+/* No blur placeholder: main image stays in-flow to size the card; the card
+   background acts as the placeholder while it loads. */
+.photo-card--noblur .photo-img {
+    position: relative;
+    height: auto;
+    object-fit: fill;
+}
+
+/* The blur only shows while the sharp image hasn't rendered yet: an <img>
+   paints nothing until it loads, so the in-flow blur behind shows through.
+   The main image is visible by default (no opacity:0), so it can never get
+   stuck hidden behind a lingering blur — once loaded it covers the blur,
+   and JS fading the blur out is just cleanup. */
+.photo.loaded .photo-blur { opacity: 0; }
+
+.date-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--theme-transparent);
+    color: var(--primary);
+    font-size: .7rem;
+    padding: 2px 7px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .photo-card {
+        transform: none;
+        transition: box-shadow .2s ease;
+    }
+    .photo:hover .photo-card {
+        transform: translateY(-2px);
+    }
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+/* ---- Empty state (no photos / no albums yet) ---- */
+.gallery-empty {
+    color: var(--secondary);
+    font-size: 1rem;
+    text-align: center;
+    padding: calc(var(--gap) * 2) 0;
+    margin: 0;
+}
+
+/* ---- GLightbox description (caption + EXIF) ---- */
+.gslide-description {
+    font-family: inherit;
+}
+
+.gl-desc .gl-cap {
+    margin: 4px 0 8px;
+    color: #ddd;
+    font-size: .95rem;
+}
+
+.gl-desc .gl-meta {
+    color: #999;
+    font-size: .8rem;
+    margin-bottom: 6px;
+}
+
+.gl-desc .gl-exif {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    font-size: .8rem;
+    color: #aaa;
+}
+
+.gl-desc .gl-exif span b {
+    color: #ddd;
+    font-weight: 600;
+    margin-right: 4px;
+}

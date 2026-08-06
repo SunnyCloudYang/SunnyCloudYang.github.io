@@ -1,0 +1,41 @@
+- id: gallery_all_photos
+  translation: "All Photos"
+
+- id: gallery_view
+  translation: "View"
+
+- id: gallery_view_albums
+  translation: "Albums"
+
+- id: gallery_filter
+  translation: "Filter"
+
+- id: gallery_all_tags
+  translation: "All"
+
+- id: gallery_photos_count
+  translation: "{{ . }} photos"
+
+- id: gallery_album
+  translation: "Album"
+
+- id: gallery_exif_camera
+  translation: "Camera"
+
+- id: gallery_exif_lens
+  translation: "Lens"
+
+- id: gallery_exif_aperture
+  translation: "Aperture"
+
+- id: gallery_exif_shutter
+  translation: "Shutter"
+
+- id: gallery_exif_iso
+  translation: "ISO"
+
+- id: gallery_exif_focal
+  translation: "Focal Length"
+
+- id: gallery_empty
+  translation: "No photos yet — check back soon."

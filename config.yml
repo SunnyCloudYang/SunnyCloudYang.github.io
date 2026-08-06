@@ -17,6 +17,13 @@ defaultContentLanguage: "zh"
 hasCJKLanguage: true
 hrefTargetBlank: true
 
+# Allow hand-authored HTML content files under /content (e.g. WoodBlock.html).
+# Hugo 0.162+ denies text/html content by default; opt back in per the release
+# notes: https://github.com/gohugoio/hugo/releases/tag/v0.162.0
+security:
+    allowContent:
+        - ".*"
+
 author: SunnyCloudYang
 # googleAnalytics: UA-123-45
 
@@ -63,6 +70,10 @@ languages:
               - name: 搜索
                 url: search/
                 weight: 15
+              # - identifier: gallery
+              #   name: 相册
+              #   url: gallery/
+              #   weight: 18
               - identifier: friends
                 name: 友链
                 url: friends/
@@ -127,6 +138,9 @@ languages:
               - name: Search
                 url: search/
                 weight: 15
+              # - name: Gallery
+              #   url: gallery/
+              #   weight: 18
       params:
         description: "This is where I go insane, but don't be afraid, I won't hurt you as you are the few people who found this place. What about take a walk with me?"
         weight: 2
