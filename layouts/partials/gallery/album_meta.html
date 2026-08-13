@@ -1,0 +1,19 @@
+{{- /* Album-level meta for gallery single pages.
+     date → Hugo `date`; device / location → optional front matter strings.
+     Each field is omitted when empty. */ -}}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css">
+{{- $sep := false -}}
+{{- if not .Date.IsZero -}}
+<div class="meta-tag"><span class="fa fa-calendar-plus-o"></span>&nbsp;<span title="{{ .Date }}">{{ .Date.Format (default "2006-01-02" site.Params.DateFormat) }}</span></div>
+{{- $sep = true -}}
+{{- end -}}
+{{- with .Params.device -}}
+{{- if $sep }}&nbsp;|&nbsp;{{ end -}}
+<div class="meta-tag"><span class="fa fa-camera"></span>&nbsp;<span>{{ . }}</span></div>
+{{- $sep = true -}}
+{{- end -}}
+{{- with .Params.location -}}
+{{- if $sep }}&nbsp;|&nbsp;{{ end -}}
+<div class="meta-tag"><span class="fa fa-map-marker"></span>&nbsp;<span>{{ . }}</span></div>
+{{- end -}}

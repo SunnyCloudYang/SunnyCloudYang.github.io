@@ -1,0 +1,95 @@
+{{- /* gallery/photos.html — enumerate a gallery album's bundle images and
+     auto-generate everything the gallery needs: thumbnail (Resize 800x q80),
+     LQIP blur placeholder (Resize 32x q20), lightbox width ladder (for DPR
+     picking), and EXIF + shooting date. Optional meta.yaml overrides
+     title/caption/tags per filename.
+     Returns photo dicts: src/thumb/blur/variants/title/caption/date/tags/exif. */ -}}
+{{- $photos := slice -}}
+{{- $images := slice -}}
+{{- range .Resources -}}
+{{- $ext := lower (path.Ext .Name) -}}
+{{- if or (eq $ext ".jpg") (eq $ext ".jpeg") (eq $ext ".png") (eq $ext ".webp") -}}
+{{- $images = $images | append . -}}
+{{- end -}}
+{{- end -}}
+{{- $images = sort $images "Name" -}}
+
+{{- /* optional meta.yaml sidecar, keyed by resource .Name (e.g. "01.jpg") */ -}}
+{{- $meta := dict -}}
+{{- with .Resources.Get "meta.yaml" -}}
+{{- $meta = . | transform.Unmarshal -}}
+{{- end -}}
+
+{{- /* Lightbox ladder: CSS viewport × devicePixelRatio picks the smallest
+     sharp rung at click time. Never upscale past the oriented original. */ -}}
+{{- $ladder := slice 1280 1920 2560 3840 -}}
+
+{{- range $img := $images -}}
+{{- $name := $img.Name -}}
+{{- $m := index $meta $name | default dict -}}
+{{- /* Phone/camera portrait shots are often stored as landscape pixels + EXIF
+     Orientation; Resize alone ignores that tag and yields sideways thumbs.
+     AutoOrient first so thumb/LQIP/ladder match how the OS Photos app shows them. */ -}}
+{{- $oriented := $img.Filter images.AutoOrient -}}
+{{- $thumb := $oriented.Resize "800x q80" -}}
+{{- $blur := $oriented.Resize "32x q20" -}}
+
+{{- $variants := slice -}}
+{{- range $w := $ladder -}}
+{{- if le $w $oriented.Width -}}
+{{- $v := $oriented.Resize (printf "%dx q85" $w) -}}
+{{- /* printf so RelPermalink is a plain string — avoids #ZgotmplZ in data-srcset JSON */ -}}
+{{- $variants = $variants | append (dict "w" $v.Width "h" $v.Height "src" (printf "%s" $v.RelPermalink)) -}}
+{{- end -}}
+{{- end -}}
+{{- if eq (len $variants) 0 -}}
+{{- $variants = $variants | append (dict "w" $oriented.Width "h" $oriented.Height "src" (printf "%s" $oriented.RelPermalink)) -}}
+{{- end -}}
+
+{{- /* No-JS / fallback href: largest rung ≤ 1920px wide, else smallest. */ -}}
+{{- $default := index $variants 0 -}}
+{{- range $variants -}}
+{{- if le .w 1920 -}}{{- $default = . -}}{{- end -}}
+{{- end -}}
+
+{{- /* EXIF. Rational tags (FNumber/FocalLength) print as "N" or "N/D"; turn the
+     latter into a float so f/5.6 (stored 28/5) renders as f/5.6, not f/28/5. */ -}}
+{{- $camera := "" -}}{{- $lens := "" -}}{{- $aperture := "" -}}{{- $shutter := "" -}}{{- $iso := "" -}}{{- $focal := "" -}}{{- $date := "" -}}
+{{- with $img.Exif -}}
+{{- $t := .Tags -}}
+{{- with $t.Model }}{{- $camera = printf "%v" . -}}{{- end -}}
+{{- with $t.LensModel }}{{- $lens = printf "%v" . -}}{{- end -}}
+{{- with $t.FNumber -}}
+{{- $s := printf "%v" . -}}
+{{- if in $s "/" -}}{{- $p := split $s "/" -}}{{- $aperture = printf "f/%v" (div (float (index $p 0)) (float (index $p 1))) -}}
+{{- else -}}{{- $aperture = printf "f/%v" (float $s) -}}{{- end -}}
+{{- end -}}
+{{- with $t.ExposureTime }}{{- $shutter = printf "%v" . -}}{{- end -}}
+{{- with $t.ISO }}{{- $iso = printf "%v" . -}}{{- end -}}
+{{- with $t.FocalLength -}}
+{{- $s := printf "%v" . -}}
+{{- if in $s "/" -}}{{- $p := split $s "/" -}}{{- $focal = printf "%vmm" (div (float (index $p 0)) (float (index $p 1))) -}}
+{{- else -}}{{- $focal = printf "%vmm" (float $s) -}}{{- end -}}
+{{- end -}}
+{{- with $t.DateTimeOriginal -}}
+{{- /* "2024:08:15 05:42:00" (string) -> take the date part, : to - */ -}}
+{{- $date = replace (index (split (printf "%v" .) " ") 0) ":" "-" -}}
+{{- end -}}
+{{- end -}}
+
+{{- /* title: sidecar > EXIF ImageDescription > filename */ -}}
+{{- $title := "" -}}
+{{- with index $m "title" }}{{- $title = . -}}{{- end -}}
+{{- if not $title -}}{{- with $img.Exif }}{{- with .Tags.ImageDescription }}{{- $title = printf "%v" . -}}{{- end -}}{{- end -}}{{- end -}}
+{{- if not $title }}{{- $title = $name -}}{{- end -}}
+
+{{- $caption := "" -}}
+{{- with index $m "caption" }}{{- $caption = . -}}{{- end -}}
+{{- $tags := slice -}}
+{{- with index $m "tags" }}{{- $tags = . -}}{{- end -}}
+
+{{- $exif := dict "camera" $camera "lens" $lens "aperture" $aperture "shutter" $shutter "iso" $iso "focal" $focal -}}
+{{- $photos = $photos | append (dict "src" $default.src "thumb" $thumb.RelPermalink "blur" $blur.RelPermalink "variants" $variants "title" $title "caption" $caption "date" $date "tags" $tags "exif" $exif) -}}
+{{- end -}}
+
+{{- return $photos -}}

@@ -47,3 +47,9 @@
 </script>
 {{ end }}
 
+{{ if or (eq .Section "gallery") .Params.gallery }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script defer src="{{ "js/gallery.js" | relURL }}"></script>
+{{ end }}
+

@@ -1,0 +1,147 @@
+{{- define "main" }}
+
+{{- if (and site.Params.profileMode.enabled .IsHome) }}
+{{- partial "index_profile.html" . }}
+{{- else }}
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1>
+        {{ .Title | markdownify }}
+        {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+        <a href="index.xml" title="RSS" aria-label="RSS">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linecap="round" stroke-linejoin="round" height="23">
+                <path d="M4 11a9 9 0 0 1 9 9" />
+                <path d="M4 4a16 16 0 0 1 16 16" />
+                <circle cx="5" cy="19" r="1" />
+            </svg>
+        </a>
+        {{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description | markdownify }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{- /* Albums = gallery pages carrying the photos: true marker (their bundle
+     images are enumerated by the gallery/photos partial). */ -}}
+{{- $albums := where .Pages "Params.photos" "!=" nil }}
+{{- $paginator := .Paginate $albums }}
+
+{{- if $albums }}
+<div class="gallery-view-toggle" role="tablist" aria-label="{{ i18n "gallery_view" }}">
+    <button type="button" class="view-btn is-active" role="tab" aria-selected="true" data-view="albums">{{ i18n "gallery_view_albums" }}</button>
+    <button type="button" class="view-btn" role="tab" aria-selected="false" data-view="all">{{ i18n "gallery_all_photos" }}</button>
+</div>
+
+<div class="gallery-views">
+<section class="gallery-view is-active" data-view="albums" role="tabpanel">
+    <div class="gallery-albums">
+        {{- range $paginator.Pages }}
+        {{- $photos := partial "gallery/photos" . }}
+        {{- if gt (len $photos) 0 }}
+        {{- $count := len $photos }}
+        <a class="album-stack" href="{{ .RelPermalink }}">
+            <div class="stack">
+                {{- range first 4 $photos }}
+                {{- $img := .thumb | default .src }}
+                <img class="stack-img" src="{{ $img }}" alt="{{ .title | default (path.Base .src) }}" loading="lazy" />
+                {{- end }}
+            </div>
+            <div class="album-meta">
+                <div class="album-title">{{ .Title }}</div>
+                <div class="album-count">{{ i18n "gallery_photos_count" $count }}</div>
+            </div>
+        </a>
+        {{- end }}
+        {{- end }}
+    </div>
+
+    {{- if gt $paginator.TotalPages 1 }}
+    <footer class="page-footer">
+        <nav class="pagination">
+            {{- if $paginator.HasPrev }}
+            <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+                «&nbsp;{{ i18n "prev_page" }}&nbsp;
+                {{- if (.Param "ShowPageNums") }}
+                {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
+                {{- end }}
+            </a>
+            {{- end }}
+            {{- if $paginator.HasNext }}
+            <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+                {{- i18n "next_page" }}&nbsp;
+                {{- if (.Param "ShowPageNums") }}
+                {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+                {{- end }}&nbsp;»
+            </a>
+            {{- end }}
+        </nav>
+    </footer>
+    {{- end }}
+</section>
+
+<section class="gallery-view" data-view="all" role="tabpanel" aria-hidden="true">
+    <div class="tag-bar" role="toolbar" aria-label="{{ i18n "gallery_filter" }}"></div>
+    <div class="photo-grid">
+        {{- range $album := $albums }}
+        {{- $photos := partial "gallery/photos" $album }}
+        {{- range $p := $photos }}
+        {{- $src := $p.src }}
+        {{- $thumb := $p.thumb }}
+        {{- $title := $p.title }}
+        <a class="photo" href="{{ $src }}"
+            data-src="{{ $src }}"
+            data-thumb="{{ $thumb }}"
+            {{- with $p.blur }} data-blur="{{ . }}"{{ end }}
+            {{- with $p.variants }} data-variants="{{ . | jsonify }}"{{ end }}
+            data-gallery="{{ $album.Title }}"
+            data-title="{{ $title }}"
+            {{- with $p.caption }} data-caption="{{ . }}"{{ end }}
+            {{- with $p.date }} data-date="{{ . }}"{{ end }}
+            {{- with $p.tags }} data-tags="{{ delimit . " " }}"{{ end }}
+            data-exif='{{ $p.exif | jsonify }}'
+            data-album="{{ $album.Title }}">
+            <span class="photo-card{{ if not $p.blur }} photo-card--noblur{{ end }}">
+                {{- with $p.blur }}<img class="photo-blur" src="{{ . }}" alt="" aria-hidden="true" />{{- end }}
+                <img class="photo-img" src="{{ $thumb }}" alt="{{ $title }}" loading="lazy" />
+                {{- with $p.date }}<span class="date-badge">{{ . }}</span>{{- end }}
+            </span>
+        </a>
+        {{- end }}
+        {{- end }}
+    </div>
+</section>
+</div>
+
+<span id="gallery-i18n" hidden
+    data-album="{{ i18n "gallery_album" }}"
+    data-filter="{{ i18n "gallery_filter" }}"
+    data-all="{{ i18n "gallery_all_tags" }}"
+    data-exif-camera="{{ i18n "gallery_exif_camera" }}"
+    data-exif-lens="{{ i18n "gallery_exif_lens" }}"
+    data-exif-aperture="{{ i18n "gallery_exif_aperture" }}"
+    data-exif-shutter="{{ i18n "gallery_exif_shutter" }}"
+    data-exif-iso="{{ i18n "gallery_exif_iso" }}"
+    data-exif-focal="{{ i18n "gallery_exif_focal" }}"></span>
+
+{{- else }}
+<p class="gallery-empty">{{ i18n "gallery_empty" }}</p>
+{{- end }}
+
+{{- end }}{{/* end profileMode */}}
+
+{{- end }}{{- /* end main */ -}}

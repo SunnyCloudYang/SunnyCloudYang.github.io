@@ -1,0 +1,92 @@
+{{- define "main" }}
+
+<article class="post-single">
+    <header class="post-header">
+        {{ partial "breadcrumbs.html" . }}
+        <h1 class="post-title">
+            {{ .Title }}
+            {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">
+            {{ .Description | markdownify }}
+        </div>
+        {{- end }}
+        <div class="post-meta">
+            {{- partial "gallery/album_meta.html" . -}}
+            {{- partial "translation_list.html" . -}}
+        </div>
+    </header>
+
+    {{- if .Content }}
+    <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+    </div>
+    {{- end }}
+
+    {{- /* Auto-enumerate this album's bundle images (thumbs + LQIP + EXIF are
+         generated at build time by the partial; meta.yaml overrides
+         title/caption/tags per filename). */ -}}
+    {{- $photos := partial "gallery/photos" . }}
+    {{- if gt (len $photos) 0 }}
+    <div class="tag-bar" role="toolbar" aria-label="{{ i18n "gallery_filter" }}"></div>
+    <div class="photo-grid">
+        {{- range $i, $p := $photos }}
+        {{- $src := $p.src }}
+        {{- $thumb := $p.thumb }}
+        {{- $title := $p.title }}
+        <a class="photo" href="{{ $src }}"
+            data-src="{{ $src }}"
+            data-thumb="{{ $thumb }}"
+            {{- with $p.blur }} data-blur="{{ . }}"{{ end }}
+            {{- with $p.variants }} data-variants="{{ . | jsonify }}"{{ end }}
+            data-gallery="{{ $.Title }}"
+            data-title="{{ $title }}"
+            {{- with $p.caption }} data-caption="{{ . }}"{{ end }}
+            {{- with $p.date }} data-date="{{ . }}"{{ end }}
+            {{- with $p.tags }} data-tags="{{ delimit . " " }}"{{ end }}
+            data-exif='{{ $p.exif | jsonify }}'
+            data-album="{{ $.Title }}">
+            <span class="photo-card{{ if not $p.blur }} photo-card--noblur{{ end }}">
+                {{- with $p.blur }}<img class="photo-blur" src="{{ . }}" alt="" aria-hidden="true" />{{- end }}
+                <img class="photo-img" src="{{ $thumb }}" alt="{{ $title }}" loading="lazy" />
+                {{- with $p.date }}<span class="date-badge">{{ . }}</span>{{- end }}
+            </span>
+        </a>
+        {{- end }}
+    </div>
+    {{- else }}
+    <p class="gallery-empty">{{ i18n "gallery_empty" }}</p>
+    {{- end }}
+
+    <footer class="post-footer">
+        {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+        <ul class="post-tags">
+            {{- range ($.GetTerms $tags) }}
+            <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+            {{- end }}
+        </ul>
+        {{- if (.Param "ShowPostNavLinks") }}
+        {{- partial "post_nav_links.html" . }}
+        {{- end }}
+    </footer>
+
+    {{- if (.Param "comments") }}
+    {{- partial "comments.html" . }}
+    {{- end }}
+</article>
+
+<span id="gallery-i18n" hidden
+    data-album="{{ i18n "gallery_album" }}"
+    data-filter="{{ i18n "gallery_filter" }}"
+    data-all="{{ i18n "gallery_all_tags" }}"
+    data-exif-camera="{{ i18n "gallery_exif_camera" }}"
+    data-exif-lens="{{ i18n "gallery_exif_lens" }}"
+    data-exif-aperture="{{ i18n "gallery_exif_aperture" }}"
+    data-exif-shutter="{{ i18n "gallery_exif_shutter" }}"
+    data-exif-iso="{{ i18n "gallery_exif_iso" }}"
+    data-exif-focal="{{ i18n "gallery_exif_focal" }}"></span>
+
+{{- end }}{{- /* end main */ -}}
