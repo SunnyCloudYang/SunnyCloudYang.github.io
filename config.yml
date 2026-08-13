@@ -67,13 +67,13 @@ languages:
               # - name: 连载
               #   url: series
               #   weight: 10
+              - identifier: gallery
+                name: 相册
+                url: gallery/
+                weight: 12
               - name: 搜索
                 url: search/
                 weight: 15
-              # - identifier: gallery
-              #   name: 相册
-              #   url: gallery/
-              #   weight: 18
               - identifier: friends
                 name: 友链
                 url: friends/

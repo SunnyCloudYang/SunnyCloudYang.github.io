@@ -1,6 +1,6 @@
 {{- if .IsTranslated -}}
 {{- if (ne .Layout "search") }}
-{{- if or .Params.author site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) }}&nbsp;|&nbsp;{{- end -}}
+{{- if or .Params.author site.Params.author (.Param "ShowReadingTime") (not .Date.IsZero) .Params.device .Params.location }}&nbsp;|&nbsp;{{- end -}}
 {{- end }}
 <div class="meta-tag">
     <i class="fa fa-language" aria-hidden="true">&nbsp;</i>{{ i18n "translations" | default "Translations" }}:

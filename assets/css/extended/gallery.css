@@ -72,8 +72,65 @@
     border-color: var(--primary);
 }
 
-.gallery-view { display: none; }
-.gallery-view.is-active { display: block; }
+/* View panels: crossfade + light rise between albums / all-photos */
+.gallery-views {
+    position: relative;
+}
+
+.gallery-view {
+    display: none;
+}
+
+.gallery-view.is-active,
+.gallery-view.is-exit,
+.gallery-view.is-enter {
+    display: block;
+}
+
+.gallery-view.is-active:not(.is-enter) {
+    opacity: 1;
+    transform: none;
+}
+
+.gallery-view.is-exit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition:
+        opacity .28s ease,
+        transform .32s cubic-bezier(.2, .8, .2, 1);
+}
+
+.gallery-view.is-enter {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(14px);
+    pointer-events: none;
+}
+
+.gallery-view.is-enter.is-enter-active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition:
+        opacity .36s ease,
+        transform .4s cubic-bezier(.2, .8, .2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-view.is-exit,
+    .gallery-view.is-enter,
+    .gallery-view.is-enter.is-enter-active {
+        transition: none;
+        transform: none;
+    }
+}
 
 .album-stack {
     display: block;
@@ -97,7 +154,7 @@
 .gallery-albums:has(.album-stack:focus-visible) .album-stack:not(:focus-visible):not(:hover) {
     opacity: .55;
     filter: saturate(.85);
-    
+}
 
 .album-stack .stack {
     position: relative;
@@ -172,7 +229,7 @@
 }
 
 .album-meta {
-    margin-top: 14px;
+    margin-top: 28px;
     text-align: center;
 }
 
@@ -246,6 +303,8 @@
 .photo-grid {
     columns: 3;
     column-gap: var(--gap);
+    /* Allow hovered cards (raised z-index + 3D scale) to paint over neighbors. */
+    overflow: visible;
 }
 
 @media (max-width: 1024px) {
@@ -259,10 +318,17 @@
 .photo {
     display: block;
     position: relative;
+    z-index: 0;
     width: 100%;
     break-inside: avoid;
     margin-bottom: var(--gap);
     text-decoration: none;
+}
+
+/* Lift the hovered card above neighbors so 3D tilt / scale isn't clipped. */
+.photo:hover,
+.photo:focus-within {
+    z-index: 20;
 }
 
 .photo-card {
@@ -341,6 +407,12 @@
     pointer-events: none;
 }
 
+/* TEMP: hide per-photo date badge + lightbox detail panel (re-enable by removing). */
+.date-badge,
+.glightbox-container .gslide-description {
+    display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .photo-card {
         transform: none;
@@ -364,33 +436,200 @@
     margin: 0;
 }
 
+/* ---- GLightbox viewport + integer-DPR display sizing ---- */
+.glightbox-container .gslide-image img {
+    max-width: 100vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.glightbox-container .gslide-image img.zoomable {
+    cursor: zoom-in;
+}
+
+.glightbox-container .gslide.zoomed .gslide-image img.zoomable {
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    /* Hit-test follows the translated image; empty areas fall through to the overlay. */
+    pointer-events: auto;
+}
+
+.glightbox-container .gslide.zoomed .gslide-image img.zoomable.is-dragging {
+    cursor: grabbing;
+}
+
+/* Zoomed img is moved via transform; its parent boxes still cover the old layout
+   rect and would swallow overlay clicks. Let those pass through. */
+.glightbox-container .gslide.zoomed .ginner-container,
+.glightbox-container .gslide.zoomed .gslide-media,
+.glightbox-container .gslide.zoomed .gslide-image,
+.glightbox-container .gslide.zoomed .gl-progressive {
+    pointer-events: none;
+}
+
+/* ---- GLightbox progressive image (thumb/LQIP → large) ---- */
+.glightbox-container .gl-progressive {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 0;
+}
+
+.glightbox-container .gl-progressive .gl-lqip {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: blur(10px) saturate(1.05);
+    transform: scale(1.04);
+    transform-origin: center;
+    transition: opacity .45s ease;
+    pointer-events: none;
+    user-select: none;
+}
+
+.glightbox-container .gl-progressive .gl-full {
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .45s ease;
+}
+
+.glightbox-container .gl-progressive.is-loaded .gl-full {
+    opacity: 1;
+}
+
+.glightbox-container .gl-progressive.is-loaded .gl-lqip {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glightbox-container .gl-progressive .gl-lqip,
+    .glightbox-container .gl-progressive .gl-full {
+        transition: none;
+        filter: none;
+        transform: none;
+    }
+
+    .glightbox-container .gl-progressive .gl-full {
+        opacity: 1;
+    }
+
+    .glightbox-container .gl-progressive .gl-lqip {
+        display: none;
+    }
+}
+
 /* ---- GLightbox description (caption + EXIF) ---- */
-.gslide-description {
+.glightbox-container .gslide-description {
     font-family: inherit;
+    background: transparent;
+}
+
+.glightbox-container .gslide-description .gdesc-inner {
+    max-width: min(720px, 92vw);
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+
+.gl-desc {
+    margin: 10px auto 0;
+    padding: 14px 18px 16px;
+    border-radius: 12px;
+    background: linear-gradient(
+        180deg,
+        rgb(18 20 24 / 72%) 0%,
+        rgb(10 12 16 / 82%) 100%
+    );
+    border: 1px solid rgb(255 255 255 / 10%);
+    box-shadow:
+        0 1px 0 rgb(255 255 255 / 6%) inset,
+        0 12px 28px rgb(0 0 0 / 35%);
+    backdrop-filter: blur(14px) saturate(1.15);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    color: #e8e6e1;
 }
 
 .gl-desc .gl-cap {
-    margin: 4px 0 8px;
-    color: #ddd;
+    margin: 0 0 10px;
+    color: #f2f0ea;
     font-size: .95rem;
+    line-height: 1.45;
+    letter-spacing: .01em;
 }
 
 .gl-desc .gl-meta {
-    color: #999;
-    font-size: .8rem;
-    margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.gl-desc .gl-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgb(255 255 255 / 12%);
+    background: rgb(255 255 255 / 5%);
+    color: #c9c6bf;
+    font-size: .72rem;
+    letter-spacing: .04em;
+}
+
+.gl-desc .gl-chip-k {
+    color: #8f8c85;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .62rem;
 }
 
 .gl-desc .gl-exif {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 16px;
-    font-size: .8rem;
-    color: #aaa;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 10px 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgb(255 255 255 / 10%);
 }
 
-.gl-desc .gl-exif span b {
-    color: #ddd;
-    font-weight: 600;
-    margin-right: 4px;
+.gl-desc .gl-exif-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.gl-desc .gl-exif-k {
+    color: #8a877f;
+    font-size: .62rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.gl-desc .gl-exif-v {
+    color: #f4f1ea;
+    font-size: .86rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .gl-desc {
+        padding: 12px 14px 14px;
+        border-radius: 10px;
+    }
+
+    .gl-desc .gl-exif {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }

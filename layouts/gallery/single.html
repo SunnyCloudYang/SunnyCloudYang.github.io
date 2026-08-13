@@ -13,6 +13,7 @@
         </div>
         {{- end }}
         <div class="post-meta">
+            {{- partial "gallery/album_meta.html" . -}}
             {{- partial "translation_list.html" . -}}
         </div>
     </header>
@@ -36,8 +37,11 @@
         {{- $src := $p.src }}
         {{- $thumb := $p.thumb }}
         {{- $title := $p.title }}
-        <a class="photo" href="{{ $src | absURL }}"
-            data-src="{{ $src | absURL }}"
+        <a class="photo" href="{{ $src }}"
+            data-src="{{ $src }}"
+            data-thumb="{{ $thumb }}"
+            {{- with $p.blur }} data-blur="{{ . }}"{{ end }}
+            {{- with $p.variants }} data-variants="{{ . | jsonify }}"{{ end }}
             data-gallery="{{ $.Title }}"
             data-title="{{ $title }}"
             {{- with $p.caption }} data-caption="{{ . }}"{{ end }}
@@ -46,8 +50,8 @@
             data-exif='{{ $p.exif | jsonify }}'
             data-album="{{ $.Title }}">
             <span class="photo-card{{ if not $p.blur }} photo-card--noblur{{ end }}">
-                {{- with $p.blur }}<img class="photo-blur" src="{{ . | absURL }}" alt="" aria-hidden="true" />{{- end }}
-                <img class="photo-img" src="{{ $thumb | absURL }}" alt="{{ $title }}" loading="lazy" />
+                {{- with $p.blur }}<img class="photo-blur" src="{{ . }}" alt="" aria-hidden="true" />{{- end }}
+                <img class="photo-img" src="{{ $thumb }}" alt="{{ $title }}" loading="lazy" />
                 {{- with $p.date }}<span class="date-badge">{{ . }}</span>{{- end }}
             </span>
         </a>
