@@ -643,14 +643,25 @@
     }
 
     // ---- 3D tilt hover (pure JS + CSS, no library) ----
+    function canTilt() {
+        if (!window.matchMedia) return true;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+        // Skip phones, tablets, and touch-primary devices (sticky hover / no cursor).
+        if (window.matchMedia('(hover: none)').matches) return false;
+        if (window.matchMedia('(pointer: coarse)').matches) return false;
+        if (window.matchMedia('(max-width: 768px)').matches) return false;
+        return true;
+    }
+
     function initTilt() {
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!canTilt()) return;
         var MAX = 14; // max degrees
         var photos = Array.prototype.slice.call(document.querySelectorAll('.photo'));
         photos.forEach(function (photo) {
             var card = photo.querySelector('.photo-card');
             if (!card) return;
             photo.addEventListener('pointermove', function (e) {
+                if (e.pointerType && e.pointerType !== 'mouse') return;
                 var r = photo.getBoundingClientRect();
                 if (!r.width || !r.height) return;
                 var x = (e.clientX - r.left) / r.width;   // 0..1

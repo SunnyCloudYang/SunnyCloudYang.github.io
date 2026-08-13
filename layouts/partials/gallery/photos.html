@@ -52,11 +52,12 @@
 {{- if le .w 1920 -}}{{- $default = . -}}{{- end -}}
 {{- end -}}
 
-{{- /* EXIF. Rational tags (FNumber/FocalLength) print as "N" or "N/D"; turn the
+{{- /* Image metadata via .Meta (Hugo v0.155+; .Exif is deprecated).
+     Rational tags (FNumber/FocalLength) print as "N" or "N/D"; turn the
      latter into a float so f/5.6 (stored 28/5) renders as f/5.6, not f/28/5. */ -}}
 {{- $camera := "" -}}{{- $lens := "" -}}{{- $aperture := "" -}}{{- $shutter := "" -}}{{- $iso := "" -}}{{- $focal := "" -}}{{- $date := "" -}}
-{{- with $img.Exif -}}
-{{- $t := .Tags -}}
+{{- with $img.Meta -}}
+{{- $t := .Exif -}}
 {{- with $t.Model }}{{- $camera = printf "%v" . -}}{{- end -}}
 {{- with $t.LensModel }}{{- $lens = printf "%v" . -}}{{- end -}}
 {{- with $t.FNumber -}}
@@ -80,7 +81,7 @@
 {{- /* title: sidecar > EXIF ImageDescription > filename */ -}}
 {{- $title := "" -}}
 {{- with index $m "title" }}{{- $title = . -}}{{- end -}}
-{{- if not $title -}}{{- with $img.Exif }}{{- with .Tags.ImageDescription }}{{- $title = printf "%v" . -}}{{- end -}}{{- end -}}{{- end -}}
+{{- if not $title -}}{{- with $img.Meta }}{{- with .Exif.ImageDescription }}{{- $title = printf "%v" . -}}{{- end -}}{{- end -}}{{- end -}}
 {{- if not $title }}{{- $title = $name -}}{{- end -}}
 
 {{- $caption := "" -}}

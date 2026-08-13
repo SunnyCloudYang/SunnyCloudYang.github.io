@@ -49,8 +49,8 @@ minify:
 
 languages:
     zh:
-      languageName: "简体中文"
-      languageCode: "zh-CN"
+      label: "简体中文"
+      locale: "zh-CN"
       weight: 1
       title: 抽象艺术大巴扎
       menu:
@@ -118,8 +118,8 @@ languages:
               url: "mailto:sunnycloudyang@outlook.com"
 
     en:
-      languageName: "English"
-      languageCode: "en"
+      label: "English"
+      locale: "en"
       title: Fanta Mud Pea
       menu:
           main:
