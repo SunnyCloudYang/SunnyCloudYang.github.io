@@ -1,8 +1,11 @@
-import { scene, renderer, camera, controls, stats, maze, size, stopDisplay, beginDisplay } from './solidMaze.js';
+import { scene, renderer, camera, controls, stats, maze, size, stopDisplay, beginDisplay, cullDistantLights, restoreAllLights } from './solidMaze.js';
 import * as THREE from 'three';
 
 let player, flashLight, cameraContainer;
 let gameAnimation;
+let lightCullTimer = null;
+const lightCullDist = 5;
+const lightCullInterval = 500;
 let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
 let basicSpeed = 2;
 let speed = basicSpeed;
@@ -42,14 +45,27 @@ function init() {
     player.add(cameraContainer);
     cameraContainer.add(gameCamera);
 
+    // Flashlight target - slightly forward-left and down from camera
+    const flashLightTarget = new THREE.Object3D();
+    flashLightTarget.position.set(-0.5, -0.5, -2);
+    gameCamera.add(flashLightTarget);
+
     flashLight = new THREE.SpotLight(0xffffff, 0.5);
-    flashLight.position.set(-0.1, -0.8, 0);
-    flashLight.target = gameCamera;
-    flashLight.angle = Math.PI / 6;
+    flashLight.position.set(0.5, -1.2, 0.2);
+    flashLight.target = flashLightTarget;
+    flashLight.angle = Math.PI / 10;
     flashLight.castShadow = true;
     flashLight.intensity = 0.4;
     flashLight.penumbra = 1;
     player.add(flashLight);
+
+    // Flashlight body
+    const flashlightBody = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.06, 0.04, 0.3, 12),
+        new THREE.MeshLambertMaterial({ color: 0x333333 })
+    );
+    flashlightBody.position.set(0.5, -1.1, 0.25);
+    gameCamera.add(flashlightBody);
 
     // const directionalLightHelper = new THREE.SpotLightHelper(flashLight);
     // scene.add(directionalLightHelper);
@@ -63,6 +79,11 @@ function init() {
             exitGame();
         }
     });
+
+    cullDistantLights(player.position, lightCullDist);
+    lightCullTimer = setInterval(() => {
+        cullDistantLights(player.position, lightCullDist);
+    }, lightCullInterval);
 }
 
 function lockPointer() {
@@ -192,6 +213,11 @@ function animate() {
 
 function deinit() {
     cancelAnimationFrame(gameAnimation);
+    if (lightCullTimer) {
+        clearInterval(lightCullTimer);
+        lightCullTimer = null;
+    }
+    restoreAllLights();
     document.removeEventListener('keydown', onKeyDown);
     document.removeEventListener('keyup', onKeyUp);
     document.removeEventListener('mousemove', onMouseMove);

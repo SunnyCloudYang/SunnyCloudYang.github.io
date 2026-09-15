@@ -42,6 +42,8 @@ let maze,
     easy;
 
 function init() {
+    if (renderer) return;
+
     width = mazeCanvas.clientWidth;
     height = mazeCanvas.clientHeight;
     // console.log(width, height);
@@ -110,14 +112,10 @@ function addObjs(size, easy) {
     addPath(maze);
 }
 
+let bubbleLights = [];
+
 function addLights() {
-    // directionalLight = new THREE.SpotLight(0xffffff, 0.5);
-    // directionalLight.position.set(0, 10, 0);
-    // directionalLight.angle = 0.5;
-    // directionalLight.castShadow = false;
-    // directionalLight.intensity = 0.5;
-    // directionalLight.penumbra = 1;
-    // scene.add(directionalLight);
+    bubbleLights = [];
 
     for (let i = 1; i < maze.length; i+=5) {
         for (let j = 1; j < maze[i].length; j+=5) {
@@ -142,16 +140,40 @@ function addLights() {
                 // bubbleLight.shadow.camera.far = 10;
                 // bubbleLight.shadow.camera.fov = 30;
                 scene.add(bubbleLight);
+
+                bubbleLights.push({ light: bubbleLight, mesh: bubble });
             }
         }
     }
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
 }
 
+function cullDistantLights(playerPos, maxDist) {
+    for (const { light, mesh } of bubbleLights) {
+        const dx = mesh.position.x - playerPos.x;
+        const dz = mesh.position.z - playerPos.z;
+        const inRange = dx * dx + dz * dz < maxDist * maxDist;
+        if (inRange && !light.parent) {
+            scene.add(light);
+        } else if (!inRange && light.parent) {
+            scene.remove(light);
+        }
+    }
+}
+
+function restoreAllLights() {
+    for (const { light } of bubbleLights) {
+        if (!light.parent) {
+            scene.add(light);
+        }
+    }
+}
+
 function addFloor(size) {
-    const floorGeometry = new THREE.PlaneGeometry(size, size);
+    const floorSize = size + 1;
+    const floorGeometry = new THREE.PlaneGeometry(floorSize, floorSize);
     const floorMaterial = new THREE.MeshPhongMaterial({ color: 0xccbb22, side: THREE.DoubleSide });
     const floor = new THREE.Mesh(floorGeometry, floorMaterial);
     floor.rotation.x = -Math.PI / 2;
@@ -161,20 +183,19 @@ function addFloor(size) {
 }
 
 function addCeil(size) {
-    const ceilGeometry = new THREE.PlaneGeometry(size+1, size+1);
+    const ceilSize = size + 1;
+    const ceilGeometry = new THREE.PlaneGeometry(ceilSize, ceilSize);
     const ceilMaterial = new THREE.MeshLambertMaterial({ color: 0xeeeeee, side: THREE.DoubleSide });
     const ceil = new THREE.Mesh(ceilGeometry, ceilMaterial);
     ceil.rotation.x = -Math.PI / 2;
-    ceil.position.x = -0.5;
     ceil.position.y = 1.37;
-    ceil.position.z = -0.5;
     ceil.receiveShadow = true;
     ceil.castShadow = false;
     scene.add(ceil);
 }
 
 function addMaze(maze) {
-    const geometry = new THREE.BoxGeometry(1, 2.8, 1);
+    const wallThickness = 0.4;
     const materialWall = new THREE.MeshPhongMaterial({ color: 0xaaaa66, side: THREE.DoubleSide });
     const materialPath = new THREE.MeshLambertMaterial({ color: 0xffffff });
     const materialProp = new THREE.MeshLambertMaterial({ color: 0x22ee22, side: THREE.DoubleSide });
@@ -186,15 +207,42 @@ function addMaze(maze) {
     const propGroup = new THREE.Group();
     const keyGroup = new THREE.Group();
 
+    function isWall(i, j) {
+        return i >= 0 && i < maze.length && j >= 0 && j < maze[i].length && maze[i][j] === MazeObject.Wall;
+    }
+
     for (let i = 0; i < maze.length; i++) {
         for (let j = 0; j < maze[i].length; j++) {
             if (maze[i][j] === MazeObject.Wall) {
-                const cube = new THREE.Mesh(geometry, getMaterial(maze[i][j]));
-                cube.position.x = j - maze.length / 2;
-                cube.position.z = (i - maze.length / 2);
-                cube.receiveShadow = true;
-                cube.castShadow = true;
-                mazeGroup.add(cube);
+                // X-direction strip (connects left-right neighbors)
+                const extL = isWall(i, j - 1) ? 0.5 : wallThickness / 2;
+                const extR = isWall(i, j + 1) ? 0.5 : wallThickness / 2;
+                const sizeX = extL + extR;
+                const offsetX = (extR - extL) / 2;
+
+                if (sizeX > 0) {
+                    const stripX = new THREE.Mesh(new THREE.BoxGeometry(sizeX, 2.8, wallThickness), getMaterial(maze[i][j]));
+                    stripX.position.x = j - maze.length / 2 + offsetX;
+                    stripX.position.z = (i - maze.length / 2);
+                    stripX.receiveShadow = true;
+                    stripX.castShadow = true;
+                    mazeGroup.add(stripX);
+                }
+
+                // Z-direction strip (connects top-bottom neighbors), skip overlap with X strip
+                const extT = isWall(i - 1, j) ? 0.5 : wallThickness / 2;
+                const extB = isWall(i + 1, j) ? 0.5 : wallThickness / 2;
+                const sizeZ = extT + extB;
+                const offsetZ = (extB - extT) / 2;
+
+                if (sizeZ > 0) {
+                    const stripZ = new THREE.Mesh(new THREE.BoxGeometry(wallThickness, 2.8, sizeZ), getMaterial(maze[i][j]));
+                    stripZ.position.x = j - maze.length / 2;
+                    stripZ.position.z = (i - maze.length / 2) + offsetZ;
+                    stripZ.receiveShadow = true;
+                    stripZ.castShadow = true;
+                    mazeGroup.add(stripZ);
+                }
             } else if (maze[i][j] === MazeObject.Prop) {
                 const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 0.02, 1), getMaterial(maze[i][j]));
                 cube.position.x = j - maze.length / 2;
@@ -330,7 +378,10 @@ function onWindowResize() {
     renderer.setSize(width, height);
 }
 
+let listenersAdded = false;
 function addListeners() {
+    if (listenersAdded) return;
+    listenersAdded = true;
     document.getElementById('sizeBar').addEventListener('input', () => {
         size = Number(document.getElementById('sizeBar').value);
         document.getElementById('sizeLabel').innerHTML = size;
@@ -374,4 +425,4 @@ function beginDisplay() {
 init();
 addListeners();
 
-export { scene, camera, renderer, controls, stats, maze, size, stopDisplay, beginDisplay };
+export { scene, camera, renderer, controls, stats, maze, size, stopDisplay, beginDisplay, cullDistantLights, restoreAllLights };
