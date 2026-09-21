@@ -40,6 +40,9 @@
 {{- end }}
 
 <header class="header">
+    <div class="header-frost" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
     <nav class="nav">
         <div class="logo">
             {{- $label_text := (site.Params.label.text | default site.Title) }}

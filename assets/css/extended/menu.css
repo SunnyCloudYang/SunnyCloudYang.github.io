@@ -108,29 +108,82 @@ body:not(.dark) #sun {
 }
 
 header.header {
+    --header-tint: var(--theme);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: all .3s;
-    border-bottom: 1px solid var(--border);
-    background-color: var(--theme-transparent);
-}
-
-header.header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(8px);
-    z-index: -1;
+    isolation: isolate;
+    border-bottom: 0;
+    background-color: transparent;
 }
 
 .list:not(.dark) header.header {
-    background-color: var(--code-bg-transparent);
+    --header-tint: var(--code-bg);
+    background-color: transparent;
+}
+
+/* Progressive frost: blur radius grows from the bottom edge to the top. */
+.header-frost {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.header-frost span {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(var(--r));
+    -webkit-backdrop-filter: blur(var(--r));
+    mask-image: linear-gradient(to top, transparent var(--from), #000 var(--to));
+    -webkit-mask-image: linear-gradient(to top, transparent var(--from), #000 var(--to));
+}
+
+.header-frost span:nth-child(1) { --r: 1px;  --from: 0%;  --to: 32%; }
+.header-frost span:nth-child(2) { --r: 2px;  --from: 10%; --to: 48%; }
+.header-frost span:nth-child(3) { --r: 4px;  --from: 22%; --to: 62%; }
+.header-frost span:nth-child(4) { --r: 7px;  --from: 36%; --to: 76%; }
+.header-frost span:nth-child(5) { --r: 11px; --from: 52%; --to: 90%; }
+.header-frost span:nth-child(6) { --r: 16px; --from: 68%; --to: 100%; }
+
+.header-frost::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        color-mix(in srgb, var(--header-tint) 0%, transparent) 0%,
+        color-mix(in srgb, var(--header-tint) 16%, transparent) 50%,
+        color-mix(in srgb, var(--header-tint) 36%, transparent) 100%
+    );
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    header.header {
+        background-color: var(--theme-transparent);
+    }
+    .list:not(.dark) header.header {
+        background-color: var(--code-bg-transparent);
+    }
+    .header-frost {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    header.header {
+        background-color: var(--theme-transparent);
+        border-bottom: 1px solid var(--border);
+    }
+    .list:not(.dark) header.header {
+        background-color: var(--code-bg-transparent);
+    }
+    .header-frost {
+        display: none;
+    }
 }
 
 main.main {
@@ -140,6 +193,16 @@ main.main {
 }
 
 nav.nav label, #menu-toggle {
+    display: none;
+}
+
+nav.nav #menu {
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+nav.nav #menu::-webkit-scrollbar {
     display: none;
 }
 
@@ -157,6 +220,57 @@ nav.nav #menu li {
 }
 
 @media screen and (max-width: 768px) {
+    header.header {
+        --mobile-item-h: var(--header-height);
+        --menu-n: 0;
+    }
+    header.header:has(#menu div > li:nth-child(1)) { --menu-n: 1; }
+    header.header:has(#menu div > li:nth-child(2)) { --menu-n: 2; }
+    header.header:has(#menu div > li:nth-child(3)) { --menu-n: 3; }
+    header.header:has(#menu div > li:nth-child(4)) { --menu-n: 4; }
+    header.header:has(#menu div > li:nth-child(5)) { --menu-n: 5; }
+    header.header:has(#menu div > li:nth-child(6)) { --menu-n: 6; }
+    header.header:has(#menu div > li:nth-child(7)) { --menu-n: 7; }
+    header.header:has(#menu div > li:nth-child(8)) { --menu-n: 8; }
+
+    .header-frost {
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: auto;
+        height: 100%;
+        transition: height .28s ease;
+    }
+
+    .header-frost::after {
+        transition: background .28s ease;
+    }
+
+    /* One frost sheet over bar + panel so the gradient doesn't break at the seam. */
+    header.header:has(#menu-toggle:checked) .header-frost {
+        height: calc(100% + var(--mobile-item-h) * var(--menu-n));
+    }
+
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(1) { --r: 2px;  --from: 0%;  --to: 14%; }
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(2) { --r: 4px;  --from: 0%;  --to: 26%; }
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(3) { --r: 8px;  --from: 4%;  --to: 42%; }
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(4) { --r: 12px; --from: 10%; --to: 58%; }
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(5) { --r: 16px; --from: 20%; --to: 78%; }
+    header.header:has(#menu-toggle:checked) .header-frost span:nth-child(6) { --r: 20px; --from: 36%; --to: 100%; }
+
+    header.header:has(#menu-toggle:checked) .header-frost::after {
+        background: linear-gradient(
+            to top,
+            color-mix(in srgb, var(--header-tint) 32%, transparent) 0%,
+            color-mix(in srgb, var(--header-tint) 40%, transparent) 28%,
+            color-mix(in srgb, var(--header-tint) 42%, transparent) 100%
+        );
+    }
+
+    nav.nav #menu {
+        overflow: visible;
+    }
+
     nav.nav label {
         display: inline-block;
     }
@@ -168,20 +282,9 @@ nav.nav #menu li {
     nav.nav label:has(+ #menu-toggle:checked)::before {
         content: "✕";
     }
-    
-    nav.nav #menu-toggle:checked ~ div::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--theme-transparent);
-        z-index: -1;
-    }
 
-    .list:not(.dark) nav.nav #menu-toggle:checked ~ div::before {
-        background-color: var(--code-bg-transparent);
+    nav.nav #menu-toggle:checked ~ div::before {
+        content: none;
     }
 
     nav.nav #menu-toggle:checked ~ div {
@@ -191,14 +294,16 @@ nav.nav #menu li {
         position: absolute;
         left: 0;
         top: var(--header-height);
-        border-bottom: 1px solid var(--border);
-        background-color: transparent;
-        backdrop-filter: blur(8px);
+        border-bottom: 0;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         user-select: none;
-        z-index: 1000;
+        z-index: 1;
     }
 
     nav.nav #menu-toggle:checked ~ div li {
         display: block;
+        line-height: var(--mobile-item-h);
     }
 }
