@@ -202,6 +202,7 @@
         img.style.maxHeight = '90vh';
         img._galleryPan = { x: 0, y: 0 };
         img._galleryZoomMode = '';
+        img._galleryZoomScale = 1;
         img.style.transform = '';
         img.style.transformOrigin = 'center center';
     }
@@ -227,12 +228,82 @@
         return { cssW: nw * scale, cssH: nh * scale };
     }
 
+    // Click-to-inspect zoom relative to the lightbox display size.
+    // Wheel can go further (cursor-centered).
+    var INSPECT_ZOOM = 2.1;
+    var WHEEL_ZOOM_MAX = 8;
+
     function applyZoomTransform(img) {
         var pan = img._galleryPan || { x: 0, y: 0 };
         var t = 'translate3d(' + pan.x + 'px,' + pan.y + 'px,0)';
-        if (img._galleryZoomMode === 'scale') t += ' scale(2)';
+        var s = img._galleryZoomScale;
+        if (s && s !== 1) t += ' scale(' + s + ')';
         img.style.transform = t;
         img.style.transformOrigin = 'center center';
+    }
+
+    function currentVisualScale(img) {
+        var p = img._galleryPlan;
+        var s = img._galleryZoomScale || 1;
+        if (!p || !p.cssW) return s;
+        var w = parseFloat(img.style.width);
+        if (!(w > 0)) w = p.cssW;
+        return (w * s) / p.cssW;
+    }
+
+    function restoreFit(img, slideNode) {
+        if (!img) return;
+        var p = img._galleryPlan;
+        if (p) applyLightboxPlan(img, p);
+        else {
+            img._galleryPan = { x: 0, y: 0 };
+            img._galleryZoomMode = '';
+            img._galleryZoomScale = 1;
+            img.style.transform = '';
+        }
+        img.style.cursor = 'zoom-in';
+        if (slideNode) slideNode.classList.remove('zoomed');
+    }
+
+    // visualScale is relative to the original lightbox fit (1 = not zoomed).
+    function setVisualZoom(img, slideNode, visualScale, cursor) {
+        var p = img._galleryPlan;
+        if (!img || !p || !slideNode) return;
+        visualScale = Math.max(1, Math.min(WHEEL_ZOOM_MAX, visualScale));
+        if (visualScale <= 1.02) {
+            restoreFit(img, slideNode);
+            return;
+        }
+
+        var prev = currentVisualScale(img);
+        var pan = img._galleryPan || { x: 0, y: 0 };
+        if (cursor && prev > 0.001) {
+            var rect = img.getBoundingClientRect();
+            var ox = cursor.x - (rect.left + rect.width / 2);
+            var oy = cursor.y - (rect.top + rect.height / 2);
+            var k = 1 - visualScale / prev;
+            pan = { x: pan.x + ox * k, y: pan.y + oy * k };
+        }
+
+        var z = zoomTargetSize(img);
+        var layoutW = p.cssW;
+        var layoutH = p.cssH;
+        var nativeFit = 1;
+        if (z && (z.cssW > p.cssW + 1 || z.cssH > p.cssH + 1)) {
+            layoutW = z.cssW;
+            layoutH = z.cssH;
+            nativeFit = z.cssW / p.cssW;
+        }
+        img.style.width = layoutW + 'px';
+        img.style.height = layoutH + 'px';
+        img.style.maxWidth = 'none';
+        img.style.maxHeight = 'none';
+        img._galleryZoomScale = visualScale / nativeFit;
+        img._galleryZoomMode = nativeFit > 1 ? 'size' : 'scale';
+        img._galleryPan = pan;
+        applyZoomTransform(img);
+        img.style.cursor = 'grab';
+        slideNode.classList.add('zoomed');
     }
 
     function resetSlideZoom(slideNode) {
@@ -242,6 +313,7 @@
         if (img) {
             img._galleryPan = { x: 0, y: 0 };
             img._galleryZoomMode = '';
+            img._galleryZoomScale = 1;
             img.style.transform = '';
             img.style.cursor = 'zoom-in';
         }
@@ -259,40 +331,17 @@
         img.style.cursor = 'zoom-in';
         img._galleryPan = { x: 0, y: 0 };
         img._galleryZoomMode = '';
+        img._galleryZoomScale = 1;
 
         var drag = null; // { pointerId, startX, startY, origX, origY, moved }
 
         function zoomOut() {
-            var p = img._galleryPlan;
-            if (p) applyLightboxPlan(img, p);
-            else {
-                img._galleryPan = { x: 0, y: 0 };
-                img._galleryZoomMode = '';
-                img.style.transform = '';
-            }
-            img.style.cursor = 'zoom-in';
-            slideNode.classList.remove('zoomed');
+            restoreFit(img, slideNode);
         }
 
         function zoomIn() {
-            var p = img._galleryPlan;
-            if (!p) return;
             img._galleryPan = { x: 0, y: 0 };
-            var z = zoomTargetSize(img);
-            if (z && (z.cssW > p.cssW + 1 || z.cssH > p.cssH + 1)) {
-                img._galleryZoomMode = 'size';
-                img.style.width = z.cssW + 'px';
-                img.style.height = z.cssH + 'px';
-                img.style.maxWidth = '100vw';
-                img.style.maxHeight = '90vh';
-                applyZoomTransform(img);
-            } else {
-                // Already at/near native fit (e.g. 1× DPR): allow a 2× inspect zoom.
-                img._galleryZoomMode = 'scale';
-                applyZoomTransform(img);
-            }
-            img.style.cursor = 'grab';
-            slideNode.classList.add('zoomed');
+            setVisualZoom(img, slideNode, INSPECT_ZOOM, null);
         }
 
         img.addEventListener('pointerdown', function (e) {
@@ -349,6 +398,21 @@
             if (slideNode.classList.contains('zoomed')) zoomOut();
             else zoomIn();
         }, true);
+    }
+
+    function onLightboxWheel(e) {
+        if (!document.body.classList.contains('glightbox-open')) return;
+        var slide = document.querySelector('.glightbox-container .gslide.current');
+        var img = slideMainImage(slide);
+        if (!img || !img._galleryPlan) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var dy = e.deltaY;
+        if (e.deltaMode === 1) dy *= 16;
+        else if (e.deltaMode === 2) dy *= 800;
+        dy = Math.max(-180, Math.min(180, dy));
+        var next = currentVisualScale(img) * Math.exp(-dy * 0.002);
+        setVisualZoom(img, slide, next, { x: e.clientX, y: e.clientY });
     }
 
     function presentSlide(slideNode, cfg) {
@@ -492,6 +556,10 @@
     // ---- GLightbox: one instance per data-gallery group ----
     function initLightbox() {
         if (typeof window.GLightbox === 'undefined') return;
+        if (!document.documentElement._galleryWheelZoomBound) {
+            document.documentElement._galleryWheelZoomBound = true;
+            document.addEventListener('wheel', onLightboxWheel, { passive: false, capture: true });
+        }
         var photos = Array.prototype.slice.call(document.querySelectorAll('.photo'));
         if (!photos.length) return;
         var groups = {};

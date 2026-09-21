@@ -5,6 +5,7 @@
      title/caption/tags per filename.
      Returns photo dicts: src/thumb/blur/variants/title/caption/date/tags/exif. */ -}}
 {{- $photos := slice -}}
+{{- $page := . -}}
 {{- $images := slice -}}
 {{- range .Resources -}}
 {{- $ext := lower (path.Ext .Name) -}}
@@ -77,6 +78,15 @@
 {{- $date = replace (index (split (printf "%v" .) " ") 0) ":" "-" -}}
 {{- end -}}
 {{- end -}}
+
+{{- /* Album-level fallbacks for film scans (or any roll without EXIF). */ -}}
+{{- if not $camera }}{{- with $page.Params.device }}{{- $camera = . -}}{{- end -}}{{- end -}}
+{{- if not $lens }}{{- with $page.Params.lens }}{{- $lens = . -}}{{- end -}}{{- end -}}
+{{- if not $aperture }}{{- with $page.Params.aperture }}{{- $aperture = . -}}{{- end -}}{{- end -}}
+{{- if not $shutter }}{{- with $page.Params.shutter }}{{- $shutter = . -}}{{- end -}}{{- end -}}
+{{- if not $iso }}{{- with $page.Params.iso }}{{- $iso = printf "%v" . -}}{{- end -}}{{- end -}}
+{{- if not $focal }}{{- with $page.Params.focal }}{{- $focal = . -}}{{- end -}}{{- end -}}
+{{- if not $date }}{{- if not $page.Date.IsZero }}{{- $date = $page.Date.Format "2006-01-02" -}}{{- end -}}{{- end -}}
 
 {{- /* title: sidecar > EXIF ImageDescription > filename */ -}}
 {{- $title := "" -}}

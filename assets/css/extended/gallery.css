@@ -456,6 +456,9 @@
 }
 
 /* ---- GLightbox viewport + integer-DPR display sizing ---- */
+.glightbox-container {
+    overscroll-behavior: none;
+}
 .glightbox-container .gslide-image img {
     max-width: 100vw;
     max-height: 90vh;

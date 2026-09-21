@@ -16,4 +16,14 @@
 {{- with .Params.location -}}
 {{- if $sep }}&nbsp;|&nbsp;{{ end -}}
 <div class="meta-tag"><span class="fa fa-map-marker"></span>&nbsp;<span>{{ . }}</span></div>
+{{- $sep = true -}}
+{{- end -}}
+{{- $exp := slice -}}
+{{- with .Params.aperture }}{{- $exp = $exp | append . -}}{{- end -}}
+{{- with .Params.shutter }}{{- $exp = $exp | append . -}}{{- end -}}
+{{- with .Params.iso }}{{- $exp = $exp | append (printf "ISO %v" .) -}}{{- end -}}
+{{- with .Params.focal }}{{- $exp = $exp | append . -}}{{- end -}}
+{{- if $exp }}
+{{- if $sep }}&nbsp;|&nbsp;{{ end -}}
+<div class="meta-tag"><span>{{ delimit $exp " · " }}</span></div>
 {{- end -}}
